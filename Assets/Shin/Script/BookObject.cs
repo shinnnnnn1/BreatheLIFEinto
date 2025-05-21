@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BookObject : MonoBehaviour
@@ -7,49 +8,47 @@ public class BookObject : MonoBehaviour
     [Space(20f)]
     public Transform model;
     public Transform closeBone;
-    public Vector2 offset;
-
     public int closeIndex;
     public bool isRight;
     public bool isStatic;
     public bool isActivate;
+    public bool isCurrent;
 
     public virtual void Start()
     {
         //Debug.Log("Book");
-        isRight = transform.position.x > 0;
         SetBone();
-        SetParent();
+        StartCoroutine(SetStart());
     }
 
     void SetBone()
     {
+        isRight = transform.position.x > 0;
         float dis = 100;
-        foreach (Transform t in isRight ? GameManager.Instance.book.rightBones : GameManager.Instance.book.leftBones)
+
+        Transform[] t = isRight ? GameManager.Instance.book.rightBones : GameManager.Instance.book.leftBones;
+        for (int i  = 0; i < 10; i++)
         {
-            float close = Vector3.Distance(transform.position, t.position);
+            float close = Vector3.Distance(transform.position, t[i].position);
             if (close < dis)
             {
                 dis = close;
-                closeBone = t;
-                
+                closeBone = t[i];
+                closeIndex = i;
             }
         }
-
-        for(int i  = 0; i < 10; i++)
-        {
-            
-        }
     }
 
-    public void SetParent()
+    IEnumerator SetStart()
     {
         transform.SetParent(closeBone);
-        Invoke("NoParent", 0.1f);
+        yield return new WaitForSeconds(0.6f);
+        DeleteParent();
     }
 
-    void NoParent()
+    public void DeleteParent()
     {
-        transform.SetParent(GameManager.Instance.book.objectParent);
+        transform.SetParent(GameManager.Instance.book.objectParents[stage]);
     }
+
 }

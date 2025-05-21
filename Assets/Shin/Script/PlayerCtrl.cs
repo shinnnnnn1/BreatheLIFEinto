@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
-using Unity.VisualScripting;
 
 public class PlayerCtrl : MonoBehaviour
 {
