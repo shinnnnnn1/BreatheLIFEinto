@@ -37,7 +37,7 @@ public class StaticObject : BookObject
         isCurrent = isC;
         if(!isC) { return; }
 
-        Debug.Log(name + "   " + isS + isA);
+        //Debug.Log(name + "   " + isS + isA);
         isStatic = isS;
         isActivate = isA;
         if (!isStatic)
@@ -51,9 +51,15 @@ public class StaticObject : BookObject
 
     void MoveY(bool isS, bool isA)
     {
-        Vector2 adjustment = GameManager.Instance.book.adjustmentY[closeIndex];
-        mesh.transform.DOLocalMoveY(isA ? 0 : (isS ? -y : y), adjustment.y)
-            .SetDelay(adjustment.x).SetEase(Ease.InOutQuart);
+        float value = isA ? 0 : (isS ? -y : y);
+        float time = isA ? GameManager.Instance.book.curves[1].Evaluate(closeIndex) : 
+            GameManager.Instance.book.curves[3].Evaluate(closeIndex);
+        float delay = isA ? GameManager.Instance.book.curves[5].Evaluate(closeIndex) : 
+            GameManager.Instance.book.curves[7].Evaluate(closeIndex);
+
+        mesh.transform.DOLocalMoveY(value, time).SetDelay(delay)
+            .SetEase(isA ? Ease.OutExpo : Ease.InExpo);
+
     }
 
     void Update()
@@ -62,7 +68,8 @@ public class StaticObject : BookObject
         {
             for (int i = 0; i < blendCount; i++)
             {
-                float morphY = GameManager.Instance.book.morphs[closeIndex].position.y;
+                float morphY = isActivate ? GameManager.Instance.book.morphs[closeIndex].position.y :
+                    GameManager.Instance.book.morphs[closeIndex + 10].position.y;
                 mesh.SetBlendShapeWeight(i, (isActivate ? 1 - morphY : morphY) * 100);
             }
         }

@@ -8,21 +8,25 @@ public class Book : MonoBehaviour
     public Transform objectParent;
     public Vector2[] adjustmentY, adjustmentMorph;
     public Transform[] morphs;
-    [SerializeField] Animator[] animPage;
-    [SerializeField] Animation[] animBook;
+
+    [Tooltip("AM, AY, DM, DY / Dealy")]
+    public AnimationCurve[] curves;
 
     [Header("Book")]
     [SerializeField] int currentPage;
     public bool isFlipping;
     [SerializeField] StaticObject[] BookObjects;
     //[SerializeField] NPC[] npcs;
+    
+    [SerializeField] Animator[] animPage;
+    [SerializeField] Animation[] animBook;
 
     float flipTime;
 
     void Awake()
     {
         BookObjects = objectParents[0].GetComponentsInChildren<StaticObject>();
-
+        float value = curves[0].Evaluate(0.1f);
     }
 
     void Start()
@@ -62,18 +66,29 @@ public class Book : MonoBehaviour
         {
             morphs[i].transform.position = new Vector3(morphs[i].transform.position.x, 0, morphs[i].transform.position.z);
         }
+        for (int i = 10; i < 20; i++)
+        {
+            morphs[i].transform.position = new Vector3(morphs[i].transform.position.x, 0, morphs[i].transform.position.z);
+        }
 
         StartCoroutine(FlipC(isNext));
 
         
     }
 
-
     void StartMorph()
     {
         for (int i = 0; i < 10; i++)
         {
-            morphs[i].DOLocalMoveY(1, adjustmentMorph[i].y).SetDelay(adjustmentMorph[i].x).SetEase(Ease.OutQuad);
+            float time = curves[0].Evaluate(i);
+            float delay = curves[4].Evaluate(i);
+            morphs[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.OutQuad);
+        }
+        for (int i = 10; i < 20; i++)
+        {
+            float time = curves[2].Evaluate(i);
+            float delay = curves[6].Evaluate(i);
+            morphs[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.OutQuad);
         }
     }
 
