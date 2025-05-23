@@ -6,7 +6,6 @@ public class Book : MonoBehaviour
 {
     public Transform[] leftBones, rightBones, currentBones, objectParents;
     public Transform objectParent;
-    public Vector2[] adjustmentY, adjustmentMorph;
     public Transform[] morphs;
 
     [Tooltip("AM, AY, DM, DY / Dealy")]
@@ -22,6 +21,7 @@ public class Book : MonoBehaviour
     [SerializeField] Animation[] animBook;
 
     float flipTime;
+    float a;
 
     void Awake()
     {

@@ -35,6 +35,7 @@ public class StaticObject : BookObject
     public void SetObjext(bool isS, bool isA, bool isC)
     {
         isCurrent = isC;
+        mesh.gameObject.SetActive(isC);
         if(!isC) { return; }
 
         //Debug.Log(name + "   " + isS + isA);
