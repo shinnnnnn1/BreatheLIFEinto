@@ -136,7 +136,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
             rigid.AddForce(Vector3.up * jumpPow, ForceMode.Impulse);
-            anim.SetBool("Jump", true);
+            anim.SetTrigger("Jump");
         }
     }
     bool OnGround()
