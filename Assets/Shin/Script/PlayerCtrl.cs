@@ -8,7 +8,7 @@ public class PlayerCtrl : MonoBehaviour
     Rigidbody rigid;
     ConfigurableJoint joint;
     Rigidbody sampleRigid;
-    Collider coll;
+    CapsuleCollider coll;
 
     public Vector2 inputDirection;
 
@@ -57,7 +57,7 @@ public class PlayerCtrl : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody>();
         joint = GetComponent<ConfigurableJoint>();
-        coll = GetComponent<Collider>();
+        coll = GetComponent<CapsuleCollider>();
         sampleRigid = holdingObject;
         //Time.timeScale = 0.1f;
     }
@@ -114,9 +114,9 @@ public class PlayerCtrl : MonoBehaviour
 
         if(OnGround() && inputDirection.magnitude == 0 && rigid.linearVelocity.y < 0)
         {
-            coll.material.dynamicFriction = 0.2f;
+            coll.material.dynamicFriction = 0.5f;
         }
-        else if(coll.material.dynamicFriction == 0.2f)
+        else if(coll.material.dynamicFriction == 0.5f)
         {
             coll.material.dynamicFriction = 0f;
         }
