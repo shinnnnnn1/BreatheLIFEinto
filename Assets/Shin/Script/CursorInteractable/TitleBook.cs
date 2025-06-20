@@ -16,6 +16,7 @@ public class TitleBook : MonoBehaviour, ICursorInteractable
 
         isEnter = true;
     }
+
     public void OnExit()
     {
         if (!isEnter) { return; }
@@ -27,6 +28,11 @@ public class TitleBook : MonoBehaviour, ICursorInteractable
     }
 
     public void OnActivate()
+    {
+
+    }
+
+    public void OnDeactivate()
     {
 
     }

@@ -125,7 +125,7 @@ public class GamepadCursor : MonoBehaviour
     void Update()
     {
         ChaseCursor();
-        Ray();
+        UpdateRay();
     }
 
     void ChaseCursor()
@@ -141,7 +141,7 @@ public class GamepadCursor : MonoBehaviour
         }
     }
 
-    void Ray()
+    void UpdateRay()
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursorTransform.position - origin).normalized;
@@ -156,6 +156,27 @@ public class GamepadCursor : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("sfd");
+        //Debug.Log("On");
+    }
+    public void OnRelease()
+    {
+        //Debug.Log("Off");
+    }
+
+    bool Ray()
+    {
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = (cursorTransform.position - origin).normalized;
+        RaycastHit hit;
+
+        return Physics.Raycast(origin, direction, out hit, 100f);
+    }
+
+
+
+    ICursorInteractable cursorInteractable;
+    public void CanHold(ICursorInteractable target)
+    {
+        cursorInteractable = target;
     }
 }
