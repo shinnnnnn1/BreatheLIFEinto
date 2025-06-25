@@ -23,6 +23,9 @@ public class GamepadCursor : MonoBehaviour
     const string gamepadScheme = "Gamepad";
     const string mouseScheme = "Keyboard&Mouse";
 
+    RaycastHit hit;
+    ICursor cursorInteractable;
+
     private void OnEnable()
     {
         mainCamera = Camera.main;
@@ -145,18 +148,28 @@ public class GamepadCursor : MonoBehaviour
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursorTransform.position - origin).normalized;
-        RaycastHit hit;
 
         if (Physics.Raycast(origin, direction, out hit, 100f))
         {
-            //Debug.Log(hit.collider.name);
+            ICursor target = hit.collider.GetComponent<ICursor>();
+
+            if(cursorInteractable != target)
+            {
+                cursorInteractable?.OnExit();
+            }
+            else if(target != null)
+            {
+                target?.OnEnter();
+            }
+
+            cursorInteractable = target;
         }
         Debug.DrawRay(origin, direction * (hit.collider == null ? 100 : hit.distance));
     }
 
     public void OnClick()
     {
-        //Debug.Log("On");
+        cursorInteractable?.OnActivate();
     }
     public void OnRelease()
     {
@@ -174,8 +187,8 @@ public class GamepadCursor : MonoBehaviour
 
 
 
-    ICursorInteractable cursorInteractable;
-    public void CanHold(ICursorInteractable target)
+    
+    public void CanHold(ICursor target)
     {
         cursorInteractable = target;
     }

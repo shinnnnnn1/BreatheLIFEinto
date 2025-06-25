@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class Book : MonoBehaviour
 {
-    public Transform[] leftBones, rightBones, currentBones, objectParents;
     public Transform objectParent;
-    public Transform[] morphs;
+    public Transform[] objectParents, leftBones, rightBones, currentBones, morphs, pages;
 
     [Tooltip("AM, AY, DM, DY / Dealy")]
     public AnimationCurve[] curves;
@@ -14,7 +14,7 @@ public class Book : MonoBehaviour
     [Header("Book")]
     [SerializeField] int currentPage;
     public bool isFlipping;
-    [SerializeField] StaticObject[] BookObjects;
+    [SerializeField] StaticObject[] bookObjects;
     //[SerializeField] NPC[] npcs;
     
     [SerializeField] Animator[] animPage;
@@ -23,15 +23,22 @@ public class Book : MonoBehaviour
     float flipTime;
     float a;
 
+    [SerializeField] Image fadeImage;
+
     void Awake()
     {
-        BookObjects = objectParents[0].GetComponentsInChildren<StaticObject>();
+        bookObjects = objectParents[0].GetComponentsInChildren<StaticObject>();
         float value = curves[0].Evaluate(0.1f);
     }
 
     void Start()
     {
+        //transform.position = Vector3.left * 5;
         StartCoroutine(SetStart());
+        for (int i = 0; i < pages.Length; i++)
+        {
+            //pages[i].gameObject.SetActive(false);
+        }
     }
 
     IEnumerator SetStart()
@@ -105,7 +112,7 @@ public class Book : MonoBehaviour
         yield return null;
         isFlipping = true;
 
-        foreach (StaticObject obj in BookObjects)
+        foreach (StaticObject obj in bookObjects)
         {
             if ((obj.stage == currentPage))
             {

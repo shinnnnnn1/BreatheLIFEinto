@@ -14,11 +14,13 @@ public class BookObject : MonoBehaviour
     public bool isActivate;
     public bool isCurrent;
 
+    public SkinnedMeshRenderer mesh;
+
     public virtual void Start()
     {
-        //Debug.Log("Book");
         SetBone();
         StartCoroutine(SetStart());
+        mesh.enabled = false;
     }
 
     void SetBone()

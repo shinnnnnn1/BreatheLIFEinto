@@ -4,7 +4,6 @@ using DG.Tweening;
 
 public class StaticObject : BookObject
 {
-    SkinnedMeshRenderer mesh;
     int blendCount;
     [SerializeField] float y;
 

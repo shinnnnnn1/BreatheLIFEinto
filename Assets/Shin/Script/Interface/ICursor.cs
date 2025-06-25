@@ -1,4 +1,4 @@
-public interface ICursorInteractable
+public interface ICursor
 {
     public void OnEnter();
     public void OnExit();

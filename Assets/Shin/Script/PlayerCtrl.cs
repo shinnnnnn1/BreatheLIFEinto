@@ -18,6 +18,7 @@ public class PlayerCtrl : MonoBehaviour
 
     [Space(10f)]
     [SerializeField] float jumpPow;
+    [SerializeField] float gravityMultiplier;
 
     [Space(10f)]
     [SerializeField] bool isRight;
@@ -48,10 +49,6 @@ public class PlayerCtrl : MonoBehaviour
     [Space(10f)]
     [SerializeField] Transform bottom;
 
-
-    
-    [SerializeField] float a;
-
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -64,7 +61,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
-        //float b = Vector3.Distance(transform.position, )
+        
     }
 
     void FixedUpdate()
@@ -72,12 +69,9 @@ public class PlayerCtrl : MonoBehaviour
         Stop();
         if (!canMove) { return; }
         Move();
-        anim.SetFloat("Y", rigid.linearVelocity.y);
-
-        if(canJump)
-        {
-
-        }
+        GravityMultiply();
+        anim.SetFloat("VelocityY", rigid.linearVelocity.y);
+        anim.SetBool("OnGround", OnGround());
     }
 
     void Move()
@@ -90,12 +84,14 @@ public class PlayerCtrl : MonoBehaviour
             veloc = veloc.normalized * maxSpd;
             rigid.linearVelocity = new Vector3(veloc.x, rigid.linearVelocity.y, veloc.z);
         }
-        anim.SetFloat("Move", veloc.magnitude);
+        anim.SetFloat("VelocityX", veloc.magnitude);
 
         if(((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)) && !isTurning)
         {
             Flip();
         }
+
+
     }
     void Stop()
     {
@@ -111,14 +107,13 @@ public class PlayerCtrl : MonoBehaviour
             velocZ = Mathf.Lerp(velocZ, 0, 0.1f);
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, rigid.linearVelocity.y, velocZ);
         }
+    }
 
-        if(OnGround() && inputDirection.magnitude == 0 && rigid.linearVelocity.y < 0)
+    void GravityMultiply()
+    {
+        if(rigid.linearVelocity.y < 0)
         {
-            coll.material.dynamicFriction = 0.5f;
-        }
-        else if(coll.material.dynamicFriction == 0.5f)
-        {
-            coll.material.dynamicFriction = 0f;
+            rigid.AddForce(Vector3.down * gravityMultiplier);
         }
     }
 
@@ -136,7 +131,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
             rigid.AddForce(Vector3.up * jumpPow, ForceMode.Impulse);
-            anim.SetTrigger("Jump");
+            anim.SetTrigger("JumpTrigger");
         }
     }
     bool OnGround()
@@ -169,22 +164,26 @@ public class PlayerCtrl : MonoBehaviour
         if (Physics.BoxCast(transform.position + Vector3.up * 0.5f, hSize / 2, isRight ? Vector3.right : Vector3.left, 
             out hHit, Quaternion.identity, hDistance))
         {
-            Debug.Log("Hold");
             return true;
         }
         else { return false; }
     }
 
-    private void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         foreach (ContactPoint cp in collision.contacts)
         {
             Vector3 contact = cp.point;
             Vector3 normal = cp.normal;
 
-            //Debug.Log(cp.normal);
             Debug.DrawRay(contact, normal, Color.yellow);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other);
+
     }
 
     #region INPUT
@@ -207,7 +206,7 @@ public class PlayerCtrl : MonoBehaviour
             if(true)
             {
                 //Hold(true);
-                GameManager.Instance.book.Flip(isRight);
+                //GameManager.Instance.book.Flip(isRight);
             }
             else
             {
@@ -232,7 +231,7 @@ public class PlayerCtrl : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position + Vector3.up * 0.5f, new Vector3(0.5f, 1.0f, 0.05f));
+        Gizmos.DrawWireCube(transform.position + Vector3.up * 0.75f, new Vector3(0.75f, 1.5f, 0.05f));
 
         Gizmos.color = OnGround() ? Color.cyan : Color.red;
         Gizmos.DrawCube(transform.position + gOffset + Vector3.down * gDistance, gSize);
