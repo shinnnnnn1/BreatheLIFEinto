@@ -7,7 +7,6 @@ public class PlayerCtrl : MonoBehaviour
     Animator anim;
     Rigidbody rigid;
     ConfigurableJoint joint;
-    Rigidbody sampleRigid;
     CapsuleCollider coll;
 
     public Vector2 inputDirection;
@@ -39,11 +38,12 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float gDistance;
     RaycastHit gHit;
 
-    [Space(10f)] [Header("Hold")]
+    [Space(10f)][Header("Hold")]
     [SerializeField] Rigidbody holdingObject;
     [SerializeField] Vector3 hSize;
     [SerializeField] Vector3 hOffset;
     [SerializeField] float hDistance;
+    Rigidbody defaultRigid;
     RaycastHit hHit;
     
     [Space(10f)]
@@ -55,7 +55,7 @@ public class PlayerCtrl : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         joint = GetComponent<ConfigurableJoint>();
         coll = GetComponent<CapsuleCollider>();
-        sampleRigid = holdingObject;
+        defaultRigid = holdingObject;
         //Time.timeScale = 0.1f;
     }
 
@@ -77,7 +77,6 @@ public class PlayerCtrl : MonoBehaviour
     void Move()
     {
         rigid.AddForce(new Vector3(inputDirection.x, 0, inputDirection.y) * moveSpd, ForceMode.Acceleration);
-
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
         if (veloc.magnitude > maxSpd)
         {
@@ -90,23 +89,26 @@ public class PlayerCtrl : MonoBehaviour
         {
             Flip();
         }
-
-
     }
     void Stop()
     {
+        
         if(inputDirection.x == 0 && Mathf.Abs(rigid.linearVelocity.x) > 0.001f)
         {
             float velocX = rigid.linearVelocity.x;
             velocX = Mathf.Lerp(velocX, 0, 0.1f);
             rigid.linearVelocity = new Vector3(velocX, rigid.linearVelocity.y, rigid.linearVelocity.z);
+            Debug.Log(velocX);
         }
         if (inputDirection.y == 0 && Mathf.Abs(rigid.linearVelocity.z) > 0.001f)
         {
             float velocZ = rigid.linearVelocity.z;
-            velocZ = Mathf.Lerp(velocZ, 0, 0.1f);
+            velocZ = Mathf.Lerp(velocZ, 0, 0.2f);
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, rigid.linearVelocity.y, velocZ);
         }
+        
+
+
     }
 
     void GravityMultiply()
@@ -127,7 +129,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Jump()
     {
-        if(OnGround())
+        if(OnGround() && canJump)
         {
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
             rigid.AddForce(Vector3.up * jumpPow, ForceMode.Impulse);
@@ -145,17 +147,21 @@ public class PlayerCtrl : MonoBehaviour
 
     void Hold(bool isActivate)
     {
-        if(isActivate && !isTurning && OnAttach())
+        if(isActivate && !isTurning && canJump && OnGround() && OnAttach())
         {
             isTurning = true;
             canJump = false;
-            
-            //joint.connectedBody = holdingObject;
+
+            holdingObject = hHit.rigidbody;
+            joint.connectedBody = holdingObject;
+            Debug.Log(holdingObject);
         }
         else if(!isActivate)
         {
             isTurning = false;
             canJump = true;
+
+            joint.connectedBody = defaultRigid;
         }
     }
 
@@ -164,6 +170,7 @@ public class PlayerCtrl : MonoBehaviour
         if (Physics.BoxCast(transform.position + Vector3.up * 0.5f, hSize / 2, isRight ? Vector3.right : Vector3.left, 
             out hHit, Quaternion.identity, hDistance))
         {
+            
             return true;
         }
         else { return false; }
@@ -205,7 +212,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             if(true)
             {
-                //Hold(true);
+                Hold(true);
                 //GameManager.Instance.book.Flip(isRight);
             }
             else
@@ -215,7 +222,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if(context.canceled && true)
         {
-            //Hold(false);
+            Hold(false);
         }
     }
     public void InputPause(InputAction.CallbackContext context)
