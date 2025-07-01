@@ -14,6 +14,8 @@ public class PlayerCtrl : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float moveSpd;
     [SerializeField] float maxSpd;
+    float defaultMaxSpd;
+    float friction;
 
     [Space(10f)]
     [SerializeField] float jumpPow;
@@ -39,11 +41,10 @@ public class PlayerCtrl : MonoBehaviour
     RaycastHit gHit;
 
     [Space(10f)][Header("Hold")]
-    [SerializeField] Rigidbody holdingObject;
     [SerializeField] Vector3 hSize;
     [SerializeField] Vector3 hOffset;
     [SerializeField] float hDistance;
-    Rigidbody defaultRigid;
+    [SerializeField] Rigidbody defaultRigid;
     RaycastHit hHit;
     
     [Space(10f)]
@@ -55,7 +56,7 @@ public class PlayerCtrl : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         joint = GetComponent<ConfigurableJoint>();
         coll = GetComponent<CapsuleCollider>();
-        defaultRigid = holdingObject;
+        defaultMaxSpd = maxSpd;
         //Time.timeScale = 0.1f;
     }
 
@@ -66,12 +67,14 @@ public class PlayerCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
-        Stop();
+        PhysicsAdjustment();
         if (!canMove) { return; }
+
         Move();
         GravityMultiply();
-        anim.SetFloat("VelocityY", rigid.linearVelocity.y);
+        
         anim.SetBool("OnGround", OnGround());
+        anim.SetFloat("VelocityY", rigid.linearVelocity.y);
     }
 
     void Move()
@@ -89,26 +92,31 @@ public class PlayerCtrl : MonoBehaviour
         {
             Flip();
         }
+        if (OnGround())
+        {
+            rigid.AddForce(Vector3.down);
+        }
     }
-    void Stop()
+
+    void PhysicsAdjustment()
     {
-        
-        if(inputDirection.x == 0 && Mathf.Abs(rigid.linearVelocity.x) > 0.001f)
+        if(OnGround() && inputDirection.magnitude != 0 && coll.sharedMaterial.dynamicFriction > 0.01f)
         {
-            float velocX = rigid.linearVelocity.x;
-            velocX = Mathf.Lerp(velocX, 0, 0.1f);
-            rigid.linearVelocity = new Vector3(velocX, rigid.linearVelocity.y, rigid.linearVelocity.z);
-            Debug.Log(velocX);
+            friction = Mathf.Lerp(friction, 0, 0.1f);
+            coll.sharedMaterial.dynamicFriction = friction;
         }
-        if (inputDirection.y == 0 && Mathf.Abs(rigid.linearVelocity.z) > 0.001f)
+        else if(OnGround() && inputDirection.magnitude == 0 && coll.sharedMaterial.dynamicFriction < 0.49f)
         {
-            float velocZ = rigid.linearVelocity.z;
-            velocZ = Mathf.Lerp(velocZ, 0, 0.2f);
-            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, rigid.linearVelocity.y, velocZ);
+            friction = Mathf.Lerp(friction, 0.5f, 0.2f);
+            coll.sharedMaterial.dynamicFriction = friction;
         }
-        
-
-
+        Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
+        if (!OnGround() && inputDirection.magnitude == 0 && veloc.magnitude > 0)
+        {
+            rigid.linearVelocity = Vector3.Lerp(rigid.linearVelocity, new Vector3(0, rigid.linearVelocity.y, 0), 0.1f);
+            friction = Mathf.Lerp(friction, 0.5f, 0.5f);
+            coll.sharedMaterial.dynamicFriction = friction;
+        }
     }
 
     void GravityMultiply()
@@ -138,10 +146,8 @@ public class PlayerCtrl : MonoBehaviour
     }
     bool OnGround()
     {
-        if (Physics.BoxCast(transform.position + gOffset, gSize / 2, Vector3.down, out gHit, Quaternion.identity, gDistance, gLayer))
-        {
-            return true;
-        }
+        if (Physics.BoxCast(transform.position + gOffset, gSize / 2, Vector3.down, 
+            out gHit, Quaternion.identity, gDistance, gLayer)) { return true; }
         else { return false; }
     }
 
@@ -151,15 +157,23 @@ public class PlayerCtrl : MonoBehaviour
         {
             isTurning = true;
             canJump = false;
+            maxSpd = 0.5f;
 
-            holdingObject = hHit.rigidbody;
-            joint.connectedBody = holdingObject;
-            Debug.Log(holdingObject);
+            joint.anchor = isRight ? Vector3.right * 0.25f : Vector3.right * -0.25f;
+            joint.axis = isRight ? Vector3.right : Vector3.left;
+
+            joint.connectedBody = hHit.rigidbody;
+
+            joint.connectedBody.mass = 0;
+
         }
         else if(!isActivate)
         {
             isTurning = false;
             canJump = true;
+            maxSpd = defaultMaxSpd;
+
+            joint.connectedBody.mass = 100;
 
             joint.connectedBody = defaultRigid;
         }
@@ -168,11 +182,7 @@ public class PlayerCtrl : MonoBehaviour
     bool OnAttach()
     {
         if (Physics.BoxCast(transform.position + Vector3.up * 0.5f, hSize / 2, isRight ? Vector3.right : Vector3.left, 
-            out hHit, Quaternion.identity, hDistance))
-        {
-            
-            return true;
-        }
+            out hHit, Quaternion.identity, hDistance, 1<<7)) { return true; }
         else { return false; }
     }
 
@@ -189,8 +199,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-
+        
     }
 
     #region INPUT
