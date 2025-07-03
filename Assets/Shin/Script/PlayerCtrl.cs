@@ -45,7 +45,11 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] Vector3 hOffset;
     [SerializeField] float hDistance;
     [SerializeField] Rigidbody defaultRigid;
+    [SerializeField] PhysicsMaterial hMat, hMatDefault;
+    Collider hColl;
     RaycastHit hHit;
+    bool isHolding;
+    bool isPulling;
     
     [Space(10f)]
     [SerializeField] Transform bottom;
@@ -88,13 +92,26 @@ public class PlayerCtrl : MonoBehaviour
         }
         anim.SetFloat("VelocityX", veloc.magnitude);
 
-        if(((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)) && !isTurning)
+        if (((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)) && !isTurning)
         {
             Flip();
         }
         if (OnGround())
         {
             rigid.AddForce(Vector3.down);
+        }
+        if (isHolding)
+        {
+            if (!isPulling && ((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)))
+            {
+                isPulling = true;
+                anim.SetBool("IsPulling", true);
+            }
+            else if(isPulling && ((inputDirection.x < 0 && !isRight) || (inputDirection.x > 0 && isRight)))
+            {
+                isPulling = false;
+                anim.SetBool("IsPulling", false);
+            }
         }
     }
 
@@ -158,30 +175,40 @@ public class PlayerCtrl : MonoBehaviour
             isTurning = true;
             canJump = false;
             maxSpd = 0.5f;
+            anim.SetBool("IsPulling", true);
+            anim.SetTrigger("StartHold");
+            isHolding = true;
+            isPulling = true;
 
-            joint.anchor = isRight ? Vector3.right * 0.25f : Vector3.right * -0.25f;
+            joint.anchor = isRight ? new Vector3(0.25f, 0.5f, 0) : new Vector3(-0.25f, 0.5f, 0);
             joint.axis = isRight ? Vector3.right : Vector3.left;
 
             joint.connectedBody = hHit.rigidbody;
+            hColl = hHit.rigidbody.GetComponent<Collider>();
+            hColl.sharedMaterial = hMat;
 
             joint.connectedBody.mass = 0;
 
         }
-        else if(!isActivate)
+        else if(!isActivate && isHolding)
         {
             isTurning = false;
             canJump = true;
             maxSpd = defaultMaxSpd;
+            anim.SetTrigger("StopHold");
+            isHolding = false;
+            isPulling = false;
 
             joint.connectedBody.mass = 100;
 
             joint.connectedBody = defaultRigid;
+            hColl.sharedMaterial = hMatDefault;
         }
     }
 
     bool OnAttach()
     {
-        if (Physics.BoxCast(transform.position + Vector3.up * 0.5f, hSize / 2, isRight ? Vector3.right : Vector3.left, 
+        if (Physics.BoxCast(transform.position + Vector3.up * 0.5f + new Vector3(0, hOffset.y, 0), hSize / 2, isRight ? Vector3.right : Vector3.left, 
             out hHit, Quaternion.identity, hDistance, 1<<7)) { return true; }
         else { return false; }
     }
@@ -229,7 +256,7 @@ public class PlayerCtrl : MonoBehaviour
 
             }
         }
-        else if(context.canceled && true)
+        else if(context.canceled)
         {
             Hold(false);
         }
