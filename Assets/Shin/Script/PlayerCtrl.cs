@@ -282,6 +282,7 @@ public class PlayerCtrl : MonoBehaviour
         Gizmos.color = OnAttach() ? Color.cyan : Color.red;
         Gizmos.DrawCube(transform.position + Vector3.up * 0.5f
                 + new Vector3(isRight ? -hOffset.x : hOffset.x, hOffset.y, hOffset.z), hSize);
+        //test
     }
 
 }
