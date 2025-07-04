@@ -20,4 +20,9 @@ public class GameManager : MonoBehaviour
     public PlayerCtrl player;
     public Book book;
 
+    private void Start()
+    {
+        Debug.Log("asd");
+    }
+
 }

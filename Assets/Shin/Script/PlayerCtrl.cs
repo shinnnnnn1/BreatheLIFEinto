@@ -180,7 +180,10 @@ public class PlayerCtrl : MonoBehaviour
             isHolding = true;
             isPulling = true;
 
-            joint.anchor = isRight ? new Vector3(0.25f, 0.5f, 0) : new Vector3(-0.25f, 0.5f, 0);
+            //joint.anchor = isRight ? new Vector3(0.25f, 0.3f, 0) : new Vector3(-0.25f, 0.3f, 0);
+            joint.anchor = -bottom.right * 0.25f + Vector3.up * 0.3f;
+
+
             joint.axis = isRight ? Vector3.right : Vector3.left;
 
             joint.connectedBody = hHit.rigidbody;
@@ -279,10 +282,17 @@ public class PlayerCtrl : MonoBehaviour
         Gizmos.color = OnGround() ? Color.cyan : Color.red;
         Gizmos.DrawCube(transform.position + gOffset + Vector3.down * gDistance, gSize);
 
-        Gizmos.color = OnAttach() ? Color.cyan : Color.red;
-        Gizmos.DrawCube(transform.position + Vector3.up * 0.5f
-                + new Vector3(isRight ? -hOffset.x : hOffset.x, hOffset.y, hOffset.z), hSize);
-        //test
+        if(!isHolding)
+        {
+            Gizmos.color = OnAttach() ? Color.cyan : Color.red;
+            Gizmos.DrawCube(transform.position + Vector3.up * 0.5f
+                    + new Vector3(isRight ? -hOffset.x : hOffset.x, hOffset.y, hOffset.z), hSize);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position + joint.anchor * 1.5f, 0.1f);
+        }
     }
 
 }

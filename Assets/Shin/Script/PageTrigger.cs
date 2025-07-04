@@ -14,7 +14,7 @@ public class PageTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log(isRightPage);
+            GameManager.Instance.book.Flip(isRightPage);
         }
     }
 }
