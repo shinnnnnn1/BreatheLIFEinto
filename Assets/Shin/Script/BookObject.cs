@@ -18,8 +18,13 @@ public class BookObject : MonoBehaviour
 
     public virtual void Start()
     {
+        //Find Close Bone
         SetBone();
+
+        //Set Start Position With Book Animation
         StartCoroutine(SetStart());
+
+        //Hide Mesh
         mesh.enabled = false;
     }
 

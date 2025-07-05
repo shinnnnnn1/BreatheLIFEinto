@@ -9,13 +9,15 @@ public class StaticObject : BookObject
 
     public override void Start()
     {
-        //Debug.Log("Static");
+        Debug.Log("Static");
+
         SetMorph();
         base.Start();
     }
 
     void SetMorph()
     {
+        //Get Mesh Component
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
         model = mesh.gameObject.transform;
         y = transform.position.y;

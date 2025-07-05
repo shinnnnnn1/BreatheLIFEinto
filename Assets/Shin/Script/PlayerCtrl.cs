@@ -180,8 +180,8 @@ public class PlayerCtrl : MonoBehaviour
             isHolding = true;
             isPulling = true;
 
-            //joint.anchor = isRight ? new Vector3(0.25f, 0.3f, 0) : new Vector3(-0.25f, 0.3f, 0);
-            joint.anchor = -bottom.right * 0.25f + Vector3.up * 0.3f;
+            joint.anchor = isRight ? new Vector3(0.25f, 0.3f, 0) : new Vector3(-0.25f, 0.3f, 0);
+            //joint.anchor = -bottom.right * 0.25f + Vector3.up * 0.3f;
 
 
             joint.axis = isRight ? Vector3.right : Vector3.left;
@@ -190,7 +190,7 @@ public class PlayerCtrl : MonoBehaviour
             hColl = hHit.rigidbody.GetComponent<Collider>();
             hColl.sharedMaterial = hMat;
 
-            joint.connectedBody.mass = 0;
+            joint.connectedBody.mass = 0f;
 
         }
         else if(!isActivate && isHolding)

@@ -2,19 +2,13 @@ using UnityEngine;
 
 public class PageTrigger : MonoBehaviour
 {
-    Book book;
-    [SerializeField] bool isRightPage;
+    public bool canFlip;
 
-    void Start()
+    void OnCollisionEnter(Collision collision)
     {
-        book = FindAnyObjectByType<Book>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.book.Flip(isRightPage);
+            //GameManager.Instance.book.Flip();
         }
     }
 }
