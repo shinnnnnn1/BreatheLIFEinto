@@ -3,18 +3,20 @@ using UnityEngine;
 
 public class BookObject : MonoBehaviour
 {
-    [Header("BookObject")]
     [Range(1, 10)] public int stage;
-    [Space(20f)]
-    public Transform model;
+
+    [Space(10f)]
+    public bool isRight;
+
+    [Space(10f)]
     public Transform closeBone;
     public int closeIndex;
-    public bool isRight;
+    public float height;
+
+    [Space(10f)]
     public bool isStatic;
     public bool isActivate;
     public bool isCurrent;
-
-    public SkinnedMeshRenderer mesh;
 
     public virtual void Start()
     {
@@ -23,14 +25,10 @@ public class BookObject : MonoBehaviour
 
         //Set Start Position With Book Animation
         StartCoroutine(SetStart());
-
-        //Hide Mesh
-        mesh.enabled = false;
     }
 
     void SetBone()
     {
-        isRight = transform.position.x > 0;
         float dis = 100;
 
         Transform[] t = isRight ? GameManager.Instance.book.rightBones : GameManager.Instance.book.leftBones;
@@ -53,9 +51,16 @@ public class BookObject : MonoBehaviour
         DeleteParent();
     }
 
+
+
+    //Set Parent as Default
     public void DeleteParent()
     {
         transform.SetParent(GameManager.Instance.book.objectParents[stage]);
     }
 
+    public virtual void Asd()
+    {
+
+    }
 }

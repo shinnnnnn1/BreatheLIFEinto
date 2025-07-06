@@ -185,9 +185,6 @@ public class GamepadCursor : MonoBehaviour
         return Physics.Raycast(origin, direction, out hit, 100f);
     }
 
-
-
-    
     public void CanHold(ICursor target)
     {
         cursorInteractable = target;

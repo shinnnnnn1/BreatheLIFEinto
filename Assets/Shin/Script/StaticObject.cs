@@ -4,35 +4,50 @@ using DG.Tweening;
 
 public class StaticObject : BookObject
 {
+    public SkinnedMeshRenderer mesh;
+
     int blendCount;
     [SerializeField] float y;
 
     public override void Start()
     {
-        Debug.Log("Static");
-
         SetMorph();
+
+        //BookObject.Start
         base.Start();
     }
 
     void SetMorph()
     {
+        // Set IsRight
+        isRight = transform.position.x > 0;
+
         //Get Mesh Component
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        model = mesh.gameObject.transform;
         y = transform.position.y;
 
+        //Set Mesh Height
+        height = transform.position.y;
         mesh.transform.localPosition = (transform.position.x > 0 ? Vector3.down : Vector3.up) * transform.position.y;
 
+        //Set BlendShapes
         Mesh mes = mesh.sharedMesh;
         blendCount = mes.blendShapeCount;
         for (int i = 0; i < blendCount; i++)
         {
             mesh.SetBlendShapeWeight(i, 100);
         }
+
+        //Hide Mesh
+        //mesh.enabled = false;
     }
 
+    public override void Asd()
+    {
+        base.Asd();
+    }
 
+    /*
     public void SetObjext(bool isS, bool isA, bool isC)
     {
         isCurrent = isC;
@@ -54,10 +69,10 @@ public class StaticObject : BookObject
     void MoveY(bool isS, bool isA)
     {
         float value = isA ? 0 : (isS ? -y : y);
-        float time = isA ? GameManager.Instance.book.curves[1].Evaluate(closeIndex) : 
-            GameManager.Instance.book.curves[3].Evaluate(closeIndex);
-        float delay = isA ? GameManager.Instance.book.curves[5].Evaluate(closeIndex) : 
-            GameManager.Instance.book.curves[7].Evaluate(closeIndex);
+        float time = isA ? GameManager.Instance.book.curvesValue[1].Evaluate(closeIndex) : 
+            GameManager.Instance.book.curvesValue[3].Evaluate(closeIndex);
+        float delay = isA ? GameManager.Instance.book.curvesValue[5].Evaluate(closeIndex) : 
+            GameManager.Instance.book.curvesValue[7].Evaluate(closeIndex);
 
         mesh.transform.DOLocalMoveY(value, time).SetDelay(delay)
             .SetEase(isA ? Ease.OutExpo : Ease.InExpo);
@@ -76,4 +91,5 @@ public class StaticObject : BookObject
             }
         }
     }
+    */
 }

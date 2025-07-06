@@ -251,8 +251,8 @@ public class PlayerCtrl : MonoBehaviour
         {
             if(true)
             {
-                Hold(true);
-                //GameManager.Instance.book.Flip(isRight);
+                //Hold(true);
+                GameManager.Instance.book.Flip();
             }
             else
             {
@@ -261,7 +261,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if(context.canceled)
         {
-            Hold(false);
+            //Hold(false);
         }
     }
     public void InputPause(InputAction.CallbackContext context)
