@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -52,14 +53,28 @@ public class BookObject : MonoBehaviour
     }
 
     //Set Parent as Default
-    public void  ResetParent()
+    public void ResetParent()
     {
         transform.SetParent(GameManager.Instance.book.objectParents[stage]);
     }
 
-    public virtual void Asd(bool isA, bool isS)
+    public virtual void SetObject()
     {
-        
+        // 1. Set isActivate, isStatic
+        isActivate = GameManager.Instance.book.currentPage == stage;
+        isStatic = (isActivate && isRight) || (!isActivate && !isRight);
+
+        if(!isStatic)
+        {
+            transform.SetParent(GameManager.Instance.book.currentBones[closeIndex].transform);
+        }
 
     }
+
+    public virtual void AfterFlip()
+    {
+
+    }
+
+    
 }

@@ -24,7 +24,6 @@ public class StaticObject : BookObject
 
         //Get Mesh Component
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        y = transform.position.y;
 
         //Set Mesh Height
         height = transform.position.y;
@@ -39,12 +38,47 @@ public class StaticObject : BookObject
         }
 
         //Hide Mesh
-        //mesh.enabled = false;
+        mesh.enabled = false;
     }
 
-    public override void Asd(bool isA, bool isS)
+    public override void SetObject()
     {
-        //base.Asd(true, true);
+        base.SetObject();
+        HeightAdjustment();
+        mesh.enabled = true;
+    }
+
+    void HeightAdjustment()
+    {
+        float value = isActivate ? 0 : (isStatic ? -height : height);
+        float time = isActivate ? GameManager.Instance.book.curvesValue[2].Evaluate(closeIndex) :
+            GameManager.Instance.book.curvesValue[3].Evaluate(closeIndex);
+        float delay = isActivate ? GameManager.Instance.book.curvesDelay[2].Evaluate(closeIndex) :
+            GameManager.Instance.book.curvesDelay[3].Evaluate(closeIndex);
+
+        mesh.transform.DOLocalMoveY(value, time).SetDelay(delay)
+            .SetEase(isActivate ? Ease.OutExpo : Ease.InExpo);
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.book.isFlipping && mesh.enabled)
+        {
+            for (int i = 0; i < blendCount; i++)
+            {
+                float morphHeight = isActivate ? GameManager.Instance.book.morphs[closeIndex].position.y :
+                    GameManager.Instance.book.morphs[closeIndex + 10].position.y;
+                mesh.SetBlendShapeWeight(i, (isActivate ? 1 - morphHeight : morphHeight) * 100);
+            }
+        }
+    }
+
+    public override void AfterFlip()
+    {
+        if(GameManager.Instance.book.currentPage != stage)
+        {
+            mesh.enabled = false;
+        }
     }
 
     /*

@@ -13,7 +13,7 @@ public class Book : MonoBehaviour
     public SkinnedMeshRenderer[] pages;
     public Material[] pageMaterialsL, pageMaterialsR;
 
-    [Tooltip("ActMorph, ActY, DeactMorph, DeactY")]
+    [Tooltip("ActMorph, DeactMorph , ActY, DeactY")]
     public AnimationCurve[] curvesValue, curvesDelay;
 
     [Header("Book")]
@@ -45,7 +45,7 @@ public class Book : MonoBehaviour
         }
 
         //Get All BookObjects
-        bookObjects = objectParents[0].GetComponentsInChildren<BookObject>();
+        bookObjects = objectParent.GetComponentsInChildren<BookObject>();
 
         //float value = curves[0].Evaluate(0.1f);
     }
@@ -87,49 +87,75 @@ public class Book : MonoBehaviour
 
     public void Flip()
     {
-        Debug.Log("Flippp");
+        Debug.Log("Flip");
         if (isFlipping) { return; }
-        flipTime = Time.time;
+        
         currentPage++;
-
-        for (int i = 0; i < morphs.Length; i++)
-        {
-            morphs[i].position = new Vector3(morphs[i].position.x, 0, morphs[i].position.z);
-        }
+        isFlipping = true;
+        flipTime = Time.time;
 
         StartCoroutine(FlipCoroutine());
     }
 
     IEnumerator FlipCoroutine()
     {
-        
-        isFlipping = true;
+        //Move Morphs
+        StartMorph();
 
+        //Assign the Required Objects
         foreach(var obj in bookObjects)
         {
             if(currentPage == obj.stage || currentPage - 1 == obj.stage)
             {
-                Debug.Log(name);
-                obj.Asd(true, true);
+                obj.SetObject();
             }
         }
 
         yield return null;
+
         //Play Flip Animation
         animPage[0].SetTrigger("Flip");
 
-
         yield return new WaitForSeconds(3f);
 
+        //Stop Flipping
         Debug.Log($"Currently on Page [ {currentPage} ]");
         isFlipping = false;
 
-        //animPage[0].SetTrigger("Reset");
+        //Reset Parent
+        foreach (var obj in bookObjects)
+        {
+            if (currentPage == obj.stage || currentPage - 1 == obj.stage)
+            {
+                obj.ResetParent();
+                obj.AfterFlip();
+            }
+        }
+        
+        //Reset Morph
+        for (int i = 0; i < morphs.Length; i++)
+        {
+            morphs[i].position = new Vector3(morphs[i].position.x, 0, morphs[i].position.z);
+        }
+
+        //Reset Page Animation
+        animPage[0].SetTrigger("Reset");
     }
 
     void StartMorph()
     {
-
+        for (int i = 0; i < 10; i++)
+        {
+            float time = curvesValue[0].Evaluate(i);
+            float delay = curvesDelay[0].Evaluate(i);
+            morphs[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.OutQuad);
+        }
+        for (int i = 10; i < 20; i++)
+        {
+            float time = curvesValue[1].Evaluate(i - 10);
+            float delay = curvesDelay[1].Evaluate(i - 10);
+            morphs[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.OutQuad);
+        }
     }
 
 
