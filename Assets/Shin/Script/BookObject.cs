@@ -48,19 +48,18 @@ public class BookObject : MonoBehaviour
     {
         transform.SetParent(closeBone);
         yield return new WaitForSeconds(0.6f);
-        DeleteParent();
+        ResetParent();
     }
 
-
-
     //Set Parent as Default
-    public void DeleteParent()
+    public void  ResetParent()
     {
         transform.SetParent(GameManager.Instance.book.objectParents[stage]);
     }
 
-    public virtual void Asd()
+    public virtual void Asd(bool isA, bool isS)
     {
+        
 
     }
 }

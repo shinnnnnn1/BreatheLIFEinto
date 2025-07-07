@@ -42,9 +42,9 @@ public class StaticObject : BookObject
         //mesh.enabled = false;
     }
 
-    public override void Asd()
+    public override void Asd(bool isA, bool isS)
     {
-        base.Asd();
+        //base.Asd(true, true);
     }
 
     /*

@@ -17,7 +17,7 @@ public class Book : MonoBehaviour
     public AnimationCurve[] curvesValue, curvesDelay;
 
     [Header("Book")]
-    [SerializeField] int currentPage;
+    public  int currentPage;
     public bool isFlipping;
     [SerializeField] BookObject[] bookObjects;
     //[SerializeField] NPC[] npcs;
@@ -58,7 +58,7 @@ public class Book : MonoBehaviour
         //Set Book Objects Start Position
         StartCoroutine(SetStart());
 
-        //Hide All Book Objects
+        //Hide All Pages
         for (int i = 0; i < pages.Length; i++)
         {
             //pages[i].gameObject.SetActive(false);
@@ -102,10 +102,21 @@ public class Book : MonoBehaviour
 
     IEnumerator FlipCoroutine()
     {
-        yield return null;
+        
         isFlipping = true;
 
+        foreach(var obj in bookObjects)
+        {
+            if(currentPage == obj.stage || currentPage - 1 == obj.stage)
+            {
+                Debug.Log(name);
+                obj.Asd(true, true);
+            }
+        }
 
+        yield return null;
+        //Play Flip Animation
+        animPage[0].SetTrigger("Flip");
 
 
         yield return new WaitForSeconds(3f);
@@ -114,6 +125,11 @@ public class Book : MonoBehaviour
         isFlipping = false;
 
         //animPage[0].SetTrigger("Reset");
+    }
+
+    void StartMorph()
+    {
+
     }
 
 
