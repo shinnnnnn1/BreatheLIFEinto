@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerCtrl player;
     public Book book;
+    public PageTrigger trigger;
 
     private void Start()
     {

@@ -8,7 +8,9 @@ public class PageTrigger : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            //GameManager.Instance.book.Flip();
+            
+            GameManager.Instance.player.PlayerFlip();
+            GameManager.Instance.book.Flip();
         }
     }
 }

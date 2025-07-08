@@ -81,7 +81,7 @@ public class Book : MonoBehaviour
     {
         if(isFlipping)
         {
-            //Debug.Log(Time.time - flipTime);
+            Debug.Log(Time.time - flipTime);
         }
     }
 

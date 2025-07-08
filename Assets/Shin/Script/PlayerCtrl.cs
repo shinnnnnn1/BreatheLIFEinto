@@ -1,6 +1,8 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using DG.Tweening;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -53,6 +55,11 @@ public class PlayerCtrl : MonoBehaviour
     
     [Space(10f)]
     [SerializeField] Transform bottom;
+    [SerializeField] Vector3 Respawn;
+    bool isFlipping;
+
+    Vector3 fRot;
+    float fPosX;
 
     void Start()
     {
@@ -61,45 +68,68 @@ public class PlayerCtrl : MonoBehaviour
         joint = GetComponent<ConfigurableJoint>();
         coll = GetComponent<CapsuleCollider>();
         defaultMaxSpd = maxSpd;
-        //Time.timeScale = 0.1f;
-    }
-
-    void Update()
-    {
-        
+        //Time.timeScale = 0.5f;
     }
 
     void FixedUpdate()
     {
-        PhysicsAdjustment();
-        if (!canMove) { return; }
+        if(canMove)
+        {
+            PhysicsAdjustment();
 
-        Move();
-        GravityMultiply();
-        
-        anim.SetBool("OnGround", OnGround());
-        anim.SetFloat("VelocityY", rigid.linearVelocity.y);
+            Movement();
+
+            anim.SetBool("OnGround", OnGround());
+            anim.SetFloat("VelocityY", rigid.linearVelocity.y);
+        }
+        else if (isFlipping)
+        {
+            //Teraforming Transform
+
+            //Need to Set Position.x
+            transform.localPosition = new Vector3(0, 0, 0);
+            transform.localEulerAngles = fRot;
+        }
+
     }
 
-    void Move()
+    void Movement()
     {
+        //Player Move
         rigid.AddForce(new Vector3(inputDirection.x, 0, inputDirection.y) * moveSpd, ForceMode.Acceleration);
+
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
+
+        //Set Max Velocity
         if (veloc.magnitude > maxSpd)
         {
             veloc = veloc.normalized * maxSpd;
             rigid.linearVelocity = new Vector3(veloc.x, rigid.linearVelocity.y, veloc.z);
         }
+
+        //Move Animation
         anim.SetFloat("VelocityX", veloc.magnitude);
 
+
+        //Player Turn
         if (((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)) && !isTurning)
         {
             Flip();
         }
+
+        //Gravity Adjustent
+        if (rigid.linearVelocity.y < 0)
+        {
+            rigid.AddForce(Vector3.down * gravityMultiplier);
+        }
+
+        //Add Static Gravity
         if (OnGround())
         {
             rigid.AddForce(Vector3.down);
         }
+
+        //Hold Animation
         if (isHolding)
         {
             if (!isPulling && ((inputDirection.x > 0 && !isRight) || (inputDirection.x < 0 && isRight)))
@@ -127,6 +157,7 @@ public class PlayerCtrl : MonoBehaviour
             friction = Mathf.Lerp(friction, 0.5f, 0.2f);
             coll.sharedMaterial.dynamicFriction = friction;
         }
+
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
         if (!OnGround() && inputDirection.magnitude == 0 && veloc.magnitude > 0)
         {
@@ -136,25 +167,17 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    void GravityMultiply()
-    {
-        if(rigid.linearVelocity.y < 0)
-        {
-            rigid.AddForce(Vector3.down * gravityMultiplier);
-        }
-    }
-
     void Flip()
     {
-        isRight = !isRight;
         isTurning = true;
+        isRight = !isRight;
         bottom.DOLocalRotate(new Vector3(0, isRight ? -180 : 180, 0), 0.1f)
             .SetEase(Ease.Linear).SetRelative().OnComplete(() => isTurning = false);
     }
 
     void Jump()
     {
-        if(OnGround() && canJump)
+        if(OnGround() && canJump && canMove)
         {
             rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
             rigid.AddForce(Vector3.up * jumpPow, ForceMode.Impulse);
@@ -227,10 +250,48 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public void PlayerStop()
     {
+        canMove = false;
+        rigid.isKinematic = true;
         
     }
+
+    public void PlayerFlip()
+    {
+        fRot = transform.localEulerAngles;
+        fPosX = transform.position.x;
+
+        PlayerStop();
+        transform.SetParent(GameManager.Instance.book.currentBones[8]);
+        isFlipping = true;
+
+
+        //bottom.DOLocalRotate(new Vector3(-180, 0, 0), 2).SetRelative();
+
+        StartCoroutine(FlipAnim());
+    }
+
+    IEnumerator FlipAnim()
+    {
+        yield return new WaitForSeconds(1.25f);
+
+        yield return new WaitForSeconds(1.74f);
+
+        //Stop Player Flip and Reset Parent
+        isFlipping = false;
+        transform.SetParent(null);
+
+        transform.position = Respawn;
+        transform.rotation = Quaternion.identity;
+
+        yield return null;
+
+        canMove = true;
+        rigid.isKinematic = false;
+    }
+
+
 
     #region INPUT
     public void InputMove(InputAction.CallbackContext context)
