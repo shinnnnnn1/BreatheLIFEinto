@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class TitleBook : MonoBehaviour, ICursor
+public class TitleBook : MonoBehaviour, ICursorInteractable
 {
     [SerializeField] [Range(0, 9)] int book;
 

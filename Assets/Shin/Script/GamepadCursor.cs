@@ -24,7 +24,7 @@ public class GamepadCursor : MonoBehaviour
     const string mouseScheme = "Keyboard&Mouse";
 
     RaycastHit hit;
-    ICursor cursorInteractable;
+    ICursorInteractable cursorInteractable;
 
     private void OnEnable()
     {
@@ -151,7 +151,7 @@ public class GamepadCursor : MonoBehaviour
 
         if (Physics.Raycast(origin, direction, out hit, 100f))
         {
-            ICursor target = hit.collider.GetComponent<ICursor>();
+            ICursorInteractable target = hit.collider.GetComponent<ICursorInteractable>();
 
             if(cursorInteractable != target)
             {
@@ -185,7 +185,7 @@ public class GamepadCursor : MonoBehaviour
         return Physics.Raycast(origin, direction, out hit, 100f);
     }
 
-    public void CanHold(ICursor target)
+    public void CanHold(ICursorInteractable target)
     {
         cursorInteractable = target;
     }

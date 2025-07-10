@@ -57,6 +57,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] Transform bottom;
     [SerializeField] Vector3 Respawn;
     bool isFlipping;
+    bool stopRot;
 
     Vector3 fRot;
     float fPosX;
@@ -88,9 +89,27 @@ public class PlayerCtrl : MonoBehaviour
 
             //Need to Set Position.x
             transform.localPosition = new Vector3(0, 0, 0);
-            transform.localEulerAngles = fRot;
-        }
 
+            //Debug.Log(transform.position);
+            //Set Rotation
+
+            transform.eulerAngles = GameManager.Instance.book.currentBones[8].eulerAngles + new Vector3(0, 0, 90);
+
+            //transform.localEulerAngles = fRot;
+
+            if (stopRot)
+            {
+                //transform.eulerAngles = new Vector3(0, 0, 180);
+            }
+            else
+            {
+                //transform.localEulerAngles = fRot;
+                if (transform.eulerAngles.z > 180)
+                {
+                    stopRot = true;
+                }
+            }
+        }
     }
 
     void Movement()
@@ -234,8 +253,8 @@ public class PlayerCtrl : MonoBehaviour
 
     bool OnAttach()
     {
-        if (Physics.BoxCast(transform.position + Vector3.up * 0.5f + new Vector3(0, hOffset.y, 0), hSize / 2, isRight ? Vector3.right : Vector3.left, 
-            out hHit, Quaternion.identity, hDistance, 1<<7)) { return true; }
+        if (Physics.BoxCast(transform.position + Vector3.up * 0.5f + new Vector3(0, hOffset.y, 0)
+            , hSize / 2, isRight ? Vector3.right : Vector3.left, out hHit, Quaternion.identity, hDistance, 1<<7)) { return true; }
         else { return false; }
     }
 
@@ -254,9 +273,8 @@ public class PlayerCtrl : MonoBehaviour
     {
         canMove = false;
         rigid.isKinematic = true;
-        
     }
-
+    //------------------------------------------------------------------------------------------------------------------------------------------------
     public void PlayerFlip()
     {
         fRot = transform.localEulerAngles;
@@ -266,8 +284,7 @@ public class PlayerCtrl : MonoBehaviour
         transform.SetParent(GameManager.Instance.book.currentBones[8]);
         isFlipping = true;
 
-
-        //bottom.DOLocalRotate(new Vector3(-180, 0, 0), 2).SetRelative();
+        //bottom.DOLocalRotate(new Vector3(-100, 0, 0), 1.5f).SetRelative().SetDelay(0f);
 
         StartCoroutine(FlipAnim());
     }
