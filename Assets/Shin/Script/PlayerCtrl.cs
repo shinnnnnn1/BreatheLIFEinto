@@ -60,7 +60,7 @@ public class PlayerCtrl : MonoBehaviour
     bool stopRot;
 
     Vector3 fRot;
-    float fPosX;
+    float fPos;
 
     void Start()
     {
@@ -90,24 +90,16 @@ public class PlayerCtrl : MonoBehaviour
             //Need to Set Position.x
             transform.localPosition = new Vector3(0, 0, 0);
 
-            //Debug.Log(transform.position);
             //Set Rotation
+            float z = GameManager.Instance.book.currentBones[8].eulerAngles.z;
 
-            transform.eulerAngles = GameManager.Instance.book.currentBones[8].eulerAngles + new Vector3(0, 0, 90);
-
-            //transform.localEulerAngles = fRot;
-
-            if (stopRot)
+            if (z > 270 || z < 90)
             {
-                //transform.eulerAngles = new Vector3(0, 0, 180);
+                transform.eulerAngles = GameManager.Instance.book.currentBones[8].eulerAngles + fRot;
             }
             else
             {
-                //transform.localEulerAngles = fRot;
-                if (transform.eulerAngles.z > 180)
-                {
-                    stopRot = true;
-                }
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
     }
@@ -276,24 +268,30 @@ public class PlayerCtrl : MonoBehaviour
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------
     public void PlayerFlip()
-    {
-        fRot = transform.localEulerAngles;
-        fPosX = transform.position.x;
-
+    {;
+        fPos = transform.position.x;
+        anim.SetTrigger("Stop");
+        anim.SetFloat("VelocityX", 0);
         PlayerStop();
         transform.SetParent(GameManager.Instance.book.currentBones[8]);
         isFlipping = true;
 
-        //bottom.DOLocalRotate(new Vector3(-100, 0, 0), 1.5f).SetRelative().SetDelay(0f);
-
+        
         StartCoroutine(FlipAnim());
     }
 
     IEnumerator FlipAnim()
     {
+        bottom.DOLocalRotate(new Vector3(-92, 0, 0), 1.0f).SetRelative().SetDelay(0f);
+        fRot = new Vector3(0, 0, 90);
         yield return new WaitForSeconds(1.25f);
 
-        yield return new WaitForSeconds(1.74f);
+        bottom.DOLocalRotate(new Vector3(-92, 0, 0), 1.0f).SetRelative().SetDelay(0.3f);
+        fRot = new Vector3(0, 0, -90);
+
+        yield return new WaitForSeconds(1.64f);
+        anim.SetTrigger("Restart");
+        yield return new WaitForSeconds(0.1f);
 
         //Stop Player Flip and Reset Parent
         isFlipping = false;
@@ -304,8 +302,11 @@ public class PlayerCtrl : MonoBehaviour
 
         yield return null;
 
+
+        //anim.SetTrigger("Restart");
         canMove = true;
         rigid.isKinematic = false;
+
     }
 
 

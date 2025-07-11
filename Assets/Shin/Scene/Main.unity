@@ -2085,8 +2085,8 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c1a76ea2-bc08-4409-a8b2-b338cd8fbe02
     m_ActionName: 'UI/Release[/Mouse/leftButton]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1823688466}
@@ -4247,7 +4247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &985629799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5536,7 +5536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1168309452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,7 +5653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1216446434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6470,6 +6470,7 @@ MonoBehaviour:
   - {fileID: 6816830627510263174}
   - {fileID: 2964991067093595681}
   animBook: []
+  flipTime: 0
   fadeImage: {fileID: 0}
 --- !u!95 &1392669028
 Animator:

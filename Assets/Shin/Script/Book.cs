@@ -25,7 +25,8 @@ public class Book : MonoBehaviour
     [SerializeField] Animator[] animPage;
     [SerializeField] Animation[] animBook;
 
-    float flipTime;
+    public float flipTime;
+    float cTime;
     float a;
 
     [SerializeField] Image fadeImage;
@@ -81,7 +82,7 @@ public class Book : MonoBehaviour
     {
         if(isFlipping)
         {
-            //Debug.Log(Time.time - flipTime);
+            flipTime = Time.time - cTime;
         }
     }
 
@@ -92,7 +93,7 @@ public class Book : MonoBehaviour
         
         currentPage++;
         isFlipping = true;
-        flipTime = Time.time;
+        cTime = Time.time;
 
         StartCoroutine(FlipCoroutine());
     }
