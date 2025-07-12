@@ -27,7 +27,6 @@ public class Book : MonoBehaviour
 
     public float flipTime;
     float cTime;
-    float a;
 
     [SerializeField] Image fadeImage;
 
@@ -88,9 +87,8 @@ public class Book : MonoBehaviour
 
     public void Flip()
     {
-        Debug.Log("Flip");
         if (isFlipping) { return; }
-        
+        Debug.Log("Flip");
         currentPage++;
         isFlipping = true;
         cTime = Time.time;

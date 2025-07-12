@@ -77,7 +77,6 @@ public class PlayerCtrl : MonoBehaviour
         if(canMove)
         {
             PhysicsAdjustment();
-
             Movement();
 
             anim.SetBool("OnGround", OnGround());
@@ -90,6 +89,7 @@ public class PlayerCtrl : MonoBehaviour
             //Need to Set Position.x
             transform.localPosition = new Vector3(0, 0, 0);
 
+            transform.position = new Vector3(transform.position.x, transform.position.y, fPos);
             //Set Rotation
             float z = GameManager.Instance.book.currentBones[8].eulerAngles.z;
 
@@ -158,6 +158,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void PhysicsAdjustment()
     {
+        //Set Moving, Stopping Drag
         if(OnGround() && inputDirection.magnitude != 0 && coll.sharedMaterial.dynamicFriction > 0.01f)
         {
             friction = Mathf.Lerp(friction, 0, 0.1f);
@@ -165,10 +166,11 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if(OnGround() && inputDirection.magnitude == 0 && coll.sharedMaterial.dynamicFriction < 0.49f)
         {
-            friction = Mathf.Lerp(friction, 0.5f, 0.2f);
+            friction = Mathf.Lerp(friction, 0.5f, 0.5f);
             coll.sharedMaterial.dynamicFriction = friction;
         }
 
+        //Set Air Drag
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
         if (!OnGround() && inputDirection.magnitude == 0 && veloc.magnitude > 0)
         {
@@ -208,22 +210,20 @@ public class PlayerCtrl : MonoBehaviour
         {
             isTurning = true;
             canJump = false;
-            maxSpd = 0.5f;
+            maxSpd = 0.3f;
             anim.SetBool("IsPulling", true);
             anim.SetTrigger("StartHold");
             isHolding = true;
             isPulling = true;
 
-            joint.anchor = isRight ? new Vector3(0.25f, 0.3f, 0) : new Vector3(-0.25f, 0.3f, 0);
-            //joint.anchor = -bottom.right * 0.25f + Vector3.up * 0.3f;
+            float y = hHit.collider.transform.position.y;
 
-
+            joint.anchor = isRight ? new Vector3(0.25f, 0.1f, 0) : new Vector3(-0.25f, 0.1f, 0);
             joint.axis = isRight ? Vector3.right : Vector3.left;
-
             joint.connectedBody = hHit.rigidbody;
+
             hColl = hHit.rigidbody.GetComponent<Collider>();
             hColl.sharedMaterial = hMat;
-
             joint.connectedBody.mass = 0f;
 
         }
@@ -269,7 +269,8 @@ public class PlayerCtrl : MonoBehaviour
     //------------------------------------------------------------------------------------------------------------------------------------------------
     public void PlayerFlip()
     {;
-        fPos = transform.position.x;
+        fPos = transform.position.z;
+        anim.SetBool("CanAnim", false);
         anim.SetTrigger("Stop");
         anim.SetFloat("VelocityX", 0);
         PlayerStop();
@@ -288,22 +289,21 @@ public class PlayerCtrl : MonoBehaviour
 
         bottom.DOLocalRotate(new Vector3(-92, 0, 0), 1.0f).SetRelative().SetDelay(0.3f);
         fRot = new Vector3(0, 0, -90);
+        fPos = 0;
 
-        yield return new WaitForSeconds(1.64f);
-        anim.SetTrigger("Restart");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1.74f);
 
         //Stop Player Flip and Reset Parent
         isFlipping = false;
         transform.SetParent(null);
 
+        //Set Player Transform
         transform.position = Respawn;
         transform.rotation = Quaternion.identity;
+        anim.SetBool("CanAnim", true);
 
         yield return null;
 
-
-        //anim.SetTrigger("Restart");
         canMove = true;
         rigid.isKinematic = false;
 
@@ -328,19 +328,11 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (context.performed)
         {
-            if(true)
-            {
-                //Hold(true);
-                GameManager.Instance.book.Flip();
-            }
-            else
-            {
-
-            }
+            Hold(true);
         }
         else if(context.canceled)
         {
-            //Hold(false);
+            Hold(false);
         }
     }
     public void InputPause(InputAction.CallbackContext context)
