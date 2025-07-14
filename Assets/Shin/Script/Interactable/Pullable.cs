@@ -1,16 +1,35 @@
 using UnityEngine;
 
-public class Pullable : MonoBehaviour
+public class Pullable : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Rigidbody rigid;
+
+    
+
     void Start()
     {
-        
+        rigid = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void OnEnter()
+    {
+
+    }
+    public void OnExit()
+    {
+
+    }
+    public void OnActivate()
+    {
+
+    }
+    public void OnDeactivate()
+    {
+
     }
 }

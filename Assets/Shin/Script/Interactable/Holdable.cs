@@ -1,16 +1,33 @@
 using UnityEngine;
 
-public class Holdable : MonoBehaviour
+public class Holdable : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Rigidbody rigid;
+
     void Start()
+    {
+        rigid = GetComponent<Rigidbody>();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnEnter()
     {
-        
+
+    }
+    public void OnExit()
+    {
+
+    }
+    public void OnActivate()
+    {
+
+    }
+    public void OnDeactivate()
+    {
+
     }
 }

@@ -42,7 +42,10 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float gDistance;
     RaycastHit gHit;
 
-    [Space(10f)][Header("Hold")]
+    [Header("Dialogue")]
+    [SerializeField] NPC interactingNPC;
+
+    [Header("Hold")]
     [SerializeField] Vector3 hSize;
     [SerializeField] Vector3 hOffset;
     [SerializeField] float hDistance;
@@ -243,6 +246,29 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    void Action(bool isActivate)
+    {
+        //Dialogue
+        if (interactingNPC != null)
+        {
+
+        }
+        //Interact
+        else
+        {
+            isTurning = isActivate;
+            canJump = !isActivate;
+            if (isActivate && OnGround() && OnAttach() && !isTurning && canJump)
+            {
+                joint.anchor = isRight ? new Vector3(0.25f, 0.1f, 0) : new Vector3(-0.25f, 0.1f, 0);
+            }
+            else if(!isActivate && isHolding)
+            {
+
+            }
+        }
+    }
+
     bool OnAttach()
     {
         if (Physics.BoxCast(transform.position + Vector3.up * 0.5f + new Vector3(0, hOffset.y, 0)
@@ -277,7 +303,6 @@ public class PlayerCtrl : MonoBehaviour
         transform.SetParent(GameManager.Instance.book.currentBones[8]);
         isFlipping = true;
 
-        
         StartCoroutine(FlipAnim());
     }
 
@@ -285,6 +310,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         bottom.DOLocalRotate(new Vector3(-92, 0, 0), 1.0f).SetRelative().SetDelay(0f);
         fRot = new Vector3(0, 0, 90);
+
         yield return new WaitForSeconds(1.25f);
 
         bottom.DOLocalRotate(new Vector3(-92, 0, 0), 1.0f).SetRelative().SetDelay(0.3f);
