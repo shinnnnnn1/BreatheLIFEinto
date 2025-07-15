@@ -60,6 +60,8 @@ public class BookObject : MonoBehaviour
 
     public virtual void SetObject()
     {
+
+        Debug.Log(gameObject.name);
         // 1. Set isActivate, isStatic
         isActivate = GameManager.Instance.book.currentPage == stage;
         isStatic = (isActivate && isRight) || (!isActivate && !isRight);

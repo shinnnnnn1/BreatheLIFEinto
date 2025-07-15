@@ -28,7 +28,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] bool isTurning;
 
     [Space(10f)]
-    [SerializeField] bool canMove = true;
+    public bool canMove = true;
     [SerializeField] bool canJump = true;
 
     [Space(10f)]
@@ -51,11 +51,12 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float hDistance;
     [SerializeField] Rigidbody defaultRigid;
     [SerializeField] PhysicsMaterial hMat, hMatDefault;
+    IInteractable interactable;
     Collider hColl;
     RaycastHit hHit;
-    bool isHolding;
+    [SerializeField] bool isHolding;
     bool isPulling;
-    
+
     [Space(10f)]
     [SerializeField] Transform bottom;
     [SerializeField] Vector3 Respawn;
@@ -84,6 +85,7 @@ public class PlayerCtrl : MonoBehaviour
 
             anim.SetBool("OnGround", OnGround());
             anim.SetFloat("VelocityY", rigid.linearVelocity.y);
+            anim.SetFloat("InputX", inputDirection.magnitude);
         }
         else if (isFlipping)
         {
@@ -105,6 +107,7 @@ public class PlayerCtrl : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
+        
     }
 
     void Movement()
@@ -151,7 +154,7 @@ public class PlayerCtrl : MonoBehaviour
                 isPulling = true;
                 anim.SetBool("IsPulling", true);
             }
-            else if(isPulling && ((inputDirection.x < 0 && !isRight) || (inputDirection.x > 0 && isRight)))
+            else if (isPulling && ((inputDirection.x < 0 && !isRight) || (inputDirection.x > 0 && isRight)))
             {
                 isPulling = false;
                 anim.SetBool("IsPulling", false);
@@ -207,45 +210,6 @@ public class PlayerCtrl : MonoBehaviour
         else { return false; }
     }
 
-    void Hold(bool isActivate)
-    {
-        if(isActivate && !isTurning && canJump && OnGround() && OnAttach())
-        {
-            isTurning = true;
-            canJump = false;
-            maxSpd = 0.3f;
-            anim.SetBool("IsPulling", true);
-            anim.SetTrigger("StartHold");
-            isHolding = true;
-            isPulling = true;
-
-            float y = hHit.collider.transform.position.y;
-
-            joint.anchor = isRight ? new Vector3(0.25f, 0.1f, 0) : new Vector3(-0.25f, 0.1f, 0);
-            joint.axis = isRight ? Vector3.right : Vector3.left;
-            joint.connectedBody = hHit.rigidbody;
-
-            hColl = hHit.rigidbody.GetComponent<Collider>();
-            hColl.sharedMaterial = hMat;
-            joint.connectedBody.mass = 0f;
-
-        }
-        else if(!isActivate && isHolding)
-        {
-            isTurning = false;
-            canJump = true;
-            maxSpd = defaultMaxSpd;
-            anim.SetTrigger("StopHold");
-            isHolding = false;
-            isPulling = false;
-
-            joint.connectedBody.mass = 100;
-
-            joint.connectedBody = defaultRigid;
-            hColl.sharedMaterial = hMatDefault;
-        }
-    }
-
     void Action(bool isActivate)
     {
         //Dialogue
@@ -256,17 +220,45 @@ public class PlayerCtrl : MonoBehaviour
         //Interact
         else
         {
-            isTurning = isActivate;
-            canJump = !isActivate;
+
             if (isActivate && OnGround() && OnAttach() && !isTurning && canJump)
             {
+                isTurning = true;
+                canJump = false;
+                anim.SetBool("IsPulling", true);
+                anim.SetTrigger("StartHold");
+                isHolding = true;
+                isPulling = true;
+                maxSpd = 0.3f;
+
                 joint.anchor = isRight ? new Vector3(0.25f, 0.1f, 0) : new Vector3(-0.25f, 0.1f, 0);
+                joint.axis = isRight ? Vector3.right : Vector3.left;
+                joint.connectedBody = hHit.rigidbody;
+
+                interactable = hHit.collider.GetComponent<IInteractable>();
+                interactable?.OnActivate();
+
+
             }
             else if(!isActivate && isHolding)
             {
+                isTurning = false;
+                canJump = true;
+                anim.SetTrigger("StopHold");
+                isHolding = false;
+                isPulling = false;
+                maxSpd = defaultMaxSpd;
 
+                interactable?.OnDeactivate();
+
+                joint.connectedBody = defaultRigid;
             }
         }
+    }
+
+    public void JoindAdjustment(bool reset)
+    {
+        joint.connectedBody = reset ? defaultRigid : hHit.rigidbody;
     }
 
     bool OnAttach()
@@ -292,7 +284,7 @@ public class PlayerCtrl : MonoBehaviour
         canMove = false;
         rigid.isKinematic = true;
     }
-    //------------------------------------------------------------------------------------------------------------------------------------------------
+
     public void PlayerFlip()
     {;
         fPos = transform.position.z;
@@ -352,13 +344,15 @@ public class PlayerCtrl : MonoBehaviour
     }
     public void InputAction(InputAction.CallbackContext context)
     {
+        if (!canMove) { return; }
+
         if (context.performed)
         {
-            Hold(true);
+            Action(true);
         }
         else if(context.canceled)
         {
-            Hold(false);
+            Action(false);
         }
     }
     public void InputPause(InputAction.CallbackContext context)
@@ -375,6 +369,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + Vector3.up * 0.75f, new Vector3(0.75f, 1.5f, 0.05f));
+        Gizmos.DrawRay(transform.position, new Vector3(inputDirection.x, 0, inputDirection.y));
 
         Gizmos.color = OnGround() ? Color.cyan : Color.red;
         Gizmos.DrawCube(transform.position + gOffset + Vector3.down * gDistance, gSize);

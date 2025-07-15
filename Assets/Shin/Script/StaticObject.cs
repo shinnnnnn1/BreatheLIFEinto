@@ -60,7 +60,7 @@ public class StaticObject : BookObject
             .SetEase(isActivate ? Ease.OutExpo : Ease.InExpo);
     }
 
-    void Update()
+    public void Update()
     {
         if (GameManager.Instance.book.isFlipping && mesh.enabled)
         {

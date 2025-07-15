@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public Book book;
     public PageTrigger trigger;
 
+    public PhysicsMaterial[] hMat;
+
     private void Start()
     {
         

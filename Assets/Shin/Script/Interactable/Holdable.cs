@@ -3,15 +3,12 @@ using UnityEngine;
 public class Holdable : MonoBehaviour, IInteractable
 {
     Rigidbody rigid;
+    Collider coll;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        
+        coll = GetComponent<Collider>();
     }
 
     public void OnEnter()
@@ -22,12 +19,15 @@ public class Holdable : MonoBehaviour, IInteractable
     {
 
     }
+
     public void OnActivate()
     {
-
+        rigid.mass = 0f;
+        coll.sharedMaterial = GameManager.Instance.hMat[0];
     }
     public void OnDeactivate()
     {
-
+        rigid.mass = 100f;
+        coll.sharedMaterial = GameManager.Instance.hMat[1];
     }
 }
