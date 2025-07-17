@@ -50,23 +50,18 @@ public class Book : MonoBehaviour
         //float value = curves[0].Evaluate(0.1f);
     }
 
-    void Start()
+    IEnumerator Start()
     {
         //Set Transform for Starting at the Center
         //transform.position = Vector3.left * 5;
-
-        //Set Book Objects Start Position
-        StartCoroutine(SetStart());
 
         //Hide All Pages
         for (int i = 0; i < pages.Length; i++)
         {
             //pages[i].gameObject.SetActive(false);
         }
-    }
 
-    IEnumerator SetStart()
-    {
+        //Set Book Objects Start Position
         yield return new WaitForSeconds(0.3f);
         animPage[1].speed = 20f;
         animPage[1].SetTrigger("Flip");
@@ -75,6 +70,7 @@ public class Book : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animPage[1].speed = 1f;
         Debug.Log("Can Start");
+        GameManager.Instance.PlayCutScene(0);
     }
 
     void Update()

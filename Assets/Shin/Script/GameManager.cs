@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public PlayableAsset[] timelines;
+    PlayableDirector director;
+
     public PlayerCtrl player;
     public Book book;
     public PageTrigger trigger;
@@ -25,7 +30,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        director = GetComponent<PlayableDirector>();
     }
 
+    public void PlayCutScene(int number)
+    {
+        Debug.Log($"Cut {number} Start");
+        director.playableAsset = timelines[number];
+        director.Play();
+    }
 }

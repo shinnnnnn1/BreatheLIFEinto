@@ -56,7 +56,7 @@ public class GamepadCursor : MonoBehaviour
     {
 
         if (virtualMouse != null && virtualMouse.added)
-        InputSystem.RemoveDevice(virtualMouse);
+            InputSystem.RemoveDevice(virtualMouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
         playerInput.onControlsChanged -= OnControlsChanged;
     }
@@ -91,14 +91,14 @@ public class GamepadCursor : MonoBehaviour
     void AnchorCursor(Vector2 position)
     {
         Vector2 anchoredPosition;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, 
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position,
             canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
         cursorTransform.anchoredPosition = anchoredPosition;
     }
 
     void OnControlsChanged(PlayerInput input)
     {
-        if(playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme)
+        if (playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme)
         {
             cursorTransform.gameObject.SetActive(false);
             Cursor.visible = false;
@@ -112,7 +112,7 @@ public class GamepadCursor : MonoBehaviour
             previousControlScheme = mouseScheme;
             Invoke("CursorActive", Time.deltaTime);
         }
-        else if(playerInput.currentControlScheme == gamepadScheme && previousControlScheme != gamepadScheme)
+        else if (playerInput.currentControlScheme == gamepadScheme && previousControlScheme != gamepadScheme)
         {
             Cursor.visible = false;
 
@@ -153,11 +153,11 @@ public class GamepadCursor : MonoBehaviour
         {
             ICursorInteractable target = hit.collider.GetComponent<ICursorInteractable>();
 
-            if(cursorInteractable != target)
+            if (cursorInteractable != target)
             {
                 cursorInteractable?.OnExit();
             }
-            else if(target != null)
+            else if (target != null)
             {
                 target?.OnEnter();
             }
@@ -188,5 +188,10 @@ public class GamepadCursor : MonoBehaviour
     public void CanHold(ICursorInteractable target)
     {
         cursorInteractable = target;
+    }
+
+    public void OnSwitch()
+    {
+
     }
 }
