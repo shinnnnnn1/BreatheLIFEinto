@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -50,7 +49,6 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] Vector3 hOffset;
     [SerializeField] float hDistance;
     [SerializeField] Rigidbody defaultRigid;
-    [SerializeField] PhysicsMaterial hMat, hMatDefault;
     IInteractable interactable;
     Collider hColl;
     RaycastHit hHit;
@@ -353,6 +351,15 @@ public class PlayerCtrl : MonoBehaviour
         else if(context.canceled)
         {
             Action(false);
+        }
+    }
+    public void InputSwitch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("switch");
+            GameManager.Instance.Switch(true);
+
         }
     }
     public void InputPause(InputAction.CallbackContext context)

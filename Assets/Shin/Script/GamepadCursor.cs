@@ -26,7 +26,7 @@ public class GamepadCursor : MonoBehaviour
     RaycastHit hit;
     ICursorInteractable cursorInteractable;
 
-    private void OnEnable()
+    void OnEnable()
     {
         mainCamera = Camera.main;
         currentMouse = Mouse.current;
@@ -45,6 +45,7 @@ public class GamepadCursor : MonoBehaviour
         if (cursorTransform != null)
         {
             Vector2 position = cursorTransform.anchoredPosition;
+            Debug.Log(virtualMouse.position);
             InputState.Change(virtualMouse.position, position);
         }
 
@@ -52,11 +53,13 @@ public class GamepadCursor : MonoBehaviour
         playerInput.onControlsChanged += OnControlsChanged;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-
         if (virtualMouse != null && virtualMouse.added)
+        {
             InputSystem.RemoveDevice(virtualMouse);
+        }
+        InputSystem.RemoveDevice(virtualMouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
         playerInput.onControlsChanged -= OnControlsChanged;
     }
@@ -192,6 +195,6 @@ public class GamepadCursor : MonoBehaviour
 
     public void OnSwitch()
     {
-
+        GameManager.Instance.Switch(false);
     }
 }

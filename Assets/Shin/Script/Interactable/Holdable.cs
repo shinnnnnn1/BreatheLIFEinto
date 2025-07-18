@@ -22,7 +22,7 @@ public class Holdable : MonoBehaviour, IInteractable
 
     public void OnActivate()
     {
-        rigid.mass = 0f;
+        rigid.mass = 1f;
         coll.sharedMaterial = GameManager.Instance.hMat[0];
     }
     public void OnDeactivate()

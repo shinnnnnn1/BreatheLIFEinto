@@ -60,9 +60,10 @@ public class Pullable : MonoBehaviour, IInteractable
     }
     public void OnActivate()
     {
+        Vector3 pos = transform.position + position;
         isPulling = true;
         GameManager.Instance.player.JoindAdjustment(true);
-        GameManager.Instance.player.transform.DOMove(position, 1)
+        GameManager.Instance.player.transform.DOMove(pos, 0.5f).SetEase(Ease.OutCubic)
             .OnComplete(()=>GameManager.Instance.player.JoindAdjustment(false));
     }
     public void OnDeactivate()
@@ -77,5 +78,8 @@ public class Pullable : MonoBehaviour, IInteractable
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, new Vector3(direction.x, 0, direction.y));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position + position, 0.1f);
     }
 }

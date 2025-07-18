@@ -28,8 +28,11 @@ public class BookObject : MonoBehaviour
         StartCoroutine(SetStart());
     }
 
-    void SetBone()
+    public void SetBone()
     {
+        // Set IsRight
+        isRight = transform.position.x > 0;
+
         float dis = 100;
 
         Transform[] t = isRight ? GameManager.Instance.book.rightBones : GameManager.Instance.book.leftBones;
@@ -61,7 +64,8 @@ public class BookObject : MonoBehaviour
     public virtual void SetObject()
     {
 
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
+
         // 1. Set isActivate, isStatic
         isActivate = GameManager.Instance.book.currentPage == stage;
         isStatic = (isActivate && isRight) || (!isActivate && !isRight);

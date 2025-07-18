@@ -19,9 +19,6 @@ public class StaticObject : BookObject
 
     void SetMorph()
     {
-        // Set IsRight
-        isRight = transform.position.x > 0;
-
         //Get Mesh Component
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
 

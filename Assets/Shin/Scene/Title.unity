@@ -3379,13 +3379,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771615348}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d00e1f6f308fd4a8e1a5d294f40951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timelines: []
   player: {fileID: 0}
   book: {fileID: 0}
+  trigger: {fileID: 0}
+  gamepadCursor: {fileID: 0}
+  hMat: []
 --- !u!4 &771615350
 Transform:
   m_ObjectHideFlags: 0

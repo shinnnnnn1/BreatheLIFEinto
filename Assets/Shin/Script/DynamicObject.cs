@@ -14,7 +14,12 @@ public class DynamicObject : StaticObject
 
     public override void SetObject()
     {
-        //need to set isRight, CloseBone, Close Index...
+        //Set New Parameters
+        if(GameManager.Instance.book.currentPage - 1 == stage)
+        {
+            SetBone();
+        }
+        
         rigid.isKinematic = true;
         base.SetObject();
     }
