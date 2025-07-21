@@ -8,12 +8,9 @@ public class Pullable : MonoBehaviour, IInteractable
     [SerializeField] bool isActivated;
     [SerializeField] bool isPulling;
     [SerializeField] [Range(0, 5)] float pullValue;
-
-    [SerializeField] Vector3 position;
-    
+    [SerializeField] float spring;
     [SerializeField] Vector2 direction;
-
-
+    [SerializeField] Vector3 position;
     float defaultValue;
 
     void Start()
