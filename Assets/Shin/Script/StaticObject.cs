@@ -54,7 +54,7 @@ public class StaticObject : BookObject
             GameManager.Instance.book.curvesDelay[3].Evaluate(closeIndex);
 
         mesh.transform.DOLocalMoveY(value, time).SetDelay(delay)
-            .SetEase(isActivate ? Ease.OutExpo : Ease.InExpo);
+            .SetEase(isActivate ? Ease.InOutExpo : Ease.InExpo);
     }
 
     public void Update()

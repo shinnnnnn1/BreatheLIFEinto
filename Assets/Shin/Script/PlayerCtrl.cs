@@ -346,11 +346,12 @@ public class PlayerCtrl : MonoBehaviour
 
         if (context.performed)
         {
-            Action(true);
+            GameManager.Instance.book.Flip();
+            //Action(true);
         }
         else if(context.canceled)
         {
-            Action(false);
+            //Action(false);
         }
     }
     public void InputSwitch(InputAction.CallbackContext context)

@@ -56,7 +56,7 @@ public class BookObject : MonoBehaviour
     }
 
     //Set Parent as Default
-    public void ResetParent()
+    public virtual void ResetParent()
     {
         transform.SetParent(GameManager.Instance.book.objectParents[stage]);
     }
