@@ -8,7 +8,7 @@ public class Holdable : MonoBehaviour, IInteractable
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        coll = GetComponent<Collider>();
+        coll = GetComponentInChildren<Collider>();
     }
 
     public void OnEnter()

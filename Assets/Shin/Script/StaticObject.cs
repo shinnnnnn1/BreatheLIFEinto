@@ -1,13 +1,15 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
+using static UnityEngine.Rendering.DebugUI;
 
 public class StaticObject : BookObject
 {
-    protected SkinnedMeshRenderer mesh;
+    public SkinnedMeshRenderer[] mesh;
 
-    int blendCount;
     [SerializeField] float y;
+
+    [SerializeField] Transform armature;
 
     public override void Start()
     {
@@ -20,29 +22,32 @@ public class StaticObject : BookObject
     void SetMorph()
     {
         //Get Mesh Component
-        mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+        mesh = GetComponentsInChildren<SkinnedMeshRenderer>();
 
-        //Set Mesh Height
+        //Set Mesh Height and Blend Shapes and Disable
         height = transform.position.y;
-        mesh.transform.localPosition = (transform.position.x > 0 ? Vector3.down : Vector3.up) * transform.position.y;
-
-        //Set BlendShapes
-        Mesh mes = mesh.sharedMesh;
-        blendCount = mes.blendShapeCount;
-        for (int i = 0; i < blendCount; i++)
+        foreach(var m in mesh)
         {
-            mesh.SetBlendShapeWeight(i, 100);
+            m.transform.localPosition = (transform.position.x > 0 ? Vector3.down : Vector3.up) * transform.position.y;
+            m.SetBlendShapeWeight(0, 100);
+            m.SetBlendShapeWeight(1, 100);
+            m.enabled = false;
         }
 
-        //Hide Mesh
-        mesh.enabled = false;
+        if(armature != null)
+        {
+            armature.localPosition = (transform.position.x > 0 ? Vector3.down : Vector3.up) * transform.position.y;
+        }
     }
 
     public override void SetObject()
     {
         base.SetObject();
         HeightAdjustment();
-        mesh.enabled = true;
+        foreach (var m in mesh)
+        {
+            m.enabled = true;
+        }
     }
 
     void HeightAdjustment()
@@ -52,20 +57,30 @@ public class StaticObject : BookObject
             GameManager.Instance.book.curvesValue[3].Evaluate(closeIndex);
         float delay = isActivate ? GameManager.Instance.book.curvesDelay[2].Evaluate(closeIndex) :
             GameManager.Instance.book.curvesDelay[3].Evaluate(closeIndex);
-
-        mesh.transform.DOLocalMoveY(value, time).SetDelay(delay)
+        foreach (var m in mesh)
+        {
+            m.transform.DOLocalMoveY(value, time).SetDelay(delay)
             .SetEase(isActivate ? Ease.InOutExpo : Ease.InExpo);
+        }
+
+        //If Armature move Armature
+        if (armature != null)
+        {
+            armature?.transform.DOLocalMoveY(value, time).SetDelay(delay)
+            .SetEase(isActivate ? Ease.InOutExpo : Ease.InExpo);
+        }
     }
 
     public void Update()
     {
-        if (GameManager.Instance.book.isFlipping && mesh.enabled)
+        if (GameManager.Instance.book.isFlipping && mesh[0].enabled)
         {
-            for (int i = 0; i < blendCount; i++)
-            {
-                float morphHeight = isActivate ? GameManager.Instance.book.morphs[closeIndex].position.y :
+            float morphHeight = isActivate ? GameManager.Instance.book.morphs[closeIndex].position.y :
                     GameManager.Instance.book.morphs[closeIndex + 10].position.y;
-                mesh.SetBlendShapeWeight(i, (isActivate ? 1 - morphHeight : morphHeight) * 100);
+            foreach (var m in mesh)
+            {
+                m.SetBlendShapeWeight(0, (isActivate ? 1 - morphHeight : morphHeight) * 100);
+                m.SetBlendShapeWeight(1, (isActivate ? 1 - morphHeight : morphHeight) * 100);
             }
         }
     }
@@ -74,7 +89,10 @@ public class StaticObject : BookObject
     {
         if(GameManager.Instance.book.currentPage != stage)
         {
-            mesh.enabled = false;
+            foreach (var m in mesh)
+            {
+                m.enabled = false;
+            }
         }
     }
 }

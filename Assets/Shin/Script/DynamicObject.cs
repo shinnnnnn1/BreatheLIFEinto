@@ -27,7 +27,7 @@ public class DynamicObject : StaticObject
     public override void AfterFlip()
     {
         base.AfterFlip();
-        if(mesh.enabled)
+        if (mesh[0].enabled)
         {
             rigid.isKinematic = false;
         }

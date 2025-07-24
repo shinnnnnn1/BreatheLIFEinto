@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEditor.SceneManagement;
 
 public class Book : MonoBehaviour
 {
@@ -81,7 +82,6 @@ public class Book : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animPage[1].speed = 1f;
         Debug.Log("Can Start");
-        GameManager.Instance.PlayCutScene(0);
     }
 
     void Update()
@@ -89,6 +89,7 @@ public class Book : MonoBehaviour
         if(isFlipping)
         {
             flipTime = Time.time - cTime;
+            //Debug.Log(flipTime);
         }
     }
 
@@ -147,6 +148,12 @@ public class Book : MonoBehaviour
 
         //Reset Page Animation
         animPage[0].SetTrigger("Reset");
+
+        //Play Timeline After Flip
+        if(currentPage == 1)
+        {
+            GameManager.Instance.PlayCutScene(0);
+        }
     }
 
     void StartMorph()
@@ -180,6 +187,5 @@ public class Book : MonoBehaviour
         {
             Gizmos.DrawSphere(t.position, 0.05f);
         }
-
     }
 }

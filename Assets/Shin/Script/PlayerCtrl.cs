@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerCtrl : MonoBehaviour
 {
     Animator anim;
-    Rigidbody rigid;
+    public Rigidbody rigid;
     ConfigurableJoint joint;
     CapsuleCollider coll;
 
@@ -23,7 +23,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float gravityMultiplier;
 
     [Space(10f)]
-    [SerializeField] bool isRight;
+    public bool isRight;
     [SerializeField] bool isTurning;
 
     [Space(10f)]
@@ -104,6 +104,10 @@ public class PlayerCtrl : MonoBehaviour
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
+        }
+        else if (!canMove && !rigid.isKinematic)
+        {
+            rigid.isKinematic = true;
         }
         
     }
@@ -218,7 +222,6 @@ public class PlayerCtrl : MonoBehaviour
         //Interact
         else
         {
-
             if (isActivate && OnGround() && OnAttach() && !isTurning && canJump)
             {
                 isTurning = true;
@@ -235,8 +238,6 @@ public class PlayerCtrl : MonoBehaviour
 
                 interactable = hHit.collider.GetComponent<IInteractable>();
                 interactable?.OnActivate();
-
-
             }
             else if(!isActivate && isHolding)
             {
@@ -254,7 +255,7 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    public void JoindAdjustment(bool reset)
+    public void JointAdjustment(bool reset)
     {
         joint.connectedBody = reset ? defaultRigid : hHit.rigidbody;
     }
@@ -346,12 +347,12 @@ public class PlayerCtrl : MonoBehaviour
 
         if (context.performed)
         {
-            GameManager.Instance.book.Flip();
-            //Action(true);
+            //GameManager.Instance.book.Flip();
+            Action(true);
         }
         else if(context.canceled)
         {
-            //Action(false);
+            Action(false);
         }
     }
     public void InputSwitch(InputAction.CallbackContext context)
@@ -368,7 +369,12 @@ public class PlayerCtrl : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Pause");
+            Time.timeScale = 10;
 
+        }
+        if(context.canceled)
+        {
+            Time.timeScale = 1;
         }
     }
     #endregion

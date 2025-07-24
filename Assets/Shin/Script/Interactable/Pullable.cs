@@ -5,8 +5,10 @@ using UnityEngine.Rendering;
 
 public class Pullable : MonoBehaviour, IInteractable
 {
-    [SerializeField] bool isActivated;
-    [SerializeField] bool isPulling;
+    Rigidbody rigid;
+    bool isActivated;
+    bool isPulling;
+    [SerializeField] bool isRight;
     [SerializeField] [Range(0, 5)] float pullValue;
     [SerializeField] float spring;
     [SerializeField] Vector2 direction;
@@ -15,6 +17,7 @@ public class Pullable : MonoBehaviour, IInteractable
 
     void Start()
     {
+        rigid = GetComponent<Rigidbody>();
         defaultValue = pullValue;
     }
 
@@ -22,14 +25,14 @@ public class Pullable : MonoBehaviour, IInteractable
     {
         if (isPulling && !isActivated)
         {
-            if(GameManager.Instance.player.inputDirection != Vector2.zero)
+            Vector3 angle = direction.normalized - GameManager.Instance.player.inputDirection;
+            if (GameManager.Instance.player.inputDirection != Vector2.zero && angle.magnitude < 1)
             {
-                Vector3 angle = direction.normalized - GameManager.Instance.player.inputDirection;
-                if (angle.magnitude < 1)
+                float value = 1 - angle.magnitude;
+                if (value > 0.9f)
                 {
-                    float value = 1 - angle.magnitude;
                     pullValue -= value * Time.deltaTime;
-                    if(pullValue < 0.01f)
+                    if (pullValue < 0.01f)
                     {
                         GameManager.Instance.player.canMove = false;
                         isActivated = true;
@@ -57,15 +60,17 @@ public class Pullable : MonoBehaviour, IInteractable
     }
     public void OnActivate()
     {
-        Vector3 pos = transform.position + position;
-        isPulling = true;
-        GameManager.Instance.player.JoindAdjustment(true);
-        GameManager.Instance.player.transform.DOMove(pos, 0.5f).SetEase(Ease.OutCubic)
-            .OnComplete(()=>GameManager.Instance.player.JoindAdjustment(false));
+        if(GameManager.Instance.player.isRight == isRight)
+        {
+            isPulling = true;
+            Vector3 pos = transform.position + position;
+            GameManager.Instance.player.JointAdjustment(true);
+            GameManager.Instance.player.transform.DOMove(pos, 0.2f).SetEase(Ease.OutCubic)
+                .OnComplete(() => GameManager.Instance.player.JointAdjustment(false));
+        }
     }
     public void OnDeactivate()
     {
-
         isPulling = false;
         pullValue = defaultValue;
         GameManager.Instance.player.transform.DOPause();

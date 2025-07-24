@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayCutScene(int number)
     {
-        Debug.Log($"Cut {number} Start");
+        Debug.Log($"Scene {number} Start");
         director.playableAsset = timelines[number];
-        //director.Play();
+        director.Play();
     }
 
     public void Switch(bool characterToPlayer)

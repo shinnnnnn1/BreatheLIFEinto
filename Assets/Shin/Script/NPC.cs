@@ -4,16 +4,17 @@ using System.Collections;
 
 public class NPC : BookObject
 {
-    MeshRenderer mesh;
-
     [Space(30f)]
     [SerializeField] Transform bottom;
-    [SerializeField] Transform plane;
+    MeshRenderer mesh;
 
     public override void Start()
     {
+        mesh = GetComponentInChildren<MeshRenderer>();
+        mesh.gameObject.SetActive(false);
+
         bottom.localEulerAngles = new Vector3(90, 0, 0);
-        plane.gameObject.SetActive(false);
+
         base.Start();
     }
 
@@ -25,32 +26,29 @@ public class NPC : BookObject
     public override void SetObject()
     {
         base.SetObject();
-        StartCoroutine(FlipAnim());
+
+        float delay = 1f;
+        if(isActivate && !isRight)
+        {
+            delay = 1.25f;
+        }
+        Invoke("FlipAnim", delay);
     }
 
-    IEnumerator FlipAnim()
+    void FlipAnim()
     {
+        mesh.gameObject.SetActive(true);
         if (isActivate)
         {
-            //plane.gameObject.SetActive(true);
-           // bottom.DOLocalRotate(new Vector3(0, 0, 0), 1.8f).SetDelay(0.5f);
+            bottom.DOLocalRotate(new Vector3(0, 0, 0), 1f).SetEase(Ease.InOutCubic);
         }
         else
         {
-            bottom.DOLocalRotate(new Vector3(120, 0, 0), 2.0f).SetDelay(0.5f).SetEase(Ease.InOutQuad)
-                .OnComplete(() => plane.gameObject.SetActive(false));
+            float value = isRight ? 50f : 90f;
+            float time = isRight ? 0.8f : 1f;
+            bottom.DOLocalRotate(new Vector3(value, 0, 0), time).SetEase(Ease.OutQuad)
+                    .OnComplete(() => mesh.gameObject.SetActive(false));
         }
-        yield return new WaitForSeconds(1.25f);
-        plane.gameObject.SetActive(isActivate);
-        if (isActivate)
-        {
-            //plane.gameObject.SetActive(true);
-           // bottom.DOLocalRotate(new Vector3(0, 0, 0), 1.5f).SetDelay(0f).SetEase(Ease,);
-        }
-
-        yield return new WaitForSeconds(1f);
-       // plane.gameObject.SetActive(isActivate);
-
     }
 
     public override void AfterFlip()
