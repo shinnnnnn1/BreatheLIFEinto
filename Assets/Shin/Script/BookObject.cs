@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class BookObject : MonoBehaviour
@@ -19,8 +20,16 @@ public class BookObject : MonoBehaviour
     public bool isActivate;
     public bool isCurrent;
 
+    public Collider[] coll;
+
     public virtual void Start()
     {
+        coll = GetComponentsInChildren<Collider>();
+        foreach (Collider c in coll)
+        {
+            c.enabled = false;
+        }
+
         //Find Close Bone
         SetBone();
 
@@ -74,6 +83,10 @@ public class BookObject : MonoBehaviour
             transform.SetParent(GameManager.Instance.book.currentBones[closeIndex].transform);
         }
 
+        foreach (Collider c in coll)
+        {
+            c.enabled = isActivate;
+        }
     }
 
     public virtual void AfterFlip()

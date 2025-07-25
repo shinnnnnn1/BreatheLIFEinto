@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public Rigidbody rigid;
     ConfigurableJoint joint;
     CapsuleCollider coll;
@@ -212,7 +212,7 @@ public class PlayerCtrl : MonoBehaviour
         else { return false; }
     }
 
-    void Action(bool isActivate)
+    public void Action(bool isActivate)
     {
         //Dialogue
         if (interactingNPC != null)
@@ -401,4 +401,9 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    public void PlayerCanMove(bool pCanMove)
+    {
+        canMove = pCanMove;
+        rigid.isKinematic = !pCanMove;
+    }
 }

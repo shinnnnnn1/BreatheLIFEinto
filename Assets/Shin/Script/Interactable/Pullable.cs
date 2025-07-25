@@ -15,6 +15,9 @@ public class Pullable : MonoBehaviour, IInteractable
     [SerializeField] Vector3 position;
     float defaultValue;
 
+
+    [SerializeField] Test3 test;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -38,12 +41,18 @@ public class Pullable : MonoBehaviour, IInteractable
                         isActivated = true;
                         OnDeactivate();
 
-                        Debug.Log("Event");
+                        GameManager.Instance.PlayCutScene(1);
                     }
+                    test.AnimOn(true);
+                }
+                else
+                {
+                    test.AnimOn(false);
                 }
             }
             else
             {
+                test.AnimOn(false);
                 pullValue += Time.deltaTime;
                 pullValue = Mathf.Clamp(pullValue, 0, defaultValue);
             }
@@ -68,12 +77,17 @@ public class Pullable : MonoBehaviour, IInteractable
             GameManager.Instance.player.transform.DOMove(pos, 0.2f).SetEase(Ease.OutCubic)
                 .OnComplete(() => GameManager.Instance.player.JointAdjustment(false));
         }
+        else
+        {
+            OnDeactivate();
+        }
     }
     public void OnDeactivate()
     {
         isPulling = false;
         pullValue = defaultValue;
         GameManager.Instance.player.transform.DOPause();
+        GameManager.Instance.player.Action(false);
     }
 
     void OnDrawGizmos()
