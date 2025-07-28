@@ -8,19 +8,19 @@ public class BookObject : MonoBehaviour
     [Range(1, 10)] public int stage;
 
     [Space(10f)]
-    public bool isRight;
+    protected bool isRight;
 
     [Space(10f)]
-    public Transform closeBone;
-    public int closeIndex;
-    public float height;
+    protected Transform closeBone;
+    protected int closeIndex;
+    protected float height;
 
     [Space(10f)]
-    public bool isStatic;
-    public bool isActivate;
-    public bool isCurrent;
+    protected bool isStatic;
+    protected bool isActivate;
+    protected bool isCurrent;
 
-    public Collider[] coll;
+    protected Collider[] coll;
 
     public virtual void Start()
     {

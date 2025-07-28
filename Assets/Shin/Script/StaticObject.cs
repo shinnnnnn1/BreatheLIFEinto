@@ -5,11 +5,11 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class StaticObject : BookObject
 {
-    public SkinnedMeshRenderer[] mesh;
+    protected SkinnedMeshRenderer[] mesh;
 
-    [SerializeField] float y;
+    float y;
 
-    [SerializeField] Transform armature;
+    Transform armature;
 
     public override void Start()
     {
