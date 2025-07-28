@@ -70,7 +70,7 @@ public class Book : MonoBehaviour
         //Hide All Pages
         for (int i = 0; i < pages.Length; i++)
         {
-            //pages[i].gameObject.SetActive(false);
+            pages[i].gameObject.SetActive(false);
         }
 
         //Set Book Objects Start Position
@@ -82,6 +82,14 @@ public class Book : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animPage[1].speed = 1f;
         Debug.Log("Can Start");
+
+        for (int i = 0; i < pages.Length; i++)
+        {
+            pages[i].gameObject.SetActive(true);
+        }
+
+        GameManager.Instance.player.canMove = true;
+        GameManager.Instance.player.rigid.isKinematic = false;
     }
 
     void Update()
