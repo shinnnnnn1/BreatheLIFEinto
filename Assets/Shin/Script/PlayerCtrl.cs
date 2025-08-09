@@ -1,7 +1,8 @@
-using DG.Tweening;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -110,6 +111,18 @@ public class PlayerCtrl : MonoBehaviour
             rigid.isKinematic = true;
         }
         
+    }
+
+    /// <summary>
+    /// Enables or disables the player's movement.
+    /// </summary>
+    /// <param name="canMove">
+    /// true to allow the player to move; false to stop all movement.
+    /// </param>
+    public void SetPlayerMovementEnabled(bool canMove)
+    {
+        this.canMove = canMove;
+        rigid.isKinematic = !canMove;
     }
 
     void Movement()
@@ -278,19 +291,14 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    public void PlayerStop()
-    {
-        canMove = false;
-        rigid.isKinematic = true;
-    }
-
     public void PlayerFlip()
     {;
         fPos = transform.position.z;
         anim.SetBool("CanAnim", false);
         anim.SetTrigger("Stop");
         anim.SetFloat("VelocityX", 0);
-        PlayerStop();
+
+        SetPlayerMovementEnabled(false);
         transform.SetParent(GameManager.Instance.book.currentBones[8]);
         isFlipping = true;
 
@@ -321,9 +329,7 @@ public class PlayerCtrl : MonoBehaviour
 
         yield return null;
 
-        canMove = true;
-        rigid.isKinematic = false;
-
+        SetPlayerMovementEnabled(true);
     }
 
 
