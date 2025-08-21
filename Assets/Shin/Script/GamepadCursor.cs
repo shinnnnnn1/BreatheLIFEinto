@@ -28,6 +28,7 @@ public class GamepadCursor : MonoBehaviour
 
     void OnEnable()
     {
+        Debug.Log("start");
         mainCamera = Camera.main;
         currentMouse = Mouse.current;
 
@@ -45,7 +46,7 @@ public class GamepadCursor : MonoBehaviour
         if (cursorTransform != null)
         {
             Vector2 position = cursorTransform.anchoredPosition;
-            Debug.Log(virtualMouse.position);
+            //Debug.Log(virtualMouse.position);
             InputState.Change(virtualMouse.position, position);
         }
 
@@ -76,19 +77,22 @@ public class GamepadCursor : MonoBehaviour
         newPosition.y = Mathf.Clamp(newPosition.y, padding, Screen.height - padding);
 
         InputState.Change(virtualMouse.position, newPosition);
-        InputState.Change(virtualMouse.delta, deltaValue);
+        //InputState.Change(virtualMouse.delta, deltaValue);
 
         bool ButtonIsPressed = Gamepad.current.buttonEast.IsPressed();
         if (previousMouseState != ButtonIsPressed)
         {
             virtualMouse.CopyState<MouseState>(out var mouseState);
             mouseState.WithButton(MouseButton.Left, ButtonIsPressed);
+            
             InputState.Change(virtualMouse, mouseState);
             previousMouseState = ButtonIsPressed;
-            //Debug.Log("Gamepad Button");
+            //Debug.Log(mouseState);
         }
 
         AnchorCursor(newPosition);
+
+        //Debug.Log(ButtonIsPressed);
     }
 
     void AnchorCursor(Vector2 position)
@@ -101,6 +105,7 @@ public class GamepadCursor : MonoBehaviour
 
     void OnControlsChanged(PlayerInput input)
     {
+        Debug.Log("changed");
         if (playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme)
         {
             cursorTransform.gameObject.SetActive(false);
@@ -196,5 +201,36 @@ public class GamepadCursor : MonoBehaviour
     public void OnSwitch()
     {
         GameManager.Instance.Switch(false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (virtualMouse == null || canvasRectTransform == null) return;
+
+        Vector2 screenPos = virtualMouse.position.ReadValue();
+
+        Vector2 localPos;
+        Camera cam = null;
+        Canvas canvas = canvasRectTransform.GetComponentInParent<Canvas>();
+        if (canvas.renderMode != RenderMode.ScreenSpaceOverlay)
+            cam = canvas.worldCamera;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRectTransform,
+            virtualMouse.position.ReadValue(),
+            cam,
+            out localPos
+        );
+
+        Vector3 worldPos = canvasRectTransform.TransformPoint(localPos);
+
+        // 기즈모 색상 설정
+        Gizmos.color = Color.red;
+
+        // 구 형태로 표시
+        Gizmos.DrawSphere(worldPos, 0.5f);
+
+        // (선택) Canvas 위치에 선 표시
+        Gizmos.DrawLine(canvasRectTransform.position, worldPos);
     }
 }
