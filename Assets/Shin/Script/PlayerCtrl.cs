@@ -366,7 +366,6 @@ public class PlayerCtrl : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("switch");
-            GameManager.Instance.Switch(true);
 
         }
     }

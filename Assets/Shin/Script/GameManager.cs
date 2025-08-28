@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public PlayerCtrl player;
     public Book book;
     public PageTrigger trigger;
-    public GamepadCursor gamepadCursor;
+
 
     PlayerInput characterInput, playerInput;
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         director = GetComponent<PlayableDirector>();
 
         characterInput = player.GetComponent<PlayerInput>();
-        playerInput = gamepadCursor.GetComponent<PlayerInput>();
+        
     }
 
     public void PlayCutScene(int number)
@@ -47,18 +47,4 @@ public class GameManager : MonoBehaviour
         director.Play();
     }
 
-    public void Switch(bool characterToPlayer)
-    {
-        if(characterToPlayer)
-        {
-            characterInput.enabled = false;
-            //playerInput.enabled = true;
-            gamepadCursor.gameObject.SetActive(true);
-        }
-        else
-        {
-            gamepadCursor.gameObject.SetActive(false);
-            characterInput.enabled = true;
-        }
-    }
 }

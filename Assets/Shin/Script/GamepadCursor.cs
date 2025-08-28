@@ -148,6 +148,7 @@ public class GamepadCursor : MonoBehaviour
             mousePosition.x = Mathf.Clamp(mousePosition.x, padding, Screen.width - padding);
             mousePosition.y = Mathf.Clamp(mousePosition.y, padding, Screen.height - padding);
 
+            Debug.Log(mousePosition);
             AnchorCursor(mousePosition);
         }
     }
@@ -200,7 +201,7 @@ public class GamepadCursor : MonoBehaviour
 
     public void OnSwitch()
     {
-        GameManager.Instance.Switch(false);
+        
     }
 
     private void OnDrawGizmos()
