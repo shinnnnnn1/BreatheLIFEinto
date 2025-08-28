@@ -13,7 +13,7 @@ public class VirtualMouseSwitch : MonoBehaviour
     const string gamepadScheme = "Gamepad";
     const string mouseScheme = "Keyboard&Mouse";
 
-    void Awake()
+    void Start()
     {
         virtualMouseInput = GetComponent<VirtualMouseInput>();
     }

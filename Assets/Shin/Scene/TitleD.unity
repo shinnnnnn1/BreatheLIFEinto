@@ -865,9 +865,9 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1425374621}
-        m_TargetAssemblyTypeName: VirtualMouseSwitch, Assembly-CSharp
-        m_MethodName: OnControlsChanged
+      - m_Target: {fileID: 493322911}
+        m_TargetAssemblyTypeName: VirtualMouseCursorInput, Assembly-CSharp
+        m_MethodName: InputControlsChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -930,8 +930,24 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 493322911}
+        m_TargetAssemblyTypeName: VirtualMouseCursorInput, Assembly-CSharp
+        m_MethodName: InputExitCursor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eae0eaa6-9477-4a00-9e7b-4e362d047e20
+    m_ActionName: 'UI/ExitCursor[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1569597612}
@@ -3249,6 +3265,9 @@ GameObject:
   - component: {fileID: 493322906}
   - component: {fileID: 493322905}
   - component: {fileID: 493322904}
+  - component: {fileID: 493322911}
+  - component: {fileID: 493322909}
+  - component: {fileID: 493322910}
   m_Layer: 5
   m_Name: Canvas_Camera
   m_TagString: Untagged
@@ -3340,6 +3359,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &493322909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493322903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049c78168508e24469a00a7f1e1d0a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerActive: 0
+  playerInput: {fileID: 205282766}
+  model: {fileID: 11400000, guid: 417b68d4c018aa441a3c81c700e48add, type: 2}
+  virtualMouseInput: {fileID: 1425374619}
+--- !u!114 &493322910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493322903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd37a04b480af4e9c85d6e3712caaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualMouseInput: {fileID: 1425374619}
+  cursor: {fileID: 272763146}
+--- !u!114 &493322911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493322903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad614a609ad55c44880dd520cad88dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &683957817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,9 +6302,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1425374618}
   - component: {fileID: 1425374619}
-  - component: {fileID: 1425374620}
-  - component: {fileID: 1425374621}
-  - component: {fileID: 1425374622}
   m_Layer: 5
   m_Name: VirtualMouseUI
   m_TagString: Untagged
@@ -6388,44 +6446,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
---- !u!114 &1425374620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425374617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704a435fe61a0204ea0e36027cc5b29e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  padding: 30
---- !u!114 &1425374621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425374617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a491af4ab76bb06439eea47b791ac318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 205282766}
---- !u!114 &1425374622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425374617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f279138eb2c2b074caf00ea5fe581bda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1486360342
 GameObject:
   m_ObjectHideFlags: 0
