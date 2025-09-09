@@ -18,7 +18,7 @@ public class BookObject : MonoBehaviour
     [Space(10f)]
     protected bool isStatic;
     protected bool isActivate;
-    protected bool isCurrent;
+    //protected bool isCurrent;
 
     protected Collider[] coll;
 

@@ -292,7 +292,7 @@ public class PlayerCtrl : MonoBehaviour
     }
 
     public void PlayerFlip()
-    {;
+    {
         fPos = transform.position.z;
         anim.SetBool("CanAnim", false);
         anim.SetTrigger("Stop");
