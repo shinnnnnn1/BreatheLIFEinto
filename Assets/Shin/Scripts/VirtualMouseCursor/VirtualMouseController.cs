@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class VirtualMouseController : MonoBehaviour
 {
-    [Space(30f)]
+    [Space(10f)]
     [SerializeField] PlayerInput playerInput;
     [SerializeField] VirtualMouseModel model;
     [SerializeField] GraphicRaycaster[] raycasters;
