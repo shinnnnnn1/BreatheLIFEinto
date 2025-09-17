@@ -49,7 +49,7 @@ public class BaseObject : MonoBehaviour
             children[i] = transform.GetChild(i);
         }
         //オブジェクトの子を全て無効化
-        //SetObjectVisible(false);
+        SetObjectVisible(false);
 
         //オブジェクト情報の初期設定
         SetBone();
