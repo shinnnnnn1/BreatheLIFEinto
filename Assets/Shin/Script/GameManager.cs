@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     public Book book;
     public PageTrigger trigger;
 
-
     PlayerInput characterInput, playerInput;
 
     public PhysicsMaterial[] hMat;

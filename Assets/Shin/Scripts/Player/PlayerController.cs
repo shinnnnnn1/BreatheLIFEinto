@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         sphereColl.center = model.sphereOffset;
         sphereColl.radius = model.sphereRadius;
 
-        model.isRight = false;
+        model.isRight = true;
         model.isTurning = false;
         model.canMove = true;
     }
