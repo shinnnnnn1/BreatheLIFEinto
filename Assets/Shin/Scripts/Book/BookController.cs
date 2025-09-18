@@ -26,11 +26,13 @@ public class BookController : MonoBehaviour
     [SerializeField] BaseObject[] currentObjects;
 
     BookView view;
+    BookAfterFlip afterFlip;
 
     public virtual void Awake()
     {
-        //BookのViewを参照
+        //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
+        afterFlip = GetComponent<BookAfterFlip>();
 
         //PageのBoneを参照
         leftBones = leftBone.GetComponentsInChildren<Transform>();
@@ -49,6 +51,8 @@ public class BookController : MonoBehaviour
 
         //本の上のオブジェクトを全て参照
         bookObjects = objectParent.GetComponentsInChildren<BaseObject>();
+
+        view.SetAllPageVisibility(false);
     }
 
     /// <summary>
@@ -99,6 +103,15 @@ public class BookController : MonoBehaviour
         Debug.Log("Start");
     }
 
+    public void BookOpen()
+    {
+        StartCoroutine(OpenCoroutine());
+    }
+    IEnumerator OpenCoroutine()
+    {
+        yield return null;
+    }
+
     void Update()
     {
         if (isFlipping)
@@ -125,6 +138,7 @@ public class BookController : MonoBehaviour
 
     IEnumerator FlipCoroutine()
     {
+        view.SetPageVisibility(true, false);
         StartShape();
         foreach (var obj in bookObjects)
         {
@@ -132,18 +146,22 @@ public class BookController : MonoBehaviour
         }
 
         yield return null;
+
         view.PlayPageAnimation(2, "Flip");
+        view.PlayPageAnimation(3, "Reverse");
 
+        yield return new WaitForSeconds(1.25f);
 
-        yield return new WaitForSeconds(3f);
+        view.SetPageVisibility(false, true);
+        view.SetPageMaterial(currentPage);
+
+        yield return new WaitForSeconds(2f);
 
         foreach (var obj in bookObjects)
         {
             obj.AfterFlip(objectParents);
         }
-
         view.PlayPageAnimation(2, "Reset");
-
         isFlipping = false;
 
         //Reset Morph
@@ -152,6 +170,9 @@ public class BookController : MonoBehaviour
             shapes[i].DOPause();
             shapes[i].position = new Vector3(shapes[i].position.x, i < 9 ? 0 : 1, shapes[i].position.z);
         }
+
+        afterFlip.AfterFlip(currentPage);
+        view.SetPageVisibility(false, false);
     }
 
     void StartShape()
