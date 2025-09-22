@@ -26,7 +26,17 @@ public class EventManager : MonoBehaviour
     public void PlayCutScene(int number)
     {
         Debug.Log($"Scene {number} Start");
-        director.playableAsset = timelines[number];
+        //director.playableAsset = timelines[number];
         director.Play();
     }
+
+    public Rigidbody startRedHood;
+
+
+
+
+
+
+
+
 }

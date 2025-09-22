@@ -33,7 +33,7 @@ public class PlayerView : MonoBehaviour
     public void StandFlip(Transform stand, float value, bool isStart)
     {
         stand.gameObject.SetActive(true);
-        stand.DOLocalRotate(new Vector3(value, 0, 0), 0.8f).SetRelative()
+        stand.DOLocalRotate(new Vector3(-value, 0, 0), 0.8f).SetRelative()
             .OnComplete(()=> stand.gameObject.SetActive(!isStart));
     }
 
@@ -49,5 +49,10 @@ public class PlayerView : MonoBehaviour
     public void AdjustmentEulerAngles(Vector3 rot)
     {
         transform.eulerAngles = rot;
+    }
+
+    public void SetPlayerVisible(Transform stand, bool isVisible)
+    {
+        stand.gameObject.SetActive(isVisible);
     }
 }

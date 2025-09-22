@@ -26,13 +26,14 @@ public class BookController : MonoBehaviour
     [SerializeField] BaseObject[] currentObjects;
 
     BookView view;
-    BookAfterFlip afterFlip;
+    IBeforeAfterFlip beforeAfterFlip;
 
     public virtual void Awake()
     {
         //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
-        afterFlip = GetComponent<BookAfterFlip>();
+        beforeAfterFlip = GetComponent<IBeforeAfterFlip>();
+        Debug.Log(beforeAfterFlip);
 
         //PageのBoneを参照
         leftBones = leftBone.GetComponentsInChildren<Transform>();
@@ -52,7 +53,7 @@ public class BookController : MonoBehaviour
         //本の上のオブジェクトを全て参照
         bookObjects = objectParent.GetComponentsInChildren<BaseObject>();
 
-        view.SetAllPageVisibility(false);
+        //view.SetAllPageVisibility(false);
     }
 
     /// <summary>
@@ -138,6 +139,9 @@ public class BookController : MonoBehaviour
 
     IEnumerator FlipCoroutine()
     {
+        beforeAfterFlip.OnBeforeFlip(currentPage, out int beforeWaitTime);
+        yield return new WaitForSeconds(beforeWaitTime);
+
         view.SetPageVisibility(true, false);
         StartShape();
         foreach (var obj in bookObjects)
@@ -155,7 +159,7 @@ public class BookController : MonoBehaviour
         view.SetPageVisibility(false, true);
         view.SetPageMaterial(currentPage);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.75f);
 
         foreach (var obj in bookObjects)
         {
@@ -171,7 +175,7 @@ public class BookController : MonoBehaviour
             shapes[i].position = new Vector3(shapes[i].position.x, i < 9 ? 0 : 1, shapes[i].position.z);
         }
 
-        afterFlip.AfterFlip(currentPage);
+        beforeAfterFlip.OnAfterFlip(currentPage);
         view.SetPageVisibility(false, false);
     }
 

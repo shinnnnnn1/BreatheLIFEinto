@@ -16,7 +16,7 @@ public class PlayerModel : ScriptableObject
 
     [Space(10f)]
     public float posX = -0.0001f;
-    public Vector3 respawnPos = Vector3.zero;
+    public Vector3[] redHoodRespawn = new Vector3[9];
 
     [Header("Colliders")]
     public Vector3 boxOffset = Vector3.zero;

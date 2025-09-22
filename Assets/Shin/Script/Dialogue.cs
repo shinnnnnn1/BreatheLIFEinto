@@ -4,6 +4,9 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     [TextArea(3, 5)]
-    public string[] messages;
-    public bool[] isEvent;
+    public string[] title;
+
+    public bool[] isAuto;
+
+    public Vector3[] isEvent;
 }

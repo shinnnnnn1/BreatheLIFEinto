@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class FlipTrigger : MonoBehaviour
 {
-    public bool canFlip = true;
-    PlayerController playerController;
+   public  FlipTriggerController controller;
 
     void Start()
     {
-        playerController = FindFirstObjectByType<PlayerController>();
+        controller = GetComponentInParent<FlipTriggerController>();
     }
 
     void OnTriggerStay(Collider other)
     {
-        playerController.PlayerFlipTrigger();
+        controller.playerController.PlayerFlipTrigger();
     }
 }

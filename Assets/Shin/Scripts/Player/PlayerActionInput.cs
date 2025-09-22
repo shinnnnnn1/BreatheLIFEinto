@@ -39,4 +39,16 @@ public class PlayerActionInput : MonoBehaviour
             controller.ActionCancel();
         }
     }
+
+    public void InputDebug(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            Time.timeScale = 10;
+        }
+        else if (context.canceled)
+        {
+            Time.timeScale = 1;
+        }
+    }
 }

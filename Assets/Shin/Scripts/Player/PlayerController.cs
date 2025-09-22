@@ -231,6 +231,11 @@ public class PlayerController : MonoBehaviour
         transform.SetParent(null);
     }
 
+    public void SetPlayerVisible(bool isVisible)
+    {
+        view.SetPlayerVisible(stand, isVisible);
+    }
+
     //현재 해결 불가능. 이후 개선 필요
     private void OnDrawGizmos()
     {
