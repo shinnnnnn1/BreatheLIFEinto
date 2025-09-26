@@ -17,7 +17,7 @@ public class RedHoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
         switch (currentStage)
         {
             default:
-                Debug.Log("Defalut");
+                //Debug.Log("Defalut");
                 break;
                 
             case 7:

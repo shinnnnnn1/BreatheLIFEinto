@@ -36,6 +36,10 @@ public class PlayerModel : ScriptableObject
     public float hitBoxDistance = 0.5f;
     public LayerMask hitLayer;
 
+    [Space(10f)]
+    public float eventSphereRadius = 0.5f;
+    public LayerMask eventLayer;
+
     [Header("Player Info")]
     public bool isRight = true;
     public bool isTurning = false;

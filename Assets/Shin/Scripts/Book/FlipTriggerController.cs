@@ -10,11 +10,11 @@ public class FlipTriggerController : MonoBehaviour
 
     [SerializeField] Transform[] triggers;
 
-    public PlayerController playerController;
+    [HideInInspector] public PlayerController playerController;
 
     void Start()
     {
-        //triggers = GetComponentsInChildren<Transform>();
+        triggers = GetComponentsInChildren<Transform>().Where(w => w != this.transform).ToArray();
         ResetTrigger(currentTrigger);
 
         playerController = FindFirstObjectByType<PlayerController>();
@@ -24,8 +24,7 @@ public class FlipTriggerController : MonoBehaviour
     {
         for (int i = 0; i < triggers.Length; i++)
         {
-            bool isActivate = i == currentTrigger;
-            triggers[i].gameObject.SetActive(isActivate);
+            triggers[i].gameObject.SetActive(i == currentTrigger);
         }
     }
 }

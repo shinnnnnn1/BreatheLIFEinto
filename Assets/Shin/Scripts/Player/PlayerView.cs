@@ -32,7 +32,7 @@ public class PlayerView : MonoBehaviour
 
     public void StandFlip(Transform stand, float value, bool isStart)
     {
-        stand.gameObject.SetActive(true);
+        //stand.gameObject.SetActive(true);
         stand.DOLocalRotate(new Vector3(-value, 0, 0), 0.8f).SetRelative()
             .OnComplete(()=> stand.gameObject.SetActive(!isStart));
     }

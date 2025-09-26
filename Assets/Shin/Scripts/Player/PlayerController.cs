@@ -7,10 +7,14 @@ public class PlayerController : MonoBehaviour
     [Space(10f)]
     [SerializeField] PlayerModel model;
     [SerializeField] Transform stand;
+
+    [Space(10f)]
     public Vector2 moveDirection;
     public Vector2 zoomDirection;
 
+    [Space(10f)]
     [SerializeField] Transform interactingEvent;
+    IEventInvoker eventInvoker;
 
     PlayerView view;
     BookController book;
@@ -25,9 +29,18 @@ public class PlayerController : MonoBehaviour
 
     float flipPosZ;
 
-    //bool isPulling = false;
+    bool canGameStart = false;
+    bool isGameStarted = false;
+
     bool canFlip = false;
     bool isFlipping = false;
+
+    //엔딩 책 덮을때 false로 바꾸기
+    bool flipvisible = true;
+
+    //bool isPulling = false;
+
+    [HideInInspector] public bool isDialogue;
 
     void Start()
     {
@@ -46,7 +59,9 @@ public class PlayerController : MonoBehaviour
 
         model.isRight = true;
         model.isTurning = false;
-        model.canMove = true;
+        model.canMove = false;
+
+        SetPlayerVisible(false);
     }
 
     void Update()
@@ -74,7 +89,10 @@ public class PlayerController : MonoBehaviour
             {
                 view.AdjustmentEulerAngles(Vector3.zero);
             }
-        } 
+        }
+
+        Collider[] eventColls = Physics.OverlapSphere(transform.position, 0.5f, model.eventLayer, QueryTriggerInteraction.Collide);
+        interactingEvent = eventColls.Length > 0 ? eventColls[0].transform : null;
     }
 
     void FixedUpdate()
@@ -102,21 +120,12 @@ public class PlayerController : MonoBehaviour
             model.isTurning = true;
             model.isRight = !model.isRight;
             view.Turn(stand, model.isRight, model.turnTime);
-
-            //해결책 찾고 수정 필요
-            Invoke("SetIsTurningaaa", model.turnTime);
+            Invoke("SetIsTurning", model.turnTime);
         }
     }
 
-    void SetIsTurningaaa()
-    {
-        model.isTurning = false;
-    }
-    //해결책을 찾으면 아래로 바꾸고 일단 대충 위에걸로 사용
-    void SetIsTurning(bool value)
-    {
-        model.isTurning = value;
-    }
+    void SetIsTurning() => model.isTurning = false;
+
 
 
     public void Jump()
@@ -143,12 +152,23 @@ public class PlayerController : MonoBehaviour
 
     public void Action()
     {
+        //会話中
+        if(isDialogue)
+        {
+            eventInvoker?.StartEvent();
+            return;
+        }
+
         if (!model.canMove) { return; }
         if (!OnGround() || model.isTurning) { return; }
 
         if (interactingEvent != null)
         {
-
+            Transform interacting = interactingEvent.parent.transform;
+            IEventInvoker e = interacting.GetComponent<IEventInvoker>();
+            eventInvoker = e;
+            eventInvoker?.ResetEvent();
+            eventInvoker?.StartEvent();
         }
         else if(IsHit())
         {
@@ -179,6 +199,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetIsDialogue(bool isDia) => isDialogue = isDia;
+
+
+
     public void SetCanMove(bool canMove)
     {
         model.canMove = canMove;
@@ -202,11 +226,15 @@ public class PlayerController : MonoBehaviour
 
     void PlayerFlip()
     {
+        currentVelocity = Vector3.zero;
         canFlip = false;
         isFlipping = true;
         SetCanMove(false);
+
         transform.SetParent(book.currentBones[8]);
+
         book.Flip();
+
         StartCoroutine(PlayerFlipCoroutine());
     }
 
@@ -222,12 +250,10 @@ public class PlayerController : MonoBehaviour
         flipRot = new Vector3(0, 0, -90);
         view.StandFlip(stand, rotValue, false);
 
-        yield return new WaitForSeconds(1.25f);
-        SetCanMove(true);
+        SetPlayerVisible(flipvisible);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.75f);
         isFlipping = false;
-        rigid.linearVelocity = Vector3.zero;
         transform.SetParent(null);
     }
 
@@ -236,7 +262,23 @@ public class PlayerController : MonoBehaviour
         view.SetPlayerVisible(stand, isVisible);
     }
 
-    //현재 해결 불가능. 이후 개선 필요
+
+
+    public void SetCanGameStart() => canGameStart = true;
+    public void SetGameStart()
+    {
+        if (!isGameStarted && canGameStart)
+        {
+            isGameStarted = true;
+            StartCoroutine(GameStartCoroutine());
+        }
+    }
+    IEnumerator GameStartCoroutine()
+    {
+        yield return null;
+        PlayerFlip();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -262,5 +304,9 @@ public class PlayerController : MonoBehaviour
         Vector3 isHitBoxSize = model.hitBoxSize;
         Gizmos.DrawSphere(isHitBoxOffset, 0.01f);
         Gizmos.DrawWireCube(isHitBoxPos, isHitBoxSize);
+
+        Gizmos.color = Color.cyan;
+        float eventSphereRadius = model.eventSphereRadius;
+        Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
     }
 }

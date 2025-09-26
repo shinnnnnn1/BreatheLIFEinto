@@ -10,18 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67b13d75be561b145a762afcd66b1e6c, type: 3}
-  m_Name: Dialogue_Sample
+  m_Name: Dialogue_Sample2
   m_EditorClassIdentifier: 
   messages:
-  - press button
-  - 'can skip '
-  - this is auto
-  - can auto end
+  - All Auto
   delay:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  isAuto: 00000101
-  isInvisible: 00010000
-  events: 00000000000000000000000000000000
+  - {x: 0, y: 1}
+  isAuto: 01
+  isInvisible: 00
+  events: 00000000

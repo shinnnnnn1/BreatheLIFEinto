@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca461fd9971d7c4eac02f815e3d50b4, type: 3}
   m_Name: PlayerModel
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 2
   accelerationTime: 0.05
   decelerationTime: 0.1
   jumpPow: 5
@@ -44,9 +44,13 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+  eventSphereRadius: 1
+  eventLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   isRight: 1
   isTurning: 0
-  isHolding: 0
+  isHolding: 1
   canJump: 1
   canSwitch: 1
-  canMove: 1
+  canMove: 0

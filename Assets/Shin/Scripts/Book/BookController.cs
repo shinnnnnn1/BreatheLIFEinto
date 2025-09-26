@@ -27,13 +27,14 @@ public class BookController : MonoBehaviour
 
     BookView view;
     IBeforeAfterFlip beforeAfterFlip;
+    PlayerController player;
 
     public virtual void Awake()
     {
         //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
         beforeAfterFlip = GetComponent<IBeforeAfterFlip>();
-        Debug.Log(beforeAfterFlip);
+        player = FindFirstObjectByType<PlayerController>();
 
         //PageのBoneを参照
         leftBones = leftBone.GetComponentsInChildren<Transform>();
@@ -102,6 +103,7 @@ public class BookController : MonoBehaviour
         view.SetAnimationSpeed(0, 1f);
 
         Debug.Log("Start");
+        player.SetCanGameStart();
     }
 
     public void BookOpen()
@@ -127,10 +129,10 @@ public class BookController : MonoBehaviour
     public void Flip()
     {
         if (isFlipping) { return; }
-        Debug.Log($"Currently on Page [ {currentPage} ]");
 
         isFlipping = true;
         currentPage++;
+        Debug.Log($"Currently on Page [ {currentPage} ]");
 
         cTime = Time.time;
 

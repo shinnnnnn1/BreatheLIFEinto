@@ -51,4 +51,11 @@ public class PlayerActionInput : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+    public void InputAnyKey(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.SetGameStart();
+        }
+    }
 }

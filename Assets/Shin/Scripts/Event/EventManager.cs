@@ -16,27 +16,20 @@ public class EventManager : MonoBehaviour
     }
 
     public PlayableAsset[] timelines;
+    public PlayerController playerController;
+
     PlayableDirector director;
 
     void Start()
     {
         director = GetComponent<PlayableDirector>();
+        playerController = FindFirstObjectByType<PlayerController>();
     }
 
     public void PlayCutScene(int number)
     {
-        Debug.Log($"Scene {number} Start");
-        //director.playableAsset = timelines[number];
+        Debug.Log($"Event {number} Start");
+        director.playableAsset = timelines[number];
         director.Play();
     }
-
-    public Rigidbody startRedHood;
-
-
-
-
-
-
-
-
 }
