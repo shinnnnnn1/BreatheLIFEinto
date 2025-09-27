@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b13d75be561b145a762afcd66b1e6c, type: 3}
   m_Name: Dialogue_Sample2
   m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 1
   messages:
   - All Auto
+  spriteType: 00000000
   delay:
   - {x: 0, y: 1}
   isAuto: 01
+  autoDelay:
+  - 0
   isInvisible: 00
+  talkerId: 00000000
+  fontSize: 00000000
   events: 00000000

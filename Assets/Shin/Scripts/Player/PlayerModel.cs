@@ -4,9 +4,11 @@ using UnityEngine;
 public class PlayerModel : ScriptableObject
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 1.0f;
+    public float moveSpeed = 2.0f;
     public float accelerationTime = 0.1f;
     public float decelerationTime = 0.1f;
+    public float defaultSpeed = 2.0f;
+    public float holdingSpeed = 0.5f;
 
     [Space(10f)]
     public float jumpPow;
@@ -35,6 +37,7 @@ public class PlayerModel : ScriptableObject
     public Vector3 hitBoxSize = Vector3.one;
     public float hitBoxDistance = 0.5f;
     public LayerMask hitLayer;
+    public Vector2 jointAnchorRight = Vector3.zero;
 
     [Space(10f)]
     public float eventSphereRadius = 0.5f;
@@ -49,4 +52,5 @@ public class PlayerModel : ScriptableObject
     public bool canJump = true;
     public bool canSwitch = true;
     public bool canMove = false;
+    public bool canAnim = true;
 }

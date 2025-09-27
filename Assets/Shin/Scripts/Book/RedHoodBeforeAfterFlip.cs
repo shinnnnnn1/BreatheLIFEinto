@@ -35,6 +35,7 @@ public class RedHoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
         {
             case 1:
                 EventManager.Instance.PlayCutScene(0);
+                //player.SetCanMove(true);
                 break;
             case 2:
                 player.SetCanMove(true);

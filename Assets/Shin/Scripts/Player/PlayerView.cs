@@ -55,4 +55,17 @@ public class PlayerView : MonoBehaviour
     {
         stand.gameObject.SetActive(isVisible);
     }
+
+    public void SetPlayerAnim(string name, float value)
+    {
+        anim.SetFloat(name, value);
+    }
+    public void SetPlayerAnim(string name, bool value)
+    {
+        anim.SetBool(name, value);
+    }
+    public void SetPlayerAnim(string name)
+    {
+        anim.SetTrigger(name);
+    }
 }

@@ -15,6 +15,8 @@ MonoBehaviour:
   moveSpeed: 2
   accelerationTime: 0.05
   decelerationTime: 0.1
+  defaultSpeed: 2
+  holdingSpeed: 1
   jumpPow: 5
   turnTime: 0.1
   posX: -0.000085
@@ -38,19 +40,21 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1015
-  hitBoxOffset: {x: 0, y: 0.4, z: 0}
+  hitBoxOffset: {x: -0.4, y: 0.4, z: 0}
   hitBoxSize: {x: 0.2, y: 0.8, z: 0.05}
-  hitBoxDistance: 0.45
+  hitBoxDistance: 0.85
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
+  jointAnchorRight: {x: 0.35, y: 0.1}
   eventSphereRadius: 1
   eventLayer:
     serializedVersion: 2
     m_Bits: 1024
   isRight: 1
   isTurning: 0
-  isHolding: 1
+  isHolding: 0
   canJump: 1
   canSwitch: 1
   canMove: 0
+  canAnim: 1

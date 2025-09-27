@@ -10,27 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67b13d75be561b145a762afcd66b1e6c, type: 3}
-  m_Name: Dialogue_Sample
+  m_Name: Dialogue_Sample3
   m_EditorClassIdentifier: 
   canMoveOnDialogueEnd: 1
   messages:
-  - press button
-  - 
-  - this is auto
+  - 12345
+  - 67890
+  - '!!!!!'
+  - ???????
   - last message
-  spriteType: 00000000000000000100000000000000
+  spriteType: 0000000000000000010000000000000000000000
   delay:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  isAuto: 00000100
+  - {x: 0, y: 0}
+  isAuto: 0000000000
   autoDelay:
   - 0
   - 0
   - 0
   - 0
-  isInvisible: 00010000
-  talkerId: 00000000000000000000000000000000
-  fontSize: 00000000000000000000000000000000
-  events: 00000000000000000000000000000000
+  - 0
+  isInvisible: 0000000000
+  talkerId: 0000000001000000010000000000000000000000
+  fontSize: 0000000000000000000000000200000000000000
+  events: 0000000000000000000000000000000000000000

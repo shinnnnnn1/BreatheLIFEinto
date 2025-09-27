@@ -48,6 +48,7 @@ public class StaticObjectt : BaseObject
         base.SetBookObject(currentStage, currentBones, shapes, model);
         if(isCurrent)
         {
+            //Updateでシェイプキーを調整できるようにする
             int i = isActivate ? 0 : 9;
             shape = shapes[i + closeIndex];
             canShape = true;
