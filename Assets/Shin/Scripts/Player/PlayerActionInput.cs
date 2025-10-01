@@ -44,7 +44,7 @@ public class PlayerActionInput : MonoBehaviour
     {
         if(context.started)
         {
-            Time.timeScale = 10;
+            Time.timeScale = 30;
         }
         else if (context.canceled)
         {

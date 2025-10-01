@@ -25,6 +25,10 @@ public class Holdable : MonoBehaviour, IInteractable
         rigid.mass = 1f;
         coll.sharedMaterial = GameManager.Instance.hMat[0];
     }
+    public void OnActivate(PlayerController p, out bool isPullable)
+    {
+        isPullable = false;
+    }
     public void OnDeactivate()
     {
         rigid.mass = 100f;

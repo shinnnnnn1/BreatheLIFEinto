@@ -250,7 +250,7 @@ public class PlayerCtrl : MonoBehaviour
                 joint.connectedBody = hHit.rigidbody;
 
                 interactable = hHit.collider.GetComponent<IInteractable>();
-                interactable?.OnActivate();
+                //interactable?.OnActivate();
             }
             else if(!isActivate && isHolding)
             {
@@ -261,7 +261,7 @@ public class PlayerCtrl : MonoBehaviour
                 isPulling = false;
                 maxSpd = defaultMaxSpd;
 
-                interactable?.OnDeactivate();
+                //interactable?.OnDeactivate();
 
                 joint.connectedBody = defaultRigid;
             }

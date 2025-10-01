@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -6,8 +7,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Space(10f)]
-    [SerializeField] PlayerModel model;
-    [SerializeField] Transform stand;
+    public PlayerModel model;
+    //시험용. 나중에 SerializeField로 바꿔야됨
+    public Transform stand;
 
     [Space(10f)]
     public Vector2 moveDirection;
@@ -19,17 +21,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] DialoguePlayer dialogueP;
     [SerializeField] DialoguePlayer currentDialogue;
 
-    PlayerView view;
+    [HideInInspector] public PlayerView view;
     PlayerHold jointHold;
     BookController book;
 
-    Rigidbody rigid;
+    [HideInInspector] public Rigidbody rigid;
     BoxCollider boxColl;
     SphereCollider sphereColl;
 
     RaycastHit hit;
+    IPullable pullable;
 
-    Vector3 currentVelocity;
+    [SerializeField] Vector3 currentVelocity;
     Vector3 velocityRef;
     Vector3 flipRot;
 
@@ -44,7 +47,13 @@ public class PlayerController : MonoBehaviour
     //엔딩 책 덮을때 false로 바꾸기
     bool flipvisible = true;
 
+    Vector3 tension;
+    [SerializeField] float angleAccuracy;
+
     bool isPulling = false;
+    bool lockDirection = false;
+    bool isDirX;
+    bool isDirPositive;
 
     [HideInInspector] public bool isDialogue;
 
@@ -133,6 +142,9 @@ public class PlayerController : MonoBehaviour
             if (model.isHolding) { SetHoldingDirection(); }
         }
 
+        ////アニメーションを手動で操作する場合がある。
+        if (!model.canAnim) { return; }
+
         //
         view.SetPlayerAnim("OnGround", OnGround());
         //
@@ -147,10 +159,61 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 inputDir = new Vector3(moveDirection.x, 0, moveDirection.y).normalized;
         Vector3 targetVelocity = inputDir * model.moveSpeed;
-        float smoothTime = inputDir.magnitude > 0 ? model.accelerationTime : model.decelerationTime;
-        currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref velocityRef, smoothTime);
+        if (!model.isHolding)
+        {
+            float smoothTime = inputDir.magnitude > 0 ? model.accelerationTime : model.decelerationTime;
+            currentVelocity = Vector3.SmoothDamp(currentVelocity, targetVelocity, ref velocityRef, smoothTime);
 
-        view.SetLinearVelocity(currentVelocity);
+            view.SetLinearVelocity(currentVelocity);
+        }
+        else
+        {
+            if(angleAccuracy < 1)
+            {
+                view.SetLinearVelocity(targetVelocity + tension);
+            }
+            else
+            {
+                view.SetLinearVelocity(Vector3.zero);
+            }
+        }
+
+
+        //引っ張っているときに加わる力
+        Vector3 finalVelocity = currentVelocity + tension;
+
+        //計算が終わったVector3をViewに渡し、移動させる。
+        //view.SetLinearVelocity(finalVelocity);
+
+        //view.SetLinearVelocity(currentVelocity + new Vector3(poww, 0, 0));
+
+        //Pull中、特定方向以外の移動はできなくする。
+        if (lockDirection)
+        {
+            //
+            if(inputDir.magnitude > 0)
+            {
+               // currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, 0.5f);
+            }
+
+            /*
+
+            float currentX = currentVelocity.x;
+            float currentZ = currentVelocity.z;
+            if (isDirX)
+            {
+                currentX = isDirPositive ? Mathf.Max(currentVelocity.x, 0) : Mathf.Min(currentVelocity.x, 0); 
+            }
+            else
+            {
+                currentZ = isDirPositive ? Mathf.Max(currentVelocity.z, 0) : Mathf.Min(currentVelocity.z, 0);
+            }
+            currentVelocity = new Vector3(currentX, currentVelocity.y, currentZ);
+            */
+        }
+
+        //計算が終わったVector3をViewに渡し、移動させる。
+        //view.SetLinearVelocity(currentVelocity);
     }
 
     void Turn()
@@ -233,11 +296,21 @@ public class PlayerController : MonoBehaviour
         }
         else if(IsHit() && OnGround() && !model.isTurning && model.canJump)
         {
-            view.SetPlayerAnim("IsPulling", true);
             SetHoldingInfo(true);
 
-            jointHold.SetJoint(model.isRight, model.jointAnchorRight, rigid, hit.rigidbody);
-
+            pullable = hit.collider.GetComponent<IPullable>();
+            if (pullable != null)
+            {
+                SetCanAnim(false);
+                pullable.OnActivate(this, model.isRight);
+            }
+            else
+            {
+                //바로 당기는 모션이 실행됨
+                view.SetPlayerAnim("StartHold");
+                view.SetPlayerAnim("IsPulling", true);
+                jointHold.SetJoint(model.isRight, model.jointAnchorRight, hit.rigidbody);
+            }
         }
     }
 
@@ -248,6 +321,12 @@ public class PlayerController : MonoBehaviour
         {
             SetHoldingInfo(false);
             jointHold.ResetJoint();
+
+            pullable?.OnDeactivate();
+            pullable = null;
+
+            SetCanAnim(true);
+            view.SetPlayerAnim("StopHold");
         }
     }
 
@@ -258,7 +337,6 @@ public class PlayerController : MonoBehaviour
         model.canJump = !isActivate;
         model.isHolding = isActivate;
         model.moveSpeed = isActivate ? model.holdingSpeed : model.defaultSpeed;
-        view.SetPlayerAnim(isActivate ? "StartHold" : "StopHold");
     }
 
     bool IsHit()
@@ -281,6 +359,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+    public void SetConstraints(bool dirX, bool dirPositive)
+    {
+        isDirX = dirX;
+        isDirPositive = dirPositive;
+        rigid.constraints = dirX ? RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation :
+                RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
+    }
+    public void SetConstraints()
+    {
+        lockDirection = false;
+        rigid.constraints = RigidbodyConstraints.FreezeRotation;
+    }
+
+    public void SetTension(Vector3 t) => tension = t;
+    public void SetAngleAccuracy(float accuracy) => angleAccuracy = accuracy;
+
 
 
     public void SetCanMove(bool canMove)
@@ -293,6 +388,9 @@ public class PlayerController : MonoBehaviour
         model.canMove = canMove;
         rigid.isKinematic = isKinematic;
     }
+    public void SetCanAnim(bool canAnim) => model.canAnim = canAnim;
+
+
 
     public void PlayerFlipTrigger()
     {

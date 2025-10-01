@@ -9,7 +9,7 @@ public class Pullable : MonoBehaviour, IInteractable
     bool isActivated;
     bool isPulling;
     [SerializeField] bool isRight;
-    [SerializeField] [Range(0, 5)] float pullValue;
+    [SerializeField][Range(0, 5)] float pullValue;
     [SerializeField] float spring;
     [SerializeField] Vector2 direction;
     [SerializeField] Vector3 position;
@@ -69,7 +69,7 @@ public class Pullable : MonoBehaviour, IInteractable
     }
     public void OnActivate()
     {
-        if(GameManager.Instance.player.isRight == isRight)
+        if (GameManager.Instance.player.isRight == isRight)
         {
             isPulling = true;
             Vector3 pos = transform.position + position;
@@ -81,6 +81,10 @@ public class Pullable : MonoBehaviour, IInteractable
         {
             OnDeactivate();
         }
+    }
+    public void OnActivate(PlayerController p, out bool isPullable)
+    {
+        isPullable = true;
     }
     public void OnDeactivate()
     {
