@@ -58,4 +58,20 @@ public class PlayerActionInput : MonoBehaviour
             controller.SetGameStart();
         }
     }
+
+    public void InputTurnBookL(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.TurnBook(false);
+        }
+    }
+
+    public void InputTurnBookR(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.TurnBook(true);
+        }
+    }
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 447292860255221214}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.497, z: -0}
+  m_LocalPosition: {x: 0, y: 0.45, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -136,7 +136,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2732520417202317402}
@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 7940280902859646012}
   - component: {fileID: 4019111240626474072}
   - component: {fileID: 8095967689756624907}
+  - component: {fileID: 5417339641410004546}
   - component: {fileID: 3837000077382859022}
   m_Layer: 3
   m_Name: Player_V2
@@ -189,7 +190,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3100923487017161994}
-  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_Material: {fileID: 13400000, guid: eb0336c8d370add4c9986f5f51e32c82, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -210,7 +211,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3100923487017161994}
-  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_Material: {fileID: 13400000, guid: 10ddd4c050b12a045af79eb1fb0f4399, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -247,10 +248,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &7940280902859646012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +281,13 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   interactingEvent: {fileID: 0}
-  a: 0
+  dialogueP: {fileID: 0}
+  currentDialogue: {fileID: 0}
+  view: {fileID: 0}
+  rigid: {fileID: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  angleAccuracy: 0
+  isDialogue: 0
 --- !u!114 &8095967689756624907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +300,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2616475a4f4268644a0c2751f17f2c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5417339641410004546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100923487017161994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b135f5f935c832a4e941a6be7088151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint: {fileID: 0}
+  playerRigid: {fileID: 0}
+  targetRigid: {fileID: 0}
 --- !u!114 &3837000077382859022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +484,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3a22fd18-b05d-471b-957f-7057f5daff3d
     m_ActionName: Player/Pause
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7940280902859646012}
+        m_TargetAssemblyTypeName: PlayerActionInput, Assembly-CSharp
+        m_MethodName: InputDebug
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 881f1204-7e8c-48e1-9286-682c0b83a82b
+    m_ActionName: 'Player/Debug[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7940280902859646012}
+        m_TargetAssemblyTypeName: PlayerActionInput, Assembly-CSharp
+        m_MethodName: InputAnyKey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6abf115-ab37-4c21-b175-c28fa0c8cd92
+    m_ActionName: 'Player/AnyButton[/Keyboard/anyKey]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -545,14 +599,14 @@ ConfigurableJoint:
   m_XMotion: 1
   m_YMotion: 1
   m_ZMotion: 1
-  m_AngularXMotion: 2
+  m_AngularXMotion: 0
   m_AngularYMotion: 1
-  m_AngularZMotion: 2
+  m_AngularZMotion: 1
   m_LinearLimitSpring:
-    spring: 0
+    spring: 200
     damper: 0
   m_LinearLimit:
-    limit: 0
+    limit: 0.01
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
@@ -570,36 +624,36 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 0
+    limit: 30
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 1000
+    positionDamper: 10
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_YDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 1000
+    positionDamper: 500
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_ZDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 1000
+    positionDamper: 10
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 0
+  m_RotationDriveMode: 1
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 0
@@ -614,18 +668,18 @@ ConfigurableJoint:
     useAcceleration: 0
   m_SlerpDrive:
     serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 10
+    positionDamper: 1
     maximumForce: 3.4028233e+38
     useAcceleration: 0
-  m_ProjectionMode: 0
+  m_ProjectionMode: 1
   m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
+  m_ProjectionAngle: 30
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1

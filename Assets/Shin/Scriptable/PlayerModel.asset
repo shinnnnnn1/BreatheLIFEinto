@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca461fd9971d7c4eac02f815e3d50b4, type: 3}
   m_Name: PlayerModel
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
   accelerationTime: 0.05
   decelerationTime: 0.1
-  defaultSpeed: 2
+  defaultSpeed: 3
   holdingSpeed: 1
   jumpPow: 5
   turnTime: 0.1
@@ -56,5 +56,5 @@ MonoBehaviour:
   isHolding: 0
   canJump: 1
   canSwitch: 1
-  canMove: 0
+  canMove: 1
   canAnim: 1

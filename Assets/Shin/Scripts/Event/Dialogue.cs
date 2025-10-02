@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Dialogue : ScriptableObject
 {
     public bool canMoveOnDialogueEnd;
+    public bool canProceedOnDialogueEnd;
 
     [TextArea(3, 5)]
     public string[] messages;

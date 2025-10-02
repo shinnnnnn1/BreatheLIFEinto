@@ -1,26 +1,28 @@
 using UnityEngine;
 
-public class RHE00_RedHoodStart : MonoBehaviour
+public class RHE00_RedhoodStart : MonoBehaviour
 {
     [SerializeField] bool isMovingRedHood;
-    [SerializeField] Rigidbody startRedHood;
+    [SerializeField] Animator startRHAnim;
+    [SerializeField] Rigidbody startRHRigid;
 
     public void StartRedHoodMoving(bool isMoving)
     {
         isMovingRedHood = isMoving;
-        startRedHood.isKinematic = !isMoving;
+        startRHRigid.isKinematic = !isMoving;
+        startRHAnim.SetTrigger("Walk");
     }
 
     void FixedUpdate()
     {
         if(isMovingRedHood)
         {
-            startRedHood.linearVelocity = new Vector3(2, 0, 0);
+            startRHRigid.linearVelocity = new Vector3(2, 0, 0);
         }
     }
 
     public void StartRedHoodDisable()
     {
-        startRedHood.gameObject.SetActive(false);
+        startRHRigid.gameObject.SetActive(false);
     }
 }

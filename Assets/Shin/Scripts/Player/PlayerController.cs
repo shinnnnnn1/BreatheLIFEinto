@@ -51,9 +51,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float angleAccuracy;
 
     bool isPulling = false;
-    bool lockDirection = false;
-    bool isDirX;
-    bool isDirPositive;
 
     [HideInInspector] public bool isDialogue;
 
@@ -109,7 +106,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
         //範囲内のNPCを参照。複数の場合は一番近いNPCを参照。
         //参照と同時に会話アイコンが表示され、対象外になったらアイコンが非表示される。
         Collider[] eventColls = Physics.OverlapSphere(transform.position, 0.5f, model.eventLayer, QueryTriggerInteraction.Collide)
@@ -121,7 +117,7 @@ public class PlayerController : MonoBehaviour
                 dialogueP?.CanStartEvent(false);
                 interactingEvent = eventColls[0].transform;
                 dialogueP = interactingEvent.GetComponentInParent<DialoguePlayer>();
-                dialogueP.CanStartEvent(true);
+                dialogueP?.CanStartEvent(true);
             }
         }
         else
@@ -177,43 +173,6 @@ public class PlayerController : MonoBehaviour
                 view.SetLinearVelocity(Vector3.zero);
             }
         }
-
-
-        //引っ張っているときに加わる力
-        Vector3 finalVelocity = currentVelocity + tension;
-
-        //計算が終わったVector3をViewに渡し、移動させる。
-        //view.SetLinearVelocity(finalVelocity);
-
-        //view.SetLinearVelocity(currentVelocity + new Vector3(poww, 0, 0));
-
-        //Pull中、特定方向以外の移動はできなくする。
-        if (lockDirection)
-        {
-            //
-            if(inputDir.magnitude > 0)
-            {
-               // currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, 0.5f);
-            }
-
-            /*
-
-            float currentX = currentVelocity.x;
-            float currentZ = currentVelocity.z;
-            if (isDirX)
-            {
-                currentX = isDirPositive ? Mathf.Max(currentVelocity.x, 0) : Mathf.Min(currentVelocity.x, 0); 
-            }
-            else
-            {
-                currentZ = isDirPositive ? Mathf.Max(currentVelocity.z, 0) : Mathf.Min(currentVelocity.z, 0);
-            }
-            currentVelocity = new Vector3(currentX, currentVelocity.y, currentZ);
-            */
-        }
-
-        //計算が終わったVector3をViewに渡し、移動させる。
-        //view.SetLinearVelocity(currentVelocity);
     }
 
     void Turn()
@@ -266,6 +225,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+
+
+    #region CHARACTER ACTION ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// 
     /// </summary>
@@ -359,17 +322,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
-    public void SetConstraints(bool dirX, bool dirPositive)
+    public void SetConstraints(bool dirX)
     {
-        isDirX = dirX;
-        isDirPositive = dirPositive;
         rigid.constraints = dirX ? RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation :
                 RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
     }
     public void SetConstraints()
     {
-        lockDirection = false;
         rigid.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
@@ -378,6 +337,14 @@ public class PlayerController : MonoBehaviour
 
 
 
+    public void TurnBook(bool isRightTurn)
+    {
+        Debug.Log(isRightTurn);
+    }
+    #endregion
+
+
+    #region PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetCanMove(bool canMove)
     {
         model.canMove = canMove;
@@ -388,10 +355,16 @@ public class PlayerController : MonoBehaviour
         model.canMove = canMove;
         rigid.isKinematic = isKinematic;
     }
+    public void SetPlayerVisible(bool isVisible)
+    {
+        view.SetPlayerVisible(stand, isVisible);
+    }
     public void SetCanAnim(bool canAnim) => model.canAnim = canAnim;
+    #endregion
 
 
 
+    #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void PlayerFlipTrigger()
     {
         if (model.canMove && model.isRight && !canFlip)
@@ -440,14 +413,11 @@ public class PlayerController : MonoBehaviour
         //アニメーションができるようにする
         view.SetPlayerAnim("CanAnim", true);
     }
-
-    public void SetPlayerVisible(bool isVisible)
-    {
-        view.SetPlayerVisible(stand, isVisible);
-    }
+    #endregion
 
 
 
+    #region GAME START ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetCanGameStart() => canGameStart = true;
     public void SetGameStart()
     {
@@ -462,6 +432,7 @@ public class PlayerController : MonoBehaviour
         yield return null;
         PlayerFlip();
     }
+    #endregion
 
     private void OnDrawGizmos()
     {

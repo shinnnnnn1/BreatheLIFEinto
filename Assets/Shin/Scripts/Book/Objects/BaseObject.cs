@@ -124,6 +124,9 @@ public class BaseObject : MonoBehaviour
     {
         foreach (Transform t in children)
         {
+            //NPCの場合、会話のコライダーはコライダー全体の有効無効で制御している。
+            if (t.name == "NPCCylinder") continue;
+
             t.gameObject.SetActive(visible);
         }
     }

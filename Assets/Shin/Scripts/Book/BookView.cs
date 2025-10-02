@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class BookView : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class BookView : MonoBehaviour
     }
 
     public void SetPageMaterial(int currentPage)
+    {
+
+    }
+
+    public void TurnBookAnimation(bool isRightTurn)
     {
 
     }

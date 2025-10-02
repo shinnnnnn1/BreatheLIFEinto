@@ -28,13 +28,18 @@ public class BookController : MonoBehaviour
     BookView view;
     IBeforeAfterFlip beforeAfterFlip;
     PlayerController player;
+    FlipTriggerController flipController;
 
     public virtual void Awake()
     {
+        //開発用。スタート地点を設定できる。すごい！
+        currentPage = model.setStartPage;
+
         //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
         beforeAfterFlip = GetComponent<IBeforeAfterFlip>();
         player = FindFirstObjectByType<PlayerController>();
+        flipController = FindFirstObjectByType<FlipTriggerController>();
 
         //PageのBoneを参照
         leftBones = leftBone.GetComponentsInChildren<Transform>();
@@ -179,6 +184,8 @@ public class BookController : MonoBehaviour
 
         beforeAfterFlip.OnAfterFlip(currentPage);
         view.SetPageVisibility(false, false);
+
+        flipController.canProceed = false;
     }
 
     void StartShape()
@@ -195,6 +202,11 @@ public class BookController : MonoBehaviour
             float delay = model.curveShape[3].Evaluate(i - 10);
             shapes[i].DOLocalMoveY(0, time).SetDelay(delay).SetEase(Ease.InOutQuad);
         }
+    }
+
+    public void TurnBook(bool isRightTurn)
+    {
+
     }
 
     void OnDrawGizmos()

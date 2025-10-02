@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "VirtualMouseModel", menuName = "Scriptable Objects/BookModel")]
@@ -16,5 +17,5 @@ public class BookModel : ScriptableObject
     public Material[] pageMaterialsR;
 
     [Header("Development Settings")]
-    public int setStartPage = 0;
+    [Range(0, 20)] public int setStartPage = 0;
 }

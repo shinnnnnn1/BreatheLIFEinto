@@ -29,7 +29,8 @@ public class PlayerHold : MonoBehaviour
         playerRigid.mass = 1;
         if(targetRigid != null)
         {
-            targetRigid.mass = 1;
+            targetRigid.mass = 100;
+            targetRigid = null;
         }
 
         joint.connectedBody = null;

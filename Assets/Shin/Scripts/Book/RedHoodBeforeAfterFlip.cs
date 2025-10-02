@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RedHoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
+public class RedhoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
 {
     PlayerController player;
     FlipTriggerController trigger;
@@ -35,13 +35,13 @@ public class RedHoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
         {
             case 1:
                 EventManager.Instance.PlayCutScene(0);
-                //player.SetCanMove(true);
                 break;
             case 2:
                 player.SetCanMove(true);
                 break;
             case 3:
-                //EventManager.Instance.PlayCutScene(2);
+                player.SetCanMove(true);
+                EventManager.Instance.PlayCutScene(2);
                 break;
             case 4:
                 //EventManager.Instance.PlayCutScene(2);

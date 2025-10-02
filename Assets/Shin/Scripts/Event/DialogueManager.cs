@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     [Space(10f)]
-    [SerializeField] float autoDelay = 0.5f;
+    [SerializeField] float defaultAutoDelay = 1f;
 
     [Space(10f)]
     [SerializeField] int current = -1;
@@ -134,8 +134,8 @@ public class DialogueManager : MonoBehaviour
             //自動化
             if (d.isAuto[current])
             {
-                yield return new WaitForSeconds(autoDelay);
-                yield return new WaitForSeconds(d.autoDelay[current]);
+                float autoD = d.autoDelay[current] == 0 ? defaultAutoDelay : d.autoDelay[current];
+                yield return new WaitForSeconds(autoD);
                 StartCoroutine(DialogueCoroutine(d));
             }
         }
@@ -159,6 +159,10 @@ public class DialogueManager : MonoBehaviour
         {
             currentEventImage?.gameObject.SetActive(true);
             EventManager.Instance.playerController.SetCanMove(true);
+        }
+        if (d.canProceedOnDialogueEnd)
+        {
+            //EventManager.Instance.playerController.SetCanMove(true);
         }
     }
 }

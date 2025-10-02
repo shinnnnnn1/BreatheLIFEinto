@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class FlipTriggerController : MonoBehaviour
 {
-    public bool canFlip = true;
+    public bool canProceed = false;
     public int currentTrigger = 0;
 
     [SerializeField] Transform[] triggers;
@@ -26,5 +26,10 @@ public class FlipTriggerController : MonoBehaviour
         {
             triggers[i].gameObject.SetActive(i == currentTrigger);
         }
+    }
+
+    public void SetCanFlip(bool can)
+    {
+        canProceed = can;
     }
 }

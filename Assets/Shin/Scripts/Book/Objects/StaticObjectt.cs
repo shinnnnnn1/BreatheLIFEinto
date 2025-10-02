@@ -11,8 +11,12 @@ public class StaticObjectt : BaseObject
     Transform shape;
     bool canShape;
 
+    Rigidbody rigid;
+
     public override void Start()
     {
+        rigid = GetComponent<Rigidbody>();
+
         base.Start();
 
         //全てのSkinnedMeshRendererを参照
@@ -45,6 +49,8 @@ public class StaticObjectt : BaseObject
 
     public override void SetBookObject(int currentStage, Transform[] currentBones, Transform[] shapes, BookModel model)
     {
+        if(rigid != null) { rigid.isKinematic = true; }
+
         base.SetBookObject(currentStage, currentBones, shapes, model);
         if(isCurrent)
         {
@@ -59,6 +65,8 @@ public class StaticObjectt : BaseObject
     {
         base.AfterFlip(objectParents);
         canShape = false;
+
+        if (rigid != null && isCurrent) { rigid.isKinematic = false; }
     }
 
     void Update()
