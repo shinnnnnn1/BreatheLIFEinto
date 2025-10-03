@@ -197,6 +197,6 @@ public class BaseObject : MonoBehaviour
     void SetHeight(float value, float time, float delay)
     {
         stand.DOLocalMoveY(value, time).SetDelay(delay)
-            .SetEase(isActivate ? Ease.InOutExpo : Ease.InExpo);
+            .SetEase(isRight ? Ease.InQuint : Ease.OutQuint);
     }
 }
