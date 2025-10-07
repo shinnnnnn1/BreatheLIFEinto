@@ -138,3 +138,5 @@
 *.gz lfs-file
 *.rar lfs-file
 *.tar lfs-file
+
+Assets/Shin/Fonts/*.asset filter =lfs diff=lfs merge=lfs -text
