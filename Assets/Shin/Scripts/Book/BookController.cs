@@ -30,6 +30,8 @@ public class BookController : MonoBehaviour
     PlayerController player;
     FlipTriggerController flipController;
 
+    [SerializeField] int bookDir = 0;
+
     public virtual void Awake()
     {
         //開発用。スタート地点を設定できる。すごい！
@@ -206,7 +208,22 @@ public class BookController : MonoBehaviour
 
     public void TurnBook(bool isRightTurn)
     {
+        //bool canRotate = (isRightTurn && bookDir != 1) && ();
 
+        //if(() && ())
+
+        view.TurnBookAnimation(isRightTurn);
+    }
+
+    void LockObjects()
+    {
+        //NPC만 특정 함수를 발동시켜 NPC의 Update에서 회전을 고정하도록 하는 설
+        /*
+        foreach(BaseObject a in bookObjects)
+        {
+            if(a.gameObject.)
+        }
+        */
     }
 
     void OnDrawGizmos()
