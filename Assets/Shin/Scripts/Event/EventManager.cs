@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
     }
 
     public PlayableAsset[] timelines;
-    public PlayerController playerController;
+    [HideInInspector] public PlayerController playerController;
 
     PlayableDirector director;
 
