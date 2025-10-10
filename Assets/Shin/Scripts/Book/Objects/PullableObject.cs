@@ -3,6 +3,8 @@ using DG.Tweening;
 
 public class PullableObject : MonoBehaviour, IInteractable, IPullable
 {
+    [SerializeField] int eventIndex;
+
     PlayerController player;
     [SerializeField] Animator anim;
 
@@ -114,7 +116,9 @@ public class PullableObject : MonoBehaviour, IInteractable, IPullable
 
                 //張力を計算し、Playerに渡す
                 currentTension = transform.position.x + position.x - player.transform.position.x;
-                tensionDir = -direction * currentTension * spring;
+
+                Vector3 abs = new Vector3(Mathf.Abs(direction.x), 0, Mathf.Abs(direction.y));
+                tensionDir = abs * currentTension * spring;
 
                 player.SetTension(tensionDir);
 
@@ -126,7 +130,7 @@ public class PullableObject : MonoBehaviour, IInteractable, IPullable
                     anim.speed = 1;
                     player.ActionCancel();
                     player.SetCanMove(false);
-                    EventManager.Instance.PlayCutScene(1);
+                    EventManager.Instance.PlayCutScene(2);
                 }
             }
             else

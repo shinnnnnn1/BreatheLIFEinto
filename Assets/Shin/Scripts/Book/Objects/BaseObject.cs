@@ -26,6 +26,9 @@ public class BaseObject : MonoBehaviour
     public bool isActivate;
 
     [Space(10f)]
+    public bool isLocked;
+
+    [Space(10f)]
     public Collider[] coll;
     public Transform[] children;
 
@@ -190,6 +193,7 @@ public class BaseObject : MonoBehaviour
         }
         else
         {
+            isCurrent = false;
             SetObjectVisible(false);
         }
     }

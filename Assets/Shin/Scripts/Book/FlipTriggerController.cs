@@ -28,7 +28,7 @@ public class FlipTriggerController : MonoBehaviour
         }
     }
 
-    public void SetCanFlip(bool can)
+    public void SetCanProceed(bool can)
     {
         canProceed = can;
     }

@@ -13,8 +13,13 @@ public class BookModel : ScriptableObject
 
     //==
     [Header("Page Material Settings")]
+    [Space(10f)]
     public Material[] pageMaterialsL;
     public Material[] pageMaterialsR;
+
+    [Header("BookSettings")]
+    public float rotValue = 30.0f;
+    public float rotTime = 1.0f;
 
     [Header("Development Settings")]
     [Range(0, 20)] public int setStartPage = 0;

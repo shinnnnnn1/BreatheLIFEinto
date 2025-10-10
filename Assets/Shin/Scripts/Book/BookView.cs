@@ -41,8 +41,8 @@ public class BookView : MonoBehaviour
 
     }
 
-    public void TurnBookAnimation(bool isRightTurn)
+    public void TurnBookAnimation(bool isRightTurn, float rotValue, float rotTime)
     {
-
+        transform.DORotate(new Vector3(0, rotValue, 0), rotTime).SetRelative().SetEase(Ease.Linear);
     }
 }

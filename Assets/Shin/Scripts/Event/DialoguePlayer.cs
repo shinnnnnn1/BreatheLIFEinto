@@ -38,6 +38,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void PlayAutoEvent()
     {
+        EventManager.Instance.playerController.SetDialogueAuto(this);
         DialogueManager.Instance.ResetDialogue(eventImage, bubbleImages, texts);
         DialogueManager.Instance.Dialogue(dialogue);
     }

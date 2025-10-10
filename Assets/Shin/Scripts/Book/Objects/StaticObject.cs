@@ -2,7 +2,6 @@ using DG.Tweening;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class StaticObject : BaseObject
 {
@@ -69,7 +68,7 @@ public class StaticObject : BaseObject
         if (rigid != null && isCurrent) { rigid.isKinematic = false; }
     }
 
-    void Update()
+    public void Update()
     {
         if(canShape)
         {

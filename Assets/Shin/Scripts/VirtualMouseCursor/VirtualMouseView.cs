@@ -7,12 +7,16 @@ public class VirtualMouseView : MonoBehaviour
 {
     VirtualMouseInput virtualMouseInput;
     RectTransform cursor;
+    Image cursorImage;
 
-    void Start()
+    public Sprite[] cursorImages;
+
+    void Awake()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
         virtualMouseInput = GetComponentInChildren<VirtualMouseInput>();
         cursor = virtualMouseInput.cursorGraphic.GetComponent<RectTransform>();
+        cursorImage = cursor.GetComponent<Image>();
     }
 
     public void CursorPadding(Vector2 position)
@@ -33,6 +37,11 @@ public class VirtualMouseView : MonoBehaviour
     public void ResetCursorPosition(float width, float height)
     {
 
+    }
+
+    public void ChangeCursorImage(int type)
+    {
+        cursorImage.sprite = cursorImages[type];
     }
     
     public void UpdateRay(Vector3 origin, Vector3 direction, float distance, bool isHit)

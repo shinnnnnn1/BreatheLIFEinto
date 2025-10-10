@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class RHE01_FallingTree : MonoBehaviour
+public class RHE02_FallingTree : MonoBehaviour
 {
     [SerializeField] Transform tree;
 

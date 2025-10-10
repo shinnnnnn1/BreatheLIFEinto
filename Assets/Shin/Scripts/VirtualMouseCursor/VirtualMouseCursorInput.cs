@@ -12,18 +12,17 @@ public class VirtualMouseCursorInput : MonoBehaviour
 
     public void InputControlsChanged()
     {
-        controller?.OnControlsChanged();
+        controller.OnControlsChanged();
     }
     public void InputClick(InputAction.CallbackContext context)
     {
-
         if (context.performed)
         {
-           // controller.SetCursorMode(false);
+            controller.OnClick(true);
         }
         else if(context.canceled)
         {
-
+            controller.OnClick(false);
         }
     }
 
@@ -41,6 +40,4 @@ public class VirtualMouseCursorInput : MonoBehaviour
             controller.SetCursorMode(false);
         }
     }
-
-
 }

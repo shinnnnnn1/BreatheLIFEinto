@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RHE00_RedhoodStart : MonoBehaviour
+public class RHE01_RedhoodStartMove : MonoBehaviour
 {
     [SerializeField] bool isMovingRedHood;
     [SerializeField] Animator startRHAnim;

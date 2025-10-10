@@ -23,7 +23,6 @@ public class BookController : MonoBehaviour
 
     [Space(10f)]
     [SerializeField] BaseObject[] bookObjects;
-    [SerializeField] BaseObject[] currentObjects;
 
     BookView view;
     IBeforeAfterFlip beforeAfterFlip;
@@ -206,24 +205,43 @@ public class BookController : MonoBehaviour
         }
     }
 
-    public void TurnBook(bool isRightTurn)
+    public void TurnBook(bool isRightTurn, out bool canTurn)
     {
         //bool canRotate = (isRightTurn && bookDir != 1) && ();
 
-        //if(() && ())
+        if((isRightTurn && bookDir == 1) || (!isRightTurn && bookDir == -1)) { canTurn = false; return; }
+        canTurn = true;
 
-        view.TurnBookAnimation(isRightTurn);
+        bookDir = isRightTurn ? bookDir + 1 : bookDir - 1;
+
+        float rot = isRightTurn ? model.rotValue : -model.rotValue;
+        view.TurnBookAnimation(isRightTurn, rot, model.rotTime);
+
+        LockObjects(true);
+
+        Invoke("AfterTurnBook", model.rotTime);
     }
 
-    void LockObjects()
+    void AfterTurnBook()
     {
-        //NPC만 특정 함수를 발동시켜 NPC의 Update에서 회전을 고정하도록 하는 설
-        /*
-        foreach(BaseObject a in bookObjects)
+        LockObjects(false);
+        player.LockPlayer(false);
+    }
+
+    void LockObjects(bool onLock)
+    {
+        foreach(BaseObject b in bookObjects)
         {
-            if(a.gameObject.)
+            if(b.isCurrent)
+            {
+                b.isLocked = onLock;
+                if(!onLock)
+                {
+                    NPCObject n = b.GetComponent<NPCObject>();
+                    n?.CheckDirectional(bookDir);
+                }
+            }
         }
-        */
     }
 
     void OnDrawGizmos()

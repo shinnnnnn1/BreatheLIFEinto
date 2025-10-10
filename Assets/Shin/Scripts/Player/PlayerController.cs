@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
     bool canFlip = false;
     bool isFlipping = false;
 
+    bool isLocked = false;
+    [SerializeField] Vector3 lockedPos;
+
     //엔딩 책 덮을때 false로 바꾸기
     bool flipvisible = true;
 
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     bool isPulling = false;
 
-    [HideInInspector] public bool isDialogue;
+    public bool isDialogue;
 
     void Start()
     {
@@ -79,6 +82,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(isLocked)
+        {
+            transform.localPosition = lockedPos;
+            transform.rotation = Quaternion.identity;
+        }
+
         //立っている状態だけFlipが可能。
         if(canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
         {
@@ -321,6 +330,11 @@ public class PlayerController : MonoBehaviour
             currentDialogue = null;
         }
     }
+    public void SetDialogueAuto(DialoguePlayer d)
+    {
+        currentDialogue = d;
+        SetIsDialogue(true);
+    }
 
     public void SetConstraints(bool dirX)
     {
@@ -339,7 +353,42 @@ public class PlayerController : MonoBehaviour
 
     public void TurnBook(bool isRightTurn)
     {
-        Debug.Log(isRightTurn);
+        if (!model.canMove || !OnGround()) { return; }
+
+        book.TurnBook(isRightTurn, out bool canTurn);
+        if (!canTurn) { return; }
+
+        SetCanMove(false);
+        LockPlayer(true);
+    }
+
+    public void LockPlayer(bool startLock)
+    {
+        if(startLock)
+        {
+            isLocked = true;
+            Transform closeBone = null;
+            float dis = 100;
+            Transform[] t = transform.position.x > 0 ? book.rightBones : book.leftBones;
+            for (int i = 0; i < t.Length; i++)
+            {
+                float close = Vector3.Distance(transform.position, t[i].position);
+                if (close < dis)
+                {
+                    dis = close;
+                    closeBone = t[i];
+                }
+            }
+            transform.SetParent(closeBone);
+
+            lockedPos = transform.localPosition;
+        }
+        else
+        {
+            isLocked = false;
+            transform.SetParent(null);
+            SetCanMove(true);
+        }
     }
     #endregion
 

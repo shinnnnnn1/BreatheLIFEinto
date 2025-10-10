@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
+using static UnityEngine.UI.Image;
 
 public class VirtualMouseController : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class VirtualMouseController : MonoBehaviour
 
     const string playerActionMap = "Player";
     const string UIActionMap = "UI";
+
+    [SerializeField] bool isPressing = false;
+
+    RaycastHit hit;
 
     void Start()
     {
@@ -108,7 +113,38 @@ public class VirtualMouseController : MonoBehaviour
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
 
-        view.UpdateRay(origin, direction, model.interactingDistance, true);
+        bool isHit = Physics.Raycast(origin, direction, out RaycastHit hit, model.interactingDistance, model.interactableLayerMask);
+        view.UpdateRay(origin, direction, model.interactingDistance, isHit);
+
+        if (isPressing) { return; }
+
+        view.ChangeCursorImage(isHit ? 2 : 0);
+    }
+
+    public void OnClick(bool isClick)
+    {
+        isPressing = isClick;
+        view.ChangeCursorImage(1);
+        if(IsHit())
+        {
+            ICursorInteractable cursorInteractable = hit.collider.GetComponent<ICursorInteractable>();
+            //cursorInteractable
+        }
+    }
+
+    bool IsHit()
+    {
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = (cursor.position - origin).normalized;
+        if (Physics.Raycast(origin, direction, out RaycastHit raycastHit, model.interactingDistance, model.interactableLayerMask))
+        {
+            hit = raycastHit;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
