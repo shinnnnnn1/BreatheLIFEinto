@@ -23,8 +23,12 @@ public class VirtualMouseController : MonoBehaviour
     const string playerActionMap = "Player";
     const string UIActionMap = "UI";
 
+    [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
 
+    [SerializeField] Collider coll;
+
+    ICursorInteractable cursorInteractable;
     RaycastHit hit;
 
     void Start()
@@ -113,22 +117,42 @@ public class VirtualMouseController : MonoBehaviour
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
 
-        bool isHit = Physics.Raycast(origin, direction, out RaycastHit hit, model.interactingDistance, model.interactableLayerMask);
-        view.UpdateRay(origin, direction, model.interactingDistance, isHit);
+        view.UpdateRay(origin, direction, model.interactingDistance, IsHit());
 
         if (isPressing) { return; }
 
-        view.ChangeCursorImage(isHit ? 2 : 0);
+        view.ChangeCursorImage(IsHit() ? 2 : 0);
+
+        if(hit.collider != null)
+        {
+            if (hit.collider != coll)
+            {
+                Debug.Log("Collider Changed");
+                cursorInteractable?.OnExit();
+                coll = hit.collider;
+                cursorInteractable = coll.GetComponent<ICursorInteractable>();
+                cursorInteractable?.OnEnter();
+            }
+        }
     }
 
     public void OnClick(bool isClick)
     {
         isPressing = isClick;
         view.ChangeCursorImage(1);
-        if(IsHit())
+
+        if(isClick)
         {
-            ICursorInteractable cursorInteractable = hit.collider.GetComponent<ICursorInteractable>();
-            //cursorInteractable
+
+        }
+        else
+        {
+
+        }
+
+        if (IsHit())
+        {
+            //cursorInteractable?.OnActivate();
         }
     }
 

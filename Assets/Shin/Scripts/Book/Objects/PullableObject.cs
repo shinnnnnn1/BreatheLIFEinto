@@ -54,7 +54,7 @@ public class PullableObject : MonoBehaviour, IInteractable, IPullable
         if (isDirPositive == isRight || isActivated) { return; }
 
         //플레이어의 목표 위치를 확인
-        Debug.Log(player.transform.position - transform.position);
+       // Debug.Log(player.transform.position - transform.position);
 
         //목표 위치와 플레이어의 거리를 통해 이동 시간을 계산
         Vector3 playerPos = player.transform.position;

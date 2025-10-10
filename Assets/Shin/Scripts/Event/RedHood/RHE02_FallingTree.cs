@@ -29,6 +29,7 @@ public class RHE02_FallingTree : MonoBehaviour
 
     public void WolfJump()
     {
+        wolfAnim.SetTrigger("Idle");
         wolfT.DOJump(wolfPos, wolfHeight, numJumps: 2, wolfTime).SetEase(Ease.Linear);
     }
 
