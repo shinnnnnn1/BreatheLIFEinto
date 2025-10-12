@@ -6,18 +6,21 @@ using System.Collections.Generic;
 public class FlipTriggerController : MonoBehaviour
 {
     public bool canProceed = false;
-    public int currentTrigger = 0;
+    public bool isBookHorizontal = true;
 
-    [SerializeField] Transform[] triggers;
+    [SerializeField] int currentTrigger = 0;
+    [SerializeField] FlipTrigger[] triggers;
 
     [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public BookController bookController;
 
     void Start()
     {
-        triggers = GetComponentsInChildren<Transform>().Where(w => w != this.transform).ToArray();
+        triggers = GetComponentsInChildren<FlipTrigger>();
         ResetTrigger(currentTrigger);
 
         playerController = FindFirstObjectByType<PlayerController>();
+        bookController = FindFirstObjectByType<BookController>();
     }
 
     public void ResetTrigger(int currentTrigger)
@@ -30,6 +33,21 @@ public class FlipTriggerController : MonoBehaviour
 
     public void SetCanProceed(bool can)
     {
+        Debug.Log("SetCanProceed " + can);
         canProceed = can;
+        CheckBookIsHorizontal(bookController.bookDir);
+    }
+    public void CheckBookIsHorizontal(int bookDir)
+    {
+        isBookHorizontal = bookDir == 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (triggers.Length > 0)
+        {
+            Gizmos.color = (canProceed && isBookHorizontal) ? Color.green : Color.red;
+            Gizmos.DrawSphere(triggers[0].transform.position, 0.5f);
+        }
     }
 }

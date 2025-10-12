@@ -14,15 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMoveOnDialogueEnd: 0
   canProceedOnDialogueEnd: 0
+  canRecycle: 0
   messages:
-  - Bridge
+  - "\u304A\u307F\u307E\u3044\u306B\u6765\u307E\u3057\u305F\u3088\uFF5E\uFF01\uFF01"
   spriteType: 00000000
   delay:
   - {x: 0, y: 0}
   isAuto: 01
   autoDelay:
-  - 0
+  - 1.5
   isInvisible: 00
+  emotion: 00000000
   talkerId: 00000000
   fontSize: 00000000
-  events: 00000000
+  events:
+  - {x: 0, y: 0}
+  startEvent: 0
