@@ -33,13 +33,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image[] bubbles;
     [SerializeField] TMP_Text[] texts;
 
+    [SerializeField] DialoguePlayer currentDialoguePlayer;
     [SerializeField] Image currentBubble;
     [SerializeField] TMP_Text currentText;
 
     Image currentEventImage;
 
-    public void ResetDialogue(Image eventImage, Image[] bubbleImages, TMP_Text[] dialogueTexts)
+    public void ResetDialogue(DialoguePlayer player, Image eventImage, Image[] bubbleImages, TMP_Text[] dialogueTexts)
     {
+        currentDialoguePlayer = player;
+
         bubbles = bubbleImages;
         texts = dialogueTexts;
         currentEventImage = eventImage;
@@ -87,16 +90,23 @@ public class DialogueManager : MonoBehaviour
 
             //後Delay
             yield return new WaitForSeconds(d.delay[current].y);
+
+            //イベントがある場合、再生
+            if (d.events[current].y > 0) { EventManager.Instance.PlayCutScene((int)d.events[current].y); }
         }
-        
+        else
+        {
+            if (d.startEvent > 0) { EventManager.Instance.PlayCutScene(d.startEvent); }
+        }
+
         current++;
         if(current < d.messages.Length)
         {
-            //イベントがある場合、再生
-            if (d.events[current] > 0) { EventManager.Instance.PlayCutScene(d.events[current]); }
-
             //前Delay
             yield return new WaitForSeconds(d.delay[current].x);
+
+            //イベントがある場合、再生
+            if (d.events[current].x > 0) { EventManager.Instance.PlayCutScene((int)d.events[current].x); }
 
             //吹き出しの表示/非表示
             currentBubble.enabled = !d.isInvisible[current];
@@ -153,16 +163,26 @@ public class DialogueManager : MonoBehaviour
         canSkip = false;
         canProceed = true;
 
+        if (d.canRecycle)
+        {
+            currentDialoguePlayer.ChangeToRecycle();
+        }
+        else
+        {
+            currentDialoguePlayer.GetComponent<NPCObject>()?.SetDisableDialogue();
+        }
+
         EventManager.Instance.playerController.SetIsDialogue(false);
 
-        if(d.canMoveOnDialogueEnd)
+        if (d.canMoveOnDialogueEnd)
         {
             currentEventImage?.gameObject.SetActive(true);
             EventManager.Instance.playerController.SetCanMove(true);
         }
         if (d.canProceedOnDialogueEnd)
         {
-            //EventManager.Instance.playerController.SetCanMove(true);
+            EventManager.Instance.flipController.SetCanProceed(true);
         }
+        
     }
 }

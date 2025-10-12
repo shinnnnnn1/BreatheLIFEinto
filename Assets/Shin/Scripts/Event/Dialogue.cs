@@ -6,6 +6,7 @@ public class Dialogue : ScriptableObject
 {
     public bool canMoveOnDialogueEnd;
     public bool canProceedOnDialogueEnd;
+    public bool canRecycle;
 
     [TextArea(3, 5)]
     public string[] messages;
@@ -14,7 +15,9 @@ public class Dialogue : ScriptableObject
     public bool[] isAuto;
     public float[] autoDelay;
     public bool[] isInvisible;
+    public int[] emotion;   //아직
     public int[] talkerId;
     public int[] fontSize;
-    public int[] events;
+    public Vector2[] events;
+    public int startEvent;
 }
