@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b13d75be561b145a762afcd66b1e6c, type: 3}
+  m_Name: RHD03_BreakingBridge
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 1
+  canProceedOnDialogueEnd: 0
+  canRecycle: 1
+  messages:
+  - "\u30D5\u30CF\u30CF\u30CF\uFF01\uFF01\u305F\uFF5E\u306E\u3057\u30A3\uFF5E\uFF01\uFF01"
+  - "\u3042\u3041\u3063\uFF01\uFF1F\u6A4B\u304C\u2026\u2026\uFF01\uFF01"
+  - "\u3042\u3063\uFF01\u6765\u3084\u304C\u3063\u305F\u306A\u3002"
+  - "\u6E21\u308C\u308B\u3082\u306E\u306A\u6E21\u3063\u3066\u307F\u308D\uFF01"
+  - "\u30AA\u30EC\u69D8\u306F\u5148\u306B\u884C\u304F\u305C\uFF01\u30AE\u30E3\u30CF\u30CF\uFF01\uFF01"
+  - "\u3069\u3046\u3057\u3088\u3046\u2026\u2026\u6A4B\u304C\u58CA\u3055\u308C\u3061\u3083\u3063\u305F\u2026\u2026"
+  - "\u3053\u308C\u3058\u3083\u304A\u3070\u3042\u3061\u3083\u3093\u306E\u304A\u5BB6\u306B\u3044\u3051\u306A\u3044\u2026\u2026"
+  spriteType: 00000000000000000000000000000000000000000000000000000000
+  delay:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 2, y: 0}
+  - {x: 0, y: 0}
+  isAuto: 00000000000000
+  autoDelay:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  isInvisible: 00000000000000
+  emotion: 00000000000000000000000000000000000000000000000000000000
+  talkerId: 01000000000000000100000001000000010000000000000000000000
+  fontSize: 00000000000000000000000000000000000000000000000000000000
+  events:
+  - {x: 0, y: 0}
+  - {x: 0, y: 7}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 8}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  startEvent: 0

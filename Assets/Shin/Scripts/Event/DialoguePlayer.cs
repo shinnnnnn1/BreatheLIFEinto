@@ -5,7 +5,8 @@ using TMPro;
 
 public class DialoguePlayer : MonoBehaviour
 {
-    [SerializeField] Dialogue dialogue;
+    public Dialogue dialogue;
+    public Dialogue recycleDialogue;
 
     [SerializeField] Image[] bubbleImages = new Image[1];
     [SerializeField] TMP_Text[] texts = new TMP_Text[1];
@@ -28,7 +29,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void ResetEvent()
     {
-        DialogueManager.Instance.ResetDialogue(eventImage, bubbleImages, texts);
+        DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
     }
 
     public void PlayEvent()
@@ -39,7 +40,12 @@ public class DialoguePlayer : MonoBehaviour
     public void PlayAutoEvent()
     {
         EventManager.Instance.playerController.SetDialogueAuto(this);
-        DialogueManager.Instance.ResetDialogue(eventImage, bubbleImages, texts);
+        DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
         DialogueManager.Instance.Dialogue(dialogue);
+    }
+
+    public void ChangeToRecycle()
+    {
+        dialogue = recycleDialogue;
     }
 }

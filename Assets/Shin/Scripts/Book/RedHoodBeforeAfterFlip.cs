@@ -32,6 +32,7 @@ public class RedhoodBeforeAfterFlip : MonoBehaviour, IBeforeAfterFlip
 
                 break;
         }
+
     }
 
     public void OnAfterFlip(int currentStage)

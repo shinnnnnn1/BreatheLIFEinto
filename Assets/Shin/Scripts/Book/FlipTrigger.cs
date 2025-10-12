@@ -11,6 +11,9 @@ public class FlipTrigger : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        controller.playerController.PlayerFlipTrigger();
+        if(controller.canProceed && controller.isBookHorizontal)
+        {
+            controller.playerController.PlayerFlipTrigger();
+        }
     }
 }
