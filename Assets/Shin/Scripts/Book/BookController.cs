@@ -29,12 +29,12 @@ public class BookController : MonoBehaviour
     PlayerController player;
     FlipTriggerController flipController;
 
-    [SerializeField] int bookDir = 0;
+    public int bookDir = 0;
 
     public virtual void Awake()
     {
         //開発用。スタート地点を設定できる。すごい！
-        currentPage = model.setStartPage;
+        currentPage = model.setStartPage - 1;
 
         //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
@@ -186,7 +186,7 @@ public class BookController : MonoBehaviour
         beforeAfterFlip.OnAfterFlip(currentPage);
         view.SetPageVisibility(false, false);
 
-        flipController.canProceed = false;
+        flipController.SetCanProceed(false);
     }
 
     void StartShape()
@@ -226,6 +226,7 @@ public class BookController : MonoBehaviour
     {
         LockObjects(false);
         player.LockPlayer(false);
+        flipController.CheckBookIsHorizontal(bookDir);
     }
 
     void LockObjects(bool onLock)

@@ -17,7 +17,7 @@ public class RHE01_RedhoodStartMove : MonoBehaviour
     {
         if(isMovingRedHood)
         {
-            startRHRigid.linearVelocity = new Vector3(2, 0, 0);
+            startRHRigid.linearVelocity = new Vector3(3, 0, 0);
         }
     }
 

@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
 
     public PlayableAsset[] timelines;
     [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public FlipTriggerController flipController;
 
     PlayableDirector director;
 
@@ -24,6 +25,7 @@ public class EventManager : MonoBehaviour
     {
         director = GetComponent<PlayableDirector>();
         playerController = FindFirstObjectByType<PlayerController>();
+        flipController = FindFirstObjectByType<FlipTriggerController>();
     }
 
     public void PlayCutScene(int number)

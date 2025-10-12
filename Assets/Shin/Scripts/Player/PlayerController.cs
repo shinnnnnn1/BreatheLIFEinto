@@ -396,11 +396,13 @@ public class PlayerController : MonoBehaviour
     #region PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetCanMove(bool canMove)
     {
+        Debug.Log("PlayerSetCanMove " + canMove + "" + !canMove);
         model.canMove = canMove;
         rigid.isKinematic = !canMove;
     }
     public void SetCanMove(bool canMove, bool isKinematic)
     {
+        Debug.Log("PlayerSetCanMove " + canMove + "" + isKinematic);
         model.canMove = canMove;
         rigid.isKinematic = isKinematic;
     }
@@ -416,11 +418,12 @@ public class PlayerController : MonoBehaviour
     #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void PlayerFlipTrigger()
     {
-        if (model.canMove && model.isRight && !canFlip)
+        if (model.canMove && model.isRight  && moveDirection.magnitude > 0 && !canFlip)
         {
             canFlip = true;
             SetCanMove(false, false);
             view.SetLinearVelocity(Vector3.zero);
+            moveDirection = Vector2.zero;
         }
     }
 

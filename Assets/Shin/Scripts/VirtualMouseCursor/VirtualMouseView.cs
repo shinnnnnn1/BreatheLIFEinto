@@ -13,7 +13,8 @@ public class VirtualMouseView : MonoBehaviour
 
     void Awake()
     {
-        Cursor.visible = false;
+        //나중에 다시 킬것.
+        //Cursor.visible = false;
         virtualMouseInput = GetComponentInChildren<VirtualMouseInput>();
         cursor = virtualMouseInput.cursorGraphic.GetComponent<RectTransform>();
         cursorImage = cursor.GetComponent<Image>();

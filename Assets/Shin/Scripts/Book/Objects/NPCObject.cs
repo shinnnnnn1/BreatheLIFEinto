@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class NPCObject : BaseObject
 {
+    [Space(10)]
+    public Transform plane;
+    public Animator anim;
     public MeshCollider npcCylinder;
     public bool[] isDirectional = new bool[] { true, true, true }; // -1, 0, 1
+
+    [Space(10)]
+    public bool isFacingRight;
 
     public override void Start()
     {
         base.Start();
         stand.localEulerAngles = new Vector3(90, 0, 0);
+
+        plane = stand.GetChild(0);
+        anim = plane.GetComponent<Animator>();
         npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+
+        isFacingRight = plane.localEulerAngles.y < 90;
     }
 
     public override void SetBookObject(int currentStage, Transform[] currentBones, Transform[] shapes, BookModel model)
     {
+        //아마 이게 NPC가 옆으로 이동해도 가까운 본을 다시 찾아서 페이지 넘길때 알맞은 위치에서 되게하는거.
+        if (isCurrent)
+        {
+            SetBone();
+        }
+
+
         base.SetBookObject(currentStage, currentBones, shapes, model);
         if (isCurrent)
         {
@@ -63,4 +81,39 @@ public class NPCObject : BaseObject
             npcCylinder.enabled = false;
         }
     }
+
+    public void Turn()
+    {
+        Turn(!isFacingRight);
+    }
+
+    public void TurnToPlayer()
+    {
+        Transform playerpos = EventManager.Instance.playerController.transform;
+        bool isOverPlayer = transform.position.x > playerpos.position.x;
+        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
+        {
+            Turn();
+        }
+    }
+
+    public void Turn(bool turnToRight)
+    {
+        if((turnToRight && isFacingRight) || (!turnToRight && !isFacingRight)) { return; }
+
+        float turnValue = turnToRight ? -180 : 180;
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative();
+        isFacingRight = turnToRight;
+    }
+
+    public void SetAnimTrigger(string trigger)
+    {
+        anim.SetTrigger(trigger);
+    }
+
+    public void SetDisableDialogue()
+    {
+        npcCylinder?.gameObject.SetActive(false);
+    }
+
 }
