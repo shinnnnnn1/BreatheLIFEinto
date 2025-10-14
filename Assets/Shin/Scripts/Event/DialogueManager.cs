@@ -163,9 +163,15 @@ public class DialogueManager : MonoBehaviour
         canSkip = false;
         canProceed = true;
 
+        if(EventManager.Instance.playerController.dialogueP != null)
+        {
+            currentEventImage?.gameObject.SetActive(true);
+        }
+
         if (d.canRecycle)
         {
             currentDialoguePlayer.ChangeToRecycle();
+            //currentDialoguePlayer.GetComponent<NPCObject>()?.SetResetDialogue();
         }
         else
         {
@@ -176,7 +182,6 @@ public class DialogueManager : MonoBehaviour
 
         if (d.canMoveOnDialogueEnd)
         {
-            currentEventImage?.gameObject.SetActive(true);
             EventManager.Instance.playerController.SetCanMove(true);
         }
         if (d.canProceedOnDialogueEnd)

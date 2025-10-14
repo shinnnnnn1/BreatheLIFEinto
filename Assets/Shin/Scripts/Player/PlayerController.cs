@@ -15,11 +15,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveDirection;
     public Vector2 zoomDirection;
 
-    //확인용. 참조 필요 없음
     [Space(10f)]
     [SerializeField] Transform interactingEvent;
-    [SerializeField] DialoguePlayer dialogueP;
-    [SerializeField] DialoguePlayer currentDialogue;
+    public DialoguePlayer dialogueP;
+    public DialoguePlayer currentDialogue;
 
     [HideInInspector] public PlayerView view;
     PlayerHold jointHold;

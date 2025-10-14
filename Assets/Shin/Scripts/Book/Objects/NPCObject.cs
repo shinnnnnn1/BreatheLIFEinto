@@ -116,4 +116,10 @@ public class NPCObject : BaseObject
         npcCylinder?.gameObject.SetActive(false);
     }
 
+    public void SetResetDialogue()
+    {
+        npcCylinder?.gameObject.SetActive(false);
+        npcCylinder?.gameObject.SetActive(true);
+    }
+
 }

@@ -25,6 +25,7 @@ public class StaticObject : BaseObject
             if (s != null)
             {
                 mesh.Add(s);
+                s.transform.localPosition = (isRight ? Vector3.down : Vector3.up) * height;
             }
         }
 
@@ -43,8 +44,6 @@ public class StaticObject : BaseObject
             }
         }
     }
-
-
 
     public override void SetBookObject(int currentStage, Transform[] currentBones, Transform[] shapes, BookModel model)
     {
@@ -66,6 +65,17 @@ public class StaticObject : BaseObject
         canShape = false;
 
         if (rigid != null && isCurrent) { rigid.isKinematic = false; }
+    }
+
+    public override void SetHeight(float value, float time, float delay)
+    {
+        base.SetHeight(value, time, delay);
+
+        foreach(SkinnedMeshRenderer s in mesh)
+        {
+            s.transform.DOLocalMoveY(value, time).SetDelay(delay)
+            .SetEase(isRight ? Ease.OutQuint : Ease.OutQuint);
+        }
     }
 
     public void Update()
