@@ -48,4 +48,14 @@ public class DialoguePlayer : MonoBehaviour
     {
         dialogue = recycleDialogue;
     }
+
+    public void SetNewDialogue(Dialogue newDialogue)
+    {
+        dialogue = newDialogue;
+    }
+
+    public void SetNewRecycleDialogue(Dialogue newRecycleDialogue)
+    {
+        recycleDialogue = newRecycleDialogue;
+    }
 }
