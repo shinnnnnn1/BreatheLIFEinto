@@ -26,9 +26,10 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
 
-    [SerializeField] Collider trackingColl, pressedColl, releasedColl;
+    [SerializeField] Collider coll;
 
     ICursorInteractable cursorInteractable;
+    RaycastHit hit;
 
     void Start()
     {
@@ -122,20 +123,17 @@ public class VirtualMouseController : MonoBehaviour
 
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
-
-        /*
         if(hit.collider != null)
         {
-            if (hit.collider != trackingColl)
+            if (hit.collider != coll)
             {
                 Debug.Log("Collider Changed");
                 cursorInteractable?.OnExit();
-                trackingColl = hit.collider;
-                cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
+                coll = hit.collider;
+                cursorInteractable = coll.GetComponent<ICursorInteractable>();
                 cursorInteractable?.OnEnter();
             }
         }
-        */
     }
 
     public void OnClick(bool isClick)
@@ -158,41 +156,19 @@ public class VirtualMouseController : MonoBehaviour
         }
     }
 
-    public void OnPressed()
-    {
-        if(trackingColl != null)
-        {
-            pressedColl = trackingColl;
-        }
-    }
-    public void OnReleased()
-    {
-        if(trackingColl != null && pressedColl == trackingColl)
-        {
-
-        }
-    }
-
     bool IsHit()
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
         if (Physics.Raycast(origin, direction, out RaycastHit raycastHit, model.interactingDistance, model.interactableLayerMask))
         {
-            trackingColl = raycastHit.collider;
+            hit = raycastHit;
             return true;
         }
         else
         {
-            ResetTracking();
             return false;
         }
     }
 
-    public void ResetTracking()
-    {
-        trackingColl = null;
-        pressedColl = null;
-        releasedColl = null;
-    }
 }
