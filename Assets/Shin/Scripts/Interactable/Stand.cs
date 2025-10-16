@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Stand : MonoBehaviour, ICursorInteractable
 {
-    [SerializeField] bool isActivated;
+    [SerializeField] bool canActvate, isActivated;
 
     public void OnEnter()
     {

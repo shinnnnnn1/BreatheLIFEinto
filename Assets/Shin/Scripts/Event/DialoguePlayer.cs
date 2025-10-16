@@ -13,6 +13,9 @@ public class DialoguePlayer : MonoBehaviour
 
     [SerializeField] Image eventImage;
 
+    NPCObject npcObject;
+    [SerializeField] bool dialogueWithTurn = false;
+
     void Awake()
     {
         eventImage = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Event");
@@ -20,6 +23,8 @@ public class DialoguePlayer : MonoBehaviour
         bubbleImages[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Dialogue");
         texts[0] = GetComponentsInChildren<TMP_Text>().FirstOrDefault(x => x.name == "Text");
         CanStartEvent(false);
+
+        npcObject = GetComponent<NPCObject>();
     }
 
     public void CanStartEvent(bool canStart)
@@ -29,7 +34,12 @@ public class DialoguePlayer : MonoBehaviour
 
     public void ResetEvent()
     {
+
         DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
+        if(dialogueWithTurn)
+        {
+            npcObject?.TurnToPlayer();
+        }
     }
 
     public void PlayEvent()
@@ -57,5 +67,10 @@ public class DialoguePlayer : MonoBehaviour
     public void SetNewRecycleDialogue(Dialogue newRecycleDialogue)
     {
         recycleDialogue = newRecycleDialogue;
+    }
+
+    public void SetDialogueWithTurn(bool dwt)
+    {
+        dialogueWithTurn = dwt;
     }
 }

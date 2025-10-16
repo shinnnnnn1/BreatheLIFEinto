@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -32,7 +33,6 @@ public class NPCObject : BaseObject
         {
             SetBone();
         }
-
 
         base.SetBookObject(currentStage, currentBones, shapes, model);
         if (isCurrent)
@@ -110,6 +110,17 @@ public class NPCObject : BaseObject
     {
         anim.SetTrigger(trigger);
     }
+    public void SetAnimTriggerWithTurn(string trigger)
+    {
+        StartCoroutine(AnimTime(trigger));
+    }
+
+    IEnumerator AnimTime(string trigger)
+    {
+        yield return new WaitForSeconds(0.1f);
+        SetAnimTrigger(trigger);
+    }
+
 
     public void SetDisableDialogue()
     {
