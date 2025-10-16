@@ -160,11 +160,17 @@ public class VirtualMouseController : MonoBehaviour
 
     public void OnPressed()
     {
-
+        if(trackingColl != null)
+        {
+            pressedColl = trackingColl;
+        }
     }
     public void OnReleased()
     {
+        if(trackingColl != null && pressedColl == trackingColl)
+        {
 
+        }
     }
 
     bool IsHit()
@@ -178,13 +184,15 @@ public class VirtualMouseController : MonoBehaviour
         }
         else
         {
-            trackingColl = null;
+            ResetTracking();
             return false;
         }
     }
 
     public void ResetTracking()
     {
-
+        trackingColl = null;
+        pressedColl = null;
+        releasedColl = null;
     }
 }
