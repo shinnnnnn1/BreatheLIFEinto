@@ -26,10 +26,9 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
 
-    [SerializeField] Collider coll;
+    [SerializeField] Collider trackingColl, pressedColl, releasedColl;
 
     ICursorInteractable cursorInteractable;
-    RaycastHit hit;
 
     void Start()
     {
@@ -123,17 +122,20 @@ public class VirtualMouseController : MonoBehaviour
 
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
+
+        /*
         if(hit.collider != null)
         {
-            if (hit.collider != coll)
+            if (hit.collider != trackingColl)
             {
                 Debug.Log("Collider Changed");
                 cursorInteractable?.OnExit();
-                coll = hit.collider;
-                cursorInteractable = coll.GetComponent<ICursorInteractable>();
+                trackingColl = hit.collider;
+                cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
                 cursorInteractable?.OnEnter();
             }
         }
+        */
     }
 
     public void OnClick(bool isClick)
@@ -156,19 +158,33 @@ public class VirtualMouseController : MonoBehaviour
         }
     }
 
+    public void OnPressed()
+    {
+
+    }
+    public void OnReleased()
+    {
+
+    }
+
     bool IsHit()
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
         if (Physics.Raycast(origin, direction, out RaycastHit raycastHit, model.interactingDistance, model.interactableLayerMask))
         {
-            hit = raycastHit;
+            trackingColl = raycastHit.collider;
             return true;
         }
         else
         {
+            trackingColl = null;
             return false;
         }
     }
 
+    public void ResetTracking()
+    {
+
+    }
 }
