@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FlipTrigger : MonoBehaviour
 {
-   public FlipTriggerController controller;
+    [HideInInspector] public FlipTriggerController controller;
 
     void Start()
     {
