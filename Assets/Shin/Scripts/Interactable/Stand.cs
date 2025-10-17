@@ -3,12 +3,13 @@ using UnityEngine.Events;
 
 public class Stand : MonoBehaviour, ICursorInteractable
 {
-    public bool canActvate, isEntered, isActivated;
-    [SerializeField] UnityEvent onEnter, onExit, onPressed, onReleased;
+    public bool canActivate, isEntered, isActivated;
+    [SerializeField] UnityEvent onEnter, onExit, 
+        onPressedA, onReleasedA, onPressedDea, onReleasedDea;
 
     public virtual void OnEnter()
     {
-        if (!canActvate) { return; }
+        if (!canActivate) { return; }
         if(isEntered) { return; }
 
         isEntered = true;
@@ -16,22 +17,44 @@ public class Stand : MonoBehaviour, ICursorInteractable
     }
     public virtual void OnExit()
     {
-        if (!canActvate) { return; }
+        if (!canActivate) { return; }
 
         isEntered = false;
         onExit.Invoke();
     }
     public virtual void OnPressed()
     {
-        if (!canActvate) { return; }
+        if (!canActivate) { return; }
 
-        onPressed.Invoke();
+        if(isActivated)
+        {
+            onPressedDea.Invoke();
+        }
+        else
+        {
+            onPressedA.Invoke();
+        }
     }
     public virtual void OnReleased()
     {
-        if (!canActvate) { return; }
+        if (!canActivate) { return; }
+
+        if (isActivated)
+        {
+            onReleasedDea.Invoke();
+        }
+        else
+        {
+            onReleasedA.Invoke();
+        }
 
         isActivated = !isActivated;
-        onReleased.Invoke();
+    }
+
+
+
+    public void SetCanActivate(bool canA)
+    {
+        canActivate = canA;
     }
 }

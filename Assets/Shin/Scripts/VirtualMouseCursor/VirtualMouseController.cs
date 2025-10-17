@@ -122,32 +122,15 @@ public class VirtualMouseController : MonoBehaviour
 
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
-
-
-        /*
-        if(hit.collider != null)
-        {
-            if (hit.collider != coll)
-            {
-                Debug.Log("Collider Changed");
-                cursorInteractable?.OnExit();
-                coll = hit.collider;
-                cursorInteractable = coll.GetComponent<ICursorInteractable>();
-                cursorInteractable?.OnEnter();
-            }
-        }
-        */
-
-       if(trackingColl != null)
+        if (trackingColl != null)
        {
-            if(cursorInteractable == null)
+            if (cursorInteractable == null)
             {
-                //here
                 cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
                 cursorInteractable?.OnEnter();
             }
        }
-       else
+       else if(cursorInteractable != null)
        {
             cursorInteractable?.OnExit();
             cursorInteractable = null;
@@ -162,11 +145,16 @@ public class VirtualMouseController : MonoBehaviour
         if (trackingColl != null && trackingColl != pressingColl)
         {
             pressingColl = trackingColl;
+            cursorInteractable.OnPressed();
         }
     }
     public void OnReleased()
     {
-
+        isPressing = false;
+        if(trackingColl != null && trackingColl == pressingColl)
+        {
+            cursorInteractable.OnReleased();
+        }
     }
 
     bool IsHit()
