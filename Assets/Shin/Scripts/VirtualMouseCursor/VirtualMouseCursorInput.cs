@@ -18,11 +18,11 @@ public class VirtualMouseCursorInput : MonoBehaviour
     {
         if (context.performed)
         {
-            controller.OnClick(true);
+            controller.OnPressed();
         }
         else if(context.canceled)
         {
-            controller.OnClick(false);
+            controller.OnReleased();
         }
     }
 

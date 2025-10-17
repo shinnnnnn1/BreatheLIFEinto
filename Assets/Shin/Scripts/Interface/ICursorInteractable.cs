@@ -2,6 +2,6 @@ public interface ICursorInteractable
 {
     public void OnEnter();
     public void OnExit();
-    public void OnActivate();
-    public void OnDeactivate();
+    public void OnPressed();
+    public void OnReleased();
 }

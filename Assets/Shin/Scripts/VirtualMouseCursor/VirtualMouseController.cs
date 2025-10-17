@@ -26,10 +26,9 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
 
-    [SerializeField] Collider coll;
+    [SerializeField] Collider trackingColl, pressingColl, releasingColl;
 
     ICursorInteractable cursorInteractable;
-    RaycastHit hit;
 
     void Start()
     {
@@ -123,6 +122,9 @@ public class VirtualMouseController : MonoBehaviour
 
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
+
+
+        /*
         if(hit.collider != null)
         {
             if (hit.collider != coll)
@@ -134,26 +136,37 @@ public class VirtualMouseController : MonoBehaviour
                 cursorInteractable?.OnEnter();
             }
         }
+        */
+
+       if(trackingColl != null)
+       {
+            if(cursorInteractable == null)
+            {
+                //here
+                cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
+                cursorInteractable?.OnEnter();
+            }
+       }
+       else
+       {
+            cursorInteractable?.OnExit();
+            cursorInteractable = null;
+       }
     }
 
-    public void OnClick(bool isClick)
+    public void OnPressed()
     {
-        isPressing = isClick;
+        isPressing = true;
         view.ChangeCursorImage(1);
 
-        if(isClick)
+        if (trackingColl != null && trackingColl != pressingColl)
         {
-
+            pressingColl = trackingColl;
         }
-        else
-        {
+    }
+    public void OnReleased()
+    {
 
-        }
-
-        if (IsHit())
-        {
-            //cursorInteractable?.OnActivate();
-        }
     }
 
     bool IsHit()
@@ -162,13 +175,20 @@ public class VirtualMouseController : MonoBehaviour
         Vector3 direction = (cursor.position - origin).normalized;
         if (Physics.Raycast(origin, direction, out RaycastHit raycastHit, model.interactingDistance, model.interactableLayerMask))
         {
-            hit = raycastHit;
+            trackingColl = raycastHit.collider;
             return true;
         }
         else
         {
+            ResetTracking();
             return false;
         }
     }
 
+    public void ResetTracking()
+    {
+        trackingColl = null;
+        pressingColl = null;
+        releasingColl = null;
+    }
 }
