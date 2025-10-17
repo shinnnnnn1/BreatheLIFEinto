@@ -12,6 +12,10 @@ public class StaticObject : BaseObject
 
     Rigidbody rigid;
 
+    [SerializeField] Animator anim;
+    [SerializeField] bool isAnim;
+    [SerializeField] float animDelay;
+
     public override void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -56,7 +60,17 @@ public class StaticObject : BaseObject
             int i = isActivate ? 0 : 9;
             shape = shapes[i + closeIndex];
             canShape = true;
+
+            if(isAnim)
+            {
+                Invoke("AnimTime", animDelay);
+            }
         }
+    }
+
+    void AnimTime()
+    {
+        anim.SetTrigger(isActivate ? "Activate" : "Deactivate");
     }
 
     public override void AfterFlip(Transform[] objectParents)
@@ -87,4 +101,6 @@ public class StaticObject : BaseObject
         }
     }
 
+
+    
 }
