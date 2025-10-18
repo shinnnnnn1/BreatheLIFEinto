@@ -33,7 +33,7 @@ MonoBehaviour:
   boxOffset: {x: 0, y: 0.5, z: 0}
   boxSize: {x: 0.55, y: 1.1, z: 0.05}
   sphereOffset: {x: 0, y: 0.5, z: 0}
-  sphereRadius: 0.55
+  sphereRadius: 0.553
   jumpBoxOffset: {x: 0, y: 0.5, z: 0}
   jumpBoxSize: {x: 0.7, y: 0.1, z: 0.05}
   jumpBoxDistance: 0.5
@@ -51,7 +51,29 @@ MonoBehaviour:
   eventLayer:
     serializedVersion: 2
     m_Bits: 1024
-  isRight: 0
+  respawnDelay:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  respawnException:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 2.6911626, y: 1.6833304, z: -0.00012895087}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  isRight: 1
   isTurning: 0
   isHolding: 0
   canJump: 1

@@ -16,7 +16,7 @@ public class BookController : MonoBehaviour
     public Transform[] leftBones, rightBones, currentBones, objectParents, shapes;
 
     [Space(10f)]
-    [SerializeField] int currentPage = 0;
+    public int currentPage = 0;
     [SerializeField] float flipTime;
     public bool isFlipping = false;
     float cTime;
@@ -24,7 +24,7 @@ public class BookController : MonoBehaviour
     [Space(10f)]
     [SerializeField] BaseObject[] bookObjects;
 
-    BookView view;
+    public BookView view;
     IBeforeAfterFlip beforeAfterFlip;
     PlayerController player;
     FlipTriggerController flipController;
@@ -168,12 +168,14 @@ public class BookController : MonoBehaviour
         view.SetPageMaterial(currentPage);
 
         yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(model.flipDelay[currentPage]);
 
         foreach (var obj in bookObjects)
         {
             obj.AfterFlip(objectParents);
         }
-        view.PlayPageAnimation(2, "Reset");
+        
+        //view.PlayPageAnimation(2, "Reset");
         isFlipping = false;
 
         //Reset Morph
@@ -186,7 +188,7 @@ public class BookController : MonoBehaviour
         beforeAfterFlip.OnAfterFlip(currentPage);
         view.SetPageVisibility(false, false);
 
-        flipController.SetCanProceed(false);
+        //flipController.SetCanProceed(false);
     }
 
     void StartShape()

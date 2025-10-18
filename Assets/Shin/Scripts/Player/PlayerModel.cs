@@ -43,6 +43,10 @@ public class PlayerModel : ScriptableObject
     public float eventSphereRadius = 0.5f;
     public LayerMask eventLayer;
 
+    [Space(10f)]
+    public float[] respawnDelay;
+    public Vector3[] respawnException;
+    
     [Header("Player Info")]
     public bool isRight = true;
     public bool isTurning = false;

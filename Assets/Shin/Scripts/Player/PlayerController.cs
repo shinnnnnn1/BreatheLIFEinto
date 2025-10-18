@@ -56,6 +56,12 @@ public class PlayerController : MonoBehaviour
 
     public bool isDialogue;
 
+
+    Vector3 flipPos;
+
+    public Transform closeBone;
+    public int closeIndex;
+
     void Start()
     {
         view = GetComponent<PlayerView>();
@@ -96,11 +102,13 @@ public class PlayerController : MonoBehaviour
         //Flip中の動きを調整。
         if(isFlipping)
         {
-            Vector3 localPos = new Vector3(model.posX, 0, 0);
-            view.AdjustmentLocalPosition(localPos);
+            //Vector3 localPos = transform.localPosition;
+            flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
+            //Vector3 localPos = new Vector3(model.posX, 0, 0);
+            view.AdjustmentLocalPosition(flipPos);
 
             Vector3 pos = new Vector3(transform.position.x, transform.position.y, flipPosZ);
-            view.AdjustmentPosition(pos);
+            //view.AdjustmentPosition(pos);
 
             float z = book.currentBones[8].eulerAngles.z;
             if (z > 270 || z < 90)
@@ -236,7 +244,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    #region CHARACTER ACTION ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region CHARACTER ACTION ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// 
     /// </summary>
@@ -392,7 +400,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
 
-    #region PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetCanMove(bool canMove)
     {
         Debug.Log("PlayerSetCanMove " + canMove + "" + !canMove);
@@ -414,7 +422,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void PlayerFlipTrigger()
     {
         if (model.canMove && model.isRight  && moveDirection.magnitude > 0 && !canFlip)
@@ -439,19 +447,35 @@ public class PlayerController : MonoBehaviour
 
         transform.SetParent(book.currentBones[8]);
         book.Flip();
+        flipPos = transform.localPosition;
 
         StartCoroutine(PlayerFlipCoroutine());
     }
 
     IEnumerator PlayerFlipCoroutine()
     {
-        flipPosZ = transform.position.z;
         flipRot = new Vector3(0, 0, 90);
         float rotValue = -92f;
         view.StandFlip(stand, rotValue, true);
 
         yield return new WaitForSeconds(1.25f);
-        flipPosZ = 0;
+
+        flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
+        FlipReposition();
+        Vector3 respawnPos = model.respawnException[book.currentPage];
+
+        if (respawnPos == Vector3.zero)
+        {
+            //flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
+        }
+        else
+        {
+            //FlipReposition();
+        }
+        yield return new WaitForSeconds(model.respawnDelay[book.currentPage]);
+
+        yield return new WaitForSeconds(1.75f);
+
         flipRot = new Vector3(0, 0, -90);
         view.StandFlip(stand, rotValue, false);
 
@@ -463,12 +487,51 @@ public class PlayerController : MonoBehaviour
 
         //アニメーションができるようにする
         view.SetPlayerAnim("CanAnim", true);
+
+        //플레이어의 부모를 초기화 한 뒤에 currentPage의 애니메이션을 초기화 시켜야함.
+        book.view.PlayPageAnimation(2, "Reset");
+    }
+
+    /// <summary>
+    /// 새로운 리스폰 장소가 있다면
+    /// </summary>
+    void FlipReposition()
+    {
+        Vector3 respawnPos = model.respawnException[book.currentPage];
+        Debug.Log(respawnPos);
+        if (respawnPos == Vector3.zero) { return; }
+
+        Transform[] newPage = respawnPos.x > 0 ? book.rightBones : book.leftBones;
+
+        float dis = 100;
+        for (int i = 0; i < newPage.Length; i++)
+        {
+            float close = Vector3.Distance(model.respawnException[book.currentPage], newPage[i].position);
+            if (close < dis)
+            {
+                dis = close;
+                closeBone = newPage[i];
+                closeIndex = i;
+            }
+        }
+        Debug.Log(closeBone.parent.name);
+
+        transform.SetParent(null);
+        transform.position = model.respawnException[book.currentPage];
+
+        transform.SetParent(closeBone);
+        flipPos = transform.localPosition;
+
+        Transform[] newnewPage = respawnPos.x > 0 ? book.rightBones : book.currentBones;
+
+        //Debug.Log(newnewPage[0].name);
+        transform.SetParent(newnewPage[closeIndex]);
     }
     #endregion
 
 
 
-    #region GAME START ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region GAME START ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetCanGameStart() => canGameStart = true;
     public void SetGameStart()
     {
