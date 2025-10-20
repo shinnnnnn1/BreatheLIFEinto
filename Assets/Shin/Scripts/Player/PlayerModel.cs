@@ -43,7 +43,8 @@ public class PlayerModel : ScriptableObject
     public float eventSphereRadius = 0.5f;
     public LayerMask eventLayer;
 
-    [Space(10f)]
+    [Space(20f)]
+    public Vector3 defaultRespawn;
     public float[] respawnDelay;
     public Vector3[] respawnException;
     

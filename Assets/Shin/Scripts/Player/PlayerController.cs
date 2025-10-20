@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     public Transform closeBone;
     public int closeIndex;
 
+    bool lockRot;
+
     void Start()
     {
         view = GetComponent<PlayerView>();
@@ -103,23 +105,27 @@ public class PlayerController : MonoBehaviour
         if(isFlipping)
         {
             //Vector3 localPos = transform.localPosition;
-            flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
+            //flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
             //Vector3 localPos = new Vector3(model.posX, 0, 0);
             view.AdjustmentLocalPosition(flipPos);
 
-            Vector3 pos = new Vector3(transform.position.x, transform.position.y, flipPosZ);
+            //Vector3 pos = new Vector3(transform.position.x, transform.position.y, flipPosZ);
             //view.AdjustmentPosition(pos);
 
-            float z = book.currentBones[8].eulerAngles.z;
-            if (z > 270 || z < 90)
+            if (!lockRot)
             {
-                Vector3 rot = book.currentBones[8].eulerAngles + flipRot;
-                view.AdjustmentEulerAngles(rot);
+                float z = book.currentBones[8].eulerAngles.z;
+                if (z > 270 || z < 90)
+                {
+                    Vector3 rot = book.currentBones[8].eulerAngles + flipRot;
+                    view.AdjustmentEulerAngles(rot);
+                }
+                else
+                {
+                    view.AdjustmentEulerAngles(Vector3.zero);
+                }
             }
-            else
-            {
-                view.AdjustmentEulerAngles(Vector3.zero);
-            }
+            
         }
 
         //範囲内のNPCを参照。複数の場合は一番近いNPCを参照。
@@ -459,28 +465,24 @@ public class PlayerController : MonoBehaviour
         view.StandFlip(stand, rotValue, true);
 
         yield return new WaitForSeconds(1.25f);
-
-        flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
-        FlipReposition();
-        Vector3 respawnPos = model.respawnException[book.currentPage];
-
-        if (respawnPos == Vector3.zero)
-        {
-            //flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
-        }
-        else
-        {
-            //FlipReposition();
-        }
         yield return new WaitForSeconds(model.respawnDelay[book.currentPage]);
 
-        yield return new WaitForSeconds(1.75f);
+        FlipReposition();
 
         flipRot = new Vector3(0, 0, -90);
         view.StandFlip(stand, rotValue, false);
 
+        /*
+        if (model.respawnException[book.currentPage].x > 0)
+        {
+            lockRot = true;
+            transform.rotation = Quaternion.identity;
+        }
+        */
+
         SetPlayerVisible(flipvisible);
 
+        yield return new WaitForSeconds(1.75f);
         yield return new WaitForSeconds(1.75f);
         isFlipping = false;
         transform.SetParent(null);
@@ -488,44 +490,62 @@ public class PlayerController : MonoBehaviour
         //アニメーションができるようにする
         view.SetPlayerAnim("CanAnim", true);
 
+        yield return new WaitForSeconds(0.5f);
         //플레이어의 부모를 초기화 한 뒤에 currentPage의 애니메이션을 초기화 시켜야함.
         book.view.PlayPageAnimation(2, "Reset");
+
+        lockRot = false;
     }
 
     /// <summary>
-    /// 새로운 리스폰 장소가 있다면
+    /// 새로운 리스폰 장소 찾기
     /// </summary>
     void FlipReposition()
     {
         Vector3 respawnPos = model.respawnException[book.currentPage];
-        Debug.Log(respawnPos);
-        if (respawnPos == Vector3.zero) { return; }
-
-        Transform[] newPage = respawnPos.x > 0 ? book.rightBones : book.leftBones;
-
-        float dis = 100;
-        for (int i = 0; i < newPage.Length; i++)
+        if (respawnPos == Vector3.zero)
         {
-            float close = Vector3.Distance(model.respawnException[book.currentPage], newPage[i].position);
-            if (close < dis)
-            {
-                dis = close;
-                closeBone = newPage[i];
-                closeIndex = i;
-            }
+            //flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
+
+            SetPlayerVisible(false);
+
+            transform.SetParent(null);
+            transform.position = model.defaultRespawn;
+
+            transform.SetParent(book.leftBones[8]);
+            flipPos = transform.localPosition;
+            transform.SetParent(book.currentBones[8]);
+
+            SetPlayerVisible(true);
         }
-        Debug.Log(closeBone.parent.name);
+        else
+        {
+            Transform[] newPage = respawnPos.x > 0 ? book.rightBones : book.leftBones;
 
-        transform.SetParent(null);
-        transform.position = model.respawnException[book.currentPage];
+            float dis = 100;
+            for (int i = 0; i < newPage.Length; i++)
+            {
+                float close = Vector3.Distance(model.respawnException[book.currentPage], newPage[i].position);
+                if (close < dis)
+                {
+                    dis = close;
+                    closeBone = newPage[i];
+                    closeIndex = i;
+                }
+            }
 
-        transform.SetParent(closeBone);
-        flipPos = transform.localPosition;
+            transform.SetParent(null);
+            transform.position = model.respawnException[book.currentPage];
 
-        Transform[] newnewPage = respawnPos.x > 0 ? book.rightBones : book.currentBones;
+            transform.SetParent(closeBone);
+            flipPos = transform.localPosition;
 
-        //Debug.Log(newnewPage[0].name);
-        transform.SetParent(newnewPage[closeIndex]);
+            Transform[] newnewPage = respawnPos.x > 0 ? book.rightBones : book.currentBones;
+
+            transform.SetParent(newnewPage[closeIndex]);
+
+            
+        }
     }
     #endregion
 

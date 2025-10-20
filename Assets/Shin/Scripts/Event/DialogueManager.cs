@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
         currentText = dialogueTexts[0];
 
         currentText.text = "";
+
     }
 
     public void Dialogue(Dialogue dialogue)
@@ -123,7 +124,7 @@ public class DialogueManager : MonoBehaviour
             currentText.text = "";
 
             //フォントのサイズを変更
-            currentText.fontSize = d.fontSize[current] > 0 ? d.fontSize[current] : 1;
+            currentText.fontSize = d.fontSize[current] > 0 ? d.fontSize[current] : 10;
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
@@ -163,11 +164,6 @@ public class DialogueManager : MonoBehaviour
         canSkip = false;
         canProceed = true;
 
-        if(EventManager.Instance.playerController.dialogueP != null)
-        {
-            currentEventImage?.gameObject.SetActive(true);
-        }
-
         if (d.canRecycle)
         {
             currentDialoguePlayer.ChangeToRecycle();
@@ -175,7 +171,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            currentDialoguePlayer.GetComponent<NPCObject>()?.SetDisableDialogue();
+            currentDialoguePlayer.GetComponent<NPCObject>().SetDisableDialogue();
         }
 
         EventManager.Instance.playerController.SetIsDialogue(false);
@@ -188,6 +184,10 @@ public class DialogueManager : MonoBehaviour
         {
             EventManager.Instance.flipController.SetCanProceed(true);
         }
-        
+
+        if (EventManager.Instance.playerController.dialogueP != null)
+        {
+            currentEventImage?.gameObject.SetActive(true);
+        }
     }
 }

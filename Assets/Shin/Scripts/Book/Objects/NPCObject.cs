@@ -21,7 +21,12 @@ public class NPCObject : BaseObject
 
         plane = stand.GetChild(0);
         anim = plane.GetComponent<Animator>();
-        npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+
+        //처음에 안보이게할거는
+        if(npcCylinder == null)
+        {
+            npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+        }
 
         isFacingRight = plane.localEulerAngles.y < 90;
     }
@@ -133,4 +138,30 @@ public class NPCObject : BaseObject
         npcCylinder?.gameObject.SetActive(true);
     }
 
+    //상당히 비효율적. 여유 있을때 바꿔야하는것들중 하나 :(
+    public void TurnAndChangeToPlayer()
+    {
+        Transform playerpos = EventManager.Instance.playerController.transform;
+        bool isOverPlayer = transform.position.x > playerpos.position.x;
+        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
+        {
+            Turn();
+        }
+        else
+        {
+            StartCoroutine(Tactp());
+        }
+    }
+    IEnumerator Tactp()
+    {
+
+        float turnValue = isFacingRight ? -90 : 90;
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
+        yield return new WaitForSeconds(0.1f);
+
+        Vector3 newRot = new Vector3(0, 90, 0); 
+        plane.localEulerAngles = newRot;
+
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
+    }
 }

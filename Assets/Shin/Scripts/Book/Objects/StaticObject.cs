@@ -29,7 +29,7 @@ public class StaticObject : BaseObject
             if (s != null)
             {
                 mesh.Add(s);
-                s.transform.localPosition = (isRight ? Vector3.down : Vector3.up) * height;
+                s.transform.localPosition = (isRight ? Vector3.down : Vector3.up) * height * 2;
             }
         }
 
@@ -100,7 +100,4 @@ public class StaticObject : BaseObject
             SetBlendShapes(value);
         }
     }
-
-
-    
 }

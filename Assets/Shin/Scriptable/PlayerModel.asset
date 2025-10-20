@@ -51,16 +51,17 @@ MonoBehaviour:
   eventLayer:
     serializedVersion: 2
     m_Bits: 1024
+  defaultRespawn: {x: -7.3141117, y: 1.2588804, z: 0}
   respawnDelay:
   - 0
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
   - 1
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
   - 0
   respawnException:
   - {x: 0, y: 0, z: 0}
@@ -68,15 +69,15 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 2.6911626, y: 1.6833304, z: -0.00012895087}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 2.2106173, y: 1.6866796, z: -3.179742}
+  - {x: 4.78, y: 1.6, z: 0.79}
   - {x: 0, y: 0, z: 0}
   isRight: 1
   isTurning: 0
   isHolding: 0
   canJump: 1
   canSwitch: 1
-  canMove: 1
+  canMove: 0
   canAnim: 1

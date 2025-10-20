@@ -168,7 +168,8 @@ public class BookController : MonoBehaviour
         view.SetPageMaterial(currentPage);
 
         yield return new WaitForSeconds(1.75f);
-        yield return new WaitForSeconds(model.flipDelay[currentPage]);
+        yield return new WaitForSeconds(1.75f);
+        //yield return new WaitForSeconds(model.flipDelay[currentPage]);
 
         foreach (var obj in bookObjects)
         {

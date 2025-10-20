@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b13d75be561b145a762afcd66b1e6c, type: 3}
+  m_Name: RHD09_Ending
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 1
+  canProceedOnDialogueEnd: 1
+  canRecycle: 0
+  messages:
+  - "\u3063\u308F\u3001"
+  - "\u30A6\u30EF\u30A1\u30FC\uFF01\uFF01\uFF01\uFF01\uFF01"
+  - "\u3082\u3046\u3060\u3044\u3058\u3087\u3046\u3076\u304B\u306A\u2026\u2026\uFF1F"
+  - "\u58F0\u3082\u3057\u306A\u304F\u306A\u3063\u305F\u306A\u3001\u3082\u3046\u5E73\u6C17\u3058\u3083\u308D\u3046\uFF01"
+  - "\u306A\u3093\u3068\u304B\u306A\u3063\u305F\u306E\u304B\u3057\u3089\u306D\u3048\u2026\u2026\u3002"
+  - "\u30AD\u30DF\u306E\u304A\u304B\u3052\u3067\u307F\u3093\u306A\u52A9\u304B\u3063\u305F\u3001\u793C\u3092\u8A00\u304A\u3046\u3002"
+  - "\u3042\u308A\u304C\u3068\u3046\uFF01"
+  - "\u3042\u308A\u304C\u3068\u3046\u304A\u306B\u3044\u3061\u3083\u3093\uFF01"
+  - "\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\u3001\u898B\u305A\u77E5\u3089\u305A\u306E\u304A\u65B9\u2026\u2026\u3002"
+  spriteType: 000000000100000000000000000000000000000000000000000000000000000000000000
+  delay:
+  - {x: 6, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto: 010000000000000000
+  autoDelay:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  isInvisible: 000000000000000000
+  emotion: 000000000000000000000000000000000000000000000000000000000000000000000000
+  talkerId: 000000000000000001000000030000000200000003000000030000000100000002000000
+  fontSize: 000000000000000000000000000000000000000000000000000000000000000000000000
+  events:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  startEvent: 0
