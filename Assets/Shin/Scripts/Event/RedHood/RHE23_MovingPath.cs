@@ -19,7 +19,7 @@ public class RHE23_MovingPath : MonoBehaviour
     public void MovingPath()
     {
         anim.SetTrigger(movingAnim);
-        trans.DOPath(paths, time, PathType.CatmullRom);
+        trans.DOPath(paths, time, PathType.CatmullRom).OnComplete(() => { anim.SetTrigger(stoppedAnim); }); ;
         StartCoroutine(TurnCoroutine());
     }
 
@@ -34,6 +34,5 @@ public class RHE23_MovingPath : MonoBehaviour
             isRight = !isRight;
         }
         trans.GetComponent<PlayerController>().model.isRight = afterIsRight;
-        anim.SetTrigger(stoppedAnim);
     }
 }

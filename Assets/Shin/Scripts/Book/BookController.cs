@@ -267,4 +267,9 @@ public class BookController : MonoBehaviour
             }
         }
     }
+
+    public void Ending()
+    {
+
+    }
 }
