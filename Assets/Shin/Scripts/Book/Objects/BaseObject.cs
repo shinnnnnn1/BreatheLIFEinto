@@ -59,7 +59,7 @@ public class BaseObject : MonoBehaviour
 
         //高さ調整のための初期設定
         height = transform.position.y;
-        stand.localPosition = (isRight ? Vector3.down : Vector3.up) * height;
+        stand.localPosition = (isRight ? Vector3.down : Vector3.up) * height * 2;
     }
 
     public void SetBone()
@@ -170,7 +170,7 @@ public class BaseObject : MonoBehaviour
             float heightValue = isActivate ? 0 : (isStatic ? -height : height);
             float heightTime = model.curveHeight[isActivate ? 0: 1].Evaluate(closeIndex);
             float heightDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex);
-            SetHeight(heightValue, heightTime, heightDelay);
+            SetHeight(heightValue * 2, heightTime, heightDelay);
         }
         else
         {

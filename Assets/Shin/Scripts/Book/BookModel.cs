@@ -21,7 +21,7 @@ public class BookModel : ScriptableObject
     public float rotValue = 30.0f;
     public float rotTime = 1.0f;
 
-    public float[] flipDelay;
+    public Vector2[] flipDelay;
 
     [Header("Development Settings")]
     [Range(0, 20)] public int setStartPage = 0;

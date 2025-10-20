@@ -25,6 +25,7 @@ public class FlipTriggerController : MonoBehaviour
 
     public void ResetTrigger(int currentTrigger)
     {
+        Debug.Log("Reset to " + currentTrigger);
         for (int i = 0; i < triggers.Length; i++)
         {
             triggers[i].gameObject.SetActive(i == currentTrigger);
