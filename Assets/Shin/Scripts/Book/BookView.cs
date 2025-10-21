@@ -7,6 +7,11 @@ public class BookView : MonoBehaviour
     [SerializeField] Animator[] bookAnim;
     [SerializeField] SkinnedMeshRenderer[] pageMesh;
 
+    public void MoveBookPosition(Vector3 pos, float duration)
+    {
+        transform.DOMove(pos, duration).SetEase(Ease.OutQuint);
+    }
+
     public void PlayBookAnimation(int pageNum, string trigger)
     {
         bookAnim[pageNum].SetTrigger(trigger);
@@ -26,8 +31,13 @@ public class BookView : MonoBehaviour
     {
         foreach(var page in pageMesh)
         {
-            page.enabled = isVisible;
+            page.gameObject.SetActive(isVisible);
         }
+    }
+
+    public void SetPageVisibility(int pageNum, bool isVisible)
+    {
+        pageMesh[pageNum].gameObject.SetActive(isVisible);
     }
 
     public void SetPageVisibility(bool right, bool left)

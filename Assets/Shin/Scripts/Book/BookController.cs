@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 /// <summary>
 /// 本を操作するクラス
@@ -60,7 +61,8 @@ public class BookController : MonoBehaviour
         //本の上のオブジェクトを全て参照
         bookObjects = objectParent.GetComponentsInChildren<BaseObject>();
 
-        //view.SetAllPageVisibility(false);
+        view.SetAllPageVisibility(false);
+        view.MoveBookPosition(new Vector3(-5, 0, 0), 0);
     }
 
     /// <summary>
@@ -71,7 +73,7 @@ public class BookController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        //最初は0ページから始まるため、左にあるオブジェクトを固定し、右にめめくる
+        //左にあるオブジェクトを固定し、右にめめくる
         foreach (var obj in bookObjects)
         {
             if(!obj.isRight)
@@ -268,8 +270,59 @@ public class BookController : MonoBehaviour
         }
     }
 
+    public void GameStart()
+    {
+        StartCoroutine(StartPage());
+    }
+    IEnumerator StartPage()
+    {
+        view.MoveBookPosition(Vector3.zero, 2f);
+
+        view.PlayBookAnimation(0, "Open");
+        view.PlayBookAnimation(1, "Open");
+
+        yield return new WaitForSeconds(3);
+        view.SetPageVisibility(1, true);
+
+        yield return new WaitForSeconds(3);
+        view.SetPageVisibility(0, true);
+
+    }
+
     public void Ending()
     {
+        StartCoroutine(EndPage());
+    }
+    IEnumerator EndPage()
+    {
+        player.Ending();
 
+        view.SetPageVisibility(2, true);
+        view.SetPageVisibility(1, false);
+        //view.SetPageVisibility(0, false);
+
+        view.PlayPageAnimation(2, "Flip");
+        view.PlayPageAnimation(3, "Reverse");
+
+        yield return new WaitForSeconds(1.25f);
+
+        view.SetPageVisibility(2, false);
+        view.SetPageVisibility(3, true);
+
+        yield return new WaitForSeconds(1.25f);
+        view.PlayBookAnimation(0, "Close");
+        view.PlayBookAnimation(1, "Close");
+
+        //yield return new WaitForSeconds(0.25f);
+        view.SetPageVisibility(0, false);
+        view.SetPageVisibility(3, false);
+
+
+        //view.PlayBookAnimation(0, "Close");
+        //view.PlayBookAnimation(1, "Close");
+
+        yield return new WaitForSeconds(1);
+
+        view.MoveBookPosition(new Vector3(5, 0, 0), 2f);
     }
 }

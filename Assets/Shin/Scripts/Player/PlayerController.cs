@@ -558,13 +558,23 @@ public class PlayerController : MonoBehaviour
         if (!isGameStarted && canGameStart)
         {
             isGameStarted = true;
+            book.GameStart();
             StartCoroutine(GameStartCoroutine());
         }
     }
     IEnumerator GameStartCoroutine()
     {
-        yield return null;
+        yield return new WaitForSeconds(3f);
         PlayerFlip();
+    }
+
+    public void Ending()
+    {
+        StartCoroutine(LastFlip());
+    }
+    IEnumerator LastFlip()
+    {
+        yield return new WaitForSeconds(3f);
     }
     #endregion
 
