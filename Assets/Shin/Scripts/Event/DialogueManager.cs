@@ -30,11 +30,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Sprite[] bubbleType;
 
     [Space(10f)]
+    [SerializeField] DialoguePlayer currentDialoguePlayer;
+
     [SerializeField] Image[] bubbles;
+    [SerializeField] Image[] emotions;
     [SerializeField] TMP_Text[] texts;
 
-    [SerializeField] DialoguePlayer currentDialoguePlayer;
     [SerializeField] Image currentBubble;
+    [SerializeField] Image currentEmotion;
     [SerializeField] TMP_Text currentText;
 
     Image currentEventImage;
@@ -109,13 +112,13 @@ public class DialogueManager : MonoBehaviour
             //イベントがある場合、再生
             if (d.events[current].x > 0) { EventManager.Instance.PlayCutScene((int)d.events[current].x); }
 
-            //吹き出しの表示/非表示
-            currentBubble.enabled = !d.isInvisible[current];
-            currentText.enabled = !d.isInvisible[current];
-
             //吹き出しを話すキャラクターの吹き出しに変更
             currentBubble = bubbles[d.talkerId[current]];
             currentText = texts[d.talkerId[current]];
+
+            //吹き出しの表示/非表示
+            currentBubble.enabled = !d.isInvisible[current];
+            currentText.enabled = !d.isInvisible[current];
 
             //吹き出しのスプライトを変更
             currentBubble.sprite = bubbleType[d.spriteType[current]];
@@ -126,8 +129,27 @@ public class DialogueManager : MonoBehaviour
             //フォントのサイズを変更
             currentText.fontSize = d.fontSize[current] > 0 ? d.fontSize[current] : 10;
 
+            //震えるかどうか
+            /*
+            if (d.isShake[current])
+            {
+                currentText.transform.DOShakePosition(-1, 1, 1, 1, false, false);
+            }
+            else
+            {
+                currentText.transform.DOPause();
+                currentText.transform.DOLocalMove(new Vector3(0, 0, 0), 0);
+            }
+            */
+
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
+
+            //感情表現のイメージ変更
+
+
+            //感情表現が大きくなるアニメーション
+
             yield return new WaitForSeconds(0.5f);
 
             //文字を表示

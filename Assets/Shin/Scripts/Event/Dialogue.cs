@@ -15,9 +15,10 @@ public class Dialogue : ScriptableObject
     public bool[] isAuto;
     public float[] autoDelay;
     public bool[] isInvisible;
-    public int[] emotion;   //아직
+    public int[] emotion;       //
     public int[] talkerId;
     public int[] fontSize;
+    public bool[] isShake;      //
     public Vector2[] events;
     public int startEvent;
 }
