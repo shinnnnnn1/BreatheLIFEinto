@@ -136,7 +136,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2732520417202317402}
@@ -217,7 +217,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 511
+    m_Bits: 1535
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -286,8 +286,11 @@ MonoBehaviour:
   view: {fileID: 0}
   rigid: {fileID: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
+  lockedPos: {x: 0, y: 0, z: 0}
   angleAccuracy: 0
   isDialogue: 0
+  closeBone: {fileID: 0}
+  closeIndex: 0
 --- !u!114 &8095967689756624907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +376,19 @@ MonoBehaviour:
     m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
     m_ActionName: 'UI/Point[/Mouse/position]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VirtualMouseCursorInput, Assembly-CSharp
+        m_MethodName: InputClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
     m_ActionName: 'UI/Click[/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -516,6 +531,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b6abf115-ab37-4c21-b175-c28fa0c8cd92
     m_ActionName: 'Player/AnyButton[/Keyboard/anyKey]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7940280902859646012}
+        m_TargetAssemblyTypeName: PlayerActionInput, Assembly-CSharp
+        m_MethodName: InputTurnBookL
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d624ae07-5500-4bd6-97a1-ef2010c22d3c
+    m_ActionName: 'Player/TurnBookL[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7940280902859646012}
+        m_TargetAssemblyTypeName: PlayerActionInput, Assembly-CSharp
+        m_MethodName: InputTurnBookR
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 112d7690-6d37-4c6a-a8b5-be6d339a2a53
+    m_ActionName: 'Player/TurnBookR[/Keyboard/c]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -606,7 +653,7 @@ ConfigurableJoint:
     spring: 200
     damper: 0
   m_LinearLimit:
-    limit: 0.01
+    limit: 0.1
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
@@ -679,7 +726,7 @@ ConfigurableJoint:
   m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1

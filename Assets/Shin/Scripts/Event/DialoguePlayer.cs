@@ -34,7 +34,6 @@ public class DialoguePlayer : MonoBehaviour
 
     public void ResetEvent()
     {
-
         DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
         if(dialogueWithTurn)
         {

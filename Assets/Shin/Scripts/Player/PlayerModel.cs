@@ -3,6 +3,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "VirtualMouseModel", menuName = "Scriptable Objects/PlayerModel")]
 public class PlayerModel : ScriptableObject
 {
+    [Header("Player Info")]
+    public bool isRight = true;
+    public bool isTurning = false;
+    public bool isHolding = false;
+
+    [Space(10f)]
+    public bool canControl = true;
+    public bool canMove = false;
+    public bool canChange = false;
+    public bool canProceed = false;
+
+    [Space(10f)]
+    public bool canJump = true;
+    public bool canSwitch = true;
+    public bool canAnim = true;
+
     [Header("Movement Settings")]
     public float moveSpeed = 2.0f;
     public float accelerationTime = 0.1f;
@@ -43,19 +59,8 @@ public class PlayerModel : ScriptableObject
     public float eventSphereRadius = 0.5f;
     public LayerMask eventLayer;
 
-    [Space(20f)]
+    [Header("Respawn")]
     public Vector3 defaultRespawn;
     public float[] respawnDelay;
     public Vector3[] respawnException;
-    
-    [Header("Player Info")]
-    public bool isRight = true;
-    public bool isTurning = false;
-    public bool isHolding = false;
-
-    [Space(10f)]
-    public bool canJump = true;
-    public bool canSwitch = true;
-    public bool canMove = false;
-    public bool canAnim = true;
 }
