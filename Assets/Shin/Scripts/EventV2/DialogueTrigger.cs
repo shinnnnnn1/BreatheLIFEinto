@@ -1,16 +1,16 @@
 using System.Linq;
-using TMPro;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class DialoguePlayer : MonoBehaviour, IEventInvoker
+public class DialogueTrigger : MonoBehaviour, IEventInvoker
 {
-    public Dialogue dialogue;
-    public Dialogue recycleDialogue;
+    [SerializeField] Dialogue dialogue;
+    [SerializeField] Dialogue recycleDialogue;
 
-    [SerializeField] Image[] bubbleImages = new Image[1];
+    [SerializeField] Image[] bubbles = new Image[1];
     [SerializeField] TMP_Text[] texts = new TMP_Text[1];
+    [SerializeField] Image[] emotions = new Image[1];
 
     [SerializeField] Image eventImage;
 
@@ -21,19 +21,11 @@ public class DialoguePlayer : MonoBehaviour, IEventInvoker
     {
         eventImage = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Event");
 
-        bubbleImages[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Dialogue");
+        bubbles[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Dialogue");
         texts[0] = GetComponentsInChildren<TMP_Text>().FirstOrDefault(x => x.name == "Text");
         CanStartEvent(false);
 
         npcObject = GetComponent<NPCObject>();
-    }
-    public void OnEventEnter(bool isEnter)
-    {
-        eventImage?.gameObject.SetActive(isEnter);
-    }
-    public void OnEventInvoke()
-    {
-        PlayAutoEvent();
     }
 
     public void CanStartEvent(bool canStart)
@@ -43,8 +35,8 @@ public class DialoguePlayer : MonoBehaviour, IEventInvoker
 
     public void ResetEvent()
     {
-        DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
-        if(dialogueWithTurn)
+        //DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
+        if (dialogueWithTurn)
         {
             npcObject?.TurnToPlayer();
         }
@@ -57,8 +49,8 @@ public class DialoguePlayer : MonoBehaviour, IEventInvoker
 
     public void PlayAutoEvent()
     {
-        EventManager.Instance.playerController.SetDialogueAuto(this);
-        DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
+        //EventManager.Instance.playerController.SetDialogueAuto(this);
+        //DialogueManager.Instance.ResetDialogue(this, eventImage, bubbleImages, texts);
         DialogueManager.Instance.Dialogue(dialogue);
     }
 
@@ -82,5 +74,12 @@ public class DialoguePlayer : MonoBehaviour, IEventInvoker
         dialogueWithTurn = dwt;
     }
 
-    
+    public void OnEventEnter(bool isEnter)
+    {
+
+    }
+    public void OnEventInvoke()
+    {
+
+    }
 }

@@ -13,33 +13,35 @@ public class BookController : MonoBehaviour
     [SerializeField] Transform leftBone, rightBone, currentBone, objectParent, shape;
 
     //shape[0 ~ 9] = Activate, shape[10 ~ 18] = Deactivate
-    //[HideInInspector] 
+    [HideInInspector] 
     public Transform[] leftBones, rightBones, currentBones, objectParents, shapes;
 
     [Space(10f)]
     public int currentPage = 0;
+     bool isFlipping = false;
+
     [SerializeField] float flipTime;
-    public bool isFlipping = false;
     float cTime;
 
-    [Space(10f)]
+    public int bookDir = 0;
+
     [SerializeField] BaseObject[] bookObjects;
 
-    public BookView view;
+    [HideInInspector] public BookView view;
     IBeforeAfterFlip beforeAfterFlip;
     PlayerController player;
     FlipTriggerController flipController;
 
-    public int bookDir = 0;
-
     public virtual void Awake()
     {
-        //開発用。スタート地点を設定できる。すごい！
+        //開発用。スタートページを設定できる。すごい！
         currentPage = model.setStartPage - 1;
 
         //BookのView, BookAfterFlipを参照
         view = GetComponent<BookView>();
         beforeAfterFlip = GetComponent<IBeforeAfterFlip>();
+
+        //Controllerを参照
         player = FindFirstObjectByType<PlayerController>();
         flipController = FindFirstObjectByType<FlipTriggerController>();
 
@@ -48,7 +50,7 @@ public class BookController : MonoBehaviour
         rightBones = rightBone.GetComponentsInChildren<Transform>();
         currentBones = currentBone.GetComponentsInChildren<Transform>();
 
-        //本のオブジェクトが置かれる場所を参照
+        //本のオブジェクトを保管する場所を参照
         objectParents = new Transform[objectParent.childCount];
         for (int i = 0; i < objectParent.childCount; i++)
         {
@@ -61,6 +63,8 @@ public class BookController : MonoBehaviour
         //本の上のオブジェクトを全て参照
         bookObjects = objectParent.GetComponentsInChildren<BaseObject>();
 
+        //本の表示状態、初期位置を調整
+        view.SetAllBookVisibility(true);
         view.SetAllPageVisibility(false);
         view.MoveBookPosition(new Vector3(-5, 0, 0), 0);
     }
@@ -125,18 +129,23 @@ public class BookController : MonoBehaviour
 
     void Update()
     {
-        if (isFlipping)
-        {
-            flipTime = Time.time - cTime;
-        }
+        if (isFlipping) { flipTime = Time.time - cTime; }
     }
 
     /// <summary>
     /// ページ移動
     /// </summary>
-    public void Flip()
+    public void Flip(out int currentPagee)
     {
-        if (isFlipping) { return; }
+        if (isFlipping)
+        {
+            currentPagee = 0;
+            return;
+        }
+        else
+        {
+            currentPagee = 0;
+        }
 
         isFlipping = true;
         currentPage++;
@@ -152,7 +161,11 @@ public class BookController : MonoBehaviour
         beforeAfterFlip.OnBeforeFlip(currentPage, out int beforeWaitTime);
         yield return new WaitForSeconds(beforeWaitTime);
 
-        view.SetPageVisibility(true, false);
+        //view.SetPageVisibility(true, false);
+
+        view.SetPageVisibility(2, true);
+        view.SetPageVisibility(3, false);
+
         StartShape();
         foreach (var obj in bookObjects)
         {
@@ -166,13 +179,17 @@ public class BookController : MonoBehaviour
 
         yield return new WaitForSeconds(1.25f);
 
-        view.SetPageVisibility(false, true);
+        //view.SetPageVisibility(false, true);
+        view.SetPageVisibility(2, false);
+        view.SetPageVisibility(3, true);
+
         view.SetPageMaterial(currentPage);
 
         yield return new WaitForSeconds(1.75f);
         yield return new WaitForSeconds(1.75f);
         //yield return new WaitForSeconds(model.flipDelay[currentPage]);
 
+        //
         foreach (var obj in bookObjects)
         {
             obj.AfterFlip(objectParents);
@@ -181,17 +198,22 @@ public class BookController : MonoBehaviour
         //view.PlayPageAnimation(2, "Reset");
         isFlipping = false;
 
-        //Reset Morph
+        //Shapeの位置を初期化
         for (int i = 0; i < shapes.Length; i++)
         {
             shapes[i].DOPause();
             shapes[i].position = new Vector3(shapes[i].position.x, i < 9 ? 0 : 1, shapes[i].position.z);
         }
 
-        beforeAfterFlip.OnAfterFlip(currentPage);
-        view.SetPageVisibility(false, false);
+        //view.SetPageVisibility(false, false);
+        view.SetPageVisibility(2, false);
+        view.SetPageVisibility(3, false);
 
-        //flipController.SetCanProceed(false);
+        //進行ができない状態にする
+        flipController.SetCanProceed(false);
+
+        //Flipの後のイベントを発生させる
+        beforeAfterFlip.OnAfterFlip(currentPage);
     }
 
     void StartShape()

@@ -27,6 +27,13 @@ public class BookView : MonoBehaviour
         pageAnim[pageNum].speed = speed;
     }
 
+    public void SetAllBookVisibility(bool isVisible)
+    {
+        foreach (var book in bookAnim)
+        {
+            book.gameObject.SetActive(isVisible);
+        }
+    }
     public void SetAllPageVisibility(bool isVisible)
     {
         foreach(var page in pageMesh)
@@ -40,11 +47,6 @@ public class BookView : MonoBehaviour
         pageMesh[pageNum].gameObject.SetActive(isVisible);
     }
 
-    public void SetPageVisibility(bool right, bool left)
-    {
-        pageMesh[2].gameObject.SetActive(right);
-        pageMesh[3].gameObject.SetActive(left);
-    }
 
     public void SetPageMaterial(int currentPage)
     {

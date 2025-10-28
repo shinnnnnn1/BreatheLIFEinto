@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FlipTrigger : MonoBehaviour
 {
-    [HideInInspector] public FlipTriggerController controller;
+    FlipTriggerController controller;
 
     void Start()
     {
@@ -11,7 +11,15 @@ public class FlipTrigger : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(controller.canProceed && controller.isBookHorizontal)
+        if(controller.CanTrigger())
+        {
+            controller.playerController.PlayerFlipTrigger();
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if(controller.CanTrigger())
         {
             controller.playerController.PlayerFlipTrigger();
         }

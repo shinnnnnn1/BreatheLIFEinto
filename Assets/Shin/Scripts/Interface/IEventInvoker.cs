@@ -2,7 +2,6 @@ using UnityEngine;
 
 public interface IEventInvoker
 {
-    public void CanStartEvent(bool canStart);
-    public void ResetEvent();
-    public void StartEvent();
+    public void OnEventEnter(bool isEnter);
+    public void OnEventInvoke();
 }

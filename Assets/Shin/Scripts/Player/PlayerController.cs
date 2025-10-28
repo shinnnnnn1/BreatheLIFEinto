@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public DialoguePlayer dialogueP;
     public DialoguePlayer currentDialogue;
 
+    IEventInvoker iEvent;
+    IEventInvoker currentEvent;
+
     [HideInInspector] public PlayerView view;
     PlayerHold jointHold;
     BookController book;
@@ -129,7 +132,7 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        GetDialogueReference();
+        GetDialogueReference2();
     }
 
     /// <summary>
@@ -141,7 +144,7 @@ public class PlayerController : MonoBehaviour
         if (!model.canMove) { return; }
 
         //範囲内のオブジェクトを取得
-        Collider[] eventColls = Physics.OverlapSphere(transform.position, 0.5f, model.eventLayer, QueryTriggerInteraction.Collide)
+        Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, QueryTriggerInteraction.Collide)
             .OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).ToArray();
 
         //範囲内にオブジェクトがあった場合
@@ -150,6 +153,7 @@ public class PlayerController : MonoBehaviour
             //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
             if (interactingEvent != eventColls[0].transform)
             {
+
                 //現在のオブジェクトがある場合、会話可能イメージを非表示させる
                 dialogueP?.CanStartEvent(false);
 
@@ -170,6 +174,48 @@ public class PlayerController : MonoBehaviour
             //参照状態の初期化
             interactingEvent = null;
             dialogueP = null;
+        }
+    }
+
+    /// <summary>
+    /// 範囲内のDialoguePlayerを参照。複数の場合は一番近いものを参照。
+    /// </summary>
+    void GetDialogueReference2()
+    {
+        //動けない状態ならreturn
+        if (!model.canMove) { return; }
+
+        //範囲内のオブジェクトを取得
+        Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, QueryTriggerInteraction.Collide)
+            .OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).ToArray();
+
+        //範囲内にオブジェクトがあった場合
+        if (eventColls.Length > 0)
+        {
+            //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
+            if (interactingEvent != eventColls[0].transform)
+            {
+
+                //現在のオブジェクトがある場合、会話可能イメージを非表示させる
+                iEvent?.OnEventEnter(false);
+
+                //新しいオブジェクトを参照
+                interactingEvent = eventColls[0].transform;
+                iEvent = interactingEvent.GetComponentInParent<IEventInvoker>();
+
+                //新しいオブジェクトの会話可能イメージを表示する
+                iEvent.OnEventEnter(true);
+            }
+        }
+        //範囲内にオブジェクトがないけどオブジェクトが参照されている場合
+        else if (eventColls.Length == 0 && interactingEvent != null)
+        {
+            //参照されているオブジェクトの会話可能イメージを非表示させる
+            iEvent.OnEventEnter(false);
+
+            //参照状態の初期化
+            interactingEvent = null;
+            iEvent = null;
         }
     }
 
@@ -275,39 +321,32 @@ public class PlayerController : MonoBehaviour
 
     #region CHARACTER ACTION ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
-    /// 
+    /// アクションボタンを押したら実行
     /// </summary>
     public void Action()
     {
-        //会話中にはプレイヤーが動けないからCanMove条件より先に確認
+        //会話中にはプレイヤーが動けないからCanMove条件より先に実行
         if(isDialogue)
         {
             //会話を送ることだけを実行し、return
-            currentDialogue.PlayEvent();
+            currentEvent.OnEventInvoke();
             return;
         }
 
-        //動けないなら、地面にいないなら、回転中ならreturn
-        if (!model.canMove || !OnGround() || model.isTurning) { return; }
+        //動けないなら、地面にいないなら、ジャンプできる状態じゃないなら、回転中ならreturn
+        if (!model.canMove || !OnGround() || !model.canJump || model.isTurning) { return; }
 
-
-        //イベントが存在するなら会話の開始
+        //接触中のイベントが存在するなら会話の開始
         if (interactingEvent != null)
         {
-            Transform interacting = interactingEvent.parent.transform;
-            currentDialogue = interacting.GetComponent<DialoguePlayer>();
-
-            currentDialogue.ResetEvent();
-            currentDialogue.PlayEvent();
-
-            rigid.linearVelocity = Vector3.zero;
+            currentEvent = iEvent;
+            currentEvent.OnEventInvoke();
             SetCanMove(false);
             SetIsDialogue(true);
-            currentVelocity = Vector3.zero;
         }
-        //イベントは存在しない。物をつかむ動作。
-        //範囲内につかめるオブジェクトがあり、ジャンプができる状態なら
-        else if(IsHit() && model.canJump)
+        //接触しているイベントがなかったら物をつかむ動作の実行
+        //範囲内につかめるオブジェクトがあったら実行
+        else if(IsHit())
         {
             SetHoldingInfo(true);
 
@@ -371,9 +410,9 @@ public class PlayerController : MonoBehaviour
             currentDialogue = null;
         }
     }
-    public void SetDialogueAuto(DialoguePlayer d)
+    public void SetDialogueAuto(IEventInvoker e)
     {
-        currentDialogue = d;
+        currentEvent = e;
         SetIsDialogue(true);
     }
 
@@ -446,12 +485,24 @@ public class PlayerController : MonoBehaviour
         Debug.Log("PlayerSetCanMove " + move + "" + !move);
         model.canMove = move;
         rigid.isKinematic = !move;
+
+        if (!move)
+        {
+            view.SetLinearVelocity(Vector3.zero);
+            currentVelocity = Vector2.zero;
+        }
     }
     public void SetCanMove(bool move, bool kinematic)
     {
         Debug.Log("PlayerSetCanMove " + move + "" + kinematic);
         model.canMove = move;
         rigid.isKinematic = kinematic;
+
+        if (!move)
+        {
+            view.SetLinearVelocity(Vector3.zero);
+            currentVelocity = Vector2.zero;
+        }
     }
     public void SetPlayerVisible(bool isVisible)
     {
@@ -463,14 +514,18 @@ public class PlayerController : MonoBehaviour
 
 
     #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    /// <summary>
+    /// 進行ができる状態でFlipTriggerに触れたら実行。Flipができる状態にする
+    /// </summary>
     public void PlayerFlipTrigger()
     {
         if (model.canMove && model.isRight  && moveDirection.magnitude > 0 && !canFlip)
         {
-            canFlip = true;
+            //空中でトリガーが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
-            view.SetLinearVelocity(Vector3.zero);
-            moveDirection = Vector2.zero;
+
+            //Flipができる状態にする
+            canFlip = true;
         }
     }
 
@@ -486,8 +541,9 @@ public class PlayerController : MonoBehaviour
         view.SetPlayerAnim("VelocityX", 0);
 
         transform.SetParent(book.currentBones[8]);
-        book.Flip();
         flipPos = transform.localPosition;
+
+        book.Flip(out int currentPage);
 
         StartCoroutine(PlayerFlipCoroutine());
     }
@@ -640,6 +696,6 @@ public class PlayerController : MonoBehaviour
 
         Gizmos.color = Color.cyan;
         float eventSphereRadius = model.eventSphereRadius;
-        //Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
+        Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
     }
 }

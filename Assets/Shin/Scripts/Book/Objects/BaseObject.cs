@@ -178,7 +178,11 @@ public class BaseObject : MonoBehaviour
         }
     }
 
-
+    public virtual void SetHeight(float value, float time, float delay)
+    {
+        stand.DOLocalMoveY(value, time).SetDelay(delay)
+            .SetEase(isRight ? Ease.OutQuint : Ease.OutQuint);
+    }
 
     /// <summary>
     /// ページ移動が終わった後のオブジェクトの動作
@@ -196,11 +200,5 @@ public class BaseObject : MonoBehaviour
             isCurrent = false;
             SetObjectVisible(false);
         }
-    }
-
-    public virtual void SetHeight(float value, float time, float delay)
-    {
-        stand.DOLocalMoveY(value, time).SetDelay(delay)
-            .SetEase(isRight ? Ease.OutQuint : Ease.OutQuint);
     }
 }

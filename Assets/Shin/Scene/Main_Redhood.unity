@@ -10534,7 +10534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d476a24050ddaac449625ee8445a8510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
 --- !u!136 &262509138
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20378,7 +20377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d476a24050ddaac449625ee8445a8510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
 --- !u!136 &472314254
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22302,7 +22300,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 2039
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22388,7 +22386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d476a24050ddaac449625ee8445a8510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
 --- !u!1 &576129898
 GameObject:
   m_ObjectHideFlags: 0
@@ -31539,10 +31536,9 @@ MonoBehaviour:
   shapes: []
   currentPage: 0
   flipTime: 0
-  isFlipping: 0
+  bookDir: 0
   bookObjects: []
   view: {fileID: 0}
-  bookDir: 0
 --- !u!114 &975385115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81018,7 +81014,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.820206
+      value: -10.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -81026,7 +81022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.4819527
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: m_LocalRotation.w

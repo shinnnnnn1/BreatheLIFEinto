@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
             currentBubble.sprite = bubbleType[d.spriteType[current]];
 
             //文字を初期化
-            currentText.text = "";
+            //currentText.text = "";
 
             //フォントのサイズを変更
             currentText.fontSize = d.fontSize[current] > 0 ? d.fontSize[current] : 10;
@@ -193,7 +193,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            currentDialoguePlayer.GetComponent<NPCObject>().SetDisableDialogue();
+            //currentDialoguePlayer.GetComponent<NPCObject>()?.SetDisableDialogue();
         }
 
         EventManager.Instance.playerController.SetIsDialogue(false);
@@ -202,6 +202,8 @@ public class DialogueManager : MonoBehaviour
         {
             EventManager.Instance.playerController.SetCanMove(true);
         }
+
+        //次にいける状態にする
         if (d.canProceedOnDialogueEnd)
         {
             EventManager.Instance.flipController.SetCanProceed(true);

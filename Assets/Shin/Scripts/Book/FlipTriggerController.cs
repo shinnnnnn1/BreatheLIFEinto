@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class FlipTriggerController : MonoBehaviour
 {
-    public bool canProceed = false;
-    public bool isBookHorizontal = true;
+    [SerializeField] bool canProceed = false;
+    [SerializeField] bool isBookHorizontal = true;
 
     [SerializeField] int currentTrigger = 0;
     [SerializeField] FlipTrigger[] triggers;
@@ -16,9 +16,13 @@ public class FlipTriggerController : MonoBehaviour
 
     void Start()
     {
+        //FlipTriggerを参照
         triggers = GetComponentsInChildren<FlipTrigger>();
+
+        //0番のTriggerだけ表示
         ResetTrigger(currentTrigger);
 
+        //Controllerを参照
         playerController = FindFirstObjectByType<PlayerController>();
         bookController = FindFirstObjectByType<BookController>();
     }
@@ -26,6 +30,8 @@ public class FlipTriggerController : MonoBehaviour
     public void ResetTrigger(int currentTrigger)
     {
         Debug.Log("Reset to " + currentTrigger);
+
+        //表示したいTriggerだけ表示
         for (int i = 0; i < triggers.Length; i++)
         {
             triggers[i].gameObject.SetActive(i == currentTrigger);
@@ -35,15 +41,26 @@ public class FlipTriggerController : MonoBehaviour
     public void SetCanProceed(bool can)
     {
         Debug.Log("SetCanProceed " + can);
+
+        //進行できる状態の設定
         canProceed = can;
+
+        //本が水平なのか確認
         CheckBookIsHorizontal(bookController.bookDir);
     }
+
     public void CheckBookIsHorizontal(int bookDir)
     {
         isBookHorizontal = bookDir == 0;
     }
 
-    private void OnDrawGizmos()
+    public bool CanTrigger()
+    {
+        if(canProceed && isBookHorizontal) { return true; }
+        else {  return false; }
+    }
+
+    void OnDrawGizmos()
     {
         if (triggers.Length > 0)
         {
