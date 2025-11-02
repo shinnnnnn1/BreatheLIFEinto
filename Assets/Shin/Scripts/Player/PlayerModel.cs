@@ -19,8 +19,9 @@ public class PlayerModel : ScriptableObject
     public bool canSwitch = true;
     public bool canAnim = true;
 
-    [Header("Movement Settings")]
     public float moveSpeed = 2.0f;
+
+    [Header("Movement Settings")]
     public float accelerationTime = 0.1f;
     public float decelerationTime = 0.1f;
     public float defaultSpeed = 2.0f;

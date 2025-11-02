@@ -2,86 +2,94 @@ using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
+using static UnityEngine.Rendering.DebugUI;
 
-/// <summary>
-/// 本を操作するクラス
-/// </summary>
-public class BookController : MonoBehaviour
+public class BookController_V3 : MonoBehaviour, IBookController
 {
-    [SerializeField] BookModel model;
-    [SerializeField] Transform leftBone, rightBone, currentBone, cb2, objectParent, shape;
+    [SerializeField] BookModel_V3 model;
+    [SerializeField] Transform[] bones, shapes;
+    [SerializeField] Transform objectParent;
 
-    //shape[0 ~ 9] = Activate, shape[10 ~ 18] = Deactivate
-    [HideInInspector] 
-    public Transform[] leftBones, rightBones, currentBones, cb2s, objectParents, shapes;
+    //임시 확인용. SerializeField 지울 예정.
+    //[SerializeField] 
+    Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
     [Space(10f)]
-    public int currentPage = 0;
-     bool isFlipping = false;
+    [SerializeField] int currentPage;
+    [SerializeField] int bookDirection;
 
-    [SerializeField] float flipTime;
+    [SerializeField] float flipTime; //確認用
+    bool isFlipping;
     float cTime;
 
-    public int bookDir = 0;
+    BookView_V3 bookView;
+    IBookAfterFlip afterFlip;
 
-    [SerializeField] BaseObject[] bookObjects;
+    IPlayerController playerController;
+    IFlipController flipController;
+
+    IBookObject[] bookObjectss;
+    
+    
+    
+    //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+    Transform leftBone, rightBone, currentBone, objectParentt, shape;
+    //shape[0 ~ 9] = Activate, shape[10 ~ 18] = Deactivate
+    [HideInInspector]
+    public Transform[] leftBones, rightBones, currentBones, objectParentss, shapess;
+
+
+    int bookDir = 0;
+
+    BaseObject[] bookObjects;
 
     [HideInInspector] public BookView view;
     IBeforeAfterFlip beforeAfterFlip;
     PlayerController player;
-    FlipTriggerController flipController;
+    //FlipTriggerController flipController;
 
-    public virtual void Awake()
+    void Awake()
     {
-        //開発用。スタートページを設定できる。すごい！
+        //開発用。スタートページを設定できる
         currentPage = model.setStartPage - 1;
 
-        //BookのView, BookAfterFlipを参照
-        view = GetComponent<BookView>();
-        beforeAfterFlip = GetComponent<IBeforeAfterFlip>();
+        //参照
+        bookView = GetComponent<BookView_V3>();
+        afterFlip = GetComponent<IBookAfterFlip>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<IPlayerController>();
+        flipController = GameObject.FindGameObjectWithTag("FlipController").GetComponent<IFlipController>();
 
-        //Controllerを参照
-        player = FindFirstObjectByType<PlayerController>();
-        flipController = FindFirstObjectByType<FlipTriggerController>();
+        //ページのBoneを参照
+        pageL = bones[0].GetComponentsInChildren<Transform>();
+        pageR = bones[1].GetComponentsInChildren<Transform>();
+        pageLC = bones[2].GetComponentsInChildren<Transform>();
+        pageRC = bones[3].GetComponentsInChildren<Transform>();
 
-        //PageのBoneを参照
-        leftBones = leftBone.GetComponentsInChildren<Transform>();
-        rightBones = rightBone.GetComponentsInChildren<Transform>();
-        currentBones = currentBone.GetComponentsInChildren<Transform>();
-        cb2s = cb2.GetComponentsInChildren<Transform>();
+        //Shapeを参照
+        shapeAct = shapes[0].GetComponentsInChildren<Transform>().Where(w => w != shapes[0]).ToArray();
+        shapeDeact = shapes[1].GetComponentsInChildren<Transform>().Where(w => w != shapes[1]).ToArray();
 
         //本のオブジェクトを保管する場所を参照
         objectParents = new Transform[objectParent.childCount];
-        for (int i = 0; i < objectParent.childCount; i++)
-        {
-            objectParents[i] = objectParent.GetChild(i);
-        }
+        for (int i = 0; i < objectParent.childCount; i++) { objectParents[i] = objectParent.GetChild(i); }
 
-        //Shapeオブジェクトを参照
-        shapes = shape.GetComponentsInChildren<Transform>().Where(w => w != shape).ToArray();
-
-        //本の上のオブジェクトを全て参照
-        bookObjects = objectParent.GetComponentsInChildren<BaseObject>();
-
-        //本の表示状態、初期位置を調整
+        //本の表示状態、初期位置を設定
         view.SetAllBookVisibility(true);
         view.SetAllPageVisibility(false);
         view.MoveBookPosition(new Vector3(-5, 0, 0), 0);
     }
 
-    /// <summary>
-    /// シーン上のオブジェクトを使用可能にするための工程
-    /// </summary>
-    /// <returns></returns>
+    //全てのオブジェクトを使用可能な状態にする
     IEnumerator Start()
     {
+        //全てのオブジェクトが準備するまで大気
         yield return new WaitForSeconds(0.1f);
 
-        //左にあるオブジェクトを固定し、右にめめくる
+        //左にあるオブジェクトを固定し、右にめくる
         foreach (var obj in bookObjects)
         {
-            if(!obj.isRight)
+            if (!obj.isRight)
             {
                 obj.SetParentStart();
             }
@@ -89,14 +97,13 @@ public class BookController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-        //アニメーションの速度を速くして
+        //アニメーションの速度を速くして右にめくる
         view.SetAnimationSpeed(0, 20f);
-        //初期設定専用のアニメーションを再生
         view.PlayPageAnimation(0, "Start");
 
         yield return new WaitForSeconds(0.3f);
 
-        //本に親子付けしたオブジェクトをリセット
+        //固定したオブジェクトをリセット
         foreach (var obj in bookObjects)
         {
             if (!obj.isRight)
@@ -107,7 +114,7 @@ public class BookController : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        //ページのアニメーションも元通りに戻す
+        //アニメーションも元の状態に戻す
         view.PlayPageAnimation(0, "Reset");
 
         yield return new WaitForSeconds(0.3f);
@@ -115,21 +122,13 @@ public class BookController : MonoBehaviour
         //アニメーションの速度も戻す
         view.SetAnimationSpeed(0, 1f);
 
-        Debug.Log("Start");
-        player.SetCanGameStart();
-    }
-
-    public void BookOpen()
-    {
-        StartCoroutine(OpenCoroutine());
-    }
-    IEnumerator OpenCoroutine()
-    {
-        yield return null;
+        //プレイヤーがゲームをスタートできる状態にする
+        playerController?.SetGameReady();
     }
 
     void Update()
     {
+        //開発用。ページがめくられる時間を確認できる
         if (isFlipping) { flipTime = Time.time - cTime; }
     }
 
@@ -170,7 +169,7 @@ public class BookController : MonoBehaviour
         StartShape();
         foreach (var obj in bookObjects)
         {
-            obj.SetBookObject(currentPage, currentBones, shapes, model);
+            //obj.SetBookObject(currentPage, currentBones, shapes, model);
         }
 
         yield return null;
@@ -195,7 +194,7 @@ public class BookController : MonoBehaviour
         {
             obj.AfterFlip(objectParents);
         }
-        
+
         //view.PlayPageAnimation(2, "Reset");
         isFlipping = false;
 
@@ -211,7 +210,7 @@ public class BookController : MonoBehaviour
         view.SetPageVisibility(3, false);
 
         //進行ができない状態にする
-        flipController.SetCanProceed(false);
+        //flipController.SetCanProceed(false);
 
         //Flipの後のイベントを発生させる
         beforeAfterFlip.OnAfterFlip(currentPage);
@@ -237,7 +236,7 @@ public class BookController : MonoBehaviour
     {
         //bool canRotate = (isRightTurn && bookDir != 1) && ();
 
-        if((isRightTurn && bookDir == 1) || (!isRightTurn && bookDir == -1)) { canTurn = false; return; }
+        if ((isRightTurn && bookDir == 1) || (!isRightTurn && bookDir == -1)) { canTurn = false; return; }
         canTurn = true;
 
         bookDir = isRightTurn ? bookDir + 1 : bookDir - 1;
@@ -254,17 +253,17 @@ public class BookController : MonoBehaviour
     {
         LockObjects(false);
         player.LockPlayer(false);
-        flipController.CheckBookIsHorizontal(bookDir);
+        //flipController.CheckBookIsHorizontal(bookDir);
     }
 
     void LockObjects(bool onLock)
     {
-        foreach(BaseObject b in bookObjects)
+        foreach (BaseObject b in bookObjects)
         {
-            if(b.isCurrent)
+            if (b.isCurrent)
             {
                 b.isLocked = onLock;
-                if(!onLock)
+                if (!onLock)
                 {
                     NPCObject n = b.GetComponent<NPCObject>();
                     n?.CheckDirectional(bookDir);
@@ -293,9 +292,16 @@ public class BookController : MonoBehaviour
         }
     }
 
-    public void GameStart()
+    public void GameStart(bool isStart)
     {
-        StartCoroutine(StartPage());
+        if(isStart)
+        {
+            StartCoroutine(StartPage());
+        }
+        else
+        {
+            StartCoroutine(EndPage());
+        }
     }
     IEnumerator StartPage()
     {
@@ -310,11 +316,6 @@ public class BookController : MonoBehaviour
         yield return new WaitForSeconds(3);
         view.SetPageVisibility(0, true);
 
-    }
-
-    public void Ending()
-    {
-        StartCoroutine(EndPage());
     }
     IEnumerator EndPage()
     {

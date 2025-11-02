@@ -1,29 +1,25 @@
-using DG.Tweening;
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+//, IPlayerController
+public class PlayerController_V3 : MonoBehaviour, IPlayerController
 {
-    [Space(10f)]
-    public PlayerModel model;
+    [SerializeField] PlayerModel model;
     [SerializeField] Transform stand;
+    PlayerView view;
 
     [Space(10f)]
-    public Vector2 moveDirection;
-    public Vector2 zoomDirection;
+    public Vector2 moveDirection, zoomDirection;
 
-    [Space(10f)]
+    [Space(10f)] 
     [SerializeField] Transform interactingEvent;
-    public DialoguePlayer dialogueP;
+    public DialoguePlayer dialoguePlayer, currentPlayer;
     public DialoguePlayer currentDialogue;
 
     IEventInvoker iEvent;
     IEventInvoker currentEvent;
 
-    [HideInInspector] public PlayerView view;
     PlayerHold jointHold;
     BookController book;
 
@@ -70,52 +66,55 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         view = GetComponent<PlayerView>();
+
         jointHold = GetComponent<PlayerHold>();
-        book = FindAnyObjectByType<BookController>();   
+
+        book = FindAnyObjectByType<BookController>();
 
         rigid = GetComponent<Rigidbody>();
-        boxColl = GetComponent<BoxCollider>();
-        sphereColl = GetComponent<SphereCollider>();
 
+        boxColl = GetComponent<BoxCollider>();
         boxColl.center = model.boxOffset;
         boxColl.size = model.boxSize;
 
+        sphereColl = GetComponent<SphereCollider>();
         sphereColl.center = model.sphereOffset;
         sphereColl.radius = model.sphereRadius;
 
         model.isRight = true;
         model.isTurning = false;
-        model.canMove = false;
 
-        SetPlayerVisible(false);
-
-        //本がない場合はテスト用
-        if(book == null)
+        if (book != null)
+        {
+            model.isRight = true;
+            model.isTurning = false;
+            SetPlayerVisible(false);
+        }
+        else
         {
             SetCanMove(true);
             SetPlayerVisible(true);
-
         }
     }
 
     void Update()
     {
-        if(isLocked)
+        if (isLocked)
         {
             transform.localPosition = lockedPos;
             transform.rotation = Quaternion.identity;
         }
 
         //立っている状態だけFlipが可能。
-        if(canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
+        if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
         {
             PlayerFlip();
         }
 
         //Flip中の動きを調整。
-        if(isFlipping)
+        if (isFlipping)
         {
-            view.AdjustmentLocalPosition(flipPos);
+            //view.AdjustmentLocalPosition(flipPos);
 
             if (!lockRot)
             {
@@ -130,7 +129,7 @@ public class PlayerController : MonoBehaviour
                     view.AdjustmentEulerAngles(Vector3.zero);
                 }
             }
-            
+
         }
 
         GetDialogueReference2();
@@ -156,25 +155,25 @@ public class PlayerController : MonoBehaviour
             {
 
                 //現在のオブジェクトがある場合、会話可能イメージを非表示させる
-                dialogueP?.CanStartEvent(false);
+                dialoguePlayer?.CanStartEvent(false);
 
                 //新しいオブジェクトを参照
                 interactingEvent = eventColls[0].transform;
-                dialogueP = interactingEvent.GetComponentInParent<DialoguePlayer>();
+                dialoguePlayer = interactingEvent.GetComponentInParent<DialoguePlayer>();
 
                 //新しいオブジェクトの会話可能イメージを表示する
-                dialogueP.CanStartEvent(true);
+                dialoguePlayer.CanStartEvent(true);
             }
         }
         //範囲内にオブジェクトがないけどオブジェクトが参照されている場合
         else if (eventColls.Length == 0 && interactingEvent != null)
         {
             //参照されているオブジェクトの会話可能イメージを非表示させる
-            dialogueP.CanStartEvent(false);
+            dialoguePlayer.CanStartEvent(false);
 
             //参照状態の初期化
             interactingEvent = null;
-            dialogueP = null;
+            dialoguePlayer = null;
         }
     }
 
@@ -256,7 +255,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(angleAccuracy < 1)
+            if (angleAccuracy < 1)
             {
                 view.SetLinearVelocity(targetVelocity + tension);
             }
@@ -327,7 +326,7 @@ public class PlayerController : MonoBehaviour
     public void Action()
     {
         //会話中にはプレイヤーが動けないからCanMove条件より先に実行
-        if(isDialogue)
+        if (isDialogue)
         {
             //会話を送ることだけを実行し、return
             currentEvent.OnEventInvoke();
@@ -347,7 +346,7 @@ public class PlayerController : MonoBehaviour
         }
         //接触しているイベントがなかったら物をつかむ動作の実行
         //範囲内につかめるオブジェクトがあったら実行
-        else if(IsHit())
+        else if (IsHit())
         {
             SetHoldingInfo(true);
 
@@ -355,7 +354,7 @@ public class PlayerController : MonoBehaviour
             if (pullable != null)
             {
                 SetCanAnim(false);
-                pullable.OnActivate(this, model.isRight);
+                //pullable.OnActivate(this, model.isRight);
             }
             else
             {
@@ -395,7 +394,7 @@ public class PlayerController : MonoBehaviour
     bool IsHit()
     {
         Vector3 direction = model.isRight ? Vector3.right : Vector3.left;
-        if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset.x : -model.hitBoxOffset.x, 
+        if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset.x : -model.hitBoxOffset.x,
             model.hitBoxOffset.y, 0), model.hitBoxSize / 2, direction, out hit, Quaternion.identity, model.hitBoxDistance, model.hitLayer))
         {
             return true;
@@ -406,7 +405,7 @@ public class PlayerController : MonoBehaviour
     public void SetIsDialogue(bool isDia)
     {
         isDialogue = isDia;
-        if(!isDia)
+        if (!isDia)
         {
             currentDialogue = null;
         }
@@ -445,7 +444,7 @@ public class PlayerController : MonoBehaviour
 
     public void LockPlayer(bool startLock)
     {
-        if(startLock)
+        if (startLock)
         {
             isLocked = true;
             Transform closeBone = null;
@@ -520,7 +519,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void PlayerFlipTrigger()
     {
-        if (model.canMove && model.isRight  && moveDirection.magnitude > 0 && !canFlip)
+        if (model.canMove && model.isRight && moveDirection.magnitude > 0 && !canFlip)
         {
             //空中でトリガーが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
@@ -563,14 +562,6 @@ public class PlayerController : MonoBehaviour
         flipRot = new Vector3(0, 0, -90);
         view.StandFlip(stand, rotValue, false);
 
-        /*
-        if (model.respawnException[book.currentPage].x > 0)
-        {
-            lockRot = true;
-            transform.rotation = Quaternion.identity;
-        }
-        */
-
         SetPlayerVisible(flipvisible);
 
         yield return new WaitForSeconds(1.75f);
@@ -593,6 +584,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FlipReposition()
     {
+        //
         Vector3 respawnPos = model.respawnException[book.currentPage];
         if (respawnPos == Vector3.zero)
         {
@@ -603,13 +595,9 @@ public class PlayerController : MonoBehaviour
             transform.SetParent(null);
             transform.position = model.defaultRespawn;
 
-            
-
             transform.SetParent(book.leftBones[8]);
             flipPos = transform.localPosition;
-            Debug.Log(transform.localPosition);
-
-            transform.SetParent(book.cb2s[8]);
+            transform.SetParent(book.currentBones[8]);
 
             SetPlayerVisible(true);
         }
@@ -639,7 +627,7 @@ public class PlayerController : MonoBehaviour
 
             transform.SetParent(newnewPage[closeIndex]);
 
-            
+
         }
     }
     #endregion
@@ -671,10 +659,16 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
     }
+
+    public void SetGameReady() => canGameStart = true;
+
     #endregion
+
+
 
     private void OnDrawGizmos()
     {
+        /*
         Gizmos.color = Color.green;
 
         Vector3 boxPosition = transform.position + model.boxOffset;
@@ -702,5 +696,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.cyan;
         float eventSphereRadius = model.eventSphereRadius;
         Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
+        */
     }
+
+   
 }
