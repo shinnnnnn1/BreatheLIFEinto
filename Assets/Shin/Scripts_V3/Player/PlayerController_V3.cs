@@ -2,12 +2,17 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-//, IPlayerController
 public class PlayerController_V3 : MonoBehaviour, IPlayerController
 {
+    IBookController bookController;
+
+
+
+
+    //------------
     [SerializeField] PlayerModel model;
     [SerializeField] Transform stand;
-    PlayerView view;
+    PlayerView_V3 view;
 
     [Space(10f)]
     public Vector2 moveDirection, zoomDirection;
@@ -65,36 +70,39 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     void Start()
     {
-        view = GetComponent<PlayerView>();
-
-        jointHold = GetComponent<PlayerHold>();
-
-        book = FindAnyObjectByType<BookController>();
-
+        //参照
         rigid = GetComponent<Rigidbody>();
+        view = GetComponent<PlayerView_V3>();
+        bookController = GameObject.FindGameObjectWithTag("BookController").GetComponent<IBookController>();
 
+        //コライダーを参照し、詳細を設定
         boxColl = GetComponent<BoxCollider>();
         boxColl.center = model.boxOffset;
         boxColl.size = model.boxSize;
-
         sphereColl = GetComponent<SphereCollider>();
         sphereColl.center = model.sphereOffset;
         sphereColl.radius = model.sphereRadius;
 
+        //本の有無とは関係ないモデル変数の初期化
         model.isRight = true;
         model.isTurning = false;
 
+        //本がある場合の初期化
         if (book != null)
         {
-            model.isRight = true;
-            model.isTurning = false;
+            SetCanMove(false);
             SetPlayerVisible(false);
         }
+        //開発用。本がない場合の初期化
         else
         {
             SetCanMove(true);
             SetPlayerVisible(true);
         }
+
+        //지울것
+        jointHold = GetComponent<PlayerHold>();
+        book = FindAnyObjectByType<BookController>();
     }
 
     void Update()

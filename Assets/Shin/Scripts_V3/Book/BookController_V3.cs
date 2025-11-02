@@ -6,15 +6,15 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class BookController_V3 : MonoBehaviour, IBookController
 {
+    [Space(20f)]
     [SerializeField] BookModel_V3 model;
     [SerializeField] Transform[] bones, shapes;
     [SerializeField] Transform objectParent;
 
-    //임시 확인용. SerializeField 지울 예정.
     //[SerializeField] 
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
-    [Space(10f)]
+    [Space(20f)]
     [SerializeField] int currentPage;
     [SerializeField] int bookDirection;
 
@@ -38,7 +38,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
     //shape[0 ~ 9] = Activate, shape[10 ~ 18] = Deactivate
     [HideInInspector]
     public Transform[] leftBones, rightBones, currentBones, objectParentss, shapess;
-
 
     int bookDir = 0;
 
