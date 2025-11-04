@@ -58,6 +58,11 @@ public class BookView_V3 : MonoBehaviour
             .SetRelative().SetEase(Ease.Linear);
     }
 
+    public void MovePagePosition(int pageNum, Vector3 pos, float duration)
+    {
+        pageAnim[pageNum].transform.DOLocalMove(pos, duration).SetEase(Ease.OutQuint);
+    }
+
     //マテリアル。。。
     public void SetPageMaterial(int currentPage)
     {

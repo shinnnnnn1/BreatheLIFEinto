@@ -4,18 +4,51 @@ using UnityEngine;
 
 public class PlayerController_V3 : MonoBehaviour, IPlayerController
 {
+    [SerializeField] PlayerModel_V3 model;
+    [SerializeField] PlayerRespawnPosition respawn;
+
+    PlayerView_V3 view;
+
+    Rigidbody rigid;
+    BoxCollider boxColl;
+    SphereCollider sphereColl;
+
+    [Space(10f)]
+    public Vector2 moveDirection;
+    public Vector2 zoomDirection;
+
     IBookController bookController;
 
 
+    //本をめくる時に使用
+    /// <summary>　Triggerに触れ、Flipできる状態になったかを確認　</summary>
+    bool canFlip = false;
+    /// <summary>　Flipしているかを確認　</summary>
+    bool isFlipping = false;
+
+    //
+
+    //本を回すときに使用
+
+    Transform[] pageL, pageR, pageLC, pageRC;
 
 
-    //------------
-    [SerializeField] PlayerModel model;
-    [SerializeField] Transform stand;
-    PlayerView_V3 view;
+    [SerializeField] int closeIndex;
+    [SerializeField] Transform closeBone;
+    [SerializeField] Transform rotBone;
 
-    [Space(10f)]
-    public Vector2 moveDirection, zoomDirection;
+    [SerializeField] Vector3 flipPos;
+    [SerializeField] Vector3 flipRot;
+
+    //엔딩때는 Flip 후 Open할때 캐릭터 안보이게함
+    [SerializeField] bool flipVisible;
+
+    
+
+    bool canGameStart = false;
+
+    //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
 
     [Space(10f)] 
     [SerializeField] Transform interactingEvent;
@@ -28,24 +61,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     PlayerHold jointHold;
     BookController book;
 
-    [HideInInspector] public Rigidbody rigid;
-    BoxCollider boxColl;
-    SphereCollider sphereColl;
+    
 
     RaycastHit hit;
     IPullable pullable;
 
     [SerializeField] Vector3 currentVelocity;
     Vector3 velocityRef;
-    Vector3 flipRot;
-
-    float flipPosZ;
-
-    bool canGameStart = false;
-    bool isGameStarted = false;
-
-    bool canFlip = false;
-    bool isFlipping = false;
 
     bool isLocked = false;
     [SerializeField] Vector3 lockedPos;
@@ -60,11 +82,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     public bool isDialogue;
 
-
-    Vector3 flipPos;
-
-    public Transform closeBone;
-    public int closeIndex;
 
     bool lockRot;
 
@@ -88,7 +105,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         model.isTurning = false;
 
         //本がある場合の初期化
-        if (book != null)
+        if (bookController != null)
         {
             SetCanMove(false);
             SetPlayerVisible(false);
@@ -99,52 +116,65 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetCanMove(true);
             SetPlayerVisible(true);
         }
-
-        //지울것
-        jointHold = GetComponent<PlayerHold>();
-        book = FindAnyObjectByType<BookController>();
     }
 
+    #region ●UPDATE ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Update()
     {
+        //本を回すときキャラクターを固定する
+        /// <seealso cref="LockPlayer(bool)"/>
         if (isLocked)
         {
+            //位置と回転を固定
             transform.localPosition = lockedPos;
             transform.rotation = Quaternion.identity;
         }
 
-        //立っている状態だけFlipが可能。
+        //地面にいる状態だけFlipが可能だから地面にいるか確認し続ける
+        /// <seealso cref="PlayerFlipTrigger()"/>
         if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
         {
-            PlayerFlip();
+            //Flipを開始
+            bookController.Flip();
         }
 
-        //Flip中の動きを調整。
-        if (isFlipping)
-        {
-            //view.AdjustmentLocalPosition(flipPos);
+        //Flip中の動きを調整
+        FlipAdjustment();
 
-            if (!lockRot)
-            {
-                float z = book.currentBones[8].eulerAngles.z;
-                if (z > 270 || z < 90)
-                {
-                    Vector3 rot = book.currentBones[8].eulerAngles + flipRot;
-                    view.AdjustmentEulerAngles(rot);
-                }
-                else
-                {
-                    view.AdjustmentEulerAngles(Vector3.zero);
-                }
-            }
-
-        }
-
-        GetDialogueReference2();
+        //範囲内のイベントを参照。複数の場合は一番近いものを参照
+        GetDialogueReference();
     }
 
     /// <summary>
-    /// 範囲内のDialoguePlayerを参照。複数の場合は一番近いものを参照。
+    /// Flip中の動きを調整
+    /// </summary>
+    /// <seealso cref="PlayerFlip(bool, int)"/>
+    void FlipAdjustment()
+    {
+        if (isFlipping)
+        {
+            //LocalPositionを固定
+            view.AdjustmentLocalPosition(flipPos);
+
+            //回転は精度を上げるために手動で設定
+            float z = rotBone.eulerAngles.z;
+            //回転をする場合
+            if (z > 270 || z < 90)
+            {
+                //近いボーンの回転に任意の数値を追加
+                Vector3 rot = rotBone.eulerAngles + flipRot;
+                view.AdjustmentEulerAngles(rot);
+            }
+            //回転を止めてもいい場合（最初と最後）
+            else
+            {
+                view.AdjustmentEulerAngles(Vector3.zero);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 範囲内のイベントを参照。複数の場合は一番近いものを参照。
     /// </summary>
     void GetDialogueReference()
     {
@@ -152,8 +182,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (!model.canMove) { return; }
 
         //範囲内のオブジェクトを取得
-        Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, QueryTriggerInteraction.Collide)
-            .OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).ToArray();
+        Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, 
+            QueryTriggerInteraction.Collide).OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).ToArray();
 
         //範囲内にオブジェクトがあった場合
         if (eventColls.Length > 0)
@@ -161,49 +191,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
             if (interactingEvent != eventColls[0].transform)
             {
-
-                //現在のオブジェクトがある場合、会話可能イメージを非表示させる
-                dialoguePlayer?.CanStartEvent(false);
-
-                //新しいオブジェクトを参照
-                interactingEvent = eventColls[0].transform;
-                dialoguePlayer = interactingEvent.GetComponentInParent<DialoguePlayer>();
-
-                //新しいオブジェクトの会話可能イメージを表示する
-                dialoguePlayer.CanStartEvent(true);
-            }
-        }
-        //範囲内にオブジェクトがないけどオブジェクトが参照されている場合
-        else if (eventColls.Length == 0 && interactingEvent != null)
-        {
-            //参照されているオブジェクトの会話可能イメージを非表示させる
-            dialoguePlayer.CanStartEvent(false);
-
-            //参照状態の初期化
-            interactingEvent = null;
-            dialoguePlayer = null;
-        }
-    }
-
-    /// <summary>
-    /// 範囲内のDialoguePlayerを参照。複数の場合は一番近いものを参照。
-    /// </summary>
-    void GetDialogueReference2()
-    {
-        //動けない状態ならreturn
-        if (!model.canMove) { return; }
-
-        //範囲内のオブジェクトを取得
-        Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, QueryTriggerInteraction.Collide)
-            .OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).ToArray();
-
-        //範囲内にオブジェクトがあった場合
-        if (eventColls.Length > 0)
-        {
-            //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
-            if (interactingEvent != eventColls[0].transform)
-            {
-
                 //現在のオブジェクトがある場合、会話可能イメージを非表示させる
                 iEvent?.OnEventEnter(false);
 
@@ -226,7 +213,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             iEvent = null;
         }
     }
+    #endregion
 
+    #region FIXED UPDATE ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void FixedUpdate()
     {
         if (model.canMove)
@@ -236,9 +225,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
             if (model.isHolding) { SetHoldingDirection(); }
         }
-
-        ////アニメーションを手動で操作する場合がある。
-        if (!model.canAnim) { return; }
 
         //
         view.SetPlayerAnim("OnGround", OnGround());
@@ -280,7 +266,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         {
             model.isTurning = true;
             model.isRight = !model.isRight;
-            view.Turn(stand, model.isRight, model.turnTime);
+            view.Turn(model.isRight, model.turnTime);
             Invoke("SetIsTurning", model.turnTime);
         }
     }
@@ -300,7 +286,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             view.SetPlayerAnim("IsPulling", false);
         }
     }
+    #endregion
 
+    #region JUMP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void Jump()
     {
         if (!model.canMove) { return; }
@@ -323,14 +311,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             return false;
         }
     }
-
-
-
+    #endregion
 
     #region CHARACTER ACTION ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// アクションボタンを押したら実行
     /// </summary>
+    /// <seealso cref="PlayerActionInput_V3.InputAction(UnityEngine.InputSystem.InputAction.CallbackContext)"/>
     public void Action()
     {
         //会話中にはプレイヤーが動けないからCanMove条件より先に実行
@@ -361,7 +348,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             pullable = hit.collider.GetComponent<IPullable>();
             if (pullable != null)
             {
-                SetCanAnim(false);
+                //SetCanAnim(false);
                 //pullable.OnActivate(this, model.isRight);
             }
             else
@@ -374,6 +361,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         }
     }
 
+    /// <summary>
+    /// アクションボタンを離したら実行
+    /// </summary>
+    /// <seealso cref="PlayerActionInput_V3.InputAction(UnityEngine.InputSystem.InputAction.CallbackContext)"/>
     public void ActionCancel()
     {
         if (!model.canMove) { return; }
@@ -385,7 +376,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             pullable?.OnDeactivate();
             pullable = null;
 
-            SetCanAnim(true);
+            //SetCanAnim(true);
             view.SetPlayerAnim("StopHold");
         }
     }
@@ -439,15 +430,23 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
 
 
+    /// <summary>
+    /// 本を回す操作
+    /// </summary>
+    /// <seealso cref="PlayerActionInput_V3.InputTurnBookL(UnityEngine.InputSystem.InputAction.CallbackContext)"/>
+    /// <seealso cref="PlayerActionInput_V3.InputTurnBookR(UnityEngine.InputSystem.InputAction.CallbackContext)"/>
     public void TurnBook(bool isRightTurn)
     {
+        //動けない、地面にいないなら return
         if (!model.canMove || !OnGround()) { return; }
 
+        /*
         book.TurnBook(isRightTurn, out bool canTurn);
         if (!canTurn) { return; }
 
         SetCanMove(false);
         LockPlayer(true);
+        */
     }
 
     public void LockPlayer(bool startLock)
@@ -480,56 +479,73 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     }
     #endregion
 
-
-    #region PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region ●PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    /// <summary>
+    /// 操作ができる状態を設定
+    /// </summary>
+    /// <seealso cref=""/>
     public void SetCanControl(bool control)
     {
         Debug.Log("PlayerSetCanControl " + control);
+
+        //操作ができる状態を設定
         model.canControl = control;
     }
-
+    /// <summary>
+    /// キャラクターの動ける状態を設定
+    /// </summary>
+    /// <seealso cref="PlayerFlip(bool, int)"/> <seealso cref="StopFlip()"/>
     public void SetCanMove(bool move)
     {
         Debug.Log("PlayerSetCanMove " + move + "" + !move);
+
+        //キャラクターの動ける状態を設定
         model.canMove = move;
         rigid.isKinematic = !move;
 
+        //動けない状態にする時は速度を初期化する
         if (!move)
         {
             view.SetLinearVelocity(Vector3.zero);
-            currentVelocity = Vector2.zero;
+            currentVelocity = Vector3.zero;
         }
     }
+    /// <summary>
+    /// キャラクターの動ける状態を設定。CanMoveとIsKinematicを個別に設定
+    /// </summary>
+    /// <seealso cref="PlayerFlipTrigger()"/> 
     public void SetCanMove(bool move, bool kinematic)
     {
         Debug.Log("PlayerSetCanMove " + move + "" + kinematic);
+
+        //キャラクターの動ける状態を設定
         model.canMove = move;
         rigid.isKinematic = kinematic;
 
+        //動けない状態にする時は速度を初期化する
         if (!move)
         {
             view.SetLinearVelocity(Vector3.zero);
-            currentVelocity = Vector2.zero;
+            currentVelocity = Vector3.zero;
         }
     }
-    public void SetPlayerVisible(bool isVisible)
-    {
-        view.SetPlayerVisible(stand, isVisible);
-    }
-    public void SetCanAnim(bool canAnim) => model.canAnim = canAnim;
+    /// <summary>
+    /// キャラクターの表示状態を設定
+    /// </summary>
+    /// <seealso cref="PlayerFlip(bool, int)"/>
+    public void SetPlayerVisible(bool isVisible) => view.SetPlayerVisible(isVisible);
     #endregion
 
-
-
-    #region PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region ●PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// 進行ができる状態でFlipTriggerに触れたら実行。Flipができる状態にする
     /// </summary>
+    /// <seealso cref="FlipTrigger_V3.OnCollisionStay(Collision)"/>
     public void PlayerFlipTrigger()
     {
-        if (model.canMove && model.isRight && moveDirection.magnitude > 0 && !canFlip)
+        if (model.canMove && moveDirection.magnitude > 0 && !canFlip)
         {
-            //空中でトリガーが発動された場合も想定し、操作はできないけど物理は生きている状態にする
+            //空中でTriggerが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
 
             //Flipができる状態にする
@@ -537,146 +553,156 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         }
     }
 
-    void PlayerFlip()
+    /// <summary>
+    /// Flip中にキャラクターを閉じ、位置を設定し、開く動作
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public void PlayerFlip(bool isOpen, int currentPage)
     {
-        currentVelocity = Vector3.zero;
-        canFlip = false;
-        isFlipping = true;
-        SetCanMove(false);
+        //プレイヤーを閉じる false
+        if (!isOpen)
+        {
+            //Flipを実行する設定
+            SetCanMove(false);
+            canFlip = false;
+            isFlipping = true;
+            
+            //Flip中はアニメーションしないようにする
+            view.SetPlayerAnim("CanAnim", false);
 
-        //Flip中はアニメーションしないようにする
-        view.SetPlayerAnim("CanAnim", false);
-        view.SetPlayerAnim("VelocityX", 0);
+            //親の設定
+            FlipReposition(isOpen, transform.position);
+            
+            //追加の回転を設定
+            flipRot = new Vector3(0, 0, 90);
 
-        transform.SetParent(book.currentBones[8]);
-        flipPos = transform.localPosition;
+            //Standの倒れるモーション
+            float rotValue = -92f;
+            view.StandFlip(rotValue, false);
+        }
+        //プレイヤーを開く true
+        else
+        {
+            //位置と親の設定
+            FlipReposition(isOpen, respawn.position[currentPage]);
 
-        book.Flip(out int currentPage);
+            //追加の回転を設定
+            flipRot = new Vector3(0, 0, -90);
 
-        StartCoroutine(PlayerFlipCoroutine());
-    }
+            //キャラクターを表示
+            SetPlayerVisible(true);
 
-    IEnumerator PlayerFlipCoroutine()
-    {
-        flipRot = new Vector3(0, 0, 90);
-        float rotValue = -92f;
-        view.StandFlip(stand, rotValue, true);
-
-        yield return new WaitForSeconds(1.25f);
-        yield return new WaitForSeconds(model.respawnDelay[book.currentPage]);
-
-        FlipReposition();
-
-        flipRot = new Vector3(0, 0, -90);
-        view.StandFlip(stand, rotValue, false);
-
-        SetPlayerVisible(flipvisible);
-
-        yield return new WaitForSeconds(1.75f);
-        yield return new WaitForSeconds(1.75f);
-        isFlipping = false;
-        transform.SetParent(null);
-
-        //アニメーションができるようにする
-        view.SetPlayerAnim("CanAnim", true);
-
-        yield return new WaitForSeconds(0.5f);
-        //플레이어의 부모를 초기화 한 뒤에 currentPage의 애니메이션을 초기화 시켜야함.
-        book.view.PlayPageAnimation(2, "Reset");
-
-        lockRot = false;
+            //Standの倒れるモーション
+            float rotValue = -92f;
+            view.StandFlip(rotValue, true);
+        }
     }
 
     /// <summary>
-    /// 새로운 리스폰 장소 찾기
+    /// キャラクターの親を設定、開く時は位置も設定
     /// </summary>
-    void FlipReposition()
+    /// <seealso cref="PlayerFlip(bool, int)"/>
+    void FlipReposition(bool isOpen, Vector3 reposition)
     {
-        //
-        Vector3 respawnPos = model.respawnException[book.currentPage];
-        if (respawnPos == Vector3.zero)
+        //次の位置を設定
+        Vector3 pos = reposition == Vector3.zero ? respawn.defaultPosition : reposition;
+        pos = new Vector3(pos.x, pos.y, -pos.z);
+
+        //近いページを探す
+        Transform[] newPage = isOpen ? (pos.x < 0 ? pageL : pageR) : (pos.x < 0 ? pageL : pageRC);
+
+        //近いBone、Indexを取得
+        float dis = 100;
+        for (int i = 0; i < newPage.Length; i++)
         {
-            //flipPos = new Vector3(flipPos.x, flipPos.y, flipPosZ);
-
-            SetPlayerVisible(false);
-
-            transform.SetParent(null);
-            transform.position = model.defaultRespawn;
-
-            transform.SetParent(book.leftBones[8]);
-            flipPos = transform.localPosition;
-            transform.SetParent(book.currentBones[8]);
-
-            SetPlayerVisible(true);
+            float close = Vector3.Distance(pos, newPage[i].position);
+            if (close < dis)
+            {
+                dis = close;
+                closeBone = newPage[i];
+                closeIndex = i;
+            }
         }
+
+        //閉じるとき
+        if(!isOpen)
+        {
+            //親、位置、回転ボーンを設定
+            transform.SetParent(closeBone);
+            flipPos = transform.localPosition;
+            rotBone = closeBone;
+        }
+        //開くとき
         else
         {
-            Transform[] newPage = respawnPos.x > 0 ? book.rightBones : book.leftBones;
-
-            float dis = 100;
-            for (int i = 0; i < newPage.Length; i++)
-            {
-                float close = Vector3.Distance(model.respawnException[book.currentPage], newPage[i].position);
-                if (close < dis)
-                {
-                    dis = close;
-                    closeBone = newPage[i];
-                    closeIndex = i;
-                }
-            }
-
+            //目標位置に移動
             transform.SetParent(null);
-            transform.position = model.respawnException[book.currentPage];
+            transform.position = pos;
 
+            //目標のLocalPositionを取得
             transform.SetParent(closeBone);
             flipPos = transform.localPosition;
 
-            Transform[] newnewPage = respawnPos.x > 0 ? book.rightBones : book.currentBones;
+            //新しいボーンを取得
+            Transform[] newnewPage = pos.x < 0 ? pageLC : pageR;
+            closeBone = newnewPage[closeIndex];
 
-            transform.SetParent(newnewPage[closeIndex]);
+            //回転はLCでやってはいけないのでLCの場合だけRCに変更
+            rotBone = newnewPage == pageLC ? pageRC[closeIndex] : pageR[closeIndex];
 
-
+            //親を設定
+            transform.SetParent(closeBone);
         }
+    }
+
+    /// <summary>
+    /// Flipが終わり、キャラクターを初期化する
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public void StopFlip()
+    {
+        isFlipping = false;
+        transform.SetParent(null);
+        view.SetPlayerAnim("CanAnim", true);
+        SetCanMove(true);
     }
     #endregion
 
-
-
-    #region GAME START ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-    public void SetCanGameStart() => canGameStart = true;
-    public void SetGameStart()
+    #region ●GAME START ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    /// <summary>
+    /// 本の初期設定ができてゲームをスタートできる状態にする。ついでに本のデーターも渡す
+    /// </summary>
+    /// <seealso cref="BookController_V3.Start()"/>
+    public void SetCanGameStart(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC)
     {
-        if (!isGameStarted && canGameStart)
+        canGameStart = true;
+        pageL = pL;
+        pageR = pR;
+        pageLC = pLC;
+        pageRC = pRC;
+    }
+
+    /// <summary>
+    /// どんなキーを押しても実行
+    /// </summary>
+    /// <seealso cref="PlayerActionInput_V3.InputAnyKey(UnityEngine.InputSystem.InputAction.CallbackContext)"/>
+    public void IAnyKey()
+    {
+        //ゲームのスタート
+        if (canGameStart)
         {
-            isGameStarted = true;
-            book.GameStart();
-            StartCoroutine(GameStartCoroutine());
+            //最初の本のページをめくる
+            bookController.GameStart(true);
+            canGameStart = false;
         }
     }
-    IEnumerator GameStartCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-        PlayerFlip();
-    }
-
-    public void Ending()
-    {
-        StartCoroutine(LastFlip());
-    }
-    IEnumerator LastFlip()
-    {
-        yield return new WaitForSeconds(3f);
-    }
-
-    public void SetGameReady() => canGameStart = true;
-
     #endregion
 
 
 
     private void OnDrawGizmos()
     {
-        /*
+        
         Gizmos.color = Color.green;
 
         Vector3 boxPosition = transform.position + model.boxOffset;
@@ -704,8 +730,5 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Gizmos.color = Color.cyan;
         float eventSphereRadius = model.eventSphereRadius;
         Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
-        */
     }
-
-   
 }
