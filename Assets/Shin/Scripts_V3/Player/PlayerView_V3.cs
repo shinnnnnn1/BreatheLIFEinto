@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerView_V3 : MonoBehaviour
 {
+    [SerializeField] Transform stand;
     Animator anim;
     Rigidbody rigid;
 
@@ -17,7 +18,7 @@ public class PlayerView_V3 : MonoBehaviour
         rigid.linearVelocity = new Vector3(velocity.x, rigid.linearVelocity.y, velocity.z);
     }
 
-    public void Turn(Transform stand, bool isRight, float turnTime)
+    public void Turn(bool isRight, float turnTime)
     {
         Vector3 rot = new Vector3(0, isRight ? -180 : 180, 0);
         float time = turnTime;
@@ -30,11 +31,10 @@ public class PlayerView_V3 : MonoBehaviour
         rigid.AddForce(Vector3.up * jumpPow, ForceMode.Impulse);
     }
 
-    public void StandFlip(Transform stand, float value, bool isStart)
+    public void StandFlip(float value, bool isOpen)
     {
-        //stand.gameObject.SetActive(true);
-        stand.DOLocalRotate(new Vector3(-value, 0, 0), 0.8f).SetRelative()
-            .OnComplete(() => stand.gameObject.SetActive(!isStart));
+        stand.DOLocalRotate(new Vector3(-value, 0, 0), 1.2f).SetRelative()
+            .OnComplete(() => stand.gameObject.SetActive(isOpen));
     }
 
     public void AdjustmentLocalPosition(Vector3 pos)
@@ -51,7 +51,7 @@ public class PlayerView_V3 : MonoBehaviour
         transform.eulerAngles = rot;
     }
 
-    public void SetPlayerVisible(Transform stand, bool isVisible)
+    public void SetPlayerVisible(bool isVisible)
     {
         stand.gameObject.SetActive(isVisible);
     }

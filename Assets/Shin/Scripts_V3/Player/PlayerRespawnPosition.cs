@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class PlayerRespawnPosition : MonoBehaviour
+[CreateAssetMenu(fileName = "PlayerRespawnPosition_", menuName = "Scriptable Objects/PlayerRespawnPosition")]
+public class PlayerRespawnPosition : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector3 defaultPosition;
+    public Vector3[] position;
+    public bool[] isRight = { true }; 
 }

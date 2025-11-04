@@ -14070,7 +14070,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cf6cbee333890940b4207b329ff8b1c, type: 2}
+  - {fileID: 2100000, guid: 4023469393d64dd4b8ef7765d8d1660d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77834,7 +77834,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.027239332, y: 0.013808821, z: 0}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.99998}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1887900709}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -81055,17 +81055,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3215056452529039142, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3215056452529039142, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bec917b9c59c0c24f83971efdc1d22e0, type: 2}
+    - target: {fileID: -3215056452529039142, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 777a2ac2c04e7234b9cb0747bf8a7a66, type: 2}
+    - target: {fileID: -2547147527508875135, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -2547147527508875135, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bec917b9c59c0c24f83971efdc1d22e0, type: 2}
+    - target: {fileID: -2547147527508875135, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 777a2ac2c04e7234b9cb0747bf8a7a66, type: 2}
+    - target: {fileID: -137822553574337977, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -137822553574337977, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bec917b9c59c0c24f83971efdc1d22e0, type: 2}
+    - target: {fileID: -137822553574337977, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 777a2ac2c04e7234b9cb0747bf8a7a66, type: 2}
     - target: {fileID: 919132149155446097, guid: 14e5c4769e0f2104280a209116e22d6a, type: 3}
       propertyPath: m_Name
       value: SM_R_Desklight_v2

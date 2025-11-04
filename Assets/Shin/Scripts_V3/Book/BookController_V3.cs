@@ -1,8 +1,7 @@
-using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+using DG.Tweening;
 
 public class BookController_V3 : MonoBehaviour, IBookController
 {
@@ -22,7 +21,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     bool isFlipping;
     float cTime;
 
-    BookView_V3 bookView;
+    BookView_V3 view;
     IBookAfterFlip afterFlip;
 
     IPlayerController playerController;
@@ -43,7 +42,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     BaseObject[] bookObjects;
 
-    [HideInInspector] public BookView view;
     IBeforeAfterFlip beforeAfterFlip;
     PlayerController player;
     //FlipTriggerController flipController;
@@ -54,7 +52,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         currentPage = model.setStartPage - 1;
 
         //参照
-        bookView = GetComponent<BookView_V3>();
+        view = GetComponent<BookView_V3>();
         afterFlip = GetComponent<IBookAfterFlip>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<IPlayerController>();
         flipController = GameObject.FindGameObjectWithTag("FlipController").GetComponent<IFlipController>();
@@ -86,6 +84,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         yield return new WaitForSeconds(0.1f);
 
         //左にあるオブジェクトを固定し、右にめくる
+        /*
         foreach (var obj in bookObjects)
         {
             if (!obj.isRight)
@@ -93,16 +92,20 @@ public class BookController_V3 : MonoBehaviour, IBookController
                 obj.SetParentStart();
             }
         }
+        */
 
         yield return new WaitForSeconds(0.2f);
 
         //アニメーションの速度を速くして右にめくる
         view.SetAnimationSpeed(0, 20f);
-        view.PlayPageAnimation(0, "Start");
+        view.PlayPageAnimation(0, "Flip");
+        view.SetAnimationSpeed(2, 20f);
+        view.PlayPageAnimation(2, "Flip");
 
         yield return new WaitForSeconds(0.3f);
 
         //固定したオブジェクトをリセット
+        /*
         foreach (var obj in bookObjects)
         {
             if (!obj.isRight)
@@ -110,6 +113,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
                 obj.ResetParent(objectParents);
             }
         }
+        */
 
         yield return new WaitForSeconds(0.1f);
 
@@ -120,9 +124,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         //アニメーションの速度も戻す
         view.SetAnimationSpeed(0, 1f);
+        view.SetAnimationSpeed(2, 1f);
 
         //プレイヤーがゲームをスタートできる状態にする
-        playerController?.SetGameReady();
+        playerController?.SetCanGameStart(pageL, pageR, pageLC, pageRC);
+        Debug.Log("Can");
     }
 
     void Update()
@@ -134,7 +140,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     /// <summary>
     /// ページ移動
     /// </summary>
-    public void Flip(out int currentPagee)
+    public void Flips(out int currentPagee)
     {
         if (isFlipping)
         {
@@ -155,7 +161,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         StartCoroutine(FlipCoroutine());
     }
 
-    IEnumerator FlipCoroutine()
+    IEnumerator FlipCoroutinee()
     {
         beforeAfterFlip.OnBeforeFlip(currentPage, out int beforeWaitTime);
         yield return new WaitForSeconds(beforeWaitTime);
@@ -241,7 +247,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         bookDir = isRightTurn ? bookDir + 1 : bookDir - 1;
 
         float rot = isRightTurn ? model.rotValue : -model.rotValue;
-        view.TurnBookAnimation(isRightTurn, rot, model.rotTime);
+        view.TurnBookAnimation(rot, model.rotTime);
 
         LockObjects(true);
 
@@ -271,36 +277,90 @@ public class BookController_V3 : MonoBehaviour, IBookController
         }
     }
 
+    #region FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    /// <summary>
+    /// ページをめくる
+    /// </summary>
+    /// <seealso cref="PlayerController_V3.Update()"/>
+    /// <seealso cref="GameStart(bool)"/>
+    public void Flip()
+    {
+        isFlipping = true;
+        cTime = Time.time;
+
+        currentPage++;
+        Debug.Log($"Currently on Page [ {currentPage} ]");
+
+        StartCoroutine(FlipCoroutine());
+    }
+
+    IEnumerator FlipCoroutine()
+    {
+
+        playerController.PlayerFlip(false, currentPage);
+
+        yield return new WaitForSeconds(0);
+
+        view.PlayPageAnimation(2, "Reverse");
+        view.PlayPageAnimation(3, "Flip");
+
+        yield return new WaitForSeconds(1.25f);
+
+        yield return new WaitForSeconds(0);
+
+        playerController.PlayerFlip(true, currentPage);
+        yield return new WaitForSeconds(1.75f);
+
+        //
+        playerController.StopFlip();
+
+        //
+        view.PlayPageAnimation(2, "Reset");
+        view.PlayPageAnimation(3, "Reset");
+
+        //
+        isFlipping = false;
+
+        //進行ができない状態にする
+        //flipController.
+
+        //Flipの後のイベントを発生させる
+        //afterFlip.OnAfterFlip(currentPage);
+    }
+
+    void DeactivateObjects(bool isActivate)
+    {
+
+    }
+    #endregion
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        if (leftBones != null)
+        if (pageL != null)
         {
-            foreach (Transform t in leftBones)
+            foreach (Transform t in pageL)
             {
                 Gizmos.DrawSphere(t.position, 0.05f);
             }
-            foreach (Transform t in rightBones)
+            foreach (Transform t in pageR)
             {
                 Gizmos.DrawSphere(t.position, 0.05f);
             }
-            foreach (Transform t in currentBones)
+            foreach (Transform t in pageRC)
             {
                 Gizmos.DrawSphere(t.position, 0.05f);
             }
         }
     }
 
+    /// <summary>
+    /// 最初と最後の本の動き
+    /// </summary>
+    /// <seealso cref="PlayerController_V3.IAnyKey()"/>
     public void GameStart(bool isStart)
     {
-        if(isStart)
-        {
-            StartCoroutine(StartPage());
-        }
-        else
-        {
-            StartCoroutine(EndPage());
-        }
+        StartCoroutine(isStart ? StartPage() : EndPage());
     }
     IEnumerator StartPage()
     {
@@ -309,12 +369,28 @@ public class BookController_V3 : MonoBehaviour, IBookController
         view.PlayBookAnimation(0, "Open");
         view.PlayBookAnimation(1, "Open");
 
-        yield return new WaitForSeconds(3);
+        view.MovePagePosition(1, new Vector3(0, -0.5f, 0), 0f);
+        view.MovePagePosition(2, new Vector3(0, -0.5f, 0), 0f);
+        view.MovePagePosition(3, new Vector3(0, -0.5f, 0), 0f);
+
+        yield return new WaitForSeconds(1.5f);
+
+        Flip();
+
+        view.MovePagePosition(1, Vector3.zero, 2f);
+        view.MovePagePosition(2, Vector3.zero, 2f);
+        view.MovePagePosition(3, Vector3.zero, 2f);
+
+        //Flip()에서 하는것들은 지워도 될듯
         view.SetPageVisibility(1, true);
+        view.SetPageVisibility(2, true);
+        view.SetPageVisibility(3, true);
 
-        yield return new WaitForSeconds(3);
+
+        yield return new WaitForSeconds(1.25f);
+
+        yield return new WaitForSeconds(1.25f);
         view.SetPageVisibility(0, true);
-
     }
     IEnumerator EndPage()
     {
