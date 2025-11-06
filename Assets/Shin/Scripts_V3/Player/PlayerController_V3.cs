@@ -569,6 +569,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             
             //Flip中はアニメーションしないようにする
             view.SetPlayerAnim("CanAnim", false);
+            view.SetPlayerAnim("Idle");
 
             //親の設定
             FlipReposition(isOpen, transform.position);

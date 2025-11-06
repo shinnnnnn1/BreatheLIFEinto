@@ -299,6 +299,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         playerController.PlayerFlip(false, currentPage);
 
+        //前Delay
         yield return new WaitForSeconds(0);
 
         view.PlayPageAnimation(2, "Reverse");
@@ -306,6 +307,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(1.25f);
 
+        //後Delay
         yield return new WaitForSeconds(0);
 
         playerController.PlayerFlip(true, currentPage);
