@@ -28,7 +28,7 @@ public class ShapeObject : BaseObject_V3
         }
 
         //全てのBlendShapeを100(潰れた状態)に設定
-        SetBlendShapes(100);
+        //SetBlendShapes(100);
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ public class ShapeObject : BaseObject_V3
         
         foreach (SkinnedMeshRenderer s in mesh)
         {
-            s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
+            //s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
         }
 
     }

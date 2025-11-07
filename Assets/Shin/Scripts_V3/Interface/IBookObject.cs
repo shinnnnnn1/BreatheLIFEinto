@@ -6,7 +6,18 @@ public interface IBookObject
     public void SetStartParent();
     public void ResetParent(Transform[] objectParents);
     public void SetBookObject(int currentStage);
-    public void FlipDeactivateObject(BookModel_V3 model);
-    public void FlipActivateObject(BookModel_V3 model);
+    public void FlipMotion(BookModel_V3 model, bool isAct);
+    public void FlipHeight(BookModel_V3 model, bool isAct);
+
+
+
+
+
+
+
+
+
+
+
     public void AfterFlip(Transform[] objectParents);
 }

@@ -176,46 +176,10 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             //Dynamicの場合、Flipするページの子になる。古いのはRC、新しいのはLC
             if (!isStatic)
             {
-                Transform[] newBones = isActivate ? pageLC : pageRC;
+                Transform[] newBones = isActivate ? pageLC : pageLC;
                 SetParent(newBones);
             }
         }
-    }
-
-    /// <summary>
-    /// 古いオブジェクトを閉じたりする
-    /// </summary>
-    /// <seealso cref="BookController_V3.Flip()"/>
-    public virtual void FlipDeactivateObject(BookModel_V3 model)
-    {
-        //今回のFlipで変更があってその中で古いオブジェクトなら実行
-        if(isCurrent && !isActivate)
-        {
-            float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
-            float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
-            float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
-            SetHeight(hValue, hTime, hDelay);
-        }
-        //じゃないと return
-        else { return; }
-    }
-
-    /// <summary>
-    /// 新しいオブジェクトを開いたりする
-    /// </summary>
-    /// <seealso cref="BookController_V3.Flip()"/>
-    public virtual void FlipActivateObject(BookModel_V3 model)
-    {
-        //今回のFlipで変更があってその中で新しいオブジェクトなら実行
-        if (isCurrent && isActivate)
-        {
-            float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
-            float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
-            float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
-            SetHeight(hValue, hTime, hDelay);
-        }
-        //じゃないと return
-        else { return; }
     }
 
     /// <summary>
@@ -226,6 +190,30 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     {
         //数値を入れて実行
         stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
+    }
+
+    public void FlipMotion(BookModel_V3 model, bool isAct)
+    {
+        if(isAct == isActivate)
+        {
+            SetObjectVisible(true);
+        }
+        else { return; }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public void FlipHeight(BookModel_V3 model, bool isAct)
+    {
+        float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
+        float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
+        float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
+
+        if (isAct == isActivate)
+        {
+            SetHeight(hValue, hTime, hDelay);
+        }
     }
 
     /// <summary>

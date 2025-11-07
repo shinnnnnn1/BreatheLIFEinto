@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using DG.Tweening;
 
 public class BookController_V3 : MonoBehaviour, IBookController
 {
     [Space(20f)]
     [SerializeField] BookModel_V3 model;
+    [SerializeField] BookDelay bookDelay;
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
@@ -125,7 +125,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         if (isFlipping) { flipTime = Time.time - cTime; }
     }
 
-    #region FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    #region FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// ページをめくる
     /// </summary>
@@ -147,20 +147,26 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //キャラクターを閉じる
         playerController.PlayerFlip(false, currentPage);
 
-        //古い、新しいオブジェクトの設定をして、古いオブジェクトを先に閉じる
         foreach(var obj in bookObjects)
         {
+            //今回Flipするオブジェクトを設定
             obj.SetBookObject(currentPage);
-            obj.FlipDeactivateObject(model);
+
+            //古いオブジェクトを先に閉じる
+            //obj.FlipMotion(model, false);
         }
 
         //前Delay
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(bookDelay.delay[currentPage].x);　//ーーーーーー
 
-        //新しいオブジェクトを開く
         foreach (var obj in bookObjects)
         {
-            obj.FlipActivateObject(model);
+            //Heightはページのアニメーションに合わせるから古いのと新しいのどっちも実行
+            //obj.FlipHeight(model, false);
+            //obj.FlipHeight(model, true);
+
+            //新しいオブジェクトを開く
+            //obj.FlipMotion(model, true);
         }
 
         yield return null;
@@ -169,28 +175,30 @@ public class BookController_V3 : MonoBehaviour, IBookController
         view.PlayPageAnimation(2, "Reverse");
         view.PlayPageAnimation(3, "Flip");
 
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.25f); //ーーーーーーーーーーーーーーーーーーー
 
         //後Delay
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(bookDelay.delay[currentPage].y);　//ーーーーーー
 
+        //キャラクターを開く
         playerController.PlayerFlip(true, currentPage);
-        yield return new WaitForSeconds(1.75f);
 
-        //
+        yield return new WaitForSeconds(1.75f);　//ーーーーーーーーーーーーーーーーーーー
+
+        //キャラクターのFlipを停止
         playerController.StopFlip();
 
-        //
+        //ページ移動が終わった後のオブジェクト
         foreach (var obj in bookObjects)
         {
-            obj.ResetParent(objectParents);
+            obj.AfterFlip(objectParents);
         }
 
-        //
+        //ページのアニメーションをリセット
         view.PlayPageAnimation(2, "Reset");
         view.PlayPageAnimation(3, "Reset");
 
-        //
+        //Flipをしていない状態に設定する
         isFlipping = false;
 
         //進行ができない状態にする
@@ -200,10 +208,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //afterFlip.OnAfterFlip(currentPage);
     }
 
-    void DeactivateObjects(bool isActivate)
-    {
-
-    }
     #endregion
 
     /// <summary>
@@ -221,27 +225,18 @@ public class BookController_V3 : MonoBehaviour, IBookController
         view.PlayBookAnimation(0, "Open");
         view.PlayBookAnimation(1, "Open");
 
-        view.MovePagePosition(1, new Vector3(0, -0.5f, 0), 0f);
-        view.MovePagePosition(2, new Vector3(0, -0.5f, 0), 0f);
-        view.MovePagePosition(3, new Vector3(0, -0.5f, 0), 0f);
+        //view.MovePagePosition(1, new Vector3(0, -0.5f, 0), 0f);
+        //view.MovePagePosition(2, new Vector3(0, -0.5f, 0), 0f);
+        //view.MovePagePosition(3, new Vector3(0, -0.5f, 0), 0f);
 
         yield return new WaitForSeconds(1.5f);
 
         Flip();
 
-        view.MovePagePosition(1, Vector3.zero, 2f);
-        view.MovePagePosition(2, Vector3.zero, 2f);
-        view.MovePagePosition(3, Vector3.zero, 2f);
+        view.MovePagePosition(1, Vector3.zero, 0f);
+        view.MovePagePosition(2, Vector3.zero, 0f);
+        view.MovePagePosition(3, Vector3.zero, 0f);
 
-        //Flip()에서 하는것들은 지워도 될듯
-        view.SetPageVisibility(1, true);
-        view.SetPageVisibility(2, true);
-        view.SetPageVisibility(3, true);
-
-        yield return new WaitForSeconds(1.25f);
-
-        yield return new WaitForSeconds(1.25f);
-        view.SetPageVisibility(0, true);
     }
     IEnumerator EndPage()
     {
