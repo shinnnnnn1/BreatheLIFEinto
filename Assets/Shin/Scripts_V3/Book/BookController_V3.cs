@@ -141,10 +141,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         StartCoroutine(FlipCoroutine());
     }
-    //★★★★★★★★★
-    //  선딜 후딜 관련해서 애니메이션 후에 나오는 오브젝트 등 일단 대기중.
-    //
-    //★★★★★★★★★
+
     IEnumerator FlipCoroutine()
     {
         //キャラクターを閉じる
@@ -153,14 +150,18 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //古い、新しいオブジェクトの設定をして、古いオブジェクトを先に閉じる
         foreach(var obj in bookObjects)
         {
-            obj.SetBookObject(currentPage, model);
-            //obj.FlipDeactivateObject();
+            obj.SetBookObject(currentPage);
+            obj.FlipDeactivateObject(model);
         }
 
         //前Delay
         yield return new WaitForSeconds(0);
 
         //新しいオブジェクトを開く
+        foreach (var obj in bookObjects)
+        {
+            obj.FlipActivateObject(model);
+        }
 
         yield return null;
 
@@ -178,6 +179,12 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         //
         playerController.StopFlip();
+
+        //
+        foreach (var obj in bookObjects)
+        {
+            obj.ResetParent(objectParents);
+        }
 
         //
         view.PlayPageAnimation(2, "Reset");

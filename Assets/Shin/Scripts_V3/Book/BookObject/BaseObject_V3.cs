@@ -8,26 +8,28 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     [Range(1, 10)] [SerializeField] int stage;
 
     [Space(10f)]
-    [SerializeField] bool isRight;
-    [SerializeField] float height;
-    [SerializeField] Transform stand;
+    public bool isRight;
+    public float height;
+    public Transform stand;
 
     Transform[] pageL, pageR, pageLC, pageRC;
 
     [Space(10f)]
-    [SerializeField] Transform closeBone;
-    [SerializeField] int closeIndex;
+    public Transform closeBone;
+    public int closeIndex;
 
     [Space(10f)]
-    [SerializeField] bool isCurrent;
-    [SerializeField] bool isStatic;
-    [SerializeField] bool isActivate;
+    public bool isCurrent;
+    public bool isStatic;
+    public bool isActivate;
 
-    [SerializeField] Collider[] coll;
-    [SerializeField] Transform[] children;
+    public Collider[] coll;
+    public Transform[] children;
 
     [Space(10f)]
-    [SerializeField] float heightDelay;
+    public float heightDelay;
+
+
 
     public virtual void Start()
     {
@@ -149,13 +151,11 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     #endregion
 
     #region FLIP
-    //★★★★★★★★★★★★★★★★★★처음에 세팅해놓는건 낡은거 새로운거 둘다 함
-    //★★★★★★★★★★★★★★★★★★근데 그 후에 높이조절이나 애니메이션, 셰잎, 플레인은 선, 후 나눠야됨.
     /// <summary>
-    /// Stageに合わせて動かすオブジェクトを決める
+    /// Stageに合わせて動かすオブジェクトの設定
     /// </summary>
     /// <seealso cref="BookController_V3.Flip()"/>
-    public virtual void SetBookObject(int currentStage, BookModel_V3 model)
+    public virtual void SetBookObject(int currentStage)
     {
         //古い、新しいStageのオブジェクトなら
         if (stage == currentStage || stage == currentStage - 1)
@@ -167,13 +167,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             //ページに追従する、しないを設定
             isStatic = (isActivate && isRight) || (!isActivate && !isRight);
 
-            //開くオブジェクトを表示にする
-            if (isActivate)
-            {
-                SetObjectVisible(true);
-            }
             //古いオブジェクトならコライダーを無効化する
-            else
+            if (!isActivate)
             {
                 EnableColliders(false);
             }
@@ -184,30 +179,52 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
                 Transform[] newBones = isActivate ? pageLC : pageRC;
                 SetParent(newBones);
             }
+        }
+    }
 
-            //Heightの調整
+    /// <summary>
+    /// 古いオブジェクトを閉じたりする
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public virtual void FlipDeactivateObject(BookModel_V3 model)
+    {
+        //今回のFlipで変更があってその中で古いオブジェクトなら実行
+        if(isCurrent && !isActivate)
+        {
             float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
             float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
             float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
             SetHeight(hValue, hTime, hDelay);
         }
-    }
-
-    public virtual void FlipDeactivateObject()
-    {
-
-    }
-    public virtual void FlipActivateObject()
-    {
-
+        //じゃないと return
+        else { return; }
     }
 
     /// <summary>
-    /// Heightの調整
+    /// 新しいオブジェクトを開いたりする
     /// </summary>
-    /// <seealso cref="SetBookObject(int, BookModel_V3)"/>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public virtual void FlipActivateObject(BookModel_V3 model)
+    {
+        //今回のFlipで変更があってその中で新しいオブジェクトなら実行
+        if (isCurrent && isActivate)
+        {
+            float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
+            float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
+            float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
+            SetHeight(hValue, hTime, hDelay);
+        }
+        //じゃないと return
+        else { return; }
+    }
+
+    /// <summary>
+    /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
+    /// </summary>
+    /// <seealso cref=""/>
     public virtual void SetHeight(float value, float time, float delay)
     {
+        //数値を入れて実行
         stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
     }
 

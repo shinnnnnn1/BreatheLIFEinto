@@ -3920,15 +3920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7fbe3c5717657445c92f59cc41e9e598, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7fbe3c5717657445c92f59cc41e9e598, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7fbe3c5717657445c92f59cc41e9e598, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7fbe3c5717657445c92f59cc41e9e598, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6047,13 +6047,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955331543}
-  - component: {fileID: 955331542}
+  - component: {fileID: 955331544}
   - component: {fileID: 955331541}
   - component: {fileID: 955331540}
   m_Layer: 0
   m_Name: SM_RH_Fallingtree_v2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6102,34 +6102,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &955331542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955331539}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34af632f140ffed49b7dc6f9ad04ded7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 2
-  isRight: 0
-  height: 0
-  stand: {fileID: 0}
-  closeBone: {fileID: 0}
-  closeIndex: 0
-  isCurrent: 0
-  isStatic: 0
-  isActivate: 0
-  isLocked: 0
-  coll: []
-  children: []
-  mesh: []
-  anim: {fileID: 0}
-  isAnim: 0
-  animDelay: 0
 --- !u!4 &955331543
 Transform:
   m_ObjectHideFlags: 0
@@ -6138,9 +6110,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955331539}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018919243, y: -0.9930005, z: -0.008404335, w: 0.11628156}
+  m_LocalRotation: {x: 0.018919244, y: -0.9930005, z: -0.008404336, w: 0.11628156}
   m_LocalPosition: {x: -3.034, y: 1.611, z: 0.307}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.3, y: 1.3000001, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1283709125}
@@ -6149,8 +6121,33 @@ Transform:
   - {fileID: 2009701534}
   - {fileID: 664238424}
   - {fileID: 434485413}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364537204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955331544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955331539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: 0
+  mesh: []
 --- !u!1 &962668036
 GameObject:
   m_ObjectHideFlags: 0
@@ -6897,7 +6894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1148986864}
-  - component: {fileID: 1148986863}
+  - component: {fileID: 1148986865}
   m_Layer: 0
   m_Name: SM_BigTree_After_0
   m_TagString: Untagged
@@ -6905,34 +6902,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1148986863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148986862}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34af632f140ffed49b7dc6f9ad04ded7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 1
-  isRight: 0
-  height: 0
-  stand: {fileID: 0}
-  closeBone: {fileID: 0}
-  closeIndex: 0
-  isCurrent: 0
-  isStatic: 0
-  isActivate: 0
-  isLocked: 0
-  coll: []
-  children: []
-  mesh: []
-  anim: {fileID: 0}
-  isAnim: 0
-  animDelay: 0
 --- !u!4 &1148986864
 Transform:
   m_ObjectHideFlags: 0
@@ -6947,8 +6916,33 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 622394655}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364537204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148986865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148986862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: 0
+  mesh: []
 --- !u!1 &1155503392
 GameObject:
   m_ObjectHideFlags: 0
@@ -8104,6 +8098,8 @@ Transform:
   m_Children:
   - {fileID: 428946587}
   - {fileID: 1606956074}
+  - {fileID: 1148986864}
+  - {fileID: 955331543}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367248595
@@ -20430,7 +20426,5 @@ SceneRoots:
   - {fileID: 1803371194}
   - {fileID: 606194133}
   - {fileID: 362905039}
-  - {fileID: 1148986864}
   - {fileID: 296464428}
-  - {fileID: 955331543}
   - {fileID: 1215400501}
