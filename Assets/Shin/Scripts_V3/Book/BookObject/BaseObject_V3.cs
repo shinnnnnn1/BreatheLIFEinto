@@ -3,34 +3,36 @@ using UnityEngine;
 
 public class BaseObject_V3 : MonoBehaviour, IBookObject
 {
-    protected BookController controller;
+    protected IBookController bookController;
 
-    [Range(1, 10)] public int stage;
-
-    [Space(30f)]
-    public bool isRight;
-    public float height;
-    public Transform stand;
-
-    public Transform closeBone;
-    public int closeIndex;
+    [Range(1, 10)] [SerializeField] int stage;
 
     [Space(10f)]
-    public bool isCurrent;
-    public bool isStatic;
-    public bool isActivate;
+    [SerializeField] bool isRight;
+    [SerializeField] float height;
+    [SerializeField] Transform stand;
+
+    Transform[] pageL, pageR, pageLC, pageRC;
 
     [Space(10f)]
-    public bool isLocked;
+    [SerializeField] Transform closeBone;
+    [SerializeField] int closeIndex;
 
     [Space(10f)]
-    public Collider[] coll;
-    public Transform[] children;
+    [SerializeField] bool isCurrent;
+    [SerializeField] bool isStatic;
+    [SerializeField] bool isActivate;
+
+    [SerializeField] Collider[] coll;
+    [SerializeField] Transform[] children;
+
+    [Space(10f)]
+    [SerializeField] float heightDelay;
 
     public virtual void Start()
     {
         //Controllernを参照
-        controller = FindFirstObjectByType<BookController>();
+        bookController = GameObject.FindGameObjectWithTag("BookController").GetComponent<IBookController>();
 
         //色々なタイプに対応できるように一番上の子を参照
         stand = transform.GetChild(0);
@@ -57,14 +59,41 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         stand.localPosition = (isRight ? Vector3.down : Vector3.up) * height * 2;
     }
 
+    #region SETUPーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    /// <summary>
+    /// 本からボーンをもらう。初期設定専用
+    /// </summary>
+    /// <seealso cref="BookController_V3.Start()"/>
+    public void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC)
+    {
+        pageL = pL;
+        pageR = pR;
+        pageLC = pLC;
+        pageRC = pRC;
+    }
+    /// <summary>
+    /// 一番近いBoneを親にする。初期設定専用
+    /// </summary>
+    /// <seealso cref="BookController_V3.Start()"/>
+    public void SetStartParent()
+    {
+        if (!isRight) { transform.SetParent(closeBone); }
+    }
+    #endregion
+
+    #region SET
+    /// <summary>
+    /// 現在位置と一番近いボーンを取得。初期設定や位置が変わるオブジェクトのFlipで実行
+    /// </summary>
+    /// <seealso cref="BookController_V3.Start()"/>
     public void SetBone()
     {
-        //Set IsRight
+        //IsRightを設定
         isRight = transform.position.x > 0;
 
-        //Set Close Bone and Index
+        //一番近いボーンを取得
         float dis = 100;
-        Transform[] t = isRight ? controller.rightBones : controller.leftBones;
+        Transform[] t = isRight ? pageR : pageL;
         for (int i = 0; i < t.Length; i++)
         {
             float close = Vector3.Distance(transform.position, t[i].position);
@@ -75,14 +104,6 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
                 closeIndex = i;
             }
         }
-    }
-
-    /// <summary>
-    /// 一番近いBoneを親にする。初期設定専用
-    /// </summary>
-    public void SetParentStart()
-    {
-        transform.SetParent(closeBone);
     }
 
     /// <summary>
@@ -125,68 +146,95 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             t.gameObject.SetActive(visible);
         }
     }
+    #endregion
 
+    #region FLIP
+    //★★★★★★★★★★★★★★★★★★처음에 세팅해놓는건 낡은거 새로운거 둘다 함
+    //★★★★★★★★★★★★★★★★★★근데 그 후에 높이조절이나 애니메이션, 셰잎, 플레인은 선, 후 나눠야됨.
     /// <summary>
-    /// Stageに応じて動かすオブジェクトを決める
+    /// Stageに合わせて動かすオブジェクトを決める
     /// </summary>
-    public virtual void SetBookObject(int currentStage, Transform[] currentBones, Transform[] shapes, BookModel model)
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public virtual void SetBookObject(int currentStage, BookModel_V3 model)
     {
+        //古い、新しいStageのオブジェクトなら
         if (stage == currentStage || stage == currentStage - 1)
         {
-            //
+            //今回Flipしたかを設定
             isCurrent = true;
+            //新しいオブジェクトかを設定
             isActivate = stage == currentStage;
+            //ページに追従する、しないを設定
             isStatic = (isActivate && isRight) || (!isActivate && !isRight);
 
-            //
+            //開くオブジェクトを表示にする
             if (isActivate)
             {
                 SetObjectVisible(true);
             }
-            //
+            //古いオブジェクトならコライダーを無効化する
             else
             {
                 EnableColliders(false);
             }
 
-            //
+            //Dynamicの場合、Flipするページの子になる。古いのはRC、新しいのはLC
             if (!isStatic)
             {
-                SetParent(currentBones);
+                Transform[] newBones = isActivate ? pageLC : pageRC;
+                SetParent(newBones);
             }
 
-            float heightValue = isActivate ? 0 : (isStatic ? -height : height);
-            float heightTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
-            float heightDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex);
-            SetHeight(heightValue * 2, heightTime, heightDelay);
-        }
-        else
-        {
-            isCurrent = false;
+            //Heightの調整
+            float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
+            float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
+            float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
+            SetHeight(hValue, hTime, hDelay);
         }
     }
 
+    public virtual void FlipDeactivateObject()
+    {
+
+    }
+    public virtual void FlipActivateObject()
+    {
+
+    }
+
+    /// <summary>
+    /// Heightの調整
+    /// </summary>
+    /// <seealso cref="SetBookObject(int, BookModel_V3)"/>
     public virtual void SetHeight(float value, float time, float delay)
     {
-        stand.DOLocalMoveY(value, time).SetDelay(delay)
-            .SetEase(isRight ? Ease.OutQuint : Ease.OutQuint);
+        stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
     }
 
     /// <summary>
     /// ページ移動が終わった後のオブジェクトの動作
     /// </summary>
-    /// <param name="objectParents"></param>
+    /// <seealso cref="BookController_V3.Flip()"/>
     public virtual void AfterFlip(Transform[] objectParents)
     {
-        ResetParent(objectParents);
-        if (isActivate)
+        //今回Flipしたオブジェクトだけ実行
+        if(isCurrent)
         {
-            EnableColliders(true);
-        }
-        else
-        {
-            isCurrent = false;
-            SetObjectVisible(false);
+            //親子関係をリセットする
+            ResetParent(objectParents);
+
+            //新しいオブジェクトならコライダーを有効化する
+            if (isActivate)
+            {
+                EnableColliders(true);
+            }
+            //古いオブジェクトならisCurrentをfalseにし、非表示する
+            else
+            {
+                isCurrent = false;
+                SetObjectVisible(false);
+            }
         }
     }
+    #endregion
 }

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class BookAfterFlip_V3 : MonoBehaviour, IBookAfterFlip
 {
-    [SerializeField] UnityEvent[] afterFlipEvent;
+    [SerializeField] UnityEvent[] afterFlipEvent = new UnityEvent[10];
 
     public void OnAfterFlip(int currentPage)
     {
