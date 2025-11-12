@@ -63,10 +63,10 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
 
     #region SETUPーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
-    /// 本からボーンをもらう。初期設定専用
+    /// 本からボーンをもらう。ShapeObjectだけShapeをもらう。初期設定専用
     /// </summary>
     /// <seealso cref="BookController_V3.Start()"/>
-    public void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC)
+    public virtual void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC, Transform[] sA, Transform[] sD)
     {
         pageL = pL;
         pageR = pR;
@@ -183,37 +183,48 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     }
 
     /// <summary>
-    /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
-    /// </summary>
-    /// <seealso cref=""/>
-    public virtual void SetHeight(float value, float time, float delay)
-    {
-        //数値を入れて実行
-        stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
-    }
-
-    public void FlipMotion(BookModel_V3 model, bool isAct)
-    {
-        if(isAct == isActivate)
-        {
-            SetObjectVisible(true);
-        }
-        else { return; }
-    }
-    /// <summary>
     /// 
     /// </summary>
-    /// 
+    /// <seealso cref="BookController_V3.Flip()"/>
     public void FlipHeight(BookModel_V3 model, bool isAct)
     {
+        //Heightに関する数値を設定
         float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
         float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
         float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
 
-        if (isAct == isActivate)
+        //新しく来るオブジェクトなら表示する。
+        if (isCurrent)
         {
-            SetHeight(hValue, hTime, hDelay);
+            if (isAct == isActivate) { SetHeight(hValue, hTime, hDelay); }
         }
+        //じゃなかったらreturn
+        else { return; }
+    }
+    /// <summary>
+    /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
+    /// </summary>
+    /// <seealso cref="FlipHeight(BookModel_V3, bool)"/>
+    public virtual void SetHeight(float value, float time, float delay)
+    {
+        //数値を入れて実行
+        stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.Linear : Ease.InQuint);
+    }
+
+    /// <summary>
+    /// 개별의 모션을 실행. 셰이프, 애니메이션, 플레인 등
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public virtual void FlipMotion(BookModel_V3 model, bool isAct)
+    {
+        //今回Flipするオブジェクトなら。
+        if (isCurrent)
+        {
+            //新しく来るオブジェクトなら表示する。
+            if (isActivate) { SetObjectVisible(true); }
+        }
+        //じゃなかったらreturn
+        else { return; }
     }
 
     /// <summary>
@@ -240,6 +251,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
                 SetObjectVisible(false);
             }
         }
+        else { return; }
     }
     #endregion
 }

@@ -9,7 +9,8 @@ public class ShapeObject : BaseObject_V3
 {
     [SerializeField] List<SkinnedMeshRenderer> mesh = new List<SkinnedMeshRenderer>();
 
-    Transform shape;
+    Transform[] shapeAct, shapeDeact;
+    Transform currentShape;
     bool canShape;
 
     public override void Start()
@@ -28,7 +29,18 @@ public class ShapeObject : BaseObject_V3
         }
 
         //全てのBlendShapeを100(潰れた状態)に設定
-        //SetBlendShapes(100);
+        SetBlendShapes(100);
+    }
+
+    /// <summary>
+    /// 本からボーンをもらう。ShapeObjectだけShapeをもらう。初期設定専用
+    /// </summary>
+    /// <seealso cref="BookController_V3.Start()"/>
+    public override void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC, Transform[] sA, Transform[] sD)
+    {
+        base.GetBones(pL, pR, pLC, pRC, sA, sD);
+        shapeAct = sA;
+        shapeDeact = sD;
     }
 
     /// <summary>
@@ -47,24 +59,59 @@ public class ShapeObject : BaseObject_V3
         }
     }
 
+
+
+    /// <summary>
+    /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
+    /// </summary>
+    /// <seealso cref="BaseObject_V3.FlipHeight(BookModel_V3, bool)"/>
     public override void SetHeight(float value, float time, float delay)
     {
-        //Baseで条件に合ってないとreturnするようになってるからまた条件を考える必要はない
+        //条件はBaseで確認
         base.SetHeight(value, time, delay);
-        
+
+        //全てのSkinnedMeshRendererのHeightのHeightを調整
         foreach (SkinnedMeshRenderer s in mesh)
         {
-            //s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
+            s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
         }
-
+        Debug.Log(gameObject.name);
     }
 
-    public void Update()
+    /// <summary>
+    /// オブジェクトのタイプごとにモーションを実行。
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public override void FlipMotion(BookModel_V3 model, bool isAct)
     {
+        //条件はBaseで確認
+        base.FlipMotion(model, isAct);
+
+        //ShapeObjectの場合、CurrentShapeを設定し、Shapeを実行
+        currentShape = isActivate ? shapeAct[closeIndex] : shapeDeact[closeIndex];
+        canShape = true;
+    }
+
+    void Update()
+    {
+        //Shapeが可能なら
         if (canShape)
         {
-            float value = (1 - shape.position.y) * 100;
+            //Shape値を計算する
+            float value = (1 - currentShape.position.y) * 100;
+            //数値を入れてShapeを調整
             SetBlendShapes(value);
         }
+    }
+
+
+
+    public override void AfterFlip(Transform[] objectParents)
+    {
+        //条件はBaseで確認
+        base.AfterFlip(objectParents);
+
+        //Shapeを停止
+        canShape = false;
     }
 }

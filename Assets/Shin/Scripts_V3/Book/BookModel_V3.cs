@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BookModel_V3", menuName = "Scriptable Objects/BookModel_V3")]
@@ -9,19 +10,17 @@ public class BookModel_V3 : ScriptableObject
     [Header("Curve Settings")]
     [Tooltip("ActTime, DeactTime, ActDelay, DeactDelay")]
     public AnimationCurve[] curveHeight = new AnimationCurve[4];
+    public Ease[] easeHeight = new Ease[4];
     public AnimationCurve[] curveShape = new AnimationCurve[4];
+    public Ease[] easeShape = new Ease[4];
     public AnimationCurve[] curvePlane = new AnimationCurve[4];
+    public Ease[] easePlane = new Ease[4];
 
-    //==
     [Header("Page Material Settings")]
-    [Space(10f)]
     public Material[] pageMaterialsL;
     public Material[] pageMaterialsR;
 
     [Header("BookSettings")]
-    public float rotValue = 30.0f;
+    public float rotValue = 45.0f;
     public float rotTime = 1.0f;
-
-    public Vector2[] flipDelay;
-
 }

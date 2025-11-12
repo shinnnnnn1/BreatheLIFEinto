@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IBookObject
 {
-    public void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC);
+    public void GetBones(Transform[] pL, Transform[] pR, Transform[] pLC, Transform[] pRC, Transform[] sA, Transform[] sD);
     public void SetStartParent();
     public void ResetParent(Transform[] objectParents);
     public void SetBookObject(int currentStage);

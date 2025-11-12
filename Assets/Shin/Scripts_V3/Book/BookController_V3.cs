@@ -13,7 +13,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [SerializeField] Transform objectParent;
     [SerializeField] Transform[] bones, shapes;
 
-    //[SerializeField] 
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
     [Space(10f)]
@@ -32,9 +31,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IBookObject[] bookObjects;
     [SerializeField] MonoBehaviour[] objects;
-    
-    
 
+
+    #region STARTーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Awake()
     {
         //開発用。スタートページを設定できる
@@ -66,7 +65,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         objects = new MonoBehaviour[bookObjects.Length];
         for (int i = 0; i < bookObjects.Length; i++)
         {
-            bookObjects[i].GetBones(pageL, pageR, pageLC, pageRC);
+            bookObjects[i].GetBones(pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact);
             objects[i] = bookObjects[i] as MonoBehaviour;
         }
 
@@ -119,6 +118,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         playerController.SetCanGameStart(pageL, pageR, pageLC, pageRC);
         Debug.Log("Can");
     }
+    #endregion
 
     void Update()
     {
@@ -154,11 +154,15 @@ public class BookController_V3 : MonoBehaviour, IBookController
             obj.SetBookObject(currentPage);
 
             //古いオブジェクトを先に閉じる
-            //obj.FlipMotion(model, false);
+            obj.FlipMotion(model, false);
         }
+
+        StartShape(false);
 
         //前Delay
         yield return new WaitForSeconds(bookDelay.delay[currentPage].x);　//ーーーーーー
+
+        StartShape(true);
 
         foreach (var obj in bookObjects)
         {
@@ -167,7 +171,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
             obj.FlipHeight(model, true);
 
             //新しいオブジェクトを開く
-            //obj.FlipMotion(model, true);
+            obj.FlipMotion(model, true);
         }
 
         //Flipするページを表示
@@ -179,6 +183,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //LCとRCのアニメーション再生
         view.PlayPageAnimation(2, "Reverse");
         view.PlayPageAnimation(3, "Flip");
+
 
         yield return new WaitForSeconds(1.25f); //ーーーーーーーーーーーーーーーーーーー
 
@@ -198,6 +203,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
         {
             obj.AfterFlip(objectParents);
         }
+
+        ResetShape();
 
         //Flipするページを非表示
         view.SetPageVisibility(2, false);
@@ -219,6 +226,49 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //afterFlip.OnAfterFlip(currentPage);
     }
     #endregion
+
+    /// <summary>
+    /// Shapeを実行。
+    /// </summary>
+    /// 
+    void StartShape(bool isActivate)
+    {
+        if(isActivate)
+        {
+            for (int i = 0; i < shapeAct.Length; i++)
+            {
+                float time = model.curveShape[0].Evaluate(i);
+                float delay = model.curveShape[2].Evaluate(i);
+                shapeAct[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.InOutQuad);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < shapeDeact.Length; i++)
+            {
+                float time = model.curveShape[1].Evaluate(i);
+                float delay = model.curveShape[3].Evaluate(i);
+                shapeDeact[i].DOLocalMoveY(0, time).SetDelay(delay).SetEase(Ease.InQuad);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 全てのShapeをリセット
+    /// </summary>
+    void ResetShape()
+    {
+        foreach(Transform t in shapeAct)
+        {
+            t.DOPause();
+            t.DOLocalMoveY(0, 0);
+        }
+        foreach (Transform t in shapeDeact)
+        {
+            t.DOPause();
+            t.DOLocalMoveY(1, 0);
+        }
+    }
 
     /// <summary>
     /// 最初と最後の本の動き
