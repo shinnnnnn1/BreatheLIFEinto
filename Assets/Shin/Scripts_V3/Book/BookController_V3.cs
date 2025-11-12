@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -162,12 +163,16 @@ public class BookController_V3 : MonoBehaviour, IBookController
         foreach (var obj in bookObjects)
         {
             //Heightはページのアニメーションに合わせるから古いのと新しいのどっちも実行
-            //obj.FlipHeight(model, false);
-            //obj.FlipHeight(model, true);
+            obj.FlipHeight(model, false);
+            obj.FlipHeight(model, true);
 
             //新しいオブジェクトを開く
             //obj.FlipMotion(model, true);
         }
+
+        //Flipするページを表示
+        view.SetPageVisibility(2, true);
+        view.SetPageVisibility(3, true);
 
         yield return null;
 
@@ -194,6 +199,12 @@ public class BookController_V3 : MonoBehaviour, IBookController
             obj.AfterFlip(objectParents);
         }
 
+        //Flipするページを非表示
+        view.SetPageVisibility(2, false);
+        view.SetPageVisibility(3, false);
+        //最初のFlipの後、PageLを表示する
+        view.SetPageVisibility(0, true);
+
         //ページのアニメーションをリセット
         view.PlayPageAnimation(2, "Reset");
         view.PlayPageAnimation(3, "Reset");
@@ -207,7 +218,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //Flipの後のイベントを発生させる
         //afterFlip.OnAfterFlip(currentPage);
     }
-
     #endregion
 
     /// <summary>
@@ -225,18 +235,32 @@ public class BookController_V3 : MonoBehaviour, IBookController
         view.PlayBookAnimation(0, "Open");
         view.PlayBookAnimation(1, "Open");
 
-        //view.MovePagePosition(1, new Vector3(0, -0.5f, 0), 0f);
-        //view.MovePagePosition(2, new Vector3(0, -0.5f, 0), 0f);
-        //view.MovePagePosition(3, new Vector3(0, -0.5f, 0), 0f);
+        view.MovePagePosition(1, new Vector3(0, -0.5f, 0), 0f, Ease.Linear);
+        view.MovePagePosition(2, new Vector3(0, -0.5f, 0), 0f, Ease.Linear);
+        view.MovePagePosition(3, new Vector3(0, -0.5f, 0), 0f, Ease.Linear);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        view.MovePagePosition(1, Vector3.zero, 1.0f, Ease.Linear);
+        view.MovePagePosition(2, Vector3.zero, 1.0f, Ease.Linear);
+        view.MovePagePosition(3, Vector3.zero, 1.0f, Ease.Linear);
+
+        yield return new WaitForSeconds(0.5f);
+
+        //view.SetPageVisibility(1, true);
+        view.SetPageVisibility(2, true);
+        view.SetPageVisibility(3, true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        view.MovePagePosition(1, Vector3.zero, 0f, Ease.Linear);
+        view.MovePagePosition(2, Vector3.zero, 0f, Ease.Linear);
+        view.MovePagePosition(3, Vector3.zero, 0f, Ease.Linear);
 
         Flip();
 
-        view.MovePagePosition(1, Vector3.zero, 0f);
-        view.MovePagePosition(2, Vector3.zero, 0f);
-        view.MovePagePosition(3, Vector3.zero, 0f);
-
+        yield return new WaitForSeconds(0.1f);
+        view.SetPageVisibility(1, true);
     }
     IEnumerator EndPage()
     {
