@@ -27650,7 +27650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &533355018
 Transform:
   m_ObjectHideFlags: 0
@@ -51935,65 +51935,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215400501}
+  - component: {fileID: 1215400502}
   - component: {fileID: 1215400500}
-  - component: {fileID: 1215400499}
-  - component: {fileID: 1215400498}
   m_Layer: 0
   m_Name: NPC_Hunter
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1215400498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215400497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306c5a195cd48ab4a9b9e4bfc02d139d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: f6ddfaa6ce9249d4785df1762830c72d, type: 2}
-  recycleDialogue: {fileID: 11400000, guid: a6050948c3171dc4d9f534ecca152810, type: 2}
-  bubbleImages:
-  - {fileID: 0}
-  texts:
-  - {fileID: 0}
-  eventImage: {fileID: 0}
-  dialogueWithTurn: 1
---- !u!114 &1215400499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215400497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4115acada3f16ef4eaafee15805829c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 5
-  isRight: 0
-  height: 0
-  stand: {fileID: 0}
-  closeBone: {fileID: 0}
-  closeIndex: 0
-  isCurrent: 0
-  isStatic: 0
-  isActivate: 0
-  isLocked: 0
-  coll: []
-  children: []
-  plane: {fileID: 0}
-  anim: {fileID: 0}
-  npcCylinder: {fileID: 0}
-  isDirectional: 010101
-  isFacingRight: 0
+  m_IsActive: 1
 --- !u!65 &1215400500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52031,8 +51981,37 @@ Transform:
   - {fileID: 1449673506}
   - {fileID: 533355018}
   - {fileID: 3911561}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364537204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215400502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215400497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9f993ecc43c2c4793850db80642190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: 0
+  plane: {fileID: 0}
+  anim: {fileID: 0}
+  npcCylinder: {fileID: 0}
+  isDirectional: 010101
+  isFacingRight: 0
 --- !u!1 &1247994830
 GameObject:
   m_ObjectHideFlags: 0
@@ -57746,6 +57725,7 @@ Transform:
   - {fileID: 1761257007}
   - {fileID: 1356161628}
   - {fileID: 6007824751539523769}
+  - {fileID: 1215400501}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367248595
@@ -80216,5 +80196,4 @@ SceneRoots:
   - {fileID: 606194133}
   - {fileID: 362905039}
   - {fileID: 296464428}
-  - {fileID: 1215400501}
   - {fileID: 396204492}
