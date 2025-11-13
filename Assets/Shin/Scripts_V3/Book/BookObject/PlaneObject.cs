@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Linq;
 using UnityEngine;
 
@@ -34,4 +35,22 @@ public class PlaneObject : BaseObject_V3
         base.Start();
     }
 
+    /// <summary>
+    /// オブジェクトのタイプごとにモーションを実行。
+    /// </summary>
+    /// <seealso cref="BookController_V3.Flip()"/>
+    public override void FlipMotion(BookModel_V3 model, bool isAct)
+    {
+        //条件はBaseで確認
+        base.FlipMotion(model, isAct);
+
+        //PlaneObjectの場合、Standを回転させる
+        float value = isAct ? -90 : 90;
+        Vector3 rotValue = new Vector3(value, 0, 0);
+        float time = model.curvePlane[isAct ? 0 : 1].Evaluate(closeIndex);
+        float delay = model.curvePlane[isAct ? 2 : 3].Evaluate(closeIndex);
+        Ease ease = model.easePlane[isAct ? 0 : 1];
+
+        stand.DOLocalRotate(rotValue, time).SetDelay(delay).SetEase(ease).SetRelative();
+    }
 }

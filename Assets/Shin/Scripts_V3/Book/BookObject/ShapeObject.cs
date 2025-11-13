@@ -68,7 +68,7 @@ public class ShapeObject : BaseObject_V3
     public override void SetHeight(float value, float time, float delay)
     {
         //条件はBaseで確認
-        base.SetHeight(value, time, delay);
+        base.SetHeight(value, time, delay); //どうせ全部やるからBaseなくてもいいかもShapeは
 
         //全てのSkinnedMeshRendererのHeightのHeightを調整
         foreach (SkinnedMeshRenderer s in mesh)
