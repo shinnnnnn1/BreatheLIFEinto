@@ -65,17 +65,16 @@ public class ShapeObject : BaseObject_V3
     /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
     /// </summary>
     /// <seealso cref="BaseObject_V3.FlipHeight(BookModel_V3, bool)"/>
-    public override void SetHeight(float value, float time, float delay)
+    public override void SetHeight(float value, float time, float delay, Ease ease)
     {
-        //条件はBaseで確認
-        //base.SetHeight(value, time, delay); //どうせ全部やるからBaseなくてもいいかもShapeは
+        //一番上がアーマチュアの場合もあるからBaseも実行
+        base.SetHeight(value, time, delay, ease);
 
         //全てのSkinnedMeshRendererのHeightのHeightを調整
         foreach (SkinnedMeshRenderer s in mesh)
         {
-            s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.OutQuint : Ease.InQuint);
+            s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(ease);
         }
-        Debug.Log(gameObject.name);
     }
 
     /// <summary>
@@ -84,12 +83,14 @@ public class ShapeObject : BaseObject_V3
     /// <seealso cref="BookController_V3.Flip()"/>
     public override void FlipMotion(BookModel_V3 model, bool isAct)
     {
-        //条件はBaseで確認
         base.FlipMotion(model, isAct);
 
-        //ShapeObjectの場合、CurrentShapeを設定し、Shapeを実行
-        currentShape = isActivate ? shapeAct[closeIndex] : shapeDeact[closeIndex];
-        canShape = true;
+        if (isCurrent && isAct == isActivate)
+        {
+            //ShapeObjectの場合、CurrentShapeを設定し、Shapeを実行
+            currentShape = isActivate ? shapeAct[closeIndex] : shapeDeact[closeIndex];
+            canShape = true;
+        }
     }
 
     void Update()

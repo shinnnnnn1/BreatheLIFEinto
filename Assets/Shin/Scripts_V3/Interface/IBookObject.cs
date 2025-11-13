@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public interface IBookObject

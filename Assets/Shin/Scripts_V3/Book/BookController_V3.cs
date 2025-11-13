@@ -239,7 +239,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
             {
                 float time = model.curveShape[0].Evaluate(i);
                 float delay = model.curveShape[2].Evaluate(i);
-                shapeAct[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(Ease.InOutQuad);
+                shapeAct[i].DOLocalMoveY(1, time).SetDelay(delay).SetEase(model.easeShape[0]);
             }
         }
         else
@@ -248,7 +248,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
             {
                 float time = model.curveShape[1].Evaluate(i);
                 float delay = model.curveShape[3].Evaluate(i);
-                shapeDeact[i].DOLocalMoveY(0, time).SetDelay(delay).SetEase(Ease.InQuad);
+                shapeDeact[i].DOLocalMoveY(0, time).SetDelay(delay).SetEase(model.easeShape[1]);
             }
         }
     }

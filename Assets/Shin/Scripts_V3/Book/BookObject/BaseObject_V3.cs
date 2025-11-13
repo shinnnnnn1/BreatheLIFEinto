@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class BaseObject_V3 : MonoBehaviour, IBookObject
 {
-    protected IBookController bookController;
-
     [Range(1, 10)] [SerializeField] int stage;
 
     [Space(10f)]
@@ -33,9 +31,6 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
 
     public virtual void Start()
     {
-        //Controllernを参照
-        bookController = GameObject.FindGameObjectWithTag("BookController").GetComponent<IBookController>();
-
         //色々なタイプに対応できるように一番上の子を参照
         stand = transform.GetChild(0);
 
@@ -192,23 +187,22 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
         float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
         float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
+        Ease hEase = isActivate ? model.easeHeight[0] : model.easeHeight[1];
 
         //新しく来るオブジェクトなら表示する。
-        if (isCurrent)
+        if (isCurrent && isAct == isActivate)
         {
-            if (isAct == isActivate) { SetHeight(hValue, hTime, hDelay); }
+            SetHeight(hValue, hTime, hDelay, hEase);
         }
-        //じゃなかったらreturn
-        else { return; }
     }
     /// <summary>
     /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
     /// </summary>
     /// <seealso cref="FlipHeight(BookModel_V3, bool)"/>
-    public virtual void SetHeight(float value, float time, float delay)
+    public virtual void SetHeight(float value, float time, float delay, Ease ease)
     {
         //数値を入れて実行
-        stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(isActivate ? Ease.Linear : Ease.InQuint);
+        stand.DOLocalMoveY(value, time).SetDelay(delay).SetEase(ease);
     }
 
     /// <summary>
@@ -218,13 +212,11 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     public virtual void FlipMotion(BookModel_V3 model, bool isAct)
     {
         //今回Flipするオブジェクトなら。
-        if (isCurrent)
+        if (isCurrent && isAct == isActivate)
         {
             //新しく来るオブジェクトなら表示する。
             if (isActivate) { SetObjectVisible(true); }
         }
-        //じゃなかったらreturn
-        else { return; }
     }
 
     /// <summary>

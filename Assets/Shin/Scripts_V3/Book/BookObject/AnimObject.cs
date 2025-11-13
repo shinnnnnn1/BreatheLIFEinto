@@ -1,4 +1,5 @@
-using System.Numerics;
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -6,13 +7,15 @@ using UnityEngine;
 /// </summary>
 public class AnimObject : BaseObject_V3
 {
+    [Space(10f)]
     public Animator anim;
-    public float animDelay;//ㅇㅣ름 이게 맞는지 확인
+    public float animDelay;
 
     public override void Start()
     {
-        base.Start();
+        anim = GetComponentInChildren<Animator>();
 
+        base.Start();
     }
 
     /// <summary>
@@ -21,23 +24,22 @@ public class AnimObject : BaseObject_V3
     /// <seealso cref="BookController_V3.Flip()"/>
     public override void FlipMotion(BookModel_V3 model, bool isAct)
     {
-        //条件はBaseで確認
         base.FlipMotion(model, isAct);
 
-        //AnimObjectの場合、Animationを生成する
+        if (isCurrent && isAct == isActivate)
+        {
+            //AnimObjectの場合、Animationを再生する
+            float delay = animDelay;
+            string animation = isAct ? "Activate" : "Deactivate";
 
-        //float delay = model.
-        //string animation = isAct ? "Open" : "Close";
-
-        //StartCoroutine(AnimCoroutine());
+            StartCoroutine(AnimCoroutine(delay, animation));
+        }
     }
 
-    /*
     IEnumerator AnimCoroutine(float delay, string animation)
     {
-        yield return null;
+        yield return new WaitForSeconds(delay);
 
         anim.SetTrigger(animation);
     }
-    */
 }
