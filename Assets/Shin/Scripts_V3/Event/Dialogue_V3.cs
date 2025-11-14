@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DialogueV2", menuName = "Scriptable Objects/DialogueV2")]
-public class Dialogue_V2 : ScriptableObject
+[CreateAssetMenu(fileName = "DialogueV3", menuName = "Scriptable Objects/DialogueV3")]
+public class Dialogue_V3 : ScriptableObject
 {
     public bool canMoveOnDialogueEnd;
     public bool canProceedOnDialogueEnd;
@@ -15,9 +15,5 @@ public class Dialogue_V2 : ScriptableObject
     public Vector3[] isAuto_AutoDelay_fontSize;
     public Vector3[] talkerID_IsShake_IsInvisible;
 
-    //어차피 처음에 이벤트 딜레이 뒤에 이벤트가필요한거면
-    //처음 이벤트에서 딜레이를 기다리고 이벤트 넣으면 되잖아 X
     public Vector2[] events;
-
-    //event > delay > ... delay > event
 }

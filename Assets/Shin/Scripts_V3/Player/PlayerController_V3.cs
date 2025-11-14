@@ -43,20 +43,19 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     //엔딩때는 Flip 후 Open할때 캐릭터 안보이게함
     [SerializeField] bool flipVisible;
 
-    
+    [Space(10f)]
+    [SerializeField] Transform interacting;
+    IEventInvoker interactingEvent;
+    IEventInvoker currentEvent;
+
 
     bool canGameStart = false;
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 
-    [Space(10f)] 
-    [SerializeField] Transform interactingEvent;
     public DialoguePlayer dialoguePlayer, currentPlayer;
     public DialoguePlayer currentDialogue;
-
-    IEventInvoker iEvent;
-    IEventInvoker currentEvent;
 
     PlayerHold jointHold;
     BookController book;
@@ -189,28 +188,28 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (eventColls.Length > 0)
         {
             //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
-            if (interactingEvent != eventColls[0].transform)
+            if (interacting != eventColls[0].transform)
             {
                 //現在のオブジェクトがある場合、会話可能イメージを非表示させる
-                iEvent?.OnEventEnter(false);
+                interactingEvent?.OnEventEnter(false);
 
                 //新しいオブジェクトを参照
-                interactingEvent = eventColls[0].transform;
-                iEvent = interactingEvent.GetComponentInParent<IEventInvoker>();
+                interacting = eventColls[0].transform;
+                interactingEvent = interacting.GetComponentInParent<IEventInvoker>();
 
                 //新しいオブジェクトの会話可能イメージを表示する
-                iEvent.OnEventEnter(true);
+                interactingEvent.OnEventEnter(true);
             }
         }
         //範囲内にオブジェクトがないけどオブジェクトが参照されている場合
-        else if (eventColls.Length == 0 && interactingEvent != null)
+        else if (eventColls.Length == 0 && interacting != null)
         {
             //参照されているオブジェクトの会話可能イメージを非表示させる
-            iEvent.OnEventEnter(false);
+            interactingEvent.OnEventEnter(false);
 
             //参照状態の初期化
+            interacting = null;
             interactingEvent = null;
-            iEvent = null;
         }
     }
     #endregion
@@ -332,9 +331,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (!model.canMove || !OnGround() || !model.canJump || model.isTurning) { return; }
 
         //接触中のイベントが存在するなら会話の開始
-        if (interactingEvent != null)
+        if (interacting != null)
         {
-            currentEvent = iEvent;
+            currentEvent = interactingEvent;
             currentEvent.OnEventInvoke();
             SetCanMove(false);
             SetIsDialogue(true);

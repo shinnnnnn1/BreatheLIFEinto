@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -32,7 +33,6 @@ public class PlaneObject : BaseObject_V3
         npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
 
         isFacingRight = plane.localEulerAngles.y < 90;
-        base.Start();
     }
 
     /// <summary>
@@ -54,5 +54,46 @@ public class PlaneObject : BaseObject_V3
 
             stand.DOLocalRotate(rotValue, time).SetDelay(delay).SetEase(ease).SetRelative();
         }
+    }
+
+
+
+    public void Turn()
+    {
+        Turn(!isFacingRight);
+    }
+    public void Turn(bool turnToRight)
+    {
+        if ((turnToRight && isFacingRight) || (!turnToRight && !isFacingRight)) { return; }
+
+        float turnValue = turnToRight ? -180 : 180;
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative();
+        isFacingRight = turnToRight;
+    }
+    public void TurnToPlayer()
+    {
+        Transform playerpos = EventManager.Instance.playerController.transform;
+        bool isOverPlayer = transform.position.x > playerpos.position.x;
+        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
+        {
+            Turn();
+        }
+    }
+
+
+
+    public void SetAnimTrigger(string trigger)
+    {
+        anim.SetTrigger(trigger);
+    }
+    public void SetAnimTriggerWithTurn(string trigger)
+    {
+        StartCoroutine(AnimTime(trigger));
+    }
+
+    IEnumerator AnimTime(string trigger)
+    {
+        yield return new WaitForSeconds(0.1f);
+        SetAnimTrigger(trigger);
     }
 }
