@@ -1,7 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class PullableObject : MonoBehaviour, IInteractable, IPullable
+public class PullableObject : MonoBehaviour, IInteractable
+    //, IPullable
 {
     [SerializeField] int eventIndex;
 
@@ -31,6 +32,7 @@ public class PullableObject : MonoBehaviour, IInteractable, IPullable
     [Space(10f)]
     [SerializeField] bool isActivated = false;
     bool canPull = false;
+
 
     void Start()
     {

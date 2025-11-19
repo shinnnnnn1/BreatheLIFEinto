@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
 {
-    public Dialogue_V3 dialogue;
-    public Dialogue_V3 recycled;
+    [SerializeField] Dialogue_V3 dialogue;
+    [SerializeField] Dialogue_V3 recycled;
 
     [Space(10f)]
     public Image eventImage;
     public Image[] bubbles = new Image[1];
     public TMP_Text[] texts = new TMP_Text[1];
+
+    [SerializeField] bool isEventPlaying = false;
 
     void Awake()
     {
@@ -29,9 +31,30 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
     }
     public void OnEventInvoke()
     {
-        //DialogueManager_V3.Instance.NextDialogue();
+        //会話を開始する場合
+        if (!isEventPlaying)
+        {
+            //EventImageを非表示。最初の一回だけ
+            OnEventEnter(false);
+            isEventPlaying = true;
+        }
+        DialogueManager_V3.Instance.NextDialogue(this, dialogue);
     }
 
+    public void EndEvent()
+    {
+        isEventPlaying = false;
+
+        //繰り返し会話ができる場合
+        if(dialogue.canRecycle)
+        {
+            //EventImageを表示
+            OnEventEnter(true);
+        }
+        //一回限りの会話の場合は何もない。
+    }
+
+    public void SwitchToRecycle() => dialogue = recycled;
     public void SetNewDialogue(Dialogue_V3 newDialogue) => dialogue = newDialogue;
     public void SetNewRecycled(Dialogue_V3 newRecycled) => recycled = newRecycled;
 }

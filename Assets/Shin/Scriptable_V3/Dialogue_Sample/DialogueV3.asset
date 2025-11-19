@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMoveOnDialogueEnd: 1
   canProceedOnDialogueEnd: 0
-  canRecycle: 0
+  canRecycle: 1
   messages:
   - "\u3053\u308C\u306F\u30FC"
   - "\u30B5\u30F3\u30D7\u30EB\u3067\u3059"
   emotion_Bubble:
-  - {x: 0, y: 0}
+  - {x: 1, y: 0}
   - {x: 0, y: 0}
   delay:
-  - {x: 0, y: 0}
+  - {x: 2, y: 0}
   - {x: 0, y: 0}
   isAuto_AutoDelay_fontSize:
-  - {x: 1, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  talkerID_IsShake_IsInvisible:
+  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_isDialogueMotion:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   events:
-  - {x: 16, y: 0}
+  - {x: 0, y: 0}
   - {x: 0, y: 0}

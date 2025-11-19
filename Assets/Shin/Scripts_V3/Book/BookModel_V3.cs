@@ -16,6 +16,10 @@ public class BookModel_V3 : ScriptableObject
     public AnimationCurve[] curvePlane = new AnimationCurve[4];
     public Ease[] easePlane = new Ease[4];
 
+    public float distortionValue;
+    public float distortionTime;
+    public Ease easeDistortion;
+
     [Header("Page Material Settings")]
     public Material[] pageMaterialsL;
     public Material[] pageMaterialsR;

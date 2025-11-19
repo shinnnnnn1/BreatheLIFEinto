@@ -354,11 +354,13 @@ public class PlayerController : MonoBehaviour
             pullable = hit.collider.GetComponent<IPullable>();
             if (pullable != null)
             {
+                //Debug.Log("asdasdsadasdsadsadasdasdsadasdsadsaddasasdasdsadasdasd");
                 SetCanAnim(false);
-                pullable.OnActivate(this, model.isRight);
+                //pullable.OnActivate(this, model.isRight);
             }
             else
             {
+                Debug.Log("asdasdsadasdsadsadasdasdsadasdsadsaddasasdasdsadasdasd");
                 //바로 당기는 모션이 실행됨
                 view.SetPlayerAnim("StartHold");
                 view.SetPlayerAnim("IsPulling", true);

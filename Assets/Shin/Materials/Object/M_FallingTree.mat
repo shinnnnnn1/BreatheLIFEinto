@@ -35,6 +35,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 60f79b383130c48edb51d5d09ce1c92c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -92,7 +96,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 14bc3fb5d21d2cd4b937b233809c8c69, type: 3}
+        m_Texture: {fileID: 2800000, guid: 95eed825b9a5a499485de33438001b85, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -100,6 +104,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -151,7 +159,7 @@ Material:
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
-    - _AO_Intensity: 1
+    - _AO_Intensity: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
@@ -212,7 +220,7 @@ Material:
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metalic_Intensity: 1
+    - _Metalic_Intensity: 0
     - _Metallic: 0
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
@@ -234,7 +242,8 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Roughness_Intnesity: 0.5
+    - _Roughness_Intensity: 1
+    - _Roughness_Intnesity: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0

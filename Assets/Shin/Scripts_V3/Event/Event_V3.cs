@@ -4,21 +4,23 @@ using UnityEngine.Playables;
 
 public class Event_V3 : MonoBehaviour
 {
+    //åŸºæœ¬çš„ã«TimelineãŒã‚ã‚‹ã‹ã©ã†ã‹ã§åˆ¤æ–­ã™ã‚‹
     [SerializeField] PlayableAsset timeline;
     [SerializeField] UnityEvent events;
-
     [SerializeField] float delay;
 
     public void InvokeEvent(out PlayableAsset p)
     {
-        //ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‚È‚¢ê‡AUnityEvent‚ğÀs
+        //UnityEventã®å ´åˆã€Delayã®å¾Œã«å®Ÿè¡Œ
         if(timeline == null)
         {
-            //UnityEvent‚ÌDelay
+            //UnityEventã®Delay
             Invoke("Delay", delay);
+
+            //Timelineã«ã¯ä½•ã‚‚å…¥ã‚Œãªã„
             p = null;
         }
-        //‚ ‚éê‡Aƒ^ƒCƒ€ƒ‰ƒCƒ“‚ğ•ÔŠÒ‚·‚é
+        //Timelineã®å ´åˆã€Timelineã‚’æ¸¡ã™
         else
         {
             p = timeline;
@@ -26,6 +28,7 @@ public class Event_V3 : MonoBehaviour
     }
     void Delay()
     {
+        //UnityEventã®å®Ÿè¡Œ
         events.Invoke();
     }
 }

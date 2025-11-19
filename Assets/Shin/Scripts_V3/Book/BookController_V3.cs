@@ -11,7 +11,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
-    [SerializeField] Transform[] bones, shapes;
+    [SerializeField] Transform[] bones, shapes, distortions;
 
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
@@ -67,6 +67,15 @@ public class BookController_V3 : MonoBehaviour, IBookController
         {
             bookObjects[i].GetBones(pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact);
             objects[i] = bookObjects[i] as MonoBehaviour;
+        }
+
+        //全ての歪みを縮小する
+        foreach(Transform obj in distortions)
+        {
+            if(obj != null)
+            {
+                obj.localScale = Vector3.zero;
+            }
         }
 
         //本の表示状態、初期位置を設定
@@ -193,7 +202,12 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //キャラクターを開く
         playerController.PlayerFlip(true, currentPage);
 
-        yield return new WaitForSeconds(1.75f);　//ーーーーーーーーーーーーーーーーーーー
+        yield return new WaitForSeconds(1.25f);　//ーーーーーーーーーーーーーーーーーーー
+
+        //歪みを拡大
+        Distortion(true);
+
+        yield return new WaitForSeconds(0.5f);　//ーーーーーーーーーーーーーーーーーーー
 
         //キャラクターのFlipを停止
         playerController.StopFlip();
@@ -223,7 +237,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //flipController.
 
         //Flipの後のイベントを発生させる
-        //afterFlip.OnAfterFlip(currentPage);
+        afterFlip.OnAfterFlip(currentPage);
     }
     #endregion
 
@@ -269,6 +283,15 @@ public class BookController_V3 : MonoBehaviour, IBookController
             t.DOLocalMoveY(1, 0);
         }
     }
+
+
+    public void Distortion(bool isExpand)
+    {
+        Vector3 scale = isExpand ? Vector3.one * model.distortionValue : Vector3.zero;
+        float time = model.distortionValue;
+        distortions[currentPage].DOScale(scale, time).SetEase(model.easeDistortion);
+    }
+
 
     /// <summary>
     /// 最初と最後の本の動き

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Linq;
+using Unity.Cinemachine;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class PlayerController_V3 : MonoBehaviour, IPlayerController
 {
     [SerializeField] PlayerModel_V3 model;
     [SerializeField] PlayerRespawnPosition respawn;
+    [SerializeField] CinemachinePositionComposer positionComposer;
 
     PlayerView_V3 view;
 
@@ -18,7 +21,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public Vector2 zoomDirection;
 
     IBookController bookController;
-
 
     //本をめくる時に使用
     /// <summary>　Triggerに触れ、Flipできる状態になったかを確認　</summary>
@@ -40,7 +42,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     [SerializeField] Vector3 flipPos;
     [SerializeField] Vector3 flipRot;
 
-    //엔딩때는 Flip 후 Open할때 캐릭터 안보이게함
+    //엔딩때 Flip 후 Open할때 캐릭터 안보이게하는,
+    //헨젤과 그레텔 처음에 나올때 안보이게 하는거
+    // 즉 플립 후에 나오긴 하지만 투명한 상태. 이벤트로 다시 수동으로 나오는 모션을 만들든지 해야함
     [SerializeField] bool flipVisible;
 
     [Space(10f)]
@@ -51,18 +55,20 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     bool canGameStart = false;
 
+    [SerializeField] ConfigurableJoint joint;
+    [SerializeField] Rigidbody targetRigid;
+
+    //Zoom関連
+    [SerializeField] Vector2 zoom_Min_Max;
+    [SerializeField] Vector3 zoom_Current_Target_Speed;
+
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 
-    public DialoguePlayer dialoguePlayer, currentPlayer;
-    public DialoguePlayer currentDialogue;
 
-    PlayerHold jointHold;
-    BookController book;
-
-    
 
     RaycastHit hit;
+    IInteractable interactable;
     IPullable pullable;
 
     [SerializeField] Vector3 currentVelocity;
@@ -81,14 +87,16 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     public bool isDialogue;
 
-
     bool lockRot;
+
+
 
     void Start()
     {
         //参照
         rigid = GetComponent<Rigidbody>();
         view = GetComponent<PlayerView_V3>();
+        joint = GetComponentInChildren<ConfigurableJoint>();
         bookController = GameObject.FindGameObjectWithTag("BookController").GetComponent<IBookController>();
 
         //コライダーを参照し、詳細を設定
@@ -142,6 +150,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
         //範囲内のイベントを参照。複数の場合は一番近いものを参照
         GetDialogueReference();
+
+        //範囲内のInteractableを参照。
+        GetInteractableReference();
+
+        Zoom();
     }
 
     /// <summary>
@@ -210,6 +223,42 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             //参照状態の初期化
             interacting = null;
             interactingEvent = null;
+        }
+    }
+
+    /// <summary>
+    /// 範囲内の掴むオブジェクトを参照。ハイライト表現をする
+    /// </summary>
+    void GetInteractableReference()
+    {
+        if(!model.isHolding)
+        {
+            if (IsHit() && interactable == null)
+            {
+                interactable = hit.collider.GetComponent<IInteractable>();
+                interactable.OnEnter();
+            }
+            else if (!IsHit() && interactable != null)
+            {
+                interactable?.OnExit();
+                interactable = null;
+            }
+        }
+    }
+
+    void Zoom()
+    {
+        if (model.canMove)
+        {
+            zoom_Current_Target_Speed.y -= zoomDirection.y;
+
+            zoom_Current_Target_Speed.y = 
+                Mathf.Clamp(zoom_Current_Target_Speed.y, zoom_Min_Max.x, zoom_Min_Max.y);
+
+            zoom_Current_Target_Speed.x = 
+                Mathf.Lerp(zoom_Current_Target_Speed.x, zoom_Current_Target_Speed.y, Time.deltaTime * zoom_Current_Target_Speed.z);
+
+            positionComposer.CameraDistance = zoom_Current_Target_Speed.x;
         }
     }
     #endregion
@@ -345,21 +394,24 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetHoldingInfo(true);
 
             pullable = hit.collider.GetComponent<IPullable>();
+
+            //IPullableがあるなら
             if (pullable != null)
             {
-                //SetCanAnim(false);
-                //pullable.OnActivate(this, model.isRight);
+                pullable.OnActivate(this, model.isRight);
             }
+            //IPullableがないなら（栞など）
             else
             {
-                //바로 당기는 모션이 실행됨
+                //そのまま引っ張るモーションに切り替える
                 view.SetPlayerAnim("StartHold");
                 view.SetPlayerAnim("IsPulling", true);
-                jointHold.SetJoint(model.isRight, model.jointAnchorRight, hit.rigidbody);
+
+                //Jointの設定をする
+                SetJoint(model.isRight, model.jointAnchorRight, hit.rigidbody);
             }
         }
     }
-
     /// <summary>
     /// アクションボタンを離したら実行
     /// </summary>
@@ -370,7 +422,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (model.isHolding)
         {
             SetHoldingInfo(false);
-            jointHold.ResetJoint();
+            ResetJoint();
 
             pullable?.OnDeactivate();
             pullable = null;
@@ -380,38 +432,22 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         }
     }
 
-    void SetHoldingInfo(bool isActivate)
-    {
-        isPulling = isActivate;
-        model.isTurning = isActivate;
-        model.canJump = !isActivate;
-        model.isHolding = isActivate;
-        model.moveSpeed = isActivate ? model.holdingSpeed : model.defaultSpeed;
-    }
-
-    bool IsHit()
-    {
-        Vector3 direction = model.isRight ? Vector3.right : Vector3.left;
-        if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset.x : -model.hitBoxOffset.x,
-            model.hitBoxOffset.y, 0), model.hitBoxSize / 2, direction, out hit, Quaternion.identity, model.hitBoxDistance, model.hitLayer))
-        {
-            return true;
-        }
-        else { return false; }
-    }
-
-    public void SetIsDialogue(bool isDia)
+    void SetIsDialogue(bool isDia)
     {
         isDialogue = isDia;
-        if (!isDia)
-        {
-            currentDialogue = null;
-        }
     }
-    public void SetDialogueAuto(IEventInvoker e)
+
+    public void PlayAutoEvent(DialogueEvent_V3 dialogue)
     {
-        currentEvent = e;
+        currentEvent = dialogue;
+        currentEvent.OnEventInvoke();
+        SetCanMove(false);
         SetIsDialogue(true);
+    }
+    public void OnDialogueEnd()
+    {
+        currentEvent = null;
+        SetIsDialogue(false);
     }
 
     public void SetConstraints(bool dirX)
@@ -427,8 +463,52 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public void SetTension(Vector3 t) => tension = t;
     public void SetAngleAccuracy(float accuracy) => angleAccuracy = accuracy;
 
+    #endregion
 
+    #region HOLD ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    bool IsHit()
+    {
+        Vector3 direction = model.isRight ? Vector3.right : Vector3.left;
+        if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset.x : -model.hitBoxOffset.x,
+            model.hitBoxOffset.y, 0), model.hitBoxSize / 2, direction, out hit, Quaternion.identity, model.hitBoxDistance, model.hitLayer))
+        { return true; }
+        else { return false; }
+    }
 
+    void SetHoldingInfo(bool isActivate)
+    {
+        isPulling = isActivate;
+        model.isTurning = isActivate;
+        model.canJump = !isActivate;
+        model.isHolding = isActivate;
+        model.moveSpeed = isActivate ? model.holdingSpeed : model.defaultSpeed;
+    }
+
+    public void SetJoint(bool isRight, Vector2 anchor, Rigidbody target)
+    {
+        targetRigid = target;
+
+        rigid.mass = 100;
+        targetRigid.mass = 1;
+
+        joint.anchor = new Vector3(isRight ? anchor.x : -anchor.x, anchor.y, 0);
+        joint.axis = isRight ? Vector3.right : Vector3.left;
+        joint.connectedBody = target;
+    }
+    public void ResetJoint()
+    {
+        rigid.mass = 1;
+        if (targetRigid != null)
+        {
+            targetRigid.mass = 100;
+            targetRigid = null;
+        }
+
+        joint.connectedBody = null;
+    }
+    #endregion
+
+    #region TURNBOOK ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// 本を回す操作
     /// </summary>
@@ -447,7 +527,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         LockPlayer(true);
         */
     }
-
+    /*
     public void LockPlayer(bool startLock)
     {
         if (startLock)
@@ -476,6 +556,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetCanMove(true);
         }
     }
+    */
+    #endregion
+
+    #region ZOOM ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
     #endregion
 
     #region ●PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -533,6 +618,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     /// </summary>
     /// <seealso cref="PlayerFlip(bool, int)"/>
     public void SetPlayerVisible(bool isVisible) => view.SetPlayerVisible(isVisible);
+
+    /// <summary>
+    /// キャラクターのアニメーションを手動で変更
+    /// </summary>
+    /// <param name="trigger"></param>
+    public void SetPlayerAnimation(string trigger) => view.SetPlayerAnim(trigger);
+
     #endregion
 
     #region ●PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -664,7 +756,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         isFlipping = false;
         transform.SetParent(null);
         view.SetPlayerAnim("CanAnim", true);
-        SetCanMove(true);
+        //SetCanMove(true);
     }
     #endregion
 

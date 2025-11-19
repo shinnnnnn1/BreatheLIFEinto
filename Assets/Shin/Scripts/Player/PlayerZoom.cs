@@ -12,6 +12,9 @@ public class PlayerZoom : MonoBehaviour
     [SerializeField] float targetValue;
     [SerializeField] float speed;
 
+    [SerializeField] Vector2 zoom_Min_Max;
+    [SerializeField] Vector3 zoom_Current_Target_Speed;
+
     void Start()
     {
         controller = GetComponent<PlayerController>();

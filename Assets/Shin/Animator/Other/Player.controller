@@ -269,7 +269,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Hold
-  m_Speed: 1
+  m_Speed: 0
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8098566627171979546}
@@ -385,7 +385,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: StopHold
     m_Type: 9
@@ -405,7 +405,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Move
+  - m_Name: Walk
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -464,7 +464,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 851a9cbfb3fea9349b6dfe541e94c79d, type: 2}
     m_Threshold: 0.01
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.01
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: VelocityX
     m_Mirror: 0
@@ -865,7 +865,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: e8b07a6346d4a7a469d08f09d12486a7, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.01
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: VelocityX
     m_Mirror: 0
@@ -1081,7 +1081,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Move
+    m_ConditionEvent: Walk
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9048147864811847430}

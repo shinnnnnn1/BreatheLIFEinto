@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
+  m_Name: 01_WolfHit
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 0
+  canProceedOnDialogueEnd: 0
+  canRecycle: 0
+  messages:
+  - "\u3046\u309B\u307C\u3041\u309B\u3063\uFF01\uFF1F\uFF01\uFF1F"
+  - "\u306A\u3093\u3060\u3001\u7A81\u7136\u8179\u306B\u885D\u6483\u304C\u2026\u2026"
+  - "\u304A\u524D\u304B\uFF01\uFF01\u30AA\u30EC\u69D8\u306E\u5FEB\u7720\u59A8\u5BB3\u72AF\u306F\uFF01\uFF01\uFF01"
+  - "\u4ECA\u3059\u3050\u3053\u3053\u3067\u98DF\u3063\u3066\u2026\u2026"
+  - "\u3044\u3084\u3001\u3082\u3063\u3068\u3044\u3044\u6848\u304C\u3042\u308B\u306A\u3001\u30D5\u30D5\u30D5\u2026"
+  - "\u305D\u3046\u3068\u6C7A\u307E\u308C\u3070\u5584\u306F\u2026\u3044\u3084\u3001\u201D\u60AA\u306F\u6025\u3052\u201D\u3060\uFF01\uFF01"
+  emotion_Bubble:
+  - {x: 2, y: 0}
+  - {x: 0, y: 0}
+  - {x: 7, y: 0}
+  - {x: 7, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  delay:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 2, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto_AutoDelay_fontSize:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_isDialogueMotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  events:
+  - {x: 0, y: 0}
+  - {x: 0, y: 4}
+  - {x: 5, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 6}
+  startEvent: 0

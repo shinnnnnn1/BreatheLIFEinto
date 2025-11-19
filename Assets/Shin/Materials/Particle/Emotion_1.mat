@@ -13,15 +13,18 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
+  - _ENABLE_FOG_ON_TRANSPARENT
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT
+  - _DOUBLESIDED_ON
   - _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
   - MOTIONVECTORS
@@ -145,15 +148,15 @@ Material:
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
-    - _AlphaDstBlend: 0
+    - _AlphaDstBlend: 10
     - _AlphaRemapMax: 1
     - _AlphaRemapMin: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
-    - _CullMode: 2
-    - _CullModeForward: 2
+    - _CullMode: 0
+    - _CullModeForward: 0
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
@@ -179,11 +182,11 @@ Material:
     - _DistortionSrcBlend: 1
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
-    - _DoubleSidedEnable: 0
+    - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
-    - _DstBlend: 0
-    - _DstBlend2: 0
+    - _DstBlend: 10
+    - _DstBlend2: 10
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -245,7 +248,7 @@ Material:
     - _StencilWriteMaskMV: 43
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
-    - _SurfaceType: 0
+    - _SurfaceType: 1
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -263,11 +266,11 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestDepthEqualForOpaque: 8
     - _ZTestGBuffer: 3
     - _ZTestModeDistortion: 4
-    - _ZTestTransparent: 4
-    - _ZWrite: 1
+    - _ZTestTransparent: 8
+    - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

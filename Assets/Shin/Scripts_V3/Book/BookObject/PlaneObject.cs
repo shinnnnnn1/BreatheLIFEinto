@@ -2,9 +2,10 @@ using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
-/// FlipでStandの回転をするタイプ
+/// FlipでStandの回転をするタイプ。主にNPC
 /// </summary>
 public class PlaneObject : BaseObject_V3
 {
@@ -12,8 +13,9 @@ public class PlaneObject : BaseObject_V3
     //standはFlip用、planeはTurn用
     public Transform plane;
     public Animator anim;
-    public MeshCollider npcCylinder;
-    public bool[] isDirectional = new bool[] { true, true, true }; // -1, 0, 1
+    //public MeshCollider npcCylinder;
+    public NavMeshAgent navMeshAgent;
+    //public bool[] isDirectional = new bool[] { true, true, true }; // -1, 0, 1
 
     [Space(10)]
     public bool isFacingRight;
@@ -30,7 +32,9 @@ public class PlaneObject : BaseObject_V3
         anim = plane.GetComponent<Animator>();
 
         //처음에 안보이게할거는
-        npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+        //npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
         isFacingRight = plane.localEulerAngles.y < 90;
     }
@@ -45,6 +49,12 @@ public class PlaneObject : BaseObject_V3
 
         if(isCurrent && isAct == isActivate)
         {
+            //NasMeshAgentを無効化する
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = false;
+            }
+
             //PlaneObjectの場合、Standを回転させる
             float value = isAct ? -90 : 90;
             Vector3 rotValue = new Vector3(value, 0, 0);
@@ -53,6 +63,17 @@ public class PlaneObject : BaseObject_V3
             Ease ease = model.easePlane[isAct ? 0 : 1];
 
             stand.DOLocalRotate(rotValue, time).SetDelay(delay).SetEase(ease).SetRelative();
+        }
+    }
+
+    public override void AfterFlip(Transform[] objectParents)
+    {
+        base.AfterFlip(objectParents);
+
+        //NasMeshAgentを有効化する
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled = true;
         }
     }
 
@@ -70,9 +91,9 @@ public class PlaneObject : BaseObject_V3
         plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative();
         isFacingRight = turnToRight;
     }
-    public void TurnToPlayer()
+    public void TurnToPlayer(Transform player)
     {
-        Transform playerpos = EventManager.Instance.playerController.transform;
+        Transform playerpos = player;
         bool isOverPlayer = transform.position.x > playerpos.position.x;
         if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
         {
@@ -90,7 +111,6 @@ public class PlaneObject : BaseObject_V3
     {
         StartCoroutine(AnimTime(trigger));
     }
-
     IEnumerator AnimTime(string trigger)
     {
         yield return new WaitForSeconds(0.1f);
