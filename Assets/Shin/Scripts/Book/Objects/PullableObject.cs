@@ -1,7 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class PullableObject : MonoBehaviour, IInteractable
+public class PullableObject : MonoBehaviour
+    //, IInteractable
     //, IPullable
 {
     [SerializeField] int eventIndex;
@@ -85,8 +86,11 @@ public class PullableObject : MonoBehaviour, IInteractable
         player.view.SetPlayerAnim("IsPulling", true);
     }
 
-    public void OnDeactivate()
+    public void OnDeactivate(bool isRight)
     {
+        //방향이 맞지 않거나 이미 실행 된 이벤트라면 리턴
+        if (isDirPositive == isRight || isActivated) { return; }
+
         //당기는 수치를 초기화.
         canPull = false;
         pullValue = defaultPullValue;

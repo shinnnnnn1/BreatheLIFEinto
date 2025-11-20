@@ -104,16 +104,23 @@ public class DialogueManager_V3 : MonoBehaviour
             EventManager_V3.Instance.InvokeEvent(d.startEvent);
         }
 
-            current++;
+        current++;
         if (current < d.messages.Length)
         {
+            if (d.emotion_Bubble_moddleEmotion[current].z > 0)
+            {
+                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_moddleEmotion[current].z);
+            }
+
+            if (d.events[current].z > 0) { EventManager_V3.Instance.InvokeEvent((int)d.events[current].z); }
+
             //前Delay
             yield return new WaitForSeconds(d.delay[current].x);
 
-            //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでる)
-            if (d.emotion_Bubble[current].x > 0)
+            //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでたけどどっちもすることになった)
+            if (d.emotion_Bubble_moddleEmotion[current].x > 0)
             {
-                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble[current].x);
+                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_moddleEmotion[current].x);
             }
 
             //イベントがある場合、再生
@@ -128,7 +135,7 @@ public class DialogueManager_V3 : MonoBehaviour
             currentText.enabled = d.talkerID_IsInvisible_isDialogueMotion[current].y == 0;
 
             //吹き出しのスプライトを変更
-            currentBubble.sprite = bubbleType[(int)d.emotion_Bubble[current].y];
+            currentBubble.sprite = bubbleType[(int)d.emotion_Bubble_moddleEmotion[current].y];
 
             //文字を初期化
             currentText.text = "";

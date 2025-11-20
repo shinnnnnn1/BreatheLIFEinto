@@ -204,7 +204,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(1.25f);　//ーーーーーーーーーーーーーーーーーーー
 
-        //歪みを拡大
+        //Flip中に歪みを拡張するのだけ拡張
         Distortion(true);
 
         yield return new WaitForSeconds(0.5f);　//ーーーーーーーーーーーーーーーーーーー

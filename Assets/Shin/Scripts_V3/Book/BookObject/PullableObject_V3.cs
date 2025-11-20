@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 {
-    [SerializeField] UnityEvent onEnter, onExit, onPull, onActivate;
+    [SerializeField] UnityEvent onEnter, onExit, tryActivate, onPull, onActivate;
     [SerializeField] Animator anim;
     PlayerController_V3 player;
 
@@ -44,13 +44,18 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         defaultPullValue = pullValue;
     }
 
-    public void OnEnter()
+    public void OnEnter(bool isRight)
     {
-        onEnter.Invoke();
+        if(!isEntered && isRight == direction.x < 0)
+        {
+            onEnter.Invoke();
+            isEntered = true;
+        }
     }
     public void OnExit()
     {
         onExit.Invoke();
+        isEntered = false;
     }
 
     public void OnActivate(PlayerController_V3 p, bool isRight)
@@ -74,6 +79,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         //목표에 도달했다면 당기는 모션으로 바뀌며 당기기 가능.
         player.SetPlayerAnimation("Walk");
         player.transform.DOLocalMove(targetPos, time).SetEase(Ease.Linear).OnComplete(SetCanPull);
+
+        tryActivate.Invoke();
     }
 
     public void SetCanPull()
@@ -93,10 +100,16 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         player.SetPlayerAnimation("StartHold");
 
         onPull.Invoke();
+
+        player.transform.position = transform.position + position;
     }
 
-    public void OnDeactivate()
+    public void OnDeactivate(bool isRight)
     {
+        //방향이 맞지 않거 리턴
+        float dir = Mathf.Abs(direction.x) > Mathf.Abs(direction.y) ? direction.x : 0;
+        if (isDirPositive == isRight && isDirX) { return; }
+
         //당기는 수치를 초기화.
         canPull = false;
         pullValue = defaultPullValue;
@@ -108,7 +121,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
             anim.speed = 1;
             anim.SetTrigger("Reset");
 
-            OnEnter();
+            isEntered = false;
+            OnEnter(direction.x < 0);
         }
 
         //두트윈 취소

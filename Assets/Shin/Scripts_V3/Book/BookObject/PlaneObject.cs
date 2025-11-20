@@ -88,6 +88,7 @@ public class PlaneObject : BaseObject_V3
         if ((turnToRight && isFacingRight) || (!turnToRight && !isFacingRight)) { return; }
 
         float turnValue = turnToRight ? -180 : 180;
+        plane.DOPause();
         plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative();
         isFacingRight = turnToRight;
     }

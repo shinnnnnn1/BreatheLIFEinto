@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class HoldableObject_V3 : MonoBehaviour
+public class HoldableObject_V3 : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] UnityEvent onEnter, onExit, onPull;
+    [SerializeField] bool isEntered;
 
-    // Update is called once per frame
-    void Update()
+    public void OnEnter(bool isRight)
     {
-        
+        if (!isEntered)
+        {
+            onEnter.Invoke();
+            isEntered = true;
+        }
+    }
+    public void OnExit()
+    {
+        onExit.Invoke();
+        isEntered = false;
     }
 }

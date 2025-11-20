@@ -10,11 +10,11 @@ public class Dialogue_V3 : ScriptableObject
     [TextArea(1, 1)]
     public string[] messages;
 
-    public Vector2[] emotion_Bubble;
+    public Vector3[] emotion_Bubble_moddleEmotion;
     public Vector2[] delay;
     public Vector3[] isAuto_AutoDelay_fontSize;
     public Vector3[] talkerID_IsInvisible_isDialogueMotion;
 
-    public Vector2[] events;
+    public Vector3[] events;
     public int startEvent;
 }

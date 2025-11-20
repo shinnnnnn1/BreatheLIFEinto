@@ -13,6 +13,8 @@ public class ShapeObject : BaseObject_V3
     Transform currentShape;
     bool canShape;
 
+    Rigidbody rigid;
+
     public override void Start()
     {
         base.Start();
@@ -30,6 +32,9 @@ public class ShapeObject : BaseObject_V3
 
         //全てのBlendShapeを100(潰れた状態)に設定
         SetBlendShapes(100);
+
+        //Holdableの場合、Rigidbodyが必要
+        rigid = GetComponent<Rigidbody>();
     }
 
     /// <summary>
@@ -75,6 +80,11 @@ public class ShapeObject : BaseObject_V3
         {
             s.transform.DOLocalMoveY(value, time).SetDelay(delay).SetEase(ease);
         }
+
+        if (rigid != null)
+        {
+            rigid.isKinematic = true;
+        }
     }
 
     /// <summary>
@@ -114,5 +124,11 @@ public class ShapeObject : BaseObject_V3
 
         //Shapeを停止
         canShape = false;
+
+        if(rigid != null)
+        {
+            rigid.isKinematic = false;
+        }
+
     }
 }

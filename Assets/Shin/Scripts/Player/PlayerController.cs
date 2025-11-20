@@ -377,7 +377,7 @@ public class PlayerController : MonoBehaviour
             SetHoldingInfo(false);
             jointHold.ResetJoint();
 
-            pullable?.OnDeactivate();
+            //pullable?.OnDeactivate();
             pullable = null;
 
             SetCanAnim(true);

@@ -233,10 +233,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         if(!model.isHolding)
         {
-            if (IsHit() && interactable == null)
+            if (IsHit())
             {
                 interactable = hit.collider.GetComponent<IInteractable>();
-                interactable.OnEnter();
+                interactable.OnEnter(model.isRight);
             }
             else if (!IsHit() && interactable != null)
             {
@@ -424,7 +424,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetHoldingInfo(false);
             ResetJoint();
 
-            pullable?.OnDeactivate();
+            pullable?.OnDeactivate(model.isRight);
             pullable = null;
 
             //SetCanAnim(true);
