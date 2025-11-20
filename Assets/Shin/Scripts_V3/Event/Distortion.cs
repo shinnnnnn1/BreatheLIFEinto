@@ -1,16 +1,22 @@
+using System.Numerics;
 using UnityEngine;
+//using DG.Tweeng;
 
 public class Distortion : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField] bool isFlip;
+
+    public void OnActivateFlip(Vector3 value, float time, Ease ease)
     {
-        
+        if(isFlip)
+        {
+            transform.DOScale(value, time).SetEase(ease);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnActivate(Vector3 value, float time, Ease ease)
     {
-        
+        transform.DOScale(value, time).SetEase(ease);
     }
 }

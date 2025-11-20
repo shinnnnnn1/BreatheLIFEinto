@@ -12,6 +12,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [Space(10f)]
     [SerializeField] Transform objectParent;
     [SerializeField] Transform[] bones, shapes, distortions;
+    //[SerializeField] Distortion[] distortions;
 
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
@@ -205,6 +206,10 @@ public class BookController_V3 : MonoBehaviour, IBookController
         yield return new WaitForSeconds(1.25f);　//ーーーーーーーーーーーーーーーーーーー
 
         //Flip中に歪みを拡張するのだけ拡張
+        foreach(var d in distortions)
+        {
+            
+        }
         Distortion(true);
 
         yield return new WaitForSeconds(0.5f);　//ーーーーーーーーーーーーーーーーーーー
