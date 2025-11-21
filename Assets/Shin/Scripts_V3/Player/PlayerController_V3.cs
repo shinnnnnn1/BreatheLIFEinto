@@ -697,7 +697,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         //次の位置を設定
         Vector3 pos = reposition == Vector3.zero ? respawn.defaultPosition : reposition;
-        pos = new Vector3(pos.x, pos.y, -pos.z);
 
         //近いページを探す
         Transform[] newPage = isOpen ? (pos.x < 0 ? pageL : pageR) : (pos.x < 0 ? pageL : pageRC);

@@ -137,6 +137,38 @@ public class BookController_V3 : MonoBehaviour, IBookController
     {
         //開発用。ページがめくられる時間を確認できる
         if (isFlipping) { flipTime = Time.time - cTime; }
+
+        if(pageL != null)
+        {
+            foreach(var p in pageL)
+            {
+                if (!p.gameObject.activeSelf) { return; }
+                Debug.DrawRay(p.transform.position, p.transform.up, Color.green);
+                Debug.DrawRay(p.transform.position, p.transform.right, Color.red);
+                Debug.DrawRay(p.transform.position, p.transform.forward, Color.blue);
+            }
+            foreach(var p in pageR)
+            {
+                if (!p.gameObject.activeSelf) { return; }
+                Debug.DrawRay(p.transform.position, p.transform.up, Color.green);
+                Debug.DrawRay(p.transform.position, p.transform.right, Color.red);
+                Debug.DrawRay(p.transform.position, p.transform.forward, Color.blue);
+            }
+            foreach (var p in pageLC)
+            {
+                if (!p.gameObject.activeSelf) { return; }
+               // Debug.DrawRay(p.transform.position, p.transform.up, Color.green);
+                //Debug.DrawRay(p.transform.position, p.transform.right, Color.red);
+                //Debug.DrawRay(p.transform.position, p.transform.forward, Color.blue);
+            }
+            foreach (var p in pageRC)
+            {
+                if (!p.gameObject.activeSelf) { return; }
+                Debug.DrawRay(p.transform.position, p.transform.up, Color.green);
+                Debug.DrawRay(p.transform.position, p.transform.right, Color.red);
+                Debug.DrawRay(p.transform.position, p.transform.forward, Color.blue);
+            }
+        }
     }
 
     #region FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -411,6 +443,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
             foreach (Transform t in pageL)
             {
                 Gizmos.DrawSphere(t.position, 0.05f);
+                //Gizmos.DrawLine(t.transform.position, t.transform.right);
+
             }
             foreach (Transform t in pageR)
             {
