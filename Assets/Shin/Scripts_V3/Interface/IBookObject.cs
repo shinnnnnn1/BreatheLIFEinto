@@ -21,4 +21,5 @@ public interface IBookObject
 
 
     public void AfterFlip(Transform[] objectParents);
+    public void LockObject(bool onLock, int bookDir);
 }

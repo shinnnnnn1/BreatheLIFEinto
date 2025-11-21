@@ -17,4 +17,5 @@ public interface IPlayerController
 
     public void StopFlip();
 
+    public void LockPlayer(bool startLock, Transform[] pageL, Transform[] pageR);
 }

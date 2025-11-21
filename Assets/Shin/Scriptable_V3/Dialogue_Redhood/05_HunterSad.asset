@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
+  m_Name: 05_HunterSad
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 1
+  canProceedOnDialogueEnd: 0
+  canRecycle: 1
+  messages:
+  - "\u56F0\u3063\u305F\u306E\u3046\u3001\u3053\u308C\u3067\u306F\u3082\u3046\u751F\u304D\u3066\u3044\u3051\u3093\u2026\u2026\u3002"
+  - "\u3069\u3046\u3057\u305F\u3093\u3058\u3083\u3001\u305D\u3093\u306A\u306B\u614C\u3066\u3066\u3002"
+  - "\u306A\u306B\uFF01\uFF1F\u304A\u5A46\u3055\u3093\u3068\u5973\u306E\u5B50\u304C\u98DF\u3079\u3089\u308C\u305F\u3058\u3083\u3068\uFF01\uFF1F"
+  - "\u305D\u308C\u306F\u4E00\u5927\u4E8B\u3058\u3083\u3001\u4ECA\u3059\u3050\u4F55\u3068\u304B\u305B\u3093\u3068\u2026\u2026\uFF01"
+  - "\u2026\u3063\u3068\u3001\u308F\u3057\u306E\u9283\u3001\u58CA\u308C\u3068\u308B\u3093\u3058\u3083\u3063\u305F\u2026\u2026"
+  - "\u308F\u3057\u306E\u611B\u9283\u304C\u306E\u3045\u2026\u2026\u3068\u307B\u307B\u2026\u2026\uFF1B\uFF1B"
+  emotion_Bubble_MiddleEmotion:
+  - {x: 13, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  delay:
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto_AutoDelay_FontSize:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_IsDialogueMotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  events:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 21, z: 0}
+  startEvent: 20

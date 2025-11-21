@@ -6,7 +6,7 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
     [SerializeField] bool isBookHorizontal = true;
 
     [SerializeField] int currentTrigger = 0;
-    [SerializeField] FlipTrigger[] triggers;
+    [SerializeField] FlipTrigger_V3[] triggers;
 
     public IPlayerController playerController;
     public IBookController bookController;
@@ -14,7 +14,7 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
     void Start()
     {
         //FlipTriggerを参照
-        triggers = GetComponentsInChildren<FlipTrigger>();
+        triggers = GetComponentsInChildren<FlipTrigger_V3>();
 
         //0番のTriggerだけ表示
         ResetTrigger(currentTrigger);

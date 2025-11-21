@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
@@ -9,6 +10,7 @@ public class VirtualMouseController : MonoBehaviour
     [Space(10f)]
     [SerializeField] PlayerInput playerInput;
     [SerializeField] VirtualMouseModel model;
+    [SerializeField] CinemachineCamera cursorCam;
     [SerializeField] GraphicRaycaster[] raycasters;
 
     VirtualMouseView view;
@@ -77,6 +79,8 @@ public class VirtualMouseController : MonoBehaviour
             r.enabled = activate;
         }
 
+        cursorCam.gameObject.SetActive(activate);
+
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
     }
 
@@ -90,7 +94,6 @@ public class VirtualMouseController : MonoBehaviour
         }
         else if (playerInput.currentControlScheme == gamepadScheme && previousControlScheme != gamepadScheme)
         {
-
             previousControlScheme = gamepadScheme;
         }
     }

@@ -28,6 +28,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     public float heightDelay;
 
 
+    
 
     public virtual void Start()
     {
@@ -244,6 +245,13 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             }
         }
         else { return; }
+    }
+
+
+
+    public virtual void LockObject(bool onLock, int bookDir)
+    {
+
     }
     #endregion
 }

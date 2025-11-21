@@ -11,8 +11,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
-    [SerializeField] Transform[] bones, shapes, distortions;
-    //[SerializeField] Distortion[] distortions;
+    [SerializeField] Transform[] bones, shapes;
+    [SerializeField] Distortion[] distortions;
 
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
@@ -23,6 +23,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [SerializeField] float flipTime; //確認用
     bool isFlipping;
     float cTime;
+
+    [SerializeField] int bookDir;
+    bool isBookTurning;
 
     BookView_V3 view;
     IBookAfterFlip afterFlip;
@@ -71,11 +74,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
         }
 
         //全ての歪みを縮小する
-        foreach(Transform obj in distortions)
+        foreach(var obj in distortions)
         {
             if(obj != null)
             {
-                obj.localScale = Vector3.zero;
+                obj.transform.localScale = Vector3.zero;
             }
         }
 
@@ -206,11 +209,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         yield return new WaitForSeconds(1.25f);　//ーーーーーーーーーーーーーーーーーーー
 
         //Flip中に歪みを拡張するのだけ拡張
-        foreach(var d in distortions)
-        {
-            
-        }
-        Distortion(true);
+        DistortionOn(true);
 
         yield return new WaitForSeconds(0.5f);　//ーーーーーーーーーーーーーーーーーーー
 
@@ -239,7 +238,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         isFlipping = false;
 
         //進行ができない状態にする
-        //flipController.
+        flipController.SetCanProceed(false);
 
         //Flipの後のイベントを発生させる
         afterFlip.OnAfterFlip(currentPage);
@@ -290,11 +289,67 @@ public class BookController_V3 : MonoBehaviour, IBookController
     }
 
 
-    public void Distortion(bool isExpand)
+    public void DistortionOn(bool isFlip)
     {
-        Vector3 scale = isExpand ? Vector3.one * model.distortionValue : Vector3.zero;
+        if(distortions[currentPage] == null) { return; }
+
+        Vector3 scale = Vector3.one * model.distortionValue;
         float time = model.distortionValue;
-        distortions[currentPage].DOScale(scale, time).SetEase(model.easeDistortion);
+        if(isFlip)
+        {
+            distortions[currentPage]?.OnActivateFlip(scale, time, model.easeDistortion);
+        }
+        else
+        {
+            distortions[currentPage].OnActivate(scale, time, model.easeDistortion);
+        }
+    }
+    public void DistortionOff()
+    {
+        Vector3 scale = Vector3.zero;
+        float time = model.distortionValue;
+        distortions[currentPage].OnActivate(scale, time, model.easeDistortion);
+    }
+
+
+
+    public void TurnBook(bool isRightTurn)
+    {
+        if ((isRightTurn && bookDir == 2) || (!isRightTurn && bookDir == -2)) { return; }
+        if(isBookTurning) { return; }
+        isBookTurning = true;
+
+        bookDir = isRightTurn ? bookDir + 1 : bookDir - 1;
+
+        float rot = isRightTurn ? model.rotValue : -model.rotValue;
+        view.TurnBookAnimation(rot, model.rotTime);
+
+        LockObjects(true);
+        playerController.LockPlayer(true, pageL, pageR);
+
+        Invoke("AfterTurnBook", model.rotTime);
+    }
+
+    void AfterTurnBook()
+    {
+        flipController.CheckIsBookHorizontal(bookDir);
+        isBookTurning = false;
+
+        Invoke("LockFalse", 0.1f);
+    }
+
+    void LockFalse()
+    {
+        playerController.LockPlayer(false, pageL, pageR);
+        LockObjects(false);
+    }
+
+    void LockObjects(bool onLock)
+    {
+        foreach (var b in bookObjects)
+        {
+            b.LockObject(onLock, bookDir);
+        }
     }
 
 
@@ -342,6 +397,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
     }
     IEnumerator EndPage()
     {
+
+        view.PlayBookAnimation(0, "Close");
+        view.PlayBookAnimation(1, "Close");
         yield return new WaitForSeconds(1.5f);
     }
 

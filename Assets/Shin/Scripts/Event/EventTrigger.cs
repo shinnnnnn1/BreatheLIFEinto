@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EventTrigger : MonoBehaviour
 {
-    public int eventIndex;
+    public UnityEvent unityEvent;
     bool isActivated = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if(!isActivated)
         {
-            EventManager.Instance.PlayCutScene(eventIndex);
+            unityEvent.Invoke();
             isActivated = true;
         }
     }

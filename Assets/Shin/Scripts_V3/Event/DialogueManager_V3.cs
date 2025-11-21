@@ -68,7 +68,7 @@ public class DialogueManager_V3 : MonoBehaviour
         if(current < 0 && currentEvent == null) { StartDialogue(dialogue); }
 
         //自動の場合、ボタンを押しても何も起こらない
-        if (current >= 0 && d.isAuto_AutoDelay_fontSize[current].x > 0) { return; }
+        if (current >= 0 && d.isAuto_AutoDelay_FontSize[current].x > 0) { return; }
 
         //会話アニメーションをスキップ
         if (canSkip)
@@ -107,9 +107,9 @@ public class DialogueManager_V3 : MonoBehaviour
         current++;
         if (current < d.messages.Length)
         {
-            if (d.emotion_Bubble_moddleEmotion[current].z > 0)
+            if (d.emotion_Bubble_MiddleEmotion[current].z > 0)
             {
-                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_moddleEmotion[current].z);
+                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_MiddleEmotion[current].z);
             }
 
             if (d.events[current].z > 0) { EventManager_V3.Instance.InvokeEvent((int)d.events[current].z); }
@@ -118,30 +118,30 @@ public class DialogueManager_V3 : MonoBehaviour
             yield return new WaitForSeconds(d.delay[current].x);
 
             //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでたけどどっちもすることになった)
-            if (d.emotion_Bubble_moddleEmotion[current].x > 0)
+            if (d.emotion_Bubble_MiddleEmotion[current].x > 0)
             {
-                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_moddleEmotion[current].x);
+                emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_MiddleEmotion[current].x);
             }
 
             //イベントがある場合、再生
             if (d.events[current].x > 0) { EventManager_V3.Instance.InvokeEvent((int)d.events[current].x); }
 
             //吹き出しを話すキャラクターの吹き出しに変更
-            currentBubble = bubbles[(int)d.talkerID_IsInvisible_isDialogueMotion[current].x];
-            currentText = texts[(int)d.talkerID_IsInvisible_isDialogueMotion[current].x];
+            currentBubble = bubbles[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
+            currentText = texts[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
 
             //吹き出しの表示/非表示（Yが0だったら表示）
-            currentBubble.enabled = d.talkerID_IsInvisible_isDialogueMotion[current].y == 0;
-            currentText.enabled = d.talkerID_IsInvisible_isDialogueMotion[current].y == 0;
+            currentBubble.enabled = d.talkerID_IsInvisible_IsDialogueMotion[current].y == 0;
+            currentText.enabled = d.talkerID_IsInvisible_IsDialogueMotion[current].y == 0;
 
             //吹き出しのスプライトを変更
-            currentBubble.sprite = bubbleType[(int)d.emotion_Bubble_moddleEmotion[current].y];
+            currentBubble.sprite = bubbleType[(int)d.emotion_Bubble_MiddleEmotion[current].y];
 
             //文字を初期化
             currentText.text = "";
 
             //フォントのサイズを変更
-            currentText.fontSize = d.isAuto_AutoDelay_fontSize[current].z > 0 ? d.isAuto_AutoDelay_fontSize[current].z : 10;
+            currentText.fontSize = d.isAuto_AutoDelay_FontSize[current].z > 0 ? d.isAuto_AutoDelay_FontSize[current].z : 10;
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
@@ -161,9 +161,9 @@ public class DialogueManager_V3 : MonoBehaviour
             canProceed = true;
 
             //自動化
-            if (d.isAuto_AutoDelay_fontSize[current].x > 0)
+            if (d.isAuto_AutoDelay_FontSize[current].x > 0)
             {
-                float autoD = d.isAuto_AutoDelay_fontSize[current].y == 0 ? defaultAutoDelay : d.isAuto_AutoDelay_fontSize[current].y;
+                float autoD = d.isAuto_AutoDelay_FontSize[current].y == 0 ? defaultAutoDelay : d.isAuto_AutoDelay_FontSize[current].y;
                 yield return new WaitForSeconds(autoD);
                 StartCoroutine(DialogueCoroutine(d));
             }
@@ -177,6 +177,8 @@ public class DialogueManager_V3 : MonoBehaviour
 
     void EndDialogue(Dialogue_V3 d)
     {
+        StopAllCoroutines();
+
         //会話の変数を初期化
         current = -1;
         canSkip = false;

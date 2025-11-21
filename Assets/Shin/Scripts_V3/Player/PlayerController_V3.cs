@@ -93,6 +93,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     void Start()
     {
+        CinemachineCamera cam = positionComposer.GetComponent<CinemachineCamera>();
+        cam.Priority = 0;
+        cam.Prioritize();
+
         //参照
         rigid = GetComponent<Rigidbody>();
         view = GetComponent<PlayerView_V3>();
@@ -519,23 +523,19 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //動けない、地面にいないなら return
         if (!model.canMove || !OnGround()) { return; }
 
-        /*
-        book.TurnBook(isRightTurn, out bool canTurn);
-        if (!canTurn) { return; }
-
-        SetCanMove(false);
-        LockPlayer(true);
-        */
+        bookController.TurnBook(isRightTurn);
     }
-    /*
-    public void LockPlayer(bool startLock)
+    
+    public void LockPlayer(bool startLock, Transform[] pageL, Transform[] pageR)
     {
         if (startLock)
         {
+            SetCanMove(false);
+
             isLocked = true;
             Transform closeBone = null;
             float dis = 100;
-            Transform[] t = transform.position.x > 0 ? book.rightBones : book.leftBones;
+            Transform[] t = transform.position.x > 0 ? pageR : pageL;
             for (int i = 0; i < t.Length; i++)
             {
                 float close = Vector3.Distance(transform.position, t[i].position);
@@ -556,7 +556,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetCanMove(true);
         }
     }
-    */
     #endregion
 
     #region ZOOM ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー

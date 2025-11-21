@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 /// <summary>
@@ -13,15 +14,20 @@ public class PlaneObject : BaseObject_V3
     //standはFlip用、planeはTurn用
     public Transform plane;
     public Animator anim;
-    //public MeshCollider npcCylinder;
     public NavMeshAgent navMeshAgent;
-    //public bool[] isDirectional = new bool[] { true, true, true }; // -1, 0, 1
+
+    public MeshCollider npcCylinder;
+    [Space(10f)]
+    public Image eventImage;
+    public bool[] isDirectional = new bool[] { true, true, true, true, true }; // -1, 0, 1
 
     [Space(10)]
     public bool isFacingRight;
 
+    [SerializeField] bool isLocked;
+
     public override void Start()
-    {
+    { 
         base.Start();
 
         //
@@ -32,7 +38,7 @@ public class PlaneObject : BaseObject_V3
         anim = plane.GetComponent<Animator>();
 
         //처음에 안보이게할거는
-        //npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+        npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -69,11 +75,15 @@ public class PlaneObject : BaseObject_V3
     public override void AfterFlip(Transform[] objectParents)
     {
         base.AfterFlip(objectParents);
-
-        //NasMeshAgentを有効化する
-        if (navMeshAgent != null)
+        if (isCurrent && isActivate)
         {
-            navMeshAgent.enabled = true;
+            //NasMeshAgentを有効化する
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = true;
+            }
+
+            LockObject(false, 0);
         }
     }
 
@@ -116,5 +126,63 @@ public class PlaneObject : BaseObject_V3
     {
         yield return new WaitForSeconds(0.1f);
         SetAnimTrigger(trigger);
+    }
+
+
+
+    public override void LockObject(bool onLock, int bookDir)
+    {
+        if(isCurrent)
+        {
+            isLocked = onLock;
+            if (navMeshAgent != null) { navMeshAgent.enabled = !onLock; }
+
+            if(onLock && npcCylinder != null)
+            {
+                npcCylinder.gameObject.SetActive(false);
+                eventImage?.gameObject.SetActive(false);
+            }
+            else if (!onLock && npcCylinder != null)
+            {
+                npcCylinder.gameObject.SetActive(isDirectional[bookDir + 2]);
+            }
+        }
+    }
+    private void Update()
+    {
+        if (isLocked)
+        {
+            transform.rotation = Quaternion.identity;
+        }
+    }
+
+
+
+
+    //상당히 비효율적. 여유 있을때 바꿔야하는것들중 하나 :(
+    public void TurnAndChangeToPlayer(Transform player)
+    {
+        Transform playerpos = player;
+        bool isOverPlayer = transform.position.x > playerpos.position.x;
+        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
+        {
+            Turn();
+        }
+        else
+        {
+            StartCoroutine(Tactp());
+        }
+    }
+    IEnumerator Tactp()
+    {
+
+        float turnValue = isFacingRight ? -90 : 90;
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
+        yield return new WaitForSeconds(0.1f);
+
+        Vector3 newRot = new Vector3(0, 90, 0);
+        plane.localEulerAngles = newRot;
+
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
     }
 }

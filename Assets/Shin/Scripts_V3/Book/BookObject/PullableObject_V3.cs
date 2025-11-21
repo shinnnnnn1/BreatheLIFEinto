@@ -67,7 +67,7 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         if ((isDirPositive == isRight && isDirX) || isActivated) { return; }
 
         //플레이어의 목표 위치를 확인
-        //Debug.Log(player.transform.position - transform.position);
+        Debug.Log(player.transform.position - transform.position);
 
         //목표 위치와 플레이어의 거리를 통해 이동 시간을 계산
         Vector3 playerPos = player.transform.position;
@@ -77,9 +77,15 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         //DOTWEEN으로 플레이어를 이동시킴. 이때는 걷는 모션을 재생시킴.
         //(리틀나이트메어도 목표를 향해 회전, 이동을 함. 비슷한 느낌)
         //목표에 도달했다면 당기는 모션으로 바뀌며 당기기 가능.
-        player.SetPlayerAnimation("Walk");
-        player.transform.DOLocalMove(targetPos, time).SetEase(Ease.Linear).OnComplete(SetCanPull);
-
+        if (playerPos == targetPos)
+        {
+            SetCanPull();
+        }
+        else
+        {
+            player.SetPlayerAnimation("Walk");
+            player.transform.DOLocalMove(targetPos, time).SetEase(Ease.Linear).OnComplete(SetCanPull);
+        }
         tryActivate.Invoke();
     }
 

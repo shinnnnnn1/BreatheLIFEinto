@@ -14,6 +14,7 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
     public TMP_Text[] texts = new TMP_Text[1];
 
     [SerializeField] bool isEventPlaying = false;
+    [SerializeField] MeshCollider npcCylinder;
 
     void Awake()
     {
@@ -21,6 +22,8 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
 
         bubbles[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Dialogue");
         texts[0] = GetComponentsInChildren<TMP_Text>().FirstOrDefault(x => x.name == "Text");
+
+        npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
 
         OnEventEnter(false);
     }
@@ -46,12 +49,17 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
         isEventPlaying = false;
 
         //繰り返し会話ができる場合
-        if(dialogue.canRecycle)
+        if (dialogue.canRecycle)
         {
             //EventImageを表示
             OnEventEnter(true);
         }
-        //一回限りの会話の場合は何もない。
+        //一回限りの会話の場合はコライダーを無効化する
+        else
+        {
+            if(npcCylinder != null)
+                npcCylinder.enabled = false;
+        }
     }
 
     public void SwitchToRecycle() => dialogue = recycled;

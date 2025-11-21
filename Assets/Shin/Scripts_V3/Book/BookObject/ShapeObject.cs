@@ -110,6 +110,7 @@ public class ShapeObject : BaseObject_V3
         {
             //Shape値を計算する
             float value = (1 - currentShape.position.y) * 100;
+
             //数値を入れてShapeを調整
             SetBlendShapes(value);
         }
@@ -125,7 +126,7 @@ public class ShapeObject : BaseObject_V3
         //Shapeを停止
         canShape = false;
 
-        if(rigid != null)
+        if(rigid != null && isActivate)
         {
             rigid.isKinematic = false;
         }

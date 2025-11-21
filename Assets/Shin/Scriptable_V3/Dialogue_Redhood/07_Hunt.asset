@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
+  m_Name: 07_Hunt
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 0
+  canProceedOnDialogueEnd: 0
+  canRecycle: 0
+  messages:
+  - "\u3084\u306F\u308A\u3088\u304F\u5BDD\u3066\u304A\u308B\u3001\u304A\u624B\u67C4\u3058\u3083\u306A\u3002"
+  - "\u72E9\u4EBA\u306E\u610F\u5730\u3068\u3084\u3089\u3092\u3053\u3053\u3067\u898B\u305B\u3066\u3084\u308D\u3046\u2026\u2026\uFF01"
+  - "\u3067\u3084\u3063\uFF01"
+  emotion_Bubble_MiddleEmotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 17, y: 0, z: 0}
+  delay:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto_AutoDelay_FontSize:
+  - {x: 0, y: 0, z: 8}
+  - {x: 0, y: 0, z: 8}
+  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_IsDialogueMotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  events:
+  - {x: 0, y: 0, z: 0}
+  - {x: 34, y: 0, z: 0}
+  - {x: 0, y: 35, z: 0}
+  startEvent: 0

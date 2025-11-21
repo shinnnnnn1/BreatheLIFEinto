@@ -5635,7 +5635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionType: 0
+  scale: {x: 1, y: 1, z: 1}
   delay: 0
+  isWorld: 0
   isLoop: 0
   loopDelay: 0
 --- !u!1 &84066448
@@ -42183,6 +42185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emotions: []
   invokers: []
+  objects: []
 --- !u!1 &400869072
 GameObject:
   m_ObjectHideFlags: 0
@@ -42674,7 +42677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionType: 2
+  scale: {x: 1, y: 1, z: 1}
   delay: 0
+  isWorld: 0
   isLoop: 0
   loopDelay: 0
 --- !u!1 &457901823
@@ -58128,9 +58133,11 @@ MonoBehaviour:
   shapes:
   - {fileID: 1041513710}
   - {fileID: 749144209}
+  distortions: []
   currentPage: 0
   bookDirection: 0
   flipTime: 0
+  bookDir: 0
   objects: []
 --- !u!114 &559071772
 MonoBehaviour:
@@ -73044,7 +73051,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionType: 2
+  scale: {x: 1, y: 1, z: 1}
   delay: 1
+  isWorld: 0
   isLoop: 0
   loopDelay: 0
 --- !u!1 &607632837
@@ -121150,9 +121159,12 @@ MonoBehaviour:
   heightDelay: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
-  npcCylinder: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  npcCylinder: {fileID: 0}
+  eventImage: {fileID: 0}
+  isDirectional: 0101010101
   isFacingRight: 0
+  isLocked: 0
 --- !u!195 &1035974289
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -121197,6 +121209,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1940498651}
   isEventPlaying: 0
+  npcCylinder: {fileID: 0}
 --- !u!1 &1041513709
 GameObject:
   m_ObjectHideFlags: 0
@@ -127507,9 +127520,12 @@ MonoBehaviour:
   heightDelay: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
-  npcCylinder: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  npcCylinder: {fileID: 0}
+  eventImage: {fileID: 0}
+  isDirectional: 0101010101
   isFacingRight: 0
+  isLocked: 0
 --- !u!114 &1215400503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127530,6 +127546,7 @@ MonoBehaviour:
   texts:
   - {fileID: 0}
   isEventPlaying: 0
+  npcCylinder: {fileID: 0}
 --- !u!1 &1247994830
 GameObject:
   m_ObjectHideFlags: 0
@@ -127649,9 +127666,12 @@ MonoBehaviour:
   heightDelay: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
-  npcCylinder: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  npcCylinder: {fileID: 0}
+  eventImage: {fileID: 0}
+  isDirectional: 0101010101
   isFacingRight: 0
+  isLocked: 0
 --- !u!1 &1265988678
 GameObject:
   m_ObjectHideFlags: 0
@@ -138530,9 +138550,12 @@ MonoBehaviour:
   heightDelay: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
-  npcCylinder: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  npcCylinder: {fileID: 0}
+  eventImage: {fileID: 0}
+  isDirectional: 0101010101
   isFacingRight: 0
+  isLocked: 0
 --- !u!1 &1394383676
 GameObject:
   m_ObjectHideFlags: 0
@@ -138578,7 +138601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionType: 2
+  scale: {x: 1, y: 1, z: 1}
   delay: 0
+  isWorld: 0
   isLoop: 0
   loopDelay: 0
 --- !u!1 &1402483755
@@ -173248,7 +173273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events: []
-  director: {fileID: 0}
 --- !u!4 &1844648346
 Transform:
   m_ObjectHideFlags: 0
@@ -179435,7 +179459,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 2219a1e080137b24f8f3dc698e4c7387, type: 2}
   m_BuildHeightMesh: 0
@@ -197464,7 +197488,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977096918184247743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -197614,6 +197638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: c46699fb259e89a4a9b625b3a52f47e0, type: 2}
   respawn: {fileID: 11400000, guid: db4e8eeb8cbd367429160222c555a424, type: 2}
+  positionComposer: {fileID: 1897210940}
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   closeIndex: 0
@@ -197625,6 +197650,8 @@ MonoBehaviour:
   interacting: {fileID: 0}
   joint: {fileID: 0}
   targetRigid: {fileID: 0}
+  zoom_Min_Max: {x: 0, y: 0}
+  zoom_Current_Target_Speed: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
   lockedPos: {x: 0, y: 0, z: 0}
   angleAccuracy: 0
