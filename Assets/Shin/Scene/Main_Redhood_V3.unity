@@ -52534,11 +52534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1499.9999
+      value: 2350
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2000
+      value: 2800
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -248227,8 +248227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 17.73003, z: -22.31703}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: 0, y: 25.426361, z: -34.963356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -259714,7 +259714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 32
+  CameraDistance: 45
   DeadZoneDepth: 10
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -259784,13 +259784,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897210939}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: -4.57, y: 19.934444, z: -27.712868}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: -4.57, y: 25.426365, z: -39.662163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937519438}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!114 &1897210943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289153,13 +289153,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038925316}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 17.73003, z: -22.31703}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: 0, y: 25.14, z: -34.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937519438}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!114 &2038925321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289173,7 +289173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 1
+    Enabled: 0
     m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
@@ -289184,7 +289184,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 35
+    FieldOfView: 25
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -299279,8 +299279,8 @@ MonoBehaviour:
   interacting: {fileID: 0}
   joint: {fileID: 0}
   targetRigid: {fileID: 0}
-  zoom_Min_Max: {x: 10, y: 30}
-  zoom_Current_Target_Speed: {x: 32, y: 32, z: 3}
+  zoom_Min_Max: {x: 10, y: 45}
+  zoom_Current_Target_Speed: {x: 45, y: 45, z: 3}
   currentVelocity: {x: 0, y: 0, z: 0}
   lockedPos: {x: 0, y: 0, z: 0}
   angleAccuracy: 0

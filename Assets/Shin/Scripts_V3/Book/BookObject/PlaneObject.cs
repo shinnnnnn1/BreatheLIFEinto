@@ -111,6 +111,32 @@ public class PlaneObject : BaseObject_V3
             Turn();
         }
     }
+    public void TurnAlwwaysToPlayer(Transform player)
+    {
+        Transform playerpos = player;
+        bool isOverPlayer = transform.position.x > playerpos.position.x;
+        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
+        {
+            Turn();
+        }
+        else
+        {
+            StartCoroutine(Tatp());
+        }
+    }
+    IEnumerator Tatp()
+    {
+
+        float turnValue = isFacingRight ? -90 : 90;
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
+
+        yield return new WaitForSeconds(0.1f);
+
+        Vector3 newRot = new Vector3(0, 90, 0);
+        plane.localEulerAngles = newRot;
+
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
+    }
 
 
 
@@ -156,33 +182,4 @@ public class PlaneObject : BaseObject_V3
         }
     }
 
-
-
-
-    //상당히 비효율적. 여유 있을때 바꿔야하는것들중 하나 :(
-    public void TurnAndChangeToPlayer(Transform player)
-    {
-        Transform playerpos = player;
-        bool isOverPlayer = transform.position.x > playerpos.position.x;
-        if ((!isOverPlayer && !isFacingRight) || (isOverPlayer && isFacingRight))
-        {
-            Turn();
-        }
-        else
-        {
-            StartCoroutine(Tactp());
-        }
-    }
-    IEnumerator Tactp()
-    {
-
-        float turnValue = isFacingRight ? -90 : 90;
-        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
-        yield return new WaitForSeconds(0.1f);
-
-        Vector3 newRot = new Vector3(0, 90, 0);
-        plane.localEulerAngles = newRot;
-
-        plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
-    }
 }
