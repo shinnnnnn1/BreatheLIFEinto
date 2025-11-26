@@ -9,7 +9,7 @@ public class AnimObject : BaseObject_V3
 {
     [Space(10f)]
     public Animator anim;
-    public float animDelay;
+    public Vector2 animDelay;
 
     public override void Start()
     {
@@ -29,7 +29,7 @@ public class AnimObject : BaseObject_V3
         if (isCurrent && isAct == isActivate)
         {
             //AnimObjectの場合、Animationを再生する
-            float delay = animDelay;
+            float delay = isActivate ? animDelay.x : animDelay.y;
             string animation = isAct ? "Activate" : "Deactivate";
 
             StartCoroutine(AnimCoroutine(delay, animation));
@@ -41,5 +41,6 @@ public class AnimObject : BaseObject_V3
         yield return new WaitForSeconds(delay);
 
         anim.SetTrigger(animation);
+        if (isActivate == true && !activateInHeight) { SetObjectVisible(true); }
     }
 }

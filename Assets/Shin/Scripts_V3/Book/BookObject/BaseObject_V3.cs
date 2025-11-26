@@ -25,7 +25,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     public Transform[] children;
 
     [Space(10f)]
-    public float heightDelay;
+    public Vector2 heightDelay;
+    public bool activateInHeight;
 
 
     
@@ -187,7 +188,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         //Heightに関する数値を設定
         float hValue = isActivate ? 0 : (isStatic ? -height : height) * 2;
         float hTime = model.curveHeight[isActivate ? 0 : 1].Evaluate(closeIndex);
-        float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + heightDelay;
+        float hDelay = model.curveHeight[isActivate ? 2 : 3].Evaluate(closeIndex) + (isActivate ? heightDelay.x : heightDelay.y);
         Ease hEase = isActivate ? model.easeHeight[0] : model.easeHeight[1];
 
         //新しく来るオブジェクトなら表示する。
@@ -195,6 +196,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         {
             SetHeight(hValue, hTime, hDelay, hEase);
         }
+        //新しく来るオブジェクトなら表示する。+Heightで表示するなら
+        if (isActivate == true && activateInHeight) { SetObjectVisible(true); }
     }
     /// <summary>
     /// Heightの調整。Delayとは関係なくページのFlipに合わせる。
@@ -215,8 +218,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         //今回Flipするオブジェクトなら。
         if (isCurrent && isAct == isActivate)
         {
-            //新しく来るオブジェクトなら表示する。
-            if (isActivate) { SetObjectVisible(true); }
+            //新しく来るオブジェクトなら表示する。+Motionで表示するなら
+            //if (isActivate && !activateInHeight) { SetObjectVisible(true); }
         }
     }
 

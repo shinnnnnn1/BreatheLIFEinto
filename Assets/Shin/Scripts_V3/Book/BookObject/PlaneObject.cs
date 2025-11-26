@@ -16,6 +16,8 @@ public class PlaneObject : BaseObject_V3
     public Animator anim;
     public NavMeshAgent navMeshAgent;
 
+    [SerializeField] Vector2 addDelay;
+
     public MeshCollider npcCylinder;
     [Space(10f)]
     public Image eventImage;
@@ -65,10 +67,12 @@ public class PlaneObject : BaseObject_V3
             float value = isAct ? -90 : 90;
             Vector3 rotValue = new Vector3(value, 0, 0);
             float time = model.curvePlane[isAct ? 0 : 1].Evaluate(closeIndex);
-            float delay = model.curvePlane[isAct ? 2 : 3].Evaluate(closeIndex);
+            float delay = model.curvePlane[isAct ? 2 : 3].Evaluate(closeIndex) + (isActivate? addDelay.x : addDelay.y);
             Ease ease = model.easePlane[isAct ? 0 : 1];
 
-            stand.DOLocalRotate(rotValue, time).SetDelay(delay).SetEase(ease).SetRelative();
+            stand.DOLocalRotate(rotValue, time).SetDelay(delay).SetEase(ease).SetRelative()
+                .OnStart(()=> { if (isActivate == true && !activateInHeight) { SetObjectVisible(true); } });
+
         }
     }
 

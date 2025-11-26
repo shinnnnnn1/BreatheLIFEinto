@@ -100,6 +100,8 @@ public class ShapeObject : BaseObject_V3
             //ShapeObjectの場合、CurrentShapeを設定し、Shapeを実行
             currentShape = isActivate ? shapeAct[closeIndex] : shapeDeact[closeIndex];
             canShape = true;
+
+            if (isActivate == true && !activateInHeight) { SetObjectVisible(true); }
         }
     }
 

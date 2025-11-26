@@ -138,6 +138,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //開発用。ページがめくられる時間を確認できる
         if (isFlipping) { flipTime = Time.time - cTime; }
 
+        /*
         if(pageL != null)
         {
             foreach(var p in pageL)
@@ -169,6 +170,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
                 Debug.DrawRay(p.transform.position, p.transform.forward, Color.blue);
             }
         }
+        */
     }
 
     #region FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -207,7 +209,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //前Delay
         yield return new WaitForSeconds(bookDelay.delay[currentPage].x);　//ーーーーーー
 
-        StartShape(true);
+        //StartShape(true);
 
         foreach (var obj in bookObjects)
         {
@@ -229,11 +231,14 @@ public class BookController_V3 : MonoBehaviour, IBookController
         view.PlayPageAnimation(2, "Reverse");
         view.PlayPageAnimation(3, "Flip");
 
+        yield return new WaitForSeconds(bookDelay.delay[currentPage].y);
+
+        StartShape(true);
 
         yield return new WaitForSeconds(1.25f); //ーーーーーーーーーーーーーーーーーーー
 
         //後Delay
-        yield return new WaitForSeconds(bookDelay.delay[currentPage].y);　//ーーーーーー
+       // yield return new WaitForSeconds(bookDelay.delay[currentPage].y);　//ーーーーーー
 
         //キャラクターを開く
         playerController.PlayerFlip(true, currentPage);
@@ -270,7 +275,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         isFlipping = false;
 
         //進行ができない状態にする
-        flipController.SetCanProceed(false);
+        //flipController.SetCanProceed(false);
 
         //Flipの後のイベントを発生させる
         afterFlip.OnAfterFlip(currentPage);

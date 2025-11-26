@@ -6257,7 +6257,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &183449199
 GameObject:
@@ -36543,7 +36544,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &295521751
 GameObject:
@@ -36632,9 +36634,10 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   anim: {fileID: 0}
-  animDelay: 0
+  animDelay: {x: 0, y: 0}
 --- !u!1 &314858865
 GameObject:
   m_ObjectHideFlags: 0
@@ -36681,11 +36684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1499.9999
+      value: 2350
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2000
+      value: 2800
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46ff84f8ac26ed14e965f307557e9865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42522,7 +42525,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &447398018
 GameObject:
@@ -42881,7 +42885,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &470226610
 GameObject:
@@ -58205,9 +58210,33 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -73177,7 +73206,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1001 &622394654
 PrefabInstance:
@@ -73912,7 +73942,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &689647605
 GameObject:
@@ -89156,7 +89187,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &777762419
 GameObject:
@@ -105730,7 +105762,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &962668036
 GameObject:
@@ -121190,10 +121223,12 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
   isDirectional: 0101010101
@@ -126762,7 +126797,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1155503392
 GameObject:
@@ -127551,10 +127587,12 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
   isDirectional: 0101010101
@@ -127637,7 +127675,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1255769516
 GameObject:
@@ -127697,10 +127736,12 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
   isDirectional: 0101010101
@@ -138417,7 +138458,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1364537203
 GameObject:
@@ -138581,10 +138623,12 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
   isDirectional: 0101010101
@@ -155513,7 +155557,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1594684728
 GameObject:
@@ -160798,7 +160843,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1638172155
 GameObject:
@@ -161544,8 +161590,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 34072.055
+  m_Color: {r: 0.8392157, g: 0.8892479, b: 1, a: 1}
+  m_Intensity: 23461.54
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -161588,7 +161634,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 20000
+  m_ColorTemperature: 7121
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 4.0053467e-11, y: 5.8270455e-10, z: 3.7567327e-14, w: 1.3555912e-19}
   m_UseBoundingSphereOverride: 0
@@ -162532,7 +162578,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &1773072303
 GameObject:
@@ -167946,7 +167993,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30
+  field of view: 25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -167972,13 +168019,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 17.73003, z: -22.317032}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: 0, y: 25.62204, z: -34.963356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937519438}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!114 &1823688468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178403,7 +178450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 35
+  CameraDistance: 45
   DeadZoneDepth: 10
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -178446,7 +178493,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 30
+    FieldOfView: 25
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -178473,13 +178520,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897210939}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 23.025175, z: -28.670324}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: 0, y: 26.796366, z: -38.162163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1937519438}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!114 &1897210943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184537,7 +184584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6265260967031320133, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: currentTime
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -1946018332332219245, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: m_Name
@@ -184547,6 +184594,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1686108255871583947, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5af149471fdf717419e8bb84e29b36eb, type: 2}
     - target: {fileID: 9077879840187222489, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: m_LocalScale.x
       value: 9.684877
@@ -197129,7 +197180,8 @@ MonoBehaviour:
   isActivate: 0
   coll: []
   children: []
-  heightDelay: 0
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
   mesh: []
 --- !u!1 &6372890948667475729
 GameObject:
@@ -197684,8 +197736,8 @@ MonoBehaviour:
   interacting: {fileID: 0}
   joint: {fileID: 0}
   targetRigid: {fileID: 0}
-  zoom_Min_Max: {x: 0, y: 0}
-  zoom_Current_Target_Speed: {x: 0, y: 0, z: 0}
+  zoom_Min_Max: {x: 0, y: 45}
+  zoom_Current_Target_Speed: {x: 45, y: 45, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
   lockedPos: {x: 0, y: 0, z: 0}
   angleAccuracy: 0
