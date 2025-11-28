@@ -1,9 +1,10 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
-using static UnityEngine.UI.Image;
+
 
 public class VirtualMouseController : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class VirtualMouseController : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     void LateUpdate()
@@ -68,8 +69,15 @@ public class VirtualMouseController : MonoBehaviour
 
     public void SetCursorMode(bool activate)
     {
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
         string nextActionMap = activate ? UIActionMap : playerActionMap;
         playerInput.SwitchCurrentActionMap(nextActionMap);
+
+        if (playerInput.currentControlScheme == mouseScheme && activate)
+        {
+            view.CursorChase(mousePos);
+        }
 
         model.isCursorMode = activate;
         virtualMouseInput.enabled = activate;
@@ -79,14 +87,12 @@ public class VirtualMouseController : MonoBehaviour
             r.enabled = activate;
         }
 
-        cursorCam.gameObject.SetActive(activate);
-
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
     }
 
     public void OnControlsChanged()
     {
-        Debug.Log("Changed");
+        Debug.Log("Changed to " + playerInput.currentControlScheme);
         if (playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme)
         {
             Mouse.current.WarpCursorPosition(virtualMouseInput.virtualMouse.position.ReadValue());
@@ -100,6 +106,7 @@ public class VirtualMouseController : MonoBehaviour
 
     void CursorChase()
     {
+        Debug.Log("OKKKKKKKKKKKKKKKKKKKKK");
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         mousePosition.x = Mathf.Clamp(mousePosition.x, model.cursorPadding, Screen.width - model.cursorPadding);
         mousePosition.y = Mathf.Clamp(mousePosition.y, model.cursorPadding, Screen.height - model.cursorPadding);
