@@ -10,6 +10,7 @@ public class VirtualMouseController : MonoBehaviour
 {
     [Space(10f)]
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] PlayerModel_V3 playerModel;
     [SerializeField] VirtualMouseModel model;
     [SerializeField] CinemachineCamera cursorCam;
     [SerializeField] GraphicRaycaster[] raycasters;
@@ -32,6 +33,8 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] Collider trackingColl, pressingColl, releasingColl;
 
     ICursorInteractable cursorInteractable;
+
+    bool setStart = false;
 
     void Start()
     {
@@ -69,6 +72,9 @@ public class VirtualMouseController : MonoBehaviour
 
     public void SetCursorMode(bool activate)
     {
+        if (!setStart) { setStart = true; }
+        else if (!playerModel.canMove) { return; }
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
         string nextActionMap = activate ? UIActionMap : playerActionMap;
@@ -106,7 +112,6 @@ public class VirtualMouseController : MonoBehaviour
 
     void CursorChase()
     {
-        Debug.Log("OKKKKKKKKKKKKKKKKKKKKK");
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         mousePosition.x = Mathf.Clamp(mousePosition.x, model.cursorPadding, Screen.width - model.cursorPadding);
         mousePosition.y = Mathf.Clamp(mousePosition.y, model.cursorPadding, Screen.height - model.cursorPadding);

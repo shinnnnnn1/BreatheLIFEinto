@@ -115,7 +115,7 @@ public class PlaneObject : BaseObject_V3
             Turn();
         }
     }
-    public void TurnAlwwaysToPlayer(Transform player)
+    public void TurnAlwaysToPlayer(Transform player)
     {
         Transform playerpos = player;
         bool isOverPlayer = transform.position.x > playerpos.position.x;

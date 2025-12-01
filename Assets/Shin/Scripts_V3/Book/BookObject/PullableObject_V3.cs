@@ -46,6 +46,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 
     public void OnEnter(bool isRight)
     {
+        if (isActivated) { return; }
+
         if(!isEntered && isRight == direction.x < 0)
         {
             onEnter.Invoke();
@@ -54,6 +56,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
     }
     public void OnExit()
     {
+        if (isActivated) { return; }
+
         onExit.Invoke();
         isEntered = false;
     }

@@ -27,12 +27,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     /// <summary>　Flipしているかを確認　</summary>
     bool isFlipping = false;
 
-    //
-
-    //本を回すときに使用
-
     Transform[] pageL, pageR, pageLC, pageRC;
-
 
     [SerializeField] int closeIndex;
     [SerializeField] Transform closeBone;
@@ -46,49 +41,37 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     // 즉 플립 후에 나오긴 하지만 투명한 상태. 이벤트로 다시 수동으로 나오는 모션을 만들든지 해야함
     [SerializeField] bool flipVisible;
 
+    //会話
     [Space(10f)]
-    [SerializeField] Transform interacting;
+    [SerializeField] Transform closeEvent;
     IEventInvoker interactingEvent;
     IEventInvoker currentEvent;
+    bool isDialogue;
 
+    //Hold, Pull
+    IInteractable interactable;
+    IPullable pullable;
+    RaycastHit hit;
+    bool isPulling = false;
 
-    bool canGameStart = false;
+    Vector3 tension;
+    float angleAccuracy;
 
     [SerializeField] ConfigurableJoint joint;
     [SerializeField] Rigidbody targetRigid;
 
-    //Zoom関連
+    //Zoom
     [SerializeField] Vector2 zoom_Min_Max;
     [SerializeField] Vector3 zoom_Current_Target_Speed;
 
-    //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-
-
-
-    RaycastHit hit;
-    IInteractable interactable;
-    IPullable pullable;
-
+    [Space(10f)]
     [SerializeField] Vector3 currentVelocity;
     Vector3 velocityRef;
 
     bool isLocked = false;
-    [SerializeField] Vector3 lockedPos;
+    Vector3 lockedPos;
 
-    //엔딩 책 덮을때 false로 바꾸기
-    bool flipvisible = true;
-
-    Vector3 tension;
-    [SerializeField] float angleAccuracy;
-
-    bool isPulling = false;
-
-    public bool isDialogue;
-
-    bool lockRot;
-
-
+    bool canGameStart = false;
 
     void Start()
     {
@@ -204,27 +187,27 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (eventColls.Length > 0)
         {
             //現在のオブジェクトが一番近い([0])のオブジェクトじゃない場合
-            if (interacting != eventColls[0].transform)
+            if (closeEvent != eventColls[0].transform)
             {
                 //現在のオブジェクトがある場合、会話可能イメージを非表示させる
                 interactingEvent?.OnEventEnter(false);
 
                 //新しいオブジェクトを参照
-                interacting = eventColls[0].transform;
-                interactingEvent = interacting.GetComponentInParent<IEventInvoker>();
+                closeEvent = eventColls[0].transform;
+                interactingEvent = closeEvent.GetComponentInParent<IEventInvoker>();
 
                 //新しいオブジェクトの会話可能イメージを表示する
                 interactingEvent.OnEventEnter(true);
             }
         }
         //範囲内にオブジェクトがないけどオブジェクトが参照されている場合
-        else if (eventColls.Length == 0 && interacting != null)
+        else if (eventColls.Length == 0 && closeEvent != null)
         {
             //参照されているオブジェクトの会話可能イメージを非表示させる
             interactingEvent.OnEventEnter(false);
 
             //参照状態の初期化
-            interacting = null;
+            closeEvent = null;
             interactingEvent = null;
         }
     }
@@ -283,7 +266,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         view.SetPlayerAnim("VelocityY", rigid.linearVelocity.y);
         //
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
-        float velocX = Mathf.InverseLerp(0, model.moveSpeed, veloc.magnitude);
+        float velocX = Mathf.Abs(Mathf.InverseLerp(0, model.moveSpeed, veloc.magnitude));
         view.SetPlayerAnim("VelocityX", velocX);
     }
 
@@ -383,7 +366,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (!model.canMove || !OnGround() || !model.canJump || model.isTurning) { return; }
 
         //接触中のイベントが存在するなら会話の開始
-        if (interacting != null)
+        if (closeEvent != null)
         {
             currentEvent = interactingEvent;
             currentEvent.OnEventInvoke();
@@ -395,6 +378,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         else if (IsHit())
         {
             SetHoldingInfo(true);
+
+            
 
             pullable = hit.collider.GetComponent<IPullable>();
 
@@ -412,6 +397,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
                 //Jointの設定をする
                 SetJoint(model.isRight, model.jointAnchorRight, hit.rigidbody);
+
+                interactable?.OnExit();
             }
         }
     }
@@ -427,6 +414,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetHoldingInfo(false);
             ResetJoint();
 
+            if (pullable == null)
+            {
+                interactable?.OnEnter(model.isRight);
+            }
             pullable?.OnDeactivate(model.isRight);
             pullable = null;
 
@@ -571,7 +562,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Debug.Log("PlayerSetCanControl " + control);
 
         //操作ができる状態を設定
-        model.canControl = control;
+        //model.canControl = control;
     }
     /// <summary>
     /// キャラクターの動ける状態を設定

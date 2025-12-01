@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Playables;
 
 /// <summary>
@@ -21,6 +22,7 @@ public class EventManager_V3 : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] Image[] images;
     [SerializeField] Event_V3[] events;
     PlayableDirector director;
 
@@ -35,15 +37,19 @@ public class EventManager_V3 : MonoBehaviour
     public void InvokeEvent(int number)
     {
         Debug.Log($"Event {number} Start");
-        //number番目のEvent_V3を実行する
-        events[number].InvokeEvent(out PlayableAsset p);
 
-        //Timelineの場合、outにTimelineが入ってる
-        if(p != null)
+        if (events.Length > number)
         {
-            //もらったTimelineを入れて再生する
-            director.playableAsset = p;
-            director.Play();
+            //number番目のEvent_V3を実行する
+            events[number].InvokeEvent(out PlayableAsset p);
+
+            //Timelineの場合、outにTimelineが入ってる
+            if (p != null)
+            {
+                //もらったTimelineを入れて再生する
+                director.playableAsset = p;
+                director.Play();
+            }
         }
     }
 }

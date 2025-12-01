@@ -9,14 +9,11 @@ public class PlayerModel_V3 : ScriptableObject
     public bool isHolding = false;
 
     [Space(10f)]
-    public bool canControl = true;
     public bool canMove = false;
-    public bool canChange = false;
     public bool canProceed = false;
 
     [Space(10f)]
     public bool canJump = true;
-    public bool canSwitch = true;
     public bool canAnim = true;
 
     [Space(10f)]
