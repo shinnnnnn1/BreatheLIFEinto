@@ -39,7 +39,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     //엔딩때 Flip 후 Open할때 캐릭터 안보이게하는,
     //헨젤과 그레텔 처음에 나올때 안보이게 하는거
     // 즉 플립 후에 나오긴 하지만 투명한 상태. 이벤트로 다시 수동으로 나오는 모션을 만들든지 해야함
-    [SerializeField] bool flipVisible;
+    [SerializeField] bool flipVisible = true;
 
     //会話
     [Space(10f)]
@@ -72,6 +72,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     Vector3 lockedPos;
 
     bool canGameStart = false;
+    bool isEnding = false;
 
     void Start()
     {
@@ -127,8 +128,17 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         /// <seealso cref="PlayerFlipTrigger()"/>
         if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
         {
-            //Flipを開始
-            bookController.Flip();
+            if(isEnding)
+            {
+                //最後のFlipを開始
+                bookController.Ending();
+                canFlip = false;
+            }
+            else
+            {
+                //Flipを開始
+                bookController.Flip();
+            }
         }
 
         //Flip中の動きを調整
@@ -303,6 +313,29 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             view.Turn(model.isRight, model.turnTime);
             Invoke("SetIsTurning", model.turnTime);
         }
+    }
+
+    public void AutoTurn(Vector3 velocity)
+    {
+        if (((velocity.x > 0 && !model.isRight) || (velocity.x < 0 && model.isRight)) && !model.isTurning)
+        {
+            model.isTurning = true;
+            model.isRight = !model.isRight;
+            view.Turn(model.isRight, model.turnTime);
+            Invoke("SetIsTurning", model.turnTime);
+        }
+    }
+
+    public void ManualTurn()
+    {
+        ManualTurn(!model.isRight);
+    }
+    public void ManualTurn(bool turnToRight)
+    {
+        if ((turnToRight && model.isRight) || (!turnToRight && !model.isRight)) { return; }
+
+        model.isRight = !model.isRight;
+        view.Turn(model.isRight, model.turnTime);
     }
 
     void SetIsTurning() => model.isTurning = false;
@@ -614,6 +647,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     /// <param name="trigger"></param>
     public void SetPlayerAnimation(string trigger) => view.SetPlayerAnim(trigger);
 
+    public void SetPlayerFlipVisible(bool isVisible) => flipVisible = isVisible;
+
     #endregion
 
     #region ●PLAYER FLIP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -624,6 +659,17 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public void PlayerFlipTrigger()
     {
         if (model.canMove && moveDirection.magnitude > 0 && !canFlip)
+        {
+            //空中でTriggerが発動された場合も想定し、操作はできないけど物理は生きている状態にする
+            SetCanMove(false, false);
+
+            //Flipができる状態にする
+            canFlip = true;
+        }
+    }
+    public void ManualFlipTrigger()
+    {
+        if (model.canMove && !canFlip)
         {
             //空中でTriggerが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
@@ -671,11 +717,14 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             flipRot = new Vector3(0, 0, -90);
 
             //キャラクターを表示
-            SetPlayerVisible(true);
+            SetPlayerVisible(flipVisible);
 
-            //Standの倒れるモーション
-            float rotValue = -92f;
-            view.StandFlip(rotValue, true);
+            if(flipVisible)
+            {
+                //Standの倒れるモーション
+                float rotValue = -92f;
+                view.StandFlip(rotValue, true);
+            }
         }
     }
 
@@ -775,6 +824,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             bookController.GameStart(true);
             canGameStart = false;
         }
+    }
+
+    public void SetIsEnding()
+    {
+        isEnding = true;
     }
     #endregion
 

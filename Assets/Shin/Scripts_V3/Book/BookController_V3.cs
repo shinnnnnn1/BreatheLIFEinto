@@ -8,6 +8,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [Space(20f)]
     [SerializeField] BookModel_V3 model;
     [SerializeField] BookDelay bookDelay;
+    [SerializeField] BookTexture bookTexture;
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
@@ -221,15 +222,19 @@ public class BookController_V3 : MonoBehaviour, IBookController
             obj.FlipMotion(model, true);
         }
 
+        view.PlayPageAnimation(2, "Reverse");
+        view.PlayPageAnimation(3, "Flip");
+
+        view.SetPageMaterial(2, currentPage);
+        view.SetPageMaterial(3, currentPage - 1);
+
         //Flipするページを表示
         view.SetPageVisibility(2, true);
         view.SetPageVisibility(3, true);
 
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
 
-        //LCとRCのアニメーション再生
-        view.PlayPageAnimation(2, "Reverse");
-        view.PlayPageAnimation(3, "Flip");
+        view.SetPageMaterial(1, currentPage);
 
         yield return new WaitForSeconds(bookDelay.delay[currentPage].y);
 
@@ -243,12 +248,14 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //キャラクターを開く
         playerController.PlayerFlip(true, currentPage);
 
-        yield return new WaitForSeconds(1.25f);　//ーーーーーーーーーーーーーーーーーーー
+        yield return new WaitForSeconds(1f);　//ーーーーーーーーーーーーーーーーーーー
+
+        view.SetPageMaterial(0, currentPage);
 
         //Flip中に歪みを拡張するのだけ拡張
         DistortionOn(true);
 
-        yield return new WaitForSeconds(0.5f);　//ーーーーーーーーーーーーーーーーーーー
+        yield return new WaitForSeconds(0.75f);　//ーーーーーーーーーーーーーーーーーーー
 
         //キャラクターのFlipを停止
         playerController.StopFlip();
@@ -275,7 +282,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         isFlipping = false;
 
         //進行ができない状態にする
-        //flipController.SetCanProceed(false);
+        flipController.SetCanProceed(false);
 
         //Flipの後のイベントを発生させる
         afterFlip.OnAfterFlip(currentPage);
@@ -390,6 +397,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
     }
 
 
+    public void Ending()
+    {
+        Debug.Log("asdasdasdsadsad");
+        GameStart(false);
+    }
     /// <summary>
     /// 最初と最後の本の動き
     /// </summary>
@@ -434,10 +446,35 @@ public class BookController_V3 : MonoBehaviour, IBookController
     }
     IEnumerator EndPage()
     {
+        view.MoveBookPosition(new Vector3(5, 0, 0), 2f);
+
+        Flip();
 
         view.PlayBookAnimation(0, "Close");
         view.PlayBookAnimation(1, "Close");
-        yield return new WaitForSeconds(1.5f);
+
+        view.SetPageVisibility(1, false);
+
+        view.MovePagePosition(0, new Vector3(0, 0.2f, 0), 3.0f, Ease.Linear);
+
+        yield return new WaitForSeconds(2.2f);
+
+        view.SetPageVisibility(0, false);
+
+        yield return new WaitForSeconds(0.8f);
+
+        //--------------------------------------------------
+        view.TurnBookRotation(new Vector3(0, 0, -180), 2);
+
+        transform.DOMoveY(2, 1).SetEase(Ease.InCubic);
+
+        yield return new WaitForSeconds(0.5f);
+        transform.DOMoveX(-5, 1.5f).SetEase(Ease.OutCubic);
+
+        yield return new WaitForSeconds(2f);
+        FadeManager.Instance.FadeOut();
+        yield return new WaitForSeconds(3f);
+        Debug.Log("End");
     }
 
     void OnDrawGizmos()

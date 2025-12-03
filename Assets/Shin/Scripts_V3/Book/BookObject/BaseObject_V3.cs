@@ -157,18 +157,24 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         //古い、新しいStageのオブジェクトなら
         if (stage == currentStage || stage == currentStage - 1)
         {
+
             //今回Flipしたかを設定
             isCurrent = true;
             //新しいオブジェクトかを設定
             isActivate = stage == currentStage;
+
+            //古いオブジェクトなら近いボーンを再設定
+            //+コライダーを無効化する
+            if (!isActivate)
+            {
+                SetBone();
+                EnableColliders(false);
+            }
+
             //ページに追従する、しないを設定
             isStatic = (isActivate && isRight) || (!isActivate && !isRight);
 
-            //古いオブジェクトならコライダーを無効化する
-            if (!isActivate)
-            {
-                EnableColliders(false);
-            }
+
 
             //Dynamicの場合、Flipするページの子になる。古いのはRC、新しいのはLC
             if (!isStatic)

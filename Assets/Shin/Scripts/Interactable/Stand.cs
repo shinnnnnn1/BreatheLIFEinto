@@ -57,4 +57,8 @@ public class Stand : MonoBehaviour, ICursorInteractable
     {
         canActivate = canA;
     }
+    public void SetIsActivated(bool isA)
+    {
+        isActivated = isA;
+    }
 }

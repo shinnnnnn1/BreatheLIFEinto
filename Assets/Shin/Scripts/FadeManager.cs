@@ -9,10 +9,7 @@ public class FadeManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        instance = this;
     }
 
     [SerializeField] Image fadeImage;
