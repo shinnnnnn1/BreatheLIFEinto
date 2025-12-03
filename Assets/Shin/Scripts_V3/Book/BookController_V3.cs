@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Linq;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class BookController_V3 : MonoBehaviour, IBookController
@@ -8,7 +9,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [Space(20f)]
     [SerializeField] BookModel_V3 model;
     [SerializeField] BookDelay bookDelay;
-    [SerializeField] BookTexture bookTexture;
+    [SerializeField] CinemachineCamera cursorCam;
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
@@ -193,6 +194,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IEnumerator FlipCoroutine()
     {
+        cursorCam.gameObject.SetActive(true);
+
         //キャラクターを閉じる
         playerController.PlayerFlip(false, currentPage);
 
@@ -256,6 +259,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
         DistortionOn(true);
 
         yield return new WaitForSeconds(0.75f);　//ーーーーーーーーーーーーーーーーーーー
+
+        cursorCam.gameObject.SetActive(false);
 
         //キャラクターのFlipを停止
         playerController.StopFlip();

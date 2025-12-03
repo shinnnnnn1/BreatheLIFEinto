@@ -77,6 +77,8 @@ public class VirtualMouseController : MonoBehaviour
         else if (canChange) { }
         else if (!playerModel.canMove) { return; }
 
+        cursorCam.gameObject.SetActive(activate);
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
         string nextActionMap = activate ? UIActionMap : playerActionMap;
