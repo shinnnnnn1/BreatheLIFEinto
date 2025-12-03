@@ -35,6 +35,7 @@ public class VirtualMouseController : MonoBehaviour
     ICursorInteractable cursorInteractable;
 
     bool setStart = false;
+    bool canChange = false;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class VirtualMouseController : MonoBehaviour
     public void SetCursorMode(bool activate)
     {
         if (!setStart) { setStart = true; }
+        else if (canChange) { }
         else if (!playerModel.canMove) { return; }
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -193,5 +195,10 @@ public class VirtualMouseController : MonoBehaviour
         trackingColl = null;
         pressingColl = null;
         releasingColl = null;
+    }
+
+    public void SetCanChange(bool can)
+    {
+        canChange = can;
     }
 }

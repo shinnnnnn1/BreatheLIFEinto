@@ -142,6 +142,14 @@ public class PlaneObject : BaseObject_V3
         plane.DORotate(new Vector3(0, turnValue, 0), 0.1f).SetEase(Ease.Linear).SetRelative();
     }
 
+    public void AutoTurn(Vector3 velocity)
+    {
+        if ((velocity.x > 0 && !isFacingRight) || (velocity.x < 0 && isFacingRight))
+        {
+            Turn();
+        }
+    }
+
 
 
     public void SetAnimTrigger(string trigger)
