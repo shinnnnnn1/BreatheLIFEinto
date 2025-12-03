@@ -7,6 +7,7 @@ public class BookView_V3 : MonoBehaviour
     [SerializeField] Animator[] bookAnim;
     [SerializeField] Animator[] pageAnim;
     [SerializeField] SkinnedMeshRenderer[] pageMesh;
+    [SerializeField] BookTexture bookTexture;
 
     //全ての本の表示状態を設定
     public void SetAllBookVisibility(bool isVisible)
@@ -51,6 +52,10 @@ public class BookView_V3 : MonoBehaviour
     {
         transform.DOMove(pos, duration).SetEase(Ease.OutQuint);
     }
+    public void TurnBookRotation(Vector3 rot, float duration)
+    {
+        transform.DORotate(rot, duration).SetEase(Ease.InOutQuint);
+    }
     //本を回す
     public void TurnBookAnimation(float rotValue, float rotTime)
     {
@@ -65,10 +70,10 @@ public class BookView_V3 : MonoBehaviour
     }
 
     //マテリアル。。。
-    public void SetPageMaterial(int currentPage)
+    public void SetPageMaterial(int pageNum, int stage)
     {
+        Material[] mats = pageNum % 2 == 0 ? bookTexture.leftPageMat : bookTexture.rightPageMat;
 
+        pageMesh[pageNum].material = mats[stage];
     }
-
-
 }

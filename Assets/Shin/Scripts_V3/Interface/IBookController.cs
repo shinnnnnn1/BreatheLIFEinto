@@ -5,4 +5,5 @@ public interface IBookController
     public void GameStart(bool isStart);
     public void Flip();
     public void TurnBook(bool isRightTurn);
+    public void Ending();
 }
