@@ -28,7 +28,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
     public Vector2 heightDelay;
     public bool activateInHeight;
 
-
+    [SerializeField] bool resetBone;
     
 
     public virtual void Start()
@@ -167,7 +167,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             //+コライダーを無効化する
             if (!isActivate)
             {
-                //SetBone();
+                if (resetBone) { SetBone(); }
+
                 EnableColliders(false);
             }
 

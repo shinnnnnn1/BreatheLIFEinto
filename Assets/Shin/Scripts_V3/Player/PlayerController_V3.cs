@@ -247,15 +247,15 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (model.canMove)
         {
             zoom_Current_Target_Speed.y -= zoomDirection.y;
+        }
 
-            zoom_Current_Target_Speed.y = 
+        zoom_Current_Target_Speed.y =
                 Mathf.Clamp(zoom_Current_Target_Speed.y, zoom_Min_Max.x, zoom_Min_Max.y);
 
-            zoom_Current_Target_Speed.x = 
-                Mathf.Lerp(zoom_Current_Target_Speed.x, zoom_Current_Target_Speed.y, Time.deltaTime * zoom_Current_Target_Speed.z);
+        zoom_Current_Target_Speed.x =
+            Mathf.Lerp(zoom_Current_Target_Speed.x, zoom_Current_Target_Speed.y, Time.deltaTime * zoom_Current_Target_Speed.z);
 
-            positionComposer.CameraDistance = zoom_Current_Target_Speed.x;
-        }
+        positionComposer.CameraDistance = zoom_Current_Target_Speed.x;
     }
     #endregion
 
@@ -581,10 +581,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     }
     #endregion
 
-    #region ZOOM ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-    #endregion
-
     #region ●PLAYER CONTROL ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     /// <summary>
     /// 操作ができる状態を設定
@@ -648,6 +644,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public void SetPlayerAnimation(string trigger) => view.SetPlayerAnim(trigger);
 
     public void SetPlayerFlipVisible(bool isVisible) => flipVisible = isVisible;
+    public void SetZoomValue(float value) => zoom_Current_Target_Speed.y = value;
 
     #endregion
 

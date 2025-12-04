@@ -199,7 +199,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //進行ができない状態にする
         flipController.SetCanProceed(false);
 
-        cursorCam.gameObject.SetActive(true);
+        //cursorCam.gameObject.SetActive(true);\
+
+        playerController.SetZoomValue(45);
 
         //キャラクターを閉じる
         playerController.PlayerFlip(false, currentPage);
@@ -265,7 +267,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(0.75f);　//ーーーーーーーーーーーーーーーーーーー
 
-        cursorCam.gameObject.SetActive(false);
+        
 
         //キャラクターのFlipを停止
         playerController.StopFlip();
@@ -291,10 +293,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //Flipをしていない状態に設定する
         isFlipping = false;
 
-        
-
         //Flipの後のイベントを発生させる
         afterFlip.OnAfterFlip(currentPage);
+
+        //cursorCam.gameObject.SetActive(false);
+
     }
     #endregion
 

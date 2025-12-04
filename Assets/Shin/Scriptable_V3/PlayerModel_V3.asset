@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38f5d516593a7d498d5efddfd0c65da, type: 3}
   m_Name: PlayerModel_V3
   m_EditorClassIdentifier: 
-  isRight: 1
+  isRight: 0
   isTurning: 0
   isHolding: 0
-  canControl: 1
   canMove: 1
-  canChange: 0
   canProceed: 0
   canJump: 1
-  canSwitch: 1
   canAnim: 1
   moveSpeed: 3
   accelerationTime: 0.05
@@ -44,7 +41,7 @@ MonoBehaviour:
   hitBoxDistance: 1.45
   hitLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   jointAnchorRight: {x: 0.35, y: 0.1}
   eventSphereRadius: 1
   eventLayer:

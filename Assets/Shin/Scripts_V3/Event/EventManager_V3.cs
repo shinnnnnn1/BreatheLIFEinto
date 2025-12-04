@@ -38,7 +38,6 @@ public class EventManager_V3 : MonoBehaviour
 
     public void InvokeEvent(int number)
     {
-        FadeUI(false);
         Debug.Log($"Event {number} Start");
 
         if (events.Length > number)
@@ -49,6 +48,8 @@ public class EventManager_V3 : MonoBehaviour
             //Timelineの場合、outにTimelineが入ってる
             if (p != null)
             {
+                FadeUI(false);
+
                 //もらったTimelineを入れて再生する
                 director.playableAsset = p;
                 director.Play();
