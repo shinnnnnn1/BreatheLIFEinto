@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using DG.Tweening;
 
 /// <summary>
 /// イベントの実行はUnityEventとTimelineに分かれる。
@@ -24,6 +25,7 @@ public class EventManager_V3 : MonoBehaviour
 
     [SerializeField] Image[] images;
     [SerializeField] Event_V3[] events;
+    [SerializeField] Image[] ui;
     PlayableDirector director;
 
     void Start()
@@ -36,6 +38,7 @@ public class EventManager_V3 : MonoBehaviour
 
     public void InvokeEvent(int number)
     {
+        FadeUI(false);
         Debug.Log($"Event {number} Start");
 
         if (events.Length > number)
@@ -50,6 +53,16 @@ public class EventManager_V3 : MonoBehaviour
                 director.playableAsset = p;
                 director.Play();
             }
+        }
+    }
+
+    public void FadeUI(bool fadeIn)
+    {
+        Debug.Log("asdasd");
+        float value = fadeIn ? 1f : 0f;
+        foreach(Image img in ui)
+        {
+            img.DOFade(value, 1);
         }
     }
 }

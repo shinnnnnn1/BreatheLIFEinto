@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookController_V3 : MonoBehaviour, IBookController
 {
@@ -10,6 +11,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     [SerializeField] BookModel_V3 model;
     [SerializeField] BookDelay bookDelay;
     [SerializeField] CinemachineCamera cursorCam;
+    [SerializeField] Image[] turnUI;
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
@@ -194,6 +196,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IEnumerator FlipCoroutine()
     {
+        //進行ができない状態にする
+        flipController.SetCanProceed(false);
+
         cursorCam.gameObject.SetActive(true);
 
         //キャラクターを閉じる
@@ -286,8 +291,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         //Flipをしていない状態に設定する
         isFlipping = false;
 
-        //進行ができない状態にする
-        flipController.SetCanProceed(false);
+        
 
         //Flipの後のイベントを発生させる
         afterFlip.OnAfterFlip(currentPage);
@@ -448,9 +452,17 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(0.1f);
         view.SetPageVisibility(1, true);
+
+        yield return new WaitForSeconds(3f);
+
+        turnUI[0].DOFade(1, 1);
+        turnUI[1].DOFade(1, 1);
     }
     IEnumerator EndPage()
     {
+        turnUI[0].DOFade(0, 1);
+        turnUI[1].DOFade(0, 1);
+
         view.MoveBookPosition(new Vector3(5, 0, 0), 2f);
 
         Flip();

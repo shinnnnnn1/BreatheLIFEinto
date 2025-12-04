@@ -167,7 +167,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
             //+コライダーを無効化する
             if (!isActivate)
             {
-                SetBone();
+                //SetBone();
                 EnableColliders(false);
             }
 

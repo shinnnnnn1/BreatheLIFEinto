@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class FlipController_V3 : MonoBehaviour, IFlipController
 {
@@ -7,6 +9,8 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
 
     [SerializeField] int currentTrigger = 0;
     [SerializeField] FlipTrigger_V3[] triggers;
+
+    [SerializeField] Image proceedImage;
 
     public IPlayerController playerController;
     public IBookController bookController;
@@ -46,6 +50,8 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
 
         //本が水平なのか確認
         //CheckBookIsHorizontal(bookController.bookDir);
+
+        proceedImage.DOFade(can ? 1 : 0, 1);
     }
 
     public void CheckIsBookHorizontal(int bookAngle)

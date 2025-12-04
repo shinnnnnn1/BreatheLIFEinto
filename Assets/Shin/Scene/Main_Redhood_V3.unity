@@ -5889,6 +5889,8 @@ GameObject:
   m_Component:
   - component: {fileID: 45665298}
   - component: {fileID: 45665299}
+  - component: {fileID: 45665301}
+  - component: {fileID: 45665300}
   m_Layer: 0
   m_Name: SM_Shrub_After_4
   m_TagString: Untagged
@@ -5938,6 +5940,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &45665300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45665297}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &45665301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45665297}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &46000765
 GameObject:
   m_ObjectHideFlags: 0
@@ -6077,6 +6121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 49018212}
   - component: {fileID: 49018213}
+  - component: {fileID: 49018214}
   m_Layer: 0
   m_Name: SM_SmallTree_After_2
   m_TagString: Untagged
@@ -6126,6 +6171,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &49018214
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49018211}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &50703921
 GameObject:
   m_ObjectHideFlags: 0
@@ -6136,6 +6204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 50703922}
   - component: {fileID: 50703923}
+  - component: {fileID: 50703925}
+  - component: {fileID: 50703924}
   m_Layer: 0
   m_Name: SM_Shrub_After_3
   m_TagString: Untagged
@@ -6185,6 +6255,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &50703924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50703921}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &50703925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50703921}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &61992970
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,6 +6672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76309671}
   - component: {fileID: 76309672}
+  - component: {fileID: 76309673}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
@@ -6609,6 +6722,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &76309673
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76309670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &76621446
 GameObject:
   m_ObjectHideFlags: 0
@@ -7312,6 +7448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101161163}
   - component: {fileID: 101161164}
+  - component: {fileID: 101161165}
   m_Layer: 0
   m_Name: Wall_L
   m_TagString: Untagged
@@ -7362,6 +7499,27 @@ MonoBehaviour:
   activateInHeight: 1
   anim: {fileID: 0}
   animDelay: {x: 0.5, y: 1.2}
+--- !u!65 &101161165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101161162}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.59, y: 7.06, z: 7.33}
+  m_Center: {x: 0, y: 2.76, z: 0}
 --- !u!1 &102280597
 GameObject:
   m_ObjectHideFlags: 0
@@ -7658,6 +7816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125875661}
   - component: {fileID: 125875662}
+  - component: {fileID: 125875663}
   m_Layer: 0
   m_Name: SM_BigTree_After_3
   m_TagString: Untagged
@@ -7707,6 +7866,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &125875663
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125875660}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.52
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &126274089
 GameObject:
   m_ObjectHideFlags: 0
@@ -13104,6 +13286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133976729}
   - component: {fileID: 133976730}
+  - component: {fileID: 133976731}
   m_Layer: 0
   m_Name: SM_SmallTree_After_1
   m_TagString: Untagged
@@ -13153,6 +13336,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &133976731
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133976728}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &134041020
 GameObject:
   m_ObjectHideFlags: 0
@@ -14132,6 +14338,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 166314434}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 166314436}
   m_SourcePrefab: {fileID: 100100000, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
 --- !u!4 &166314432 stripped
 Transform:
@@ -14191,6 +14400,27 @@ MonoBehaviour:
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &166314436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166314433}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.591399, y: 4.01, z: 5.1259747}
+  m_Center: {x: 0.20069787, y: 1.2199911, z: -1.3829869}
 --- !u!1 &168586374
 GameObject:
   m_ObjectHideFlags: 0
@@ -14709,6 +14939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181068369}
   - component: {fileID: 181068370}
+  - component: {fileID: 181068371}
   m_Layer: 0
   m_Name: SM_BigTree_After_2
   m_TagString: Untagged
@@ -14758,6 +14989,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &181068371
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181068368}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.04
+  m_Height: 6.94
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &181562095
 GameObject:
   m_ObjectHideFlags: 0
@@ -15451,6 +15705,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &203940496
 GameObject:
   m_ObjectHideFlags: 0
@@ -15564,7 +15830,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a4986b26e40379f42ba2f42b2899e756, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -15576,7 +15842,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a4986b26e40379f42ba2f42b2899e756, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -15588,7 +15854,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a4986b26e40379f42ba2f42b2899e756, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -20811,6 +21077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211185290}
   - component: {fileID: 211185291}
+  - component: {fileID: 211185292}
   m_Layer: 0
   m_Name: Wall_RB
   m_TagString: Untagged
@@ -20861,6 +21128,27 @@ MonoBehaviour:
   activateInHeight: 1
   anim: {fileID: 0}
   animDelay: {x: 1, y: 0.2}
+--- !u!65 &211185292
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211185289}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.05, y: 7.06, z: 1.04}
+  m_Center: {x: 0, y: 2.76, z: 0}
 --- !u!1 &212578312
 GameObject:
   m_ObjectHideFlags: 0
@@ -26216,6 +26504,128 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222299273}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &222956631
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1940973810}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 120.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.20755507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.28950128
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.63241845
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.68786407
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -81.976
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -76.548
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -144.713
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.00077538565
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.0003257068
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.015145833
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.019602329
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.022269838
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.015148988
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 029f8ee329d49f24c937976df561fe2e, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[1]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+      propertyPath: m_Name
+      value: SM_RH_House_v2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+--- !u!4 &222956632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 721fa9bbcf8465f47b19a21ac5d43a66, type: 3}
+  m_PrefabInstance: {fileID: 222956631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &223012221
 GameObject:
   m_ObjectHideFlags: 0
@@ -31185,6 +31595,7 @@ MonoBehaviour:
   isBookHorizontal: 1
   currentTrigger: 0
   triggers: []
+  proceedImage: {fileID: 1947645076}
 --- !u!1 &228107691
 GameObject:
   m_ObjectHideFlags: 0
@@ -41404,6 +41815,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -41504,6 +41916,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &257432046
 MonoBehaviour:
@@ -41740,6 +42166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262415149}
   - component: {fileID: 262415150}
+  - component: {fileID: 262415151}
   m_Layer: 0
   m_Name: SM_SmallTree_After_3
   m_TagString: Untagged
@@ -41789,6 +42216,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &262415151
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262415148}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &264667848
 GameObject:
   m_ObjectHideFlags: 0
@@ -41889,6 +42339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 273670801}
   - component: {fileID: 273670802}
+  - component: {fileID: 273670803}
   m_Layer: 0
   m_Name: SM_SmallTree_After
   m_TagString: Untagged
@@ -41938,6 +42389,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &273670803
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273670800}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &276454228
 GameObject:
   m_ObjectHideFlags: 0
@@ -52485,6 +52959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 289949942}
   - component: {fileID: 289949943}
+  - component: {fileID: 289949944}
   m_Layer: 0
   m_Name: SM_SmallTree_After_1
   m_TagString: Untagged
@@ -52534,6 +53009,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &289949944
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289949941}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &290822299
 GameObject:
   m_ObjectHideFlags: 0
@@ -52666,6 +53164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291845351}
   - component: {fileID: 291845352}
+  - component: {fileID: 291845353}
   m_Layer: 0
   m_Name: SM_BigTree_After_0
   m_TagString: Untagged
@@ -52715,6 +53214,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &291845353
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291845350}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.09
+  m_Height: 8.96
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &292196629
 GameObject:
   m_ObjectHideFlags: 0
@@ -53104,6 +53626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303770546}
   - component: {fileID: 303770547}
+  - component: {fileID: 303770548}
   m_Layer: 0
   m_Name: SM_SmallTree_After_3
   m_TagString: Untagged
@@ -53153,6 +53676,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &303770548
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303770545}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &307591339
 GameObject:
   m_ObjectHideFlags: 0
@@ -53377,6 +53923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317764954}
   - component: {fileID: 317764955}
+  - component: {fileID: 317764956}
   m_Layer: 0
   m_Name: SM_SmallTree_After_2
   m_TagString: Untagged
@@ -53426,6 +53973,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &317764956
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317764953}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &317947754
 GameObject:
   m_ObjectHideFlags: 0
@@ -53436,6 +54006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317947755}
   - component: {fileID: 317947756}
+  - component: {fileID: 317947757}
   m_Layer: 0
   m_Name: SM_SmallTree_After_7
   m_TagString: Untagged
@@ -53485,6 +54056,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &317947757
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317947754}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &328517390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53792,6 +54386,18 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &338667205
 MonoBehaviour:
@@ -54154,6 +54760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 353282287}
   - component: {fileID: 353282288}
+  - component: {fileID: 353282289}
   m_Layer: 0
   m_Name: GameObject_3
   m_TagString: Untagged
@@ -54203,6 +54810,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &353282289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353282286}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.07, y: 1, z: 2.42}
+  m_Center: {x: 0, y: 0.66, z: 0}
 --- !u!1 &354732597
 GameObject:
   m_ObjectHideFlags: 0
@@ -54290,6 +54918,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
   - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -54498,7 +55127,8 @@ GameObject:
   m_Component:
   - component: {fileID: 361426995}
   - component: {fileID: 361426996}
-  m_Layer: 0
+  - component: {fileID: 361426997}
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -54547,6 +55177,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &361426997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361426994}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1001 &361552837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54680,13 +55331,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362830745}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 2.4100003, y: 11.578646, z: -15.137281}
+  m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
+  m_LocalPosition: {x: 2.4100003, y: 10.923788, z: -15.570721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 248467898}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32, y: 0, z: 0}
 --- !u!114 &362830747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60334,6 +60985,8 @@ GameObject:
   m_Component:
   - component: {fileID: 397991159}
   - component: {fileID: 397991160}
+  - component: {fileID: 397991162}
+  - component: {fileID: 397991161}
   m_Layer: 0
   m_Name: SM_Shrub_After
   m_TagString: Untagged
@@ -60383,6 +61036,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &397991161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397991158}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &397991162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397991158}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &400525142
 GameObject:
   m_ObjectHideFlags: 0
@@ -60905,6 +61600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413943268}
   - component: {fileID: 413943269}
+  - component: {fileID: 413943270}
   m_Layer: 0
   m_Name: SM_SmallTree_After_10
   m_TagString: Untagged
@@ -60954,6 +61650,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &413943270
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413943267}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &417490843
 GameObject:
   m_ObjectHideFlags: 0
@@ -61100,6 +61819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 419620197}
   - component: {fileID: 419620198}
+  - component: {fileID: 419620199}
   m_Layer: 0
   m_Name: SM_SmallTree_After_9
   m_TagString: Untagged
@@ -61149,6 +61869,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &419620199
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419620196}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &421494009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61395,7 +62138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -61430,6 +62173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427694925}
   - component: {fileID: 427694926}
+  - component: {fileID: 427694927}
   m_Layer: 0
   m_Name: SM_SmallTree_After_10
   m_TagString: Untagged
@@ -61479,6 +62223,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &427694927
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427694924}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &430863367
 GameObject:
   m_ObjectHideFlags: 0
@@ -61789,6 +62556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443939825}
   - component: {fileID: 443939826}
+  - component: {fileID: 443939827}
   m_Layer: 0
   m_Name: SM_SmallTree_After_0
   m_TagString: Untagged
@@ -61838,6 +62606,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &443939827
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443939824}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 4.99
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &444070922
 GameObject:
   m_ObjectHideFlags: 0
@@ -61895,7 +62686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canActivate: 1
   isEntered: 0
-  isActivated: 1
+  isActivated: 0
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -62883,6 +63674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465665484}
   - component: {fileID: 465665485}
+  - component: {fileID: 465665486}
   m_Layer: 0
   m_Name: SM_SmallTree_After_3
   m_TagString: Untagged
@@ -62932,6 +63724,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &465665486
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465665483}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 6.12
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &465874646
 GameObject:
   m_ObjectHideFlags: 0
@@ -69240,6 +70055,8 @@ GameObject:
   m_Component:
   - component: {fileID: 507635605}
   - component: {fileID: 507635606}
+  - component: {fileID: 507635608}
+  - component: {fileID: 507635607}
   m_Layer: 0
   m_Name: SM_Shrub_After_2
   m_TagString: Untagged
@@ -69289,6 +70106,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &507635607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507635604}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &507635608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507635604}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!4 &508703007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 666fa725b4e1bf840aeadc42bcf5e0b4, type: 3}
@@ -74498,7 +75357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &514425895
 Transform:
   m_ObjectHideFlags: 0
@@ -85306,6 +86165,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85942,6 +86802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555163040}
   - component: {fileID: 555163041}
+  - component: {fileID: 555163042}
   m_Layer: 0
   m_Name: SM_SmallTree_After_1
   m_TagString: Untagged
@@ -85991,6 +86852,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &555163042
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555163039}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &557714344
 GameObject:
   m_ObjectHideFlags: 0
@@ -90981,6 +91865,9 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: f21b0f00ff94fd34c942c46183206941, type: 2}
   bookDelay: {fileID: 11400000, guid: 3a7250e66664e6e439e778312993d2a8, type: 2}
   cursorCam: {fileID: 2038925321}
+  turnUI:
+  - {fileID: 425740858}
+  - {fileID: 1213885525}
   objectParent: {fileID: 871270525}
   bones:
   - {fileID: 802870358}
@@ -96433,6 +97320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567363511}
   - component: {fileID: 567363512}
+  - component: {fileID: 567363513}
   m_Layer: 0
   m_Name: SM_SmallTree_After_6
   m_TagString: Untagged
@@ -96482,6 +97370,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &567363513
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567363510}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &567813510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96787,6 +97698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576048223}
   - component: {fileID: 576048224}
+  - component: {fileID: 576048225}
   m_Layer: 0
   m_Name: SM_SmallTree_After_2
   m_TagString: Untagged
@@ -96836,6 +97748,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &576048225
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576048222}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &581670063
 GameObject:
   m_ObjectHideFlags: 0
@@ -97215,10 +98150,11 @@ GameObject:
   m_Component:
   - component: {fileID: 586648877}
   - component: {fileID: 586648878}
+  - component: {fileID: 586648879}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -97264,6 +98200,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &586648879
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586648876}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &591821363
 GameObject:
   m_ObjectHideFlags: 0
@@ -122440,7 +123399,7 @@ GameObject:
   m_Layer: 0
   m_Name: SM_RH_House_v2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -122452,14 +123411,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620427073}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.08, y: 1.35, z: 2.06}
+  m_LocalRotation: {x: -0.0068651293, y: -0.00027338206, z: 0.039789405, w: 0.9991845}
+  m_LocalPosition: {x: -6.08, y: 1.41, z: 2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 281309502}
   m_Father: {fileID: 1364537204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.785, y: -0.063, z: 4.561}
 --- !u!114 &620427075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123314,6 +124273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651880022}
   - component: {fileID: 651880023}
+  - component: {fileID: 651880024}
   m_Layer: 0
   m_Name: SM_SmallTree_After_4
   m_TagString: Untagged
@@ -123363,6 +124323,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &651880024
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651880021}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &652948345
 GameObject:
   m_ObjectHideFlags: 0
@@ -123990,6 +124973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 688601718}
   - component: {fileID: 688601719}
+  - component: {fileID: 688601720}
   m_Layer: 0
   m_Name: SM_SmallTree_After_1
   m_TagString: Untagged
@@ -124039,6 +125023,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &688601720
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688601717}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5.51
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &689647605
 GameObject:
   m_ObjectHideFlags: 0
@@ -131291,6 +132298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746094560}
   - component: {fileID: 746094561}
+  - component: {fileID: 746094562}
   m_Layer: 0
   m_Name: SM_SmallTree_After
   m_TagString: Untagged
@@ -131340,6 +132348,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &746094562
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746094559}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &746401992
 GameObject:
   m_ObjectHideFlags: 0
@@ -131526,6 +132557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765334839}
   - component: {fileID: 765334840}
+  - component: {fileID: 765334841}
   m_Layer: 0
   m_Name: SM_Stone_After_3
   m_TagString: Untagged
@@ -131575,6 +132607,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!135 &765334841
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765334838}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.67
+  m_Center: {x: -0.27, y: 0, z: 0}
 --- !u!1 &766137485
 GameObject:
   m_ObjectHideFlags: 0
@@ -137629,6 +138682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802932172}
   - component: {fileID: 802932173}
+  - component: {fileID: 802932174}
   m_Layer: 0
   m_Name: SM_SmallTree_After_3
   m_TagString: Untagged
@@ -137678,6 +138732,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &802932174
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802932171}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &804695853
 GameObject:
   m_ObjectHideFlags: 0
@@ -137688,6 +138765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804695854}
   - component: {fileID: 804695855}
+  - component: {fileID: 804695856}
   m_Layer: 0
   m_Name: SM_SmallTree_After_5
   m_TagString: Untagged
@@ -137737,6 +138815,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &804695856
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804695853}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &808228716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138226,6 +139327,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1148644705}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -143727,6 +144840,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!114 &850959452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143840,6 +144965,8 @@ GameObject:
   m_Component:
   - component: {fileID: 855120274}
   - component: {fileID: 855120275}
+  - component: {fileID: 855120277}
+  - component: {fileID: 855120276}
   m_Layer: 0
   m_Name: SM_Shrub_After_3
   m_TagString: Untagged
@@ -143889,6 +145016,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &855120276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855120273}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &855120277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855120273}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &858163343
 GameObject:
   m_ObjectHideFlags: 0
@@ -151553,6 +152722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983313401}
   - component: {fileID: 983313405}
+  - component: {fileID: 983313407}
   - component: {fileID: 983313406}
   m_Layer: 7
   m_Name: Pullable
@@ -151573,7 +152743,8 @@ Transform:
   m_LocalPosition: {x: 0.083, y: 0.685, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1859176571}
   m_Father: {fileID: 1141345287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &983313405
@@ -151591,28 +152762,28 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438929477}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 983313407}
+        m_TargetAssemblyTypeName: PlaneOutline, Assembly-CSharp
+        m_MethodName: _SetFloat
+        m_Mode: 4
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 26ce188f58e63414bbe9bc27eb0db3ab, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438929477}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 983313407}
+        m_TargetAssemblyTypeName: PlaneOutline, Assembly-CSharp
+        m_MethodName: _SetFloat
+        m_Mode: 4
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 87832b4b39507ed409034728f5c4b04e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -151624,13 +152795,13 @@ MonoBehaviour:
   onPull:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438929477}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 983313407}
+        m_TargetAssemblyTypeName: PlaneOutline, Assembly-CSharp
+        m_MethodName: _SetFloat
+        m_Mode: 4
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 87832b4b39507ed409034728f5c4b04e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -151686,6 +152857,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.02, y: 1.14, z: 1.22}
   m_Center: {x: 0.13, y: 0.19, z: -0.4}
+--- !u!114 &983313407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983313400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a240f464af036408ee830bc22ef626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 7b62d17205397384197435bb94864926, type: 2}
 --- !u!1 &988153989
 GameObject:
   m_ObjectHideFlags: 0
@@ -173211,6 +174395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092560906}
   - component: {fileID: 1092560907}
+  - component: {fileID: 1092560908}
   m_Layer: 0
   m_Name: SM_BigTree_After_8
   m_TagString: Untagged
@@ -173260,6 +174445,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1092560908
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092560905}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.04
+  m_Height: 6.12
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1098386540
 GameObject:
   m_ObjectHideFlags: 0
@@ -173270,6 +174478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1098386541}
   - component: {fileID: 1098386542}
+  - component: {fileID: 1098386543}
   m_Layer: 0
   m_Name: GameObject_4
   m_TagString: Untagged
@@ -173319,6 +174528,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1098386543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098386540}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.6683903, y: 5.7960787, z: 2.262485}
+  m_Center: {x: 2.0491953, y: 1.8330393, z: 0.6787574}
 --- !u!115 &1100363994
 MonoScript:
   m_ObjectHideFlags: 0
@@ -178735,6 +179965,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1130121683}
   - component: {fileID: 1130121684}
+  - component: {fileID: 1130121686}
+  - component: {fileID: 1130121685}
   m_Layer: 0
   m_Name: SM_Shrub_After_1
   m_TagString: Untagged
@@ -178784,6 +180016,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1130121685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130121682}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1130121686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130121682}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &1138810418
 GameObject:
   m_ObjectHideFlags: 0
@@ -178794,6 +180068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1138810419}
   - component: {fileID: 1138810420}
+  - component: {fileID: 1138810421}
   m_Layer: 0
   m_Name: SM_SmallTree_After
   m_TagString: Untagged
@@ -178843,6 +180118,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1138810421
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138810418}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1141345286
 GameObject:
   m_ObjectHideFlags: 0
@@ -179440,6 +180738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175027143}
   - component: {fileID: 1175027144}
+  - component: {fileID: 1175027145}
   m_Layer: 0
   m_Name: SM_SmallTree_After_4
   m_TagString: Untagged
@@ -179489,6 +180788,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1175027145
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175027142}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1176782417
 GameObject:
   m_ObjectHideFlags: 0
@@ -180639,6 +181961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202312267}
   - component: {fileID: 1202312268}
+  - component: {fileID: 1202312269}
   m_Layer: 0
   m_Name: GameObject_1
   m_TagString: Untagged
@@ -180688,6 +182011,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1202312269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202312266}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &1202441835
 GameObject:
   m_ObjectHideFlags: 0
@@ -180987,7 +182331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -181108,6 +182452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218216339}
   - component: {fileID: 1218216340}
+  - component: {fileID: 1218216341}
   m_Layer: 0
   m_Name: SM_SmallTree_After_7
   m_TagString: Untagged
@@ -181157,6 +182502,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1218216341
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218216338}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1229843277
 GameObject:
   m_ObjectHideFlags: 0
@@ -181380,6 +182748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247794856}
   - component: {fileID: 1247794857}
+  - component: {fileID: 1247794858}
   m_Layer: 0
   m_Name: Wall_LB
   m_TagString: Untagged
@@ -181430,6 +182799,27 @@ MonoBehaviour:
   activateInHeight: 1
   anim: {fileID: 0}
   animDelay: {x: 1, y: 0.2}
+--- !u!65 &1247794858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247794855}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.05, y: 7.06, z: 1.04}
+  m_Center: {x: 0, y: 2.76, z: 0}
 --- !u!1 &1248286671
 GameObject:
   m_ObjectHideFlags: 0
@@ -188264,6 +189654,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1321588338}
   - component: {fileID: 1321588339}
+  - component: {fileID: 1321588341}
+  - component: {fileID: 1321588340}
   m_Layer: 0
   m_Name: SM_Shrub_After_2
   m_TagString: Untagged
@@ -188313,6 +189705,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1321588340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321588337}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1321588341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321588337}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &1324364736
 GameObject:
   m_ObjectHideFlags: 0
@@ -193658,6 +195092,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!114 &1356285796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194094,6 +195540,7 @@ Transform:
   - {fileID: 1035974282}
   - {fileID: 1255769517}
   - {fileID: 620427074}
+  - {fileID: 1940973810}
   - {fileID: 291845351}
   - {fileID: 1632465449}
   - {fileID: 181068369}
@@ -194363,7 +195810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1368187048
 Transform:
   m_ObjectHideFlags: 0
@@ -194851,6 +196298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384949016}
   - component: {fileID: 1384949017}
+  - component: {fileID: 1384949018}
   m_Layer: 0
   m_Name: SM_Stone_After_2
   m_TagString: Untagged
@@ -194900,6 +196348,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!135 &1384949018
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384949015}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.67
+  m_Center: {x: -0.27, y: 0, z: 0}
 --- !u!1 &1386762393
 GameObject:
   m_ObjectHideFlags: 0
@@ -194910,6 +196379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1386762394}
   - component: {fileID: 1386762395}
+  - component: {fileID: 1386762396}
   m_Layer: 0
   m_Name: GameObject_2
   m_TagString: Untagged
@@ -194959,6 +196429,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1386762396
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386762393}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 7.49
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1389277259
 GameObject:
   m_ObjectHideFlags: 0
@@ -194969,6 +196462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389277260}
   - component: {fileID: 1389277261}
+  - component: {fileID: 1389277262}
   m_Layer: 0
   m_Name: SM_BigTree_After_5
   m_TagString: Untagged
@@ -195018,6 +196512,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1389277262
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389277259}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &1391715808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195111,6 +196628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393008592}
   - component: {fileID: 1393008593}
+  - component: {fileID: 1393008594}
   m_Layer: 0
   m_Name: SM_SmallTree_After_11
   m_TagString: Untagged
@@ -195160,6 +196678,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1393008594
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393008591}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1395323403
 GameObject:
   m_ObjectHideFlags: 0
@@ -200809,6 +202350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432604797}
   - component: {fileID: 1432604798}
+  - component: {fileID: 1432604799}
   m_Layer: 0
   m_Name: SM_BigTree_After_1
   m_TagString: Untagged
@@ -200858,6 +202400,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1432604799
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432604796}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.52
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1434681726
 GameObject:
   m_ObjectHideFlags: 0
@@ -201057,8 +202622,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 10, z: 3.5}
-  m_Center: {x: 0.15, y: 3.5, z: -4.05}
+  m_Size: {x: 1.74, y: 10, z: 3.5}
+  m_Center: {x: -0.4, y: 3.5, z: -4.05}
 --- !u!65 &1437538285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -201078,8 +202643,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 10, z: 6.5}
-  m_Center: {x: 0, y: 3.5, z: 2.65}
+  m_Size: {x: 2.67, y: 10, z: 6.5}
+  m_Center: {x: -0.66, y: 3.5, z: 2.65}
 --- !u!114 &1437538286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201523,7 +203088,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Shrub_After
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7621242974174315983, guid: 97b635ccbc09c45ae941c7807f4bb002, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -202675,6 +204241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1466166296}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1466166298}
   m_SourcePrefab: {fileID: 100100000, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
 --- !u!4 &1466166294 stripped
 Transform:
@@ -202734,6 +204303,27 @@ MonoBehaviour:
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1466166298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466166295}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.591399, y: 4.01, z: 5.1259747}
+  m_Center: {x: 0.20069787, y: 1.2199911, z: -1.3829869}
 --- !u!1 &1466727198
 GameObject:
   m_ObjectHideFlags: 0
@@ -203056,6 +204646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479803887}
   - component: {fileID: 1479803888}
+  - component: {fileID: 1479803889}
   m_Layer: 0
   m_Name: SM_BigTree_After
   m_TagString: Untagged
@@ -203105,6 +204696,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1479803889
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479803886}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.52
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1486610603
 GameObject:
   m_ObjectHideFlags: 0
@@ -203820,6 +205434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514037188}
   - component: {fileID: 1514037189}
+  - component: {fileID: 1514037190}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
@@ -203869,6 +205484,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1514037190
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514037187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1516852166
 GameObject:
   m_ObjectHideFlags: 0
@@ -204032,6 +205670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519973362}
   - component: {fileID: 1519973363}
+  - component: {fileID: 1519973364}
   m_Layer: 0
   m_Name: SM_SmallTree_After_12
   m_TagString: Untagged
@@ -204081,6 +205720,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1519973364
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519973361}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1520463072
 GameObject:
   m_ObjectHideFlags: 0
@@ -204390,6 +206052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527409539}
   - component: {fileID: 1527409540}
+  - component: {fileID: 1527409541}
   m_Layer: 0
   m_Name: SM_BigTree_After_9
   m_TagString: Untagged
@@ -204439,6 +206102,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1527409541
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527409538}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.44
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1532344185
 GameObject:
   m_ObjectHideFlags: 0
@@ -210140,6 +211826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559360728}
   - component: {fileID: 1559360729}
+  - component: {fileID: 1559360730}
   m_Layer: 0
   m_Name: SM_SmallTree_After_4
   m_TagString: Untagged
@@ -210189,6 +211876,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1559360730
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559360727}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1564395839
 GameObject:
   m_ObjectHideFlags: 0
@@ -210299,6 +212009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573134504}
   - component: {fileID: 1573134505}
+  - component: {fileID: 1573134506}
   m_Layer: 0
   m_Name: SM_SmallTree_After_2
   m_TagString: Untagged
@@ -210348,6 +212059,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1573134506
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573134503}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1574291922
 GameObject:
   m_ObjectHideFlags: 0
@@ -211120,6 +212854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594269021}
   - component: {fileID: 1594269022}
+  - component: {fileID: 1594269023}
   m_Layer: 0
   m_Name: SM_SmallTree_After_2
   m_TagString: Untagged
@@ -211169,6 +212904,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1594269023
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594269020}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5.38
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1594684728
 GameObject:
   m_ObjectHideFlags: 0
@@ -216702,6 +218460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615985864}
   - component: {fileID: 1615985865}
+  - component: {fileID: 1615985866}
   m_Layer: 0
   m_Name: SM_SmallTree_After
   m_TagString: Untagged
@@ -216751,6 +218510,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1615985866
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615985863}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1617329348
 GameObject:
   m_ObjectHideFlags: 0
@@ -216883,6 +218665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618943596}
   - component: {fileID: 1618943597}
+  - component: {fileID: 1618943598}
   m_Layer: 0
   m_Name: SM_SmallTree_After_9
   m_TagString: Untagged
@@ -216932,6 +218715,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1618943598
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618943595}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &1619230061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222091,6 +223897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632465449}
   - component: {fileID: 1632465450}
+  - component: {fileID: 1632465451}
   m_Layer: 0
   m_Name: SM_BigTree_After_1
   m_TagString: Untagged
@@ -222140,6 +223947,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1632465451
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632465448}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.03
+  m_Height: 6.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1632627254
 GameObject:
   m_ObjectHideFlags: 0
@@ -222209,6 +224039,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1635881629}
   - component: {fileID: 1635881630}
+  - component: {fileID: 1635881632}
+  - component: {fileID: 1635881631}
   m_Layer: 0
   m_Name: SM_Shrub_After_1
   m_TagString: Untagged
@@ -222258,6 +224090,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1635881631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635881628}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1635881632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635881628}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &1638880929
 GameObject:
   m_ObjectHideFlags: 0
@@ -222795,6 +224669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1659629490}
   - component: {fileID: 1659629491}
+  - component: {fileID: 1659629492}
   m_Layer: 0
   m_Name: GameObject_8
   m_TagString: Untagged
@@ -222844,6 +224719,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1659629492
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659629489}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.54, y: 4.96, z: 2.56}
+  m_Center: {x: 0.49, y: 1.71, z: 0}
 --- !u!1 &1662272244
 GameObject:
   m_ObjectHideFlags: 0
@@ -223934,6 +225830,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1685278850}
@@ -224722,6 +226630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1708983065}
   - component: {fileID: 1708983066}
+  - component: {fileID: 1708983067}
   m_Layer: 0
   m_Name: SM_BigTree_After_4
   m_TagString: Untagged
@@ -224771,6 +226680,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1708983067
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708983064}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5.56
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1709092470
 GameObject:
   m_ObjectHideFlags: 0
@@ -225569,7 +227501,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1730457302}
   - component: {fileID: 1730457303}
-  m_Layer: 0
+  - component: {fileID: 1730457304}
+  m_Layer: 6
   m_Name: GameObject_9
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -225618,6 +227551,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1730457304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730457301}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 2.72}
+  m_Center: {x: 0, y: 0.92, z: 0}
 --- !u!1001 &1733125459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225953,6 +227907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745531787}
   - component: {fileID: 1745531788}
+  - component: {fileID: 1745531789}
   m_Layer: 0
   m_Name: SM_SmallTree_After_6
   m_TagString: Untagged
@@ -226002,6 +227957,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1745531789
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745531786}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1747114108
 GameObject:
   m_ObjectHideFlags: 0
@@ -226326,6 +228304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1756869929}
   - component: {fileID: 1756869930}
+  - component: {fileID: 1756869931}
   m_Layer: 0
   m_Name: SM_BigTree_After_3
   m_TagString: Untagged
@@ -226375,6 +228354,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1756869931
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756869928}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.11
+  m_Direction: 1
+  m_Center: {x: 0.35, y: 2, z: 0}
 --- !u!1 &1757329144
 GameObject:
   m_ObjectHideFlags: 0
@@ -226972,7 +228974,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 8f1b35c8b651cf645b020cf8ff0cd661, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -227091,7 +229093,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1781819914}
   - component: {fileID: 1781819915}
-  m_Layer: 0
+  - component: {fileID: 1781819916}
+  m_Layer: 6
   m_Name: SM_Stone_After_4
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -227140,6 +229143,27 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!135 &1781819916
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781819913}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.67
+  m_Center: {x: -0.25, y: 0, z: 0}
 --- !u!1 &1783886901
 GameObject:
   m_ObjectHideFlags: 0
@@ -232564,7 +234588,15 @@ PrefabInstance:
       value: 0.0022577066
       objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: 622c55cf653a1c04b8b9aaf0df51c6b3, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 622c55cf653a1c04b8b9aaf0df51c6b3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e5cc6afe3c644c4e992ff122ba370b5, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 622c55cf653a1c04b8b9aaf0df51c6b3, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 7e5cc6afe3c644c4e992ff122ba370b5, type: 2}
     - target: {fileID: -3887185075125053422, guid: 622c55cf653a1c04b8b9aaf0df51c6b3, type: 3}
@@ -237533,6 +239565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801021084}
   - component: {fileID: 1801021085}
+  - component: {fileID: 1801021086}
   m_Layer: 0
   m_Name: Wall_R
   m_TagString: Untagged
@@ -237583,6 +239616,27 @@ MonoBehaviour:
   activateInHeight: 1
   anim: {fileID: 0}
   animDelay: {x: 0.5, y: 1.2}
+--- !u!65 &1801021086
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801021083}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.59, y: 7.06, z: 7.33}
+  m_Center: {x: 0, y: 2.76, z: 0}
 --- !u!1 &1801170738
 GameObject:
   m_ObjectHideFlags: 0
@@ -237593,6 +239647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801170739}
   - component: {fileID: 1801170740}
+  - component: {fileID: 1801170741}
   m_Layer: 0
   m_Name: SM_SmallTree_After_1
   m_TagString: Untagged
@@ -237642,6 +239697,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1801170741
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801170738}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1802095058
 GameObject:
   m_ObjectHideFlags: 0
@@ -258367,6 +260445,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1824278427}
   - component: {fileID: 1824278428}
+  - component: {fileID: 1824278430}
+  - component: {fileID: 1824278429}
   m_Layer: 0
   m_Name: SM_Shrub_After_3
   m_TagString: Untagged
@@ -258416,6 +260496,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1824278429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824278426}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1824278430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824278426}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1001 &1828110221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258726,6 +260848,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1832551514}
   - component: {fileID: 1832551515}
+  - component: {fileID: 1832551517}
+  - component: {fileID: 1832551516}
   m_Layer: 0
   m_Name: SM_Shrub_After_2
   m_TagString: Untagged
@@ -258775,6 +260899,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1832551516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832551513}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1832551517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832551513}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &1833689371
 GameObject:
   m_ObjectHideFlags: 0
@@ -259063,6 +261229,66 @@ MonoBehaviour:
         - m_Target: {fileID: 393497018}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1071875996}
+          m_TargetAssemblyTypeName: BaseObject_V3, Assembly-CSharp
+          m_MethodName: SetBone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1395323409}
+          m_TargetAssemblyTypeName: BaseObject_V3, Assembly-CSharp
+          m_MethodName: SetBone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1533163896}
+          m_TargetAssemblyTypeName: BaseObject_V3, Assembly-CSharp
+          m_MethodName: SetBone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1740567094}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2020739400}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -264035,6 +266261,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   images: []
   events: []
+  ui:
+  - {fileID: 307591341}
+  - {fileID: 2125719445}
+  - {fileID: 381527897}
+  - {fileID: 170129507}
 --- !u!4 &1844648346
 Transform:
   m_ObjectHideFlags: 0
@@ -264065,7 +266296,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 26f1242f93e165b4ca60c62ccd7bfadc, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 5eb534c245c6dea488849d600abc8df6, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -264653,6 +266884,96 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: 2534964839176971238, guid: a7b6f1e7607a3a94293c4905b009be4e, type: 3}
+--- !u!1 &1859176570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859176571}
+  - component: {fileID: 1859176572}
+  m_Layer: 0
+  m_Name: axe_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1859176571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859176570}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.06700017, y: -0.71099997, z: 0.055999923}
+  m_LocalScale: {x: 110, y: 110, z: 123.81604}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 983313401}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!137 &1859176572
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859176570}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7b62d17205397384197435bb94864926, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -8176984191909879101, guid: 26887480310cb24458229d91e241ac27, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.0008417086, y: 0.0002801139, z: -0.0021737446}
+    m_Extent: {x: 0.0073786136, y: 0.011015955, z: 0.008636413}
+  m_DirtyAABB: 0
 --- !u!1 &1860879934
 GameObject:
   m_ObjectHideFlags: 0
@@ -265360,6 +267681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884122827}
   - component: {fileID: 1884122828}
+  - component: {fileID: 1884122829}
   m_Layer: 0
   m_Name: SM_BigTree_After_10
   m_TagString: Untagged
@@ -265409,6 +267731,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1884122829
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884122826}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1885244832
 GameObject:
   m_ObjectHideFlags: 0
@@ -265505,6 +267850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889428647}
   - component: {fileID: 1889428648}
+  - component: {fileID: 1889428649}
   m_Layer: 0
   m_Name: SM_SmallTree_After_5
   m_TagString: Untagged
@@ -265554,6 +267900,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &1889428649
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889428646}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1897210939
 GameObject:
   m_ObjectHideFlags: 0
@@ -266055,6 +268424,18 @@ MonoBehaviour:
         - m_Target: {fileID: 9063757876562159498}
           m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
           m_MethodName: SetCanMove
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -267083,6 +269464,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940498649}
   m_CullTransparentMesh: 1
+--- !u!1 &1940973809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940973810}
+  - component: {fileID: 1940973812}
+  - component: {fileID: 1940973811}
+  m_Layer: 0
+  m_Name: SM_RH_House_v2_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940973810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940973809}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.38304755, z: -0, w: 0.92372864}
+  m_LocalPosition: {x: -6.08, y: 2.48, z: 2.06}
+  m_LocalScale: {x: 1.182, y: 1, z: 1.437}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 222956632}
+  m_Father: {fileID: 1364537204}
+  m_LocalEulerAnglesHint: {x: 0, y: 45.045, z: 0}
+--- !u!65 &1940973811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940973809}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.5657167, y: 4.2234077, z: 2.132835}
+  m_Center: {x: -1.5299802, y: 0.19788283, z: -0.10358649}
+--- !u!114 &1940973812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940973809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
+  mesh: []
 --- !u!1 &1941422201
 GameObject:
   m_ObjectHideFlags: 0
@@ -267522,6 +269984,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 559071771}
@@ -267548,7 +270022,7 @@ GameObject:
   - component: {fileID: 1947645077}
   - component: {fileID: 1947645076}
   m_Layer: 5
-  m_Name: CanProceed
+  m_Name: ProceedImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267586,7 +270060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -268022,7 +270496,7 @@ Transform:
   m_GameObject: {fileID: 1960647215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.94, y: 15.2, z: -18.21}
+  m_LocalPosition: {x: 2.94, y: 13.68, z: -18.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -274033,6 +276507,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1991830080}
   - component: {fileID: 1991830081}
+  - component: {fileID: 1991830083}
+  - component: {fileID: 1991830082}
   m_Layer: 0
   m_Name: SM_Shrub_After_4
   m_TagString: Untagged
@@ -274082,6 +276558,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &1991830082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991830079}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &1991830083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991830079}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &1993296322
 GameObject:
   m_ObjectHideFlags: 0
@@ -284349,7 +286867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6265260967031320133, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: currentTime
-      value: 3.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1946018332332219245, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: m_Name
@@ -289507,6 +292025,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2018624165}
   - component: {fileID: 2018624166}
+  - component: {fileID: 2018624168}
+  - component: {fileID: 2018624167}
   m_Layer: 0
   m_Name: SM_Shrub_After_1
   m_TagString: Untagged
@@ -289556,6 +292076,48 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &2018624167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018624164}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!65 &2018624168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018624164}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.66, y: 1, z: 0.05}
+  m_Center: {x: 0, y: 0, z: -0.26}
 --- !u!1 &2020347506
 GameObject:
   m_ObjectHideFlags: 0
@@ -290003,6 +292565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2020739400}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2020739402}
   m_SourcePrefab: {fileID: 100100000, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
 --- !u!4 &2020739398 stripped
 Transform:
@@ -290062,6 +292627,27 @@ MonoBehaviour:
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!65 &2020739402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020739399}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.591399, y: 4.01, z: 5.1259747}
+  m_Center: {x: 0.20069787, y: 1.2199911, z: -1.3829869}
 --- !u!1 &2022056294
 GameObject:
   m_ObjectHideFlags: 0
@@ -295131,6 +297717,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 983313407}
+          m_TargetAssemblyTypeName: PlaneOutline, Assembly-CSharp
+          m_MethodName: _SetFloat
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &2032009484
 GameObject:
   m_ObjectHideFlags: 0
@@ -295141,6 +297751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032009485}
   - component: {fileID: 2032009486}
+  - component: {fileID: 2032009487}
   m_Layer: 0
   m_Name: SM_BigTree_After_2
   m_TagString: Untagged
@@ -295190,6 +297801,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &2032009487
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032009484}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 6.52
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2035843332
 GameObject:
   m_ObjectHideFlags: 0
@@ -301870,6 +304504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099370671}
   - component: {fileID: 2099370672}
+  - component: {fileID: 2099370673}
   m_Layer: 0
   m_Name: SM_SmallTree_After_8
   m_TagString: Untagged
@@ -301919,6 +304554,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &2099370673
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099370670}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2100657691
 GameObject:
   m_ObjectHideFlags: 0
@@ -302107,6 +304765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2103803631}
   - component: {fileID: 2103803632}
+  - component: {fileID: 2103803633}
   m_Layer: 0
   m_Name: SM_SmallTree_After_8
   m_TagString: Untagged
@@ -302156,6 +304815,29 @@ MonoBehaviour:
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
   mesh: []
+--- !u!136 &2103803633
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103803630}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2103993125
 GameObject:
   m_ObjectHideFlags: 0
@@ -302452,6 +305134,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &2109166418
 GameObject:
   m_ObjectHideFlags: 0
@@ -302692,6 +305386,18 @@ MonoBehaviour:
         - m_Target: {fileID: 9063757876562159498}
           m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
           m_MethodName: SetCanMove
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeUI
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -303167,7 +305873,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Shrub_After
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7621242974174315983, guid: 97b635ccbc09c45ae941c7807f4bb002, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -303264,6 +305971,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
   - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -306242,7 +308950,19 @@ MonoBehaviour:
     m_ActionId: 31640333-369d-4c8e-a9ea-1f756f459279
     m_ActionName: 'UI/Switch[/Keyboard/tab]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159500}
+        m_TargetAssemblyTypeName: PlayerActionInput_V3, Assembly-CSharp
+        m_MethodName: InputDebug2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5c988e58-ece5-45bd-b2fa-67a3a5aeb382
     m_ActionName: 'Player/Debug2[/Keyboard/2,/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
