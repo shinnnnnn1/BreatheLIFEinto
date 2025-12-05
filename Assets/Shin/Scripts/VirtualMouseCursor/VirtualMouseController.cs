@@ -33,6 +33,9 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] Collider trackingColl, pressingColl, releasingColl;
 
     ICursorInteractable cursorInteractable;
+    RaycastHit hit;
+
+    public Vector3 hitPoint;
 
     bool setStart = false;
     bool canChange = false;
@@ -66,6 +69,11 @@ public class VirtualMouseController : MonoBehaviour
         else if(playerInput.currentControlScheme == gamepadScheme && Gamepad.current != null)
         {
             CursorPadding();
+        }
+
+        if (isPressing && trackingColl == null && pressingColl == null)
+        {
+            OnCanceled();
         }
 
         UpdateRay();
@@ -128,6 +136,7 @@ public class VirtualMouseController : MonoBehaviour
         virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.cursorPadding, Screen.width - model.cursorPadding);
         virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.cursorPadding, Screen.height - model.cursorPadding);
         view.CursorPadding(virtualMousePos);
+        view.CursorChase(virtualMousePos);
     }
 
     void UpdateRay()
@@ -161,6 +170,7 @@ public class VirtualMouseController : MonoBehaviour
         isPressing = true;
         view.ChangeCursorImage(1);
 
+        
         if (trackingColl != null && trackingColl != pressingColl)
         {
             pressingColl = trackingColl;
@@ -172,17 +182,29 @@ public class VirtualMouseController : MonoBehaviour
         isPressing = false;
         if(trackingColl != null && trackingColl == pressingColl)
         {
+            pressingColl = null;
             cursorInteractable.OnReleased();
+
         }
     }
+
+    public void OnCanceled()
+    {
+        cursorInteractable?.OnCanceled();
+        isPressing = false;
+        view.ChangeCursorImage(0);
+    }
+
+
 
     bool IsHit()
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
-        if (Physics.Raycast(origin, direction, out RaycastHit raycastHit, model.interactingDistance, model.interactableLayerMask))
+        if (Physics.Raycast(origin, direction, out hit, model.interactingDistance, model.interactableLayerMask))
         {
-            trackingColl = raycastHit.collider;
+            trackingColl = hit.collider;
+            hitPoint = hit.point;
             return true;
         }
         else

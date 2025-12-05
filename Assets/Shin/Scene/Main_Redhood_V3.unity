@@ -5939,6 +5939,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &45665300
 BoxCollider:
@@ -6170,6 +6171,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &49018214
 CapsuleCollider:
@@ -6254,6 +6256,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &50703924
 BoxCollider:
@@ -6721,6 +6724,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &76309673
 CapsuleCollider:
@@ -7403,6 +7407,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &100595711
 GameObject:
@@ -7497,6 +7502,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.5, y: -0.3}
   activateInHeight: 1
+  resetBone: 0
   anim: {fileID: 0}
   animDelay: {x: 0.5, y: 1.2}
 --- !u!65 &101161165
@@ -7578,6 +7584,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &102560572
 GameObject:
@@ -7865,6 +7872,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &125875663
 CapsuleCollider:
@@ -13335,6 +13343,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &133976731
 CapsuleCollider:
@@ -14496,6 +14505,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &168586374
 GameObject:
@@ -14602,6 +14612,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -14638,14 +14649,14 @@ RectTransform:
   m_GameObject: {fileID: 170129505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2087886345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -75}
+  m_AnchoredPosition: {x: 61.3, y: -60.6}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &170129507
@@ -15064,6 +15075,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &181068371
 CapsuleCollider:
@@ -15171,6 +15183,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -21214,6 +21227,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 1
+  resetBone: 0
   anim: {fileID: 0}
   animDelay: {x: 1, y: 0.2}
 --- !u!65 &211185292
@@ -42245,6 +42259,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &257432042
 GameObject:
@@ -42727,6 +42742,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &262415151
 CapsuleCollider:
@@ -42900,6 +42916,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &273670803
 CapsuleCollider:
@@ -43087,6 +43104,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &276834870
 BoxCollider:
@@ -53520,6 +53538,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &289949944
 CapsuleCollider:
@@ -53693,7 +53712,7 @@ Transform:
   m_GameObject: {fileID: 291845350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5700006, y: 1.636, z: 3.8600001}
+  m_LocalPosition: {x: -2.11, y: 1.636, z: 3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53725,6 +53744,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &291845353
 CapsuleCollider:
@@ -54188,6 +54208,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &303770548
 CapsuleCollider:
@@ -54239,8 +54260,8 @@ RectTransform:
   m_GameObject: {fileID: 307591339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2087886345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54485,6 +54506,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &317764956
 CapsuleCollider:
@@ -54568,6 +54590,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &317947757
 CapsuleCollider:
@@ -55254,6 +55277,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -55322,6 +55346,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &353282289
 BoxCollider:
@@ -55689,6 +55714,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &361426997
 BoxCollider:
@@ -56132,14 +56158,14 @@ RectTransform:
   m_GameObject: {fileID: 381527895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2087886345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -50}
+  m_AnchoredPosition: {x: 150.7, y: -50}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &381527897
@@ -61548,6 +61574,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &397991161
 BoxCollider:
@@ -62162,6 +62189,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &413943270
 CapsuleCollider:
@@ -62381,6 +62409,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &419620199
 CapsuleCollider:
@@ -62735,6 +62764,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &427694927
 CapsuleCollider:
@@ -63118,6 +63148,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &443939827
 CapsuleCollider:
@@ -63199,6 +63230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canActivate: 1
   isEntered: 0
+  canSwitch: 1
   isActivated: 0
   onEnter:
     m_PersistentCalls:
@@ -63446,6 +63478,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onCanceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!23 &444070925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64236,6 +64271,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &465665486
 CapsuleCollider:
@@ -64802,6 +64838,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -70618,6 +70655,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &507635607
 BoxCollider:
@@ -86294,6 +86332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canActivate: 1
   isEntered: 0
+  canSwitch: 1
   isActivated: 0
   onEnter:
     m_PersistentCalls:
@@ -86359,6 +86398,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onReleasedDea:
+    m_PersistentCalls:
+      m_Calls: []
+  onCanceled:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &526029387
@@ -87364,6 +87406,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &555163042
 CapsuleCollider:
@@ -92750,12 +92793,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 225466053}
         m_TargetAssemblyTypeName: FlipController_V3, Assembly-CSharp
         m_MethodName: ResetTrigger
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -97906,6 +97961,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &567363513
 CapsuleCollider:
@@ -98284,6 +98340,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &576048225
 CapsuleCollider:
@@ -98736,6 +98793,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &586648879
 CapsuleCollider:
@@ -98852,6 +98910,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &594363941
 GameObject:
@@ -114035,6 +114094,88 @@ Transform:
   m_Children: []
   m_Father: {fileID: 360960994}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &609948926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609948927}
+  - component: {fileID: 609948929}
+  - component: {fileID: 609948928}
+  m_Layer: 0
+  m_Name: SM_Fence_After_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &609948927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609948926}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.38414562, z: -0, w: 0.92327255}
+  m_LocalPosition: {x: 5.05, y: 1.532, z: 1.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1551753036}
+  m_Father: {fileID: 1364537204}
+  m_LocalEulerAnglesHint: {x: 0, y: -45.181, z: 0}
+--- !u!65 &609948928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609948926}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.82, y: 1.13, z: 0.13}
+  m_Center: {x: 0, y: 0.18, z: 0}
+--- !u!114 &609948929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609948926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
+  resetBone: 0
+  mesh: []
 --- !u!1 &617396340
 GameObject:
   m_ObjectHideFlags: 0
@@ -123949,7 +124090,7 @@ Transform:
   m_GameObject: {fileID: 620427073}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0068651293, y: -0.00027338206, z: 0.039789405, w: 0.9991845}
-  m_LocalPosition: {x: -6.08, y: 1.41, z: 2.06}
+  m_LocalPosition: {x: -6.08, y: 1.41, z: 2.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123981,6 +124122,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &621571897
 GameObject:
@@ -125115,6 +125257,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &651219968
 GameObject:
@@ -125283,6 +125426,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &651880024
 CapsuleCollider:
@@ -125879,6 +126023,88 @@ Transform:
   - {fileID: 2123992028}
   m_Father: {fileID: 1161487599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &677764203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677764204}
+  - component: {fileID: 677764206}
+  - component: {fileID: 677764205}
+  m_Layer: 0
+  m_Name: SM_Fence_After_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &677764204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677764203}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.17145827, z: -0, w: 0.9851914}
+  m_LocalPosition: {x: 3.34, y: 1.641, z: 0.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1728653952}
+  m_Father: {fileID: 1364537204}
+  m_LocalEulerAnglesHint: {x: 0, y: -19.745, z: 0}
+--- !u!65 &677764205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677764203}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.82, y: 1.13, z: 0.13}
+  m_Center: {x: 0, y: 0.18, z: 0}
+--- !u!114 &677764206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677764203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
+  resetBone: 0
+  mesh: []
 --- !u!1 &686612067
 GameObject:
   m_ObjectHideFlags: 19
@@ -125908,7 +126134,6 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -125951,7 +126176,7 @@ Transform:
   m_GameObject: {fileID: 688601717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.040000122, y: 1.43, z: 1.1300001}
+  m_LocalPosition: {x: 0.809, y: 1.466, z: 1.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -125983,6 +126208,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &688601720
 CapsuleCollider:
@@ -126914,6 +127140,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -132600,6 +132827,7 @@ MonoBehaviour:
   trackingColl: {fileID: 0}
   pressingColl: {fileID: 0}
   releasingColl: {fileID: 0}
+  hitPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &736794932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133320,6 +133548,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &746094562
 CapsuleCollider:
@@ -133579,6 +133808,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!135 &765334841
 SphereCollider:
@@ -139704,6 +139934,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &802932174
 CapsuleCollider:
@@ -139787,6 +140018,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &804695856
 CapsuleCollider:
@@ -139811,6 +140043,100 @@ CapsuleCollider:
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!1001 &807619888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1110919497}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9987744
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003445893
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.049494565
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5.674
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.000000604894
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.005597945
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.00059855
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e184838828b406418c0a24bd9fd70dd, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_Name
+      value: SM_Fence_After
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+--- !u!4 &807619889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+  m_PrefabInstance: {fileID: 807619888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &808228716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140106,6 +140432,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &827797115
 GameObject:
@@ -145988,6 +146315,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &855120276
 BoxCollider:
@@ -153103,6 +153431,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &962668036
 GameObject:
@@ -164066,6 +164395,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -169533,6 +169863,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -175375,6 +175706,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!4 &1069885500 stripped
 Transform:
@@ -175538,6 +175870,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 1, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -175841,6 +176174,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1092560908
 CapsuleCollider:
@@ -175924,6 +176258,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1098386543
 BoxCollider:
@@ -181015,6 +181350,88 @@ Transform:
   - {fileID: 1995890905}
   m_Father: {fileID: 559071770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1110919496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110919497}
+  - component: {fileID: 1110919499}
+  - component: {fileID: 1110919498}
+  m_Layer: 0
+  m_Name: SM_Fence_After
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110919497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110919496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.25, y: 1.54, z: 0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 807619889}
+  m_Father: {fileID: 1364537204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1110919498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110919496}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.82, y: 1.13, z: 0.13}
+  m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!114 &1110919499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110919496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218122ec9bed87c49b2fccc5f30d3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  isRight: 0
+  height: 0
+  stand: {fileID: 0}
+  closeBone: {fileID: 0}
+  closeIndex: 0
+  isCurrent: 0
+  isStatic: 0
+  isActivate: 0
+  coll: []
+  children: []
+  heightDelay: {x: 0, y: 0}
+  activateInHeight: 0
+  resetBone: 0
+  mesh: []
 --- !u!1 &1111303922
 GameObject:
   m_ObjectHideFlags: 0
@@ -181412,6 +181829,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1130121685
 BoxCollider:
@@ -181514,6 +181932,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1138810421
 CapsuleCollider:
@@ -181621,6 +182040,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1148644705
 GameObject:
@@ -181710,31 +182130,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.028189084
+      value: -0.5494757
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.06207177
+      value: 0.59942245
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7043771
+      value: -0.36652753
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7065447
+      value: -0.45213568
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -97.321
+      value: -98.038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -264.788
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -87.24899
+      value: -24.266998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4677eb1e0aa35431c901bb9279691ea8, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -182056,6 +182476,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -182185,6 +182606,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1175027145
 CapsuleCollider:
@@ -183271,6 +183693,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -183409,6 +183832,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1202312269
 BoxCollider:
@@ -183900,6 +184324,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1218216341
 CapsuleCollider:
@@ -184107,6 +184532,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -184196,6 +184622,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 1
+  resetBone: 0
   anim: {fileID: 0}
   animDelay: {x: 1, y: 0.2}
 --- !u!65 &1247794858
@@ -184419,7 +184846,7 @@ Transform:
   m_GameObject: {fileID: 1255769516}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8, y: 1.622, z: 2.22}
+  m_LocalPosition: {x: -5.8, y: 1.622, z: 2.5800002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -184454,6 +184881,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -190550,6 +190978,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1310400712
 GameObject:
@@ -191103,6 +191532,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1321588340
 BoxCollider:
@@ -196948,6 +197378,9 @@ Transform:
   - {fileID: 1594269021}
   - {fileID: 465665484}
   - {fileID: 1780877707}
+  - {fileID: 1110919497}
+  - {fileID: 677764204}
+  - {fileID: 609948927}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1364934048
@@ -197746,6 +198179,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!135 &1384949018
 SphereCollider:
@@ -197827,6 +198261,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1386762396
 CapsuleCollider:
@@ -197910,6 +198345,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1389277262
 CapsuleCollider:
@@ -198076,6 +198512,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1393008594
 CapsuleCollider:
@@ -198205,6 +198642,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 1, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -198491,6 +198929,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -203798,6 +204237,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1432604799
 CapsuleCollider:
@@ -204069,6 +204509,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1438929475
 GameObject:
@@ -205698,6 +206139,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1466727198
 GameObject:
@@ -205791,6 +206233,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -206070,6 +206513,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1479803889
 CapsuleCollider:
@@ -206859,6 +207303,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1514037190
 CapsuleCollider:
@@ -207095,6 +207540,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1519973364
 CapsuleCollider:
@@ -207477,6 +207923,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1527409541
 CapsuleCollider:
@@ -207562,6 +208009,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -207654,6 +208102,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -207769,6 +208218,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 1, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -208178,6 +208628,100 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   delay: 0
+--- !u!1001 &1551753035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 609948927}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.000000604894
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.005597945
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.00059855
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e184838828b406418c0a24bd9fd70dd, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_Name
+      value: SM_Fence_After
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+--- !u!4 &1551753036 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+  m_PrefabInstance: {fileID: 1551753035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1552797221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213251,6 +213795,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1559360730
 CapsuleCollider:
@@ -213434,6 +213979,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1573134506
 CapsuleCollider:
@@ -214279,6 +214825,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1594269023
 CapsuleCollider:
@@ -219897,6 +220444,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1615985866
 CapsuleCollider:
@@ -220102,6 +220650,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1618943598
 CapsuleCollider:
@@ -225302,7 +225851,7 @@ Transform:
   m_GameObject: {fileID: 1632465448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.409, y: 1.454, z: 3.19}
+  m_LocalPosition: {x: 1.58, y: 1.5, z: 3.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -225334,6 +225883,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1632465451
 CapsuleCollider:
@@ -225416,6 +225966,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1635881628
 GameObject:
@@ -225477,6 +226028,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1635881631
 BoxCollider:
@@ -226106,6 +226658,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1659629492
 BoxCollider:
@@ -226468,6 +227021,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1672496560
 GameObject:
@@ -227067,6 +227621,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1684888761
 GameObject:
@@ -227456,6 +228011,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -227791,6 +228347,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -228067,6 +228624,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1708983067
 CapsuleCollider:
@@ -228701,6 +229259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canActivate: 1
   isEntered: 0
+  canSwitch: 0
   isActivated: 0
   onEnter:
     m_PersistentCalls:
@@ -228804,6 +229363,9 @@ MonoBehaviour:
   onReleasedDea:
     m_PersistentCalls:
       m_Calls: []
+  onCanceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1728362801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -228879,6 +229441,100 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728362798}
   m_Mesh: {fileID: 8041318160276472071, guid: de257612a77d8524c9513a4349f48f5f, type: 3}
+--- !u!1001 &1728653951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 677764204}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003434252
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00020879308
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.000000604894
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.005597945
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002558315
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.00059855
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e184838828b406418c0a24bd9fd70dd, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+      propertyPath: m_Name
+      value: SM_Fence_After
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+--- !u!4 &1728653952 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88549ff3dd95c6246b328927ecda5161, type: 3}
+  m_PrefabInstance: {fileID: 1728653951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1730457301
 GameObject:
   m_ObjectHideFlags: 0
@@ -228938,6 +229594,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1730457304
 BoxCollider:
@@ -229249,6 +229906,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 1, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -229344,6 +230002,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1745531789
 CapsuleCollider:
@@ -229741,6 +230400,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1756869931
 CapsuleCollider:
@@ -229984,6 +230644,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   plane: {fileID: 0}
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
@@ -230245,6 +230906,7 @@ GameObject:
   - component: {fileID: 1780853807}
   - component: {fileID: 1780853805}
   - component: {fileID: 1780853804}
+  - component: {fileID: 1780853808}
   m_Layer: 7
   m_Name: Bookmark
   m_TagString: Untagged
@@ -230275,7 +230937,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780853801}
-  m_Material: {fileID: 13400000, guid: 980f6506fc59b1b428b496a1a53e37bc, type: 2}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -230341,6 +231003,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!114 &1780853807
 MonoBehaviour:
@@ -230385,6 +231048,27 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isEntered: 0
+--- !u!65 &1780853808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780853801}
+  m_Material: {fileID: 13400000, guid: 980f6506fc59b1b428b496a1a53e37bc, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.59, y: 0.1, z: 5.69}
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1 &1780877706
 GameObject:
   m_ObjectHideFlags: 0
@@ -230530,6 +231214,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!135 &1781819916
 SphereCollider:
@@ -241002,6 +241687,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.5, y: -0.3}
   activateInHeight: 1
+  resetBone: 0
   anim: {fileID: 0}
   animDelay: {x: 0.5, y: 1.2}
 --- !u!65 &1801021086
@@ -241084,6 +241770,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1801170741
 CapsuleCollider:
@@ -261883,6 +262570,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1824278429
 BoxCollider:
@@ -262286,6 +262974,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1832551516
 BoxCollider:
@@ -269118,6 +269807,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1884122829
 CapsuleCollider:
@@ -269287,6 +269977,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &1889428649
 CapsuleCollider:
@@ -270879,7 +271570,7 @@ Transform:
   m_GameObject: {fileID: 1940973809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.38304755, z: -0, w: 0.92372864}
-  m_LocalPosition: {x: -6.08, y: 2.48, z: 2.06}
+  m_LocalPosition: {x: -6.08, y: 2.48, z: 2.42}
   m_LocalScale: {x: 1.182, y: 1, z: 1.437}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -270932,6 +271623,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &1941422201
 GameObject:
@@ -277945,6 +278637,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &1991830082
 BoxCollider:
@@ -293463,6 +294156,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!65 &2018624167
 BoxCollider:
@@ -294011,6 +294705,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0.3, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &2022056294
 GameObject:
@@ -299164,6 +299859,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &2032009487
 CapsuleCollider:
@@ -305917,6 +306613,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &2099370673
 CapsuleCollider:
@@ -306178,6 +306875,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!136 &2103803633
 CapsuleCollider:
@@ -307407,14 +308105,14 @@ RectTransform:
   m_GameObject: {fileID: 2125719443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2087886345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
+  m_AnchoredPosition: {x: 102.74, y: -50}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2125719445
@@ -307545,6 +308243,7 @@ MonoBehaviour:
   children: []
   heightDelay: {x: 0, y: 0}
   activateInHeight: 0
+  resetBone: 0
   mesh: []
 --- !u!1 &2133001466
 GameObject:

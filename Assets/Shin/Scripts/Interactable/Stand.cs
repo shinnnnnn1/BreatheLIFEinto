@@ -3,9 +3,9 @@ using UnityEngine.Events;
 
 public class Stand : MonoBehaviour, ICursorInteractable
 {
-    public bool canActivate, isEntered, isActivated;
+    public bool canActivate, isEntered, canSwitch, isActivated;
     [SerializeField] UnityEvent onEnter, onExit, 
-        onPressedA, onReleasedA, onPressedDea, onReleasedDea;
+        onPressedA, onReleasedA, onPressedDea, onReleasedDea, onCanceled;
 
     public virtual void OnEnter()
     {
@@ -28,16 +28,20 @@ public class Stand : MonoBehaviour, ICursorInteractable
 
         if(isActivated)
         {
+            Debug.Log("PressedD");
             onPressedDea.Invoke();
         }
         else
         {
+            Debug.Log("PressedA");
             onPressedA.Invoke();
         }
     }
     public virtual void OnReleased()
     {
         if (!canActivate) { return; }
+
+        Debug.Log("Released");
 
         if (isActivated)
         {
@@ -48,7 +52,15 @@ public class Stand : MonoBehaviour, ICursorInteractable
             onReleasedA.Invoke();
         }
 
-        isActivated = !isActivated;
+        if(canSwitch)
+        {
+            isActivated = !isActivated;
+        }
+    }
+
+    public void OnCanceled()
+    {
+        onCanceled.Invoke();
     }
 
 
