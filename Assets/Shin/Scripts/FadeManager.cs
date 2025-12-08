@@ -9,22 +9,23 @@ public class FadeManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log(gameObject.name);
         instance = this;
     }
 
     [SerializeField] Image fadeImage;
-    [SerializeField] float fadeDuration;
-    [SerializeField] Ease ease;
+    [SerializeField] float InDuration, outDuration;
+    [SerializeField] Ease inEase, outEase;
 
     public void FadeIn()
     {
         fadeImage.gameObject.SetActive(true);
-        fadeImage.DOFade(0, fadeDuration).SetEase(ease);
+        fadeImage.DOFade(0, InDuration).SetEase(inEase);
     }
     public void FadeOut()
     {
         fadeImage.gameObject.SetActive(true);
-        fadeImage.DOFade(1, fadeDuration).SetEase(ease);
+        fadeImage.DOFade(1, outDuration).SetEase(outEase);
     }
 
     private void Start()

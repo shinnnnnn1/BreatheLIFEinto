@@ -15,4 +15,9 @@ public class TitleBookButton : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         onDeselect.Invoke();
     }
+
+    public void _ChangeSceneTrigger(int sceneNum)
+    {
+        GameManager.Instance.ChangeScene(sceneNum);
+    }
 }

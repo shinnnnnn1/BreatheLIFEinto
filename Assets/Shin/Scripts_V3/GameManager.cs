@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,10 +21,33 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    [SerializeField] float sceneChangeDelay = 1.0f;
+    [SerializeField] bool[] canPlay = { true, false, false };
+
+    int nextScene;
+
+    void OnEnable()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAA = " + gameObject.name);
+        Debug.Log(gameObject.name);
+
+        // can Play to set interactable book
+
+        //Find Title Script and Method Go if Title Script is this scene.
+
     }
 
-    [SerializeField] bool[] canPlay = { true, false, false };
+    public void ChangeScene(int sceneNum)
+    {
+        nextScene = sceneNum;
+        Invoke("LoadScene", sceneChangeDelay);
+    }
+    void LoadScene()
+    {
+        SceneManager.LoadScene(nextScene);
+    }
+
+    public void SetCanPlay(int scene)
+    {
+        canPlay[scene] = true;
+    }
 }
