@@ -1,3 +1,4 @@
+using System.Transactions;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,15 +31,16 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
 
-    [SerializeField] Collider trackingColl, pressingColl, releasingColl;
+
+    [SerializeField] Collider currentColl, trackingColl, pressingColl, releasingColl;
 
     ICursorInteractable cursorInteractable;
     RaycastHit hit;
 
     public Vector3 hitPoint;
 
-    bool setStart = false;
-    bool canChange = false;
+    [SerializeField] bool setStart = false;
+    [SerializeField] bool canChange = false;
 
     void Start()
     {
@@ -71,8 +73,11 @@ public class VirtualMouseController : MonoBehaviour
             CursorPadding();
         }
 
-        if (isPressing && trackingColl == null && pressingColl == null)
+        //누른채로 커서가 너무 빨라서 튕긴 상황
+        //누른 상황 + currentColl이 있는데 Tracking Pressing Coll 은 없는 상황?
+        if (isPressing &&  currentColl != null&& trackingColl == null && pressingColl == null)
         {
+            //나중에 이 조건 다시 설명해야될듯?
             OnCanceled();
         }
 
@@ -100,10 +105,12 @@ public class VirtualMouseController : MonoBehaviour
         model.isCursorMode = activate;
         virtualMouseInput.enabled = activate;
         view.SetCursorVisible(activate);
+        /*
         foreach (GraphicRaycaster r in raycasters)
         {
             r.enabled = activate;
         }
+        */
 
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
     }
@@ -146,30 +153,46 @@ public class VirtualMouseController : MonoBehaviour
 
         view.UpdateRay(origin, direction, model.interactingDistance, IsHit());
 
+        //레이를 막는. 타겟안되게 하는 콜라이더에 막히면 리턴하는 조건
+        //if (IsIgnore()) { view.ChangeCursorImage(0); return; }
+
+        //누르고있는 상태에선 리턴
         if (isPressing) { return; }
 
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
+        //TrackingColl이 없다가 생겼을때 TrackingColl이 있을때
         if (trackingColl != null)
-       {
+        {
+            //CursorInteractable도 없다면
             if (cursorInteractable == null)
             {
+                currentColl = trackingColl;
                 cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
                 cursorInteractable?.OnEnter();
             }
-       }
-       else if(cursorInteractable != null)
-       {
+            //TrackingColl은 있는데 CurrentColl와 다를때
+            else if (currentColl != trackingColl)
+            {
+                currentColl = trackingColl;
+                cursorInteractable?.OnExit();
+                cursorInteractable = trackingColl.GetComponent<ICursorInteractable>();
+                cursorInteractable?.OnEnter();
+            }
+        }
+        //TrackingColl은 없고 CursorInteractable만 남았을때
+        else if (cursorInteractable != null)
+        {
             cursorInteractable?.OnExit();
             cursorInteractable = null;
-       }
+            currentColl = null;
+        }
     }
 
     public void OnPressed()
     {
         isPressing = true;
         view.ChangeCursorImage(1);
-
         
         if (trackingColl != null && trackingColl != pressingColl)
         {
@@ -180,11 +203,11 @@ public class VirtualMouseController : MonoBehaviour
     public void OnReleased()
     {
         isPressing = false;
+
         if(trackingColl != null && trackingColl == pressingColl)
         {
             pressingColl = null;
             cursorInteractable.OnReleased();
-
         }
     }
 
@@ -192,6 +215,7 @@ public class VirtualMouseController : MonoBehaviour
     {
         cursorInteractable?.OnCanceled();
         isPressing = false;
+        currentColl = null;
         view.ChangeCursorImage(0);
     }
 
@@ -201,7 +225,12 @@ public class VirtualMouseController : MonoBehaviour
     {
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
-        if (Physics.Raycast(origin, direction, out hit, model.interactingDistance, model.interactableLayerMask))
+        if(IsIgnore())
+        {
+            ResetTracking();
+            return false;
+        }
+        if (Physics.Raycast(origin, direction, out hit, model.interactingDistance, model.interactableLayerMask) )
         {
             trackingColl = hit.collider;
             hitPoint = hit.point;
@@ -210,6 +239,20 @@ public class VirtualMouseController : MonoBehaviour
         else
         {
             ResetTracking();
+            return false;
+        }
+    }
+
+    bool IsIgnore()
+    {
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = (cursor.position - origin).normalized;
+        if (Physics.Raycast(origin, direction, out hit, model.interactingDistance, model.ignoreLayerMask))
+        {
+            return true;
+        }
+        else
+        {
             return false;
         }
     }

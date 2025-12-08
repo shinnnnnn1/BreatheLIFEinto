@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2055e9d92891dd54eaf06304cc392eab, type: 3}
   m_Name: VirtualMouseModel
   m_EditorClassIdentifier: 
-  canControllCursor: 0
+  isCursorMode: 1
   cursorSpeed: 1000
   cursorPadding: 30
-  interactingDistance: 50
+  interactingDistance: 100
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  ignoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 4

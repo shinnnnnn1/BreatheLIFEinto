@@ -5,9 +5,9 @@ using UnityEngine.InputSystem.UI;
 
 public class VirtualMouseView : MonoBehaviour
 {
-    VirtualMouseInput virtualMouseInput;
-    RectTransform cursor;
-    Image cursorImage;
+    [SerializeField] VirtualMouseInput virtualMouseInput;
+    [SerializeField] RectTransform cursor;
+    [SerializeField] Image cursorImage;
 
     public Sprite[] cursorImages;
 

@@ -11,4 +11,5 @@ public class VirtualMouseModel : ScriptableObject
 
     public float interactingDistance = 20f;
     public LayerMask interactableLayerMask;
+    public LayerMask ignoreLayerMask;
 }

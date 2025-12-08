@@ -84,7 +84,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         rigid = GetComponent<Rigidbody>();
         view = GetComponent<PlayerView_V3>();
         joint = GetComponentInChildren<ConfigurableJoint>();
-        bookController = GameObject.FindGameObjectWithTag("BookController").GetComponent<IBookController>();
+        bookController = GameObject.FindGameObjectWithTag("BookController")?.GetComponent<IBookController>();
 
         //コライダーを参照し、詳細を設定
         boxColl = GetComponent<BoxCollider>();
@@ -107,7 +107,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //開発用。本がない場合の初期化
         else
         {
-            SetCanMove(true);
+            SetCanMove(false);
             SetPlayerVisible(true);
         }
     }
