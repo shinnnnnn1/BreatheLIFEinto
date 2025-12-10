@@ -22,19 +22,9 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField] float sceneChangeDelay = 1.0f;
-    [SerializeField] bool[] canPlay = { true, false, false };
+    public bool[] canPlay = { true, false, false };
 
     int nextScene;
-
-    void OnEnable()
-    {
-        Debug.Log(gameObject.name);
-
-        // can Play to set interactable book
-
-        //Find Title Script and Method Go if Title Script is this scene.
-
-    }
 
     public void ChangeScene(int sceneNum)
     {

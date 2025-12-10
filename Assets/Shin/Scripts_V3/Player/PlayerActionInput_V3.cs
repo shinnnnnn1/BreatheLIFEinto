@@ -55,7 +55,7 @@ public class PlayerActionInput_V3 : MonoBehaviour
     {
         if (context.performed)
         {
-            controller.PlayerFlipTrigger();
+            //controller.PlayerFlipTrigger();
         }
     }
     public void InputAnyKey(InputAction.CallbackContext context)
