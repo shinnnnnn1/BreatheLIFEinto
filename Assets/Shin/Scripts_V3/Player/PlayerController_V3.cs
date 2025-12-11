@@ -38,7 +38,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     //엔딩때 Flip 후 Open할때 캐릭터 안보이게하는,
     //헨젤과 그레텔 처음에 나올때 안보이게 하는거
-    // 즉 플립 후에 나오긴 하지만 투명한 상태. 이벤트로 다시 수동으로 나오는 모션을 만들든지 해야함
+    //즉 플립 후에 나오긴 하지만 투명한 상태. 이벤트로 다시 수동으로 나오는 모션을 만들든지 해야함
     [SerializeField] bool flipVisible = true;
 
     //会話
@@ -55,7 +55,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     bool isPulling = false;
 
     Vector3 tension;
-    float angleAccuracy;
+    [SerializeField] float angleAccuracy;
 
     [SerializeField] ConfigurableJoint joint;
     [SerializeField] Rigidbody targetRigid;
@@ -232,7 +232,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             if (IsHit())
             {
                 interactable = hit.collider.GetComponent<IInteractable>();
-                interactable.OnEnter(model.isRight);
+                interactable?.OnEnter(model.isRight);
             }
             else if (!IsHit() && interactable != null)
             {
@@ -246,7 +246,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         if (model.canMove)
         {
-            zoom_Current_Target_Speed.y -= zoomDirection.y;
+            zoom_Current_Target_Speed.y -= zoomDirection.x;
         }
 
         zoom_Current_Target_Speed.y =
@@ -353,6 +353,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             view.SetPlayerAnim("IsPulling", false);
         }
     }
+
+    public bool IsPulling()
+    {
+        return isPulling;
+    }
     #endregion
 
     #region JUMP ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -412,8 +417,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         {
             SetHoldingInfo(true);
 
-            
-
             pullable = hit.collider.GetComponent<IPullable>();
 
             //IPullableがあるなら
@@ -444,6 +447,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (!model.canMove) { return; }
         if (model.isHolding)
         {
+            angleAccuracy = 0;
+
             SetHoldingInfo(false);
             ResetJoint();
 
@@ -642,6 +647,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     /// </summary>
     /// <param name="trigger"></param>
     public void SetPlayerAnimation(string trigger) => view.SetPlayerAnim(trigger);
+    public void SetPlayerAnimation(string trigger, bool boo) => view.SetPlayerAnim(trigger, boo);
 
     public void SetPlayerFlipVisible(bool isVisible) => flipVisible = isVisible;
     public void SetZoomValue(float value) => zoom_Current_Target_Speed.y = value;

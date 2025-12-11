@@ -264,7 +264,7 @@
                 {
                     "name": "",
                     "id": "9e443829-a2a9-4fb6-84b4-69e2667662ba",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -308,7 +308,7 @@
                 {
                     "name": "",
                     "id": "538dc3ba-7fa3-41a6-a211-c8641d2fcdc8",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -516,6 +516,50 @@
                 },
                 {
                     "name": "",
+                    "id": "0361651a-ac47-40b8-8794-4be27ebb4a1c",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fe79885-d430-4b88-af62-903bdef2f68d",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09485414-be79-4cb2-98d0-3e479f7ae318",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80fd3b17-e760-4448-bc82-94082f961fb4",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "af7ca6ef-1a43-496d-8008-7224f86870da",
                     "path": "<Keyboard>/z",
                     "interactions": "",
@@ -528,7 +572,7 @@
                 {
                     "name": "",
                     "id": "c7d7996f-b750-4c54-9d21-147c2e477c7c",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -550,7 +594,7 @@
                 {
                     "name": "",
                     "id": "82f3dbb2-0a3d-468c-8e69-c01f8685de95",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -671,6 +715,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "e5d6588f-46cd-4a08-8dec-05005b53d99d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1083,6 +1136,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1cee386a-9e21-4ea2-a1c7-3604ae188a92",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "076ace10-aa86-4b58-b0e2-50ebccb9d60f",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -1095,13 +1159,68 @@
                 {
                     "name": "",
                     "id": "b9a95578-e5e1-417f-8530-11ce6bed5c37",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cd707fe-5f48-4802-898a-97cc525515de",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "335033ac-5135-45c2-9c52-dd57366ec50e",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "5bf53ee4-0502-440f-b1df-d98889ec6585",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "d81ec6a1-fd8e-4b21-b9c5-3dc749048aa9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "7756f183-23cc-4258-8d07-9c458b808459",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

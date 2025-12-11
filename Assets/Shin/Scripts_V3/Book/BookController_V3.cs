@@ -3,15 +3,17 @@ using System.Collections;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BookController_V3 : MonoBehaviour, IBookController
 {
     [Space(20f)]
+    [SerializeField] [Range(0, 3)] int currentScene;
     [SerializeField] BookModel_V3 model;
     [SerializeField] BookDelay bookDelay;
     [SerializeField] CinemachineCamera cursorCam;
-    [SerializeField] Image[] turnUI;
+    //[SerializeField] Image[] turnUI;
 
     [Space(10f)]
     [SerializeField] Transform objectParent;
@@ -28,7 +30,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
     bool isFlipping;
     float cTime;
 
-    [SerializeField] int bookDir;
+    [SerializeField] UnityEvent onTurnBook, afterTurnBook;
+    //pullableObject_V3 에서만 참조.
+    public int bookDir;
     bool isBookTurning;
 
     BookView_V3 view;
@@ -39,6 +43,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IBookObject[] bookObjects;
     [SerializeField] MonoBehaviour[] objects;
+
+    [SerializeField] UnityEvent onStart, onEnd, onCompleted;
 
 
     #region STARTーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -383,6 +389,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         LockObjects(true);
         playerController.LockPlayer(true, pageL, pageR);
 
+        onTurnBook.Invoke();
         Invoke("AfterTurnBook", model.rotTime);
     }
 
@@ -391,6 +398,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         flipController.CheckIsBookHorizontal(bookDir);
         isBookTurning = false;
 
+        afterTurnBook.Invoke();
         Invoke("LockFalse", 0.1f);
     }
 
@@ -458,13 +466,16 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(3f);
 
-        turnUI[0].DOFade(1, 1);
-        turnUI[1].DOFade(1, 1);
+
+        //turnUI[0].DOFade(1, 1);
+        //turnUI[1].DOFade(1, 1);
+        onStart.Invoke();
     }
     IEnumerator EndPage()
     {
-        turnUI[0].DOFade(0, 1);
-        turnUI[1].DOFade(0, 1);
+        //turnUI[0].DOFade(0, 1);
+        //turnUI[1].DOFade(0, 1);
+        onEnd.Invoke();
 
         view.MoveBookPosition(new Vector3(5, 0, 0), 2f);
 
@@ -491,10 +502,14 @@ public class BookController_V3 : MonoBehaviour, IBookController
         yield return new WaitForSeconds(0.5f);
         transform.DOMoveX(-5, 1.5f).SetEase(Ease.OutCubic);
 
-        yield return new WaitForSeconds(2f);
-        FadeManager.Instance.FadeOut();
         yield return new WaitForSeconds(3f);
-        Debug.Log("End");
+        FadeManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.Instance.SetCanPlay(currentScene);
+        GameManager.Instance.ChangeScene(0);
+
     }
 
     void OnDrawGizmos()

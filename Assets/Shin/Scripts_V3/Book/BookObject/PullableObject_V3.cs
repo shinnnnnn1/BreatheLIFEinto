@@ -6,6 +6,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 {
     [SerializeField] UnityEvent onEnter, onExit, tryActivate, onPull, onActivate;
     [SerializeField] Animator anim;
+    [SerializeField] BookController_V3 bookController;
+    [SerializeField] BoxCollider coll;
     PlayerController_V3 player;
 
     [Space(10f)]
@@ -39,9 +41,13 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
     [SerializeField] bool isActivated;
     [SerializeField] bool canPull;
 
+    [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
+
     void Start()
     {
         defaultPullValue = pullValue;
+        coll = GetComponent<BoxCollider>();
+        CheckDirectional();
     }
 
     public void OnEnter(bool isRight)
@@ -81,12 +87,13 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         //DOTWEEN으로 플레이어를 이동시킴. 이때는 걷는 모션을 재생시킴.
         //(리틀나이트메어도 목표를 향해 회전, 이동을 함. 비슷한 느낌)
         //목표에 도달했다면 당기는 모션으로 바뀌며 당기기 가능.
-        if (playerPos == targetPos)
+        if (Vector3.Distance(playerPos, targetPos) < 0.05f)
         {
             SetCanPull();
         }
         else
         {
+            player.transform.DOPause();
             player.SetPlayerAnimation("Walk");
             player.transform.DOLocalMove(targetPos, time).SetEase(Ease.Linear).OnComplete(SetCanPull);
         }
@@ -102,7 +109,7 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         anim.enabled = true;
         anim.speed = 0;
         //당겨지는 오브젝트의 애니메이션의 재생
-        anim.SetTrigger("StartAnim");
+        player.SetPlayerAnimation("IsPulling", true);
 
         //플레이어의 이동을 제한
         player.SetConstraints(isDirX);
@@ -188,5 +195,17 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position + position, 0.1f);
+    }
+
+    public void CheckDirectional()
+    {
+        if (isDirectional[bookController.bookDir + 2])
+        {
+            coll.enabled = true;
+        }
+        else
+        {
+            coll.enabled = false;
+        }
     }
 }

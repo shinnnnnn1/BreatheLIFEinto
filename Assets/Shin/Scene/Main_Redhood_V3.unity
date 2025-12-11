@@ -31622,7 +31622,7 @@ MonoBehaviour:
   isBookHorizontal: 1
   currentTrigger: 0
   triggers: []
-  proceedImage: {fileID: 1947645076}
+  proceedImage: {fileID: 1947645078}
 --- !u!1 &228107691
 GameObject:
   m_ObjectHideFlags: 0
@@ -54169,6 +54169,7 @@ GameObject:
   - component: {fileID: 307591340}
   - component: {fileID: 307591342}
   - component: {fileID: 307591341}
+  - component: {fileID: 307591343}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -54233,6 +54234,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307591339}
   m_CullTransparentMesh: 1
+--- !u!114 &307591343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307591339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 1
+  currentValue: 0
 --- !u!1 &314858865
 GameObject:
   m_ObjectHideFlags: 0
@@ -56067,6 +56082,7 @@ GameObject:
   - component: {fileID: 381527896}
   - component: {fileID: 381527898}
   - component: {fileID: 381527897}
+  - component: {fileID: 381527899}
   m_Layer: 5
   m_Name: Image_2
   m_TagString: Untagged
@@ -56105,7 +56121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 57c43ce2560d1724a9e876c7a6982eb0, type: 2}
+  m_Material: {fileID: 2100000, guid: 16e1b9eb9e8ee3942b5adfa22cd7093e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -56131,6 +56147,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381527895}
   m_CullTransparentMesh: 1
+--- !u!114 &381527899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381527895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 1
+  currentValue: 0
 --- !u!1 &385172952
 GameObject:
   m_ObjectHideFlags: 0
@@ -62566,6 +62596,7 @@ GameObject:
   - component: {fileID: 425740857}
   - component: {fileID: 425740859}
   - component: {fileID: 425740858}
+  - component: {fileID: 425740860}
   m_Layer: 5
   m_Name: LeftTurn
   m_TagString: Untagged
@@ -62630,6 +62661,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425740856}
   m_CullTransparentMesh: 1
+--- !u!114 &425740860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425740856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 0
+  currentValue: 0
 --- !u!1 &427694924
 GameObject:
   m_ObjectHideFlags: 0
@@ -92346,9 +92391,6 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: f21b0f00ff94fd34c942c46183206941, type: 2}
   bookDelay: {fileID: 11400000, guid: 3a7250e66664e6e439e778312993d2a8, type: 2}
   cursorCam: {fileID: 2038925321}
-  turnUI:
-  - {fileID: 0}
-  - {fileID: 1213885525}
   objectParent: {fileID: 871270525}
   bones:
   - {fileID: 802870358}
@@ -92375,6 +92417,36 @@ MonoBehaviour:
   flipTime: 0
   bookDir: 0
   objects: []
+  onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425740860}
+        m_TargetAssemblyTypeName: FadeUI, Assembly-CSharp
+        m_MethodName: Fade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425740860}
+        m_TargetAssemblyTypeName: FadeUI, Assembly-CSharp
+        m_MethodName: Fade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &559071772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208341,8 +208413,9 @@ GameObject:
   - component: {fileID: 1545313729}
   - component: {fileID: 1545313731}
   - component: {fileID: 1545313730}
+  - component: {fileID: 1545313732}
   m_Layer: 5
-  m_Name: Image_4
+  m_Name: Image_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208379,7 +208452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 572a0173b5f2adf4ca09f2dc9605b281, type: 2}
+  m_Material: {fileID: 2100000, guid: 981a6cbff6421dc46a541abd5d7344ad, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -208405,6 +208478,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545313728}
   m_CullTransparentMesh: 1
+--- !u!114 &1545313732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545313728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 1
+  currentValue: 0
 --- !u!1 &1545717536
 GameObject:
   m_ObjectHideFlags: 0
@@ -227632,7 +227719,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684404783}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -268388,13 +268475,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657915f4034cdb54c8e4523a836a6aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  images: []
   events: []
   ui:
-  - {fileID: 307591341}
-  - {fileID: 2125719445}
-  - {fileID: 381527897}
-  - {fileID: 1545313730}
+  - {fileID: 307591343}
+  - {fileID: 2125719447}
+  - {fileID: 381527899}
+  - {fileID: 1545313732}
 --- !u!4 &1844648346
 Transform:
   m_ObjectHideFlags: 0
@@ -272153,6 +272239,7 @@ GameObject:
   - component: {fileID: 1947645075}
   - component: {fileID: 1947645077}
   - component: {fileID: 1947645076}
+  - component: {fileID: 1947645078}
   m_Layer: 5
   m_Name: ProceedImage
   m_TagString: Untagged
@@ -272217,6 +272304,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947645074}
   m_CullTransparentMesh: 1
+--- !u!114 &1947645078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947645074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 0
+  currentValue: 0
 --- !u!1 &1952812851
 GameObject:
   m_ObjectHideFlags: 0
@@ -308180,7 +308281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 57c43ce2560d1724a9e876c7a6982eb0, type: 2}
+  m_Material: {fileID: 2100000, guid: ce8ad23a31eda9f4ba9dddaf2a02b79a, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -308215,23 +308316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125719443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d036027530a59046a093f146abcfc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 20
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  startValue: 1
+  currentValue: 0
 --- !u!1 &2131086712
 GameObject:
   m_ObjectHideFlags: 0

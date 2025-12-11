@@ -23,6 +23,7 @@ public class DialogueManager_V3 : MonoBehaviour
 
     [Space(10f)]
     [SerializeField] Sprite[] bubbleType;
+    [SerializeField] Material[] matPreset;
     [SerializeField] float defaultAutoDelay = 1f;
 
     [Space(10f)]
@@ -122,6 +123,7 @@ public class DialogueManager_V3 : MonoBehaviour
             {
                 emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_MiddleEmotion[current].x);
             }
+            
 
             //イベントがある場合、再生
             if (d.events[current].x > 0) { EventManager_V3.Instance.InvokeEvent((int)d.events[current].x); }
@@ -142,6 +144,9 @@ public class DialogueManager_V3 : MonoBehaviour
 
             //フォントのサイズを変更
             currentText.fontSize = d.isAuto_AutoDelay_FontSize[current].z > 0 ? d.isAuto_AutoDelay_FontSize[current].z : 10;
+
+            //フォントの色（マテリアル）を変更
+            currentText.fontMaterial = d.matPreset[current].x > 0 ? matPreset[1] : matPreset[0];
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);

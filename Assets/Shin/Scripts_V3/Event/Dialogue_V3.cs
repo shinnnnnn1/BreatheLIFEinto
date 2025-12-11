@@ -14,6 +14,7 @@ public class Dialogue_V3 : ScriptableObject
     public Vector2[] delay;
     public Vector3[] isAuto_AutoDelay_FontSize;
     public Vector3[] talkerID_IsInvisible_IsDialogueMotion;
+    public Vector3[] matPreset;
 
     public Vector3[] events;
     public int startEvent;

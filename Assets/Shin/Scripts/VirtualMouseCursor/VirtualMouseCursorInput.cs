@@ -40,4 +40,9 @@ public class VirtualMouseCursorInput : MonoBehaviour
             controller.SetCursorMode(false);
         }
     }
+
+    public void InputZoom(InputAction.CallbackContext context)
+    {
+        controller.zoomDirection = context.ReadValue<Vector2>();
+    }
 }

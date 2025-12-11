@@ -14,7 +14,11 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] PlayerModel_V3 playerModel;
     [SerializeField] VirtualMouseModel model;
     [SerializeField] CinemachineCamera cursorCam;
-    [SerializeField] GraphicRaycaster[] raycasters;
+    [SerializeField] MeshCollider cursorConfiner;
+    [SerializeField] float confinerZ;
+    [SerializeField] float currentZ;
+
+    public Vector2 zoomDirection;
 
     VirtualMouseView view;
     VirtualMouseInput virtualMouseInput;
@@ -48,6 +52,7 @@ public class VirtualMouseController : MonoBehaviour
         virtualMouseInput = GetComponentInChildren<VirtualMouseInput>();
         cursor = virtualMouseInput.cursorGraphic.GetComponent<RectTransform>();
         mainCamera = Camera.main;
+        currentZ = cursorConfiner.transform.localScale.z;
 
         if(playerInput.currentActionMap.name == playerActionMap)
         {
@@ -57,7 +62,15 @@ public class VirtualMouseController : MonoBehaviour
 
     void Update()
     {
+        if(virtualMouseInput.enabled && zoomDirection.magnitude > 0.01f)
+        {
+            confinerZ += zoomDirection.x * Time.deltaTime;
+            confinerZ = Mathf.Clamp(confinerZ, -0.1f, 0.1f);
 
+            currentZ += confinerZ;
+            currentZ = Mathf.Clamp(currentZ, 1, 7);
+            cursorConfiner.transform.localScale = new Vector3(1, 1, currentZ);
+        }
     }
 
     void LateUpdate()
@@ -105,6 +118,7 @@ public class VirtualMouseController : MonoBehaviour
         model.isCursorMode = activate;
         virtualMouseInput.enabled = activate;
         view.SetCursorVisible(activate);
+
         /*
         foreach (GraphicRaycaster r in raycasters)
         {
@@ -132,6 +146,7 @@ public class VirtualMouseController : MonoBehaviour
     void CursorChase()
     {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
+        //Debug.Log(mousePosition);
         mousePosition.x = Mathf.Clamp(mousePosition.x, model.cursorPadding, Screen.width - model.cursorPadding);
         mousePosition.y = Mathf.Clamp(mousePosition.y, model.cursorPadding, Screen.height - model.cursorPadding);
         view.CursorChase(mousePosition);
@@ -139,11 +154,15 @@ public class VirtualMouseController : MonoBehaviour
 
     void CursorPadding()
     {
+        //Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
         Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
+        //Debug.Log(virtualMousePos);
         virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.cursorPadding, Screen.width - model.cursorPadding);
         virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.cursorPadding, Screen.height - model.cursorPadding);
+
+        Debug.Log(virtualMousePos);
         view.CursorPadding(virtualMousePos);
-        view.CursorChase(virtualMousePos);
+
     }
 
     void UpdateRay()

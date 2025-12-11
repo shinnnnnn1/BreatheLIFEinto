@@ -10,7 +10,7 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
     [SerializeField] int currentTrigger = 0;
     [SerializeField] FlipTrigger_V3[] triggers;
 
-    [SerializeField] Image proceedImage;
+    [SerializeField] FadeUI proceedImage;
 
     public IPlayerController playerController;
     public IBookController bookController;
@@ -51,7 +51,9 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
         //本が水平なのか確認
         //CheckBookIsHorizontal(bookController.bookDir);
 
-        proceedImage.DOFade(can ? 1 : 0, 1);
+        //proceedImage.DOFade(can ? 1 : 0, 1);
+
+        proceedImage.Fade(can ? 1 : 0);
     }
 
     public void CheckIsBookHorizontal(int bookAngle)

@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour
 
     public void SetCanPlay(int scene)
     {
-        canPlay[scene] = true;
+        canPlay[scene + 1] = true;
     }
 }

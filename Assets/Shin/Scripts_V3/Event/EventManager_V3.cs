@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Playables;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 /// <summary>
 /// イベントの実行はUnityEventとTimelineに分かれる。
@@ -23,9 +24,8 @@ public class EventManager_V3 : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] Image[] images;
     [SerializeField] Event_V3[] events;
-    [SerializeField] Image[] ui;
+    [SerializeField] FadeUI[] ui;
     PlayableDirector director;
 
     void Start()
@@ -48,8 +48,6 @@ public class EventManager_V3 : MonoBehaviour
             //Timelineの場合、outにTimelineが入ってる
             if (p != null)
             {
-                FadeUI(false);
-
                 //もらったTimelineを入れて再生する
                 director.playableAsset = p;
                 director.Play();
@@ -57,13 +55,25 @@ public class EventManager_V3 : MonoBehaviour
         }
     }
 
-    public void FadeUI(bool fadeIn)
+    public void FadeAllUI(bool fadeIn)
     {
-        Debug.Log("asdasd");
         float value = fadeIn ? 1f : 0f;
-        foreach(Image img in ui)
+        foreach(FadeUI img in ui)
         {
-            img.DOFade(value, 1);
+            img.Fade(value);
         }
+    }
+    public void FadeOneUI(bool fadeIn, int num)
+    {
+        float value = fadeIn ? 1f : 0f;
+        ui[num].Fade(value);
+    }
+    public void FadeInUI(int num)
+    {
+        ui[num].Fade(1);
+    }
+    public void FadeOutUI(int num)
+    {
+        ui[num].Fade(0);
     }
 }
