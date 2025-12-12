@@ -9,7 +9,7 @@ public class Tutorial04 : TutorialEvent
 
     public override bool QuestComplete()
     {
-        if ((isSwitch  && playerController.zoomDirection.y < 0) || (!isSwitch && playerController.zoomDirection.y > 0))
+        if ((isSwitch  && playerController.zoomDirection.x < 0) || (!isSwitch && playerController.zoomDirection.x > 0))
         {
             return true;
         }
