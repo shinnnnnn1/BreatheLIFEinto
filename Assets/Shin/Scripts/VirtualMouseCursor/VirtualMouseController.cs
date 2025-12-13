@@ -32,11 +32,14 @@ public class VirtualMouseController : MonoBehaviour
     const string playerActionMap = "Player";
     const string UIActionMap = "UI";
 
+    #pragma warning disable CS0414
     [SerializeField] bool canPress = false;
     [SerializeField] bool isPressing = false;
+    #pragma warning restore CS0414
 
 
-    [SerializeField] Collider currentColl, trackingColl, pressingColl, releasingColl;
+
+    [SerializeField] Collider currentColl, trackingColl, pressingColl;
 
     ICursorInteractable cursorInteractable;
     RaycastHit hit;
@@ -280,7 +283,6 @@ public class VirtualMouseController : MonoBehaviour
     {
         trackingColl = null;
         pressingColl = null;
-        releasingColl = null;
     }
 
     public void SetCanChange(bool can)
