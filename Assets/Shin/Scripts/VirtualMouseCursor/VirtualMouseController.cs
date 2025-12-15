@@ -21,7 +21,7 @@ public class VirtualMouseController : MonoBehaviour
     public Vector2 zoomDirection;
 
     VirtualMouseView view;
-    VirtualMouseInput virtualMouseInput;
+    [SerializeField] VirtualMouseInput virtualMouseInput;
     RectTransform cursor;
     Camera mainCamera;
 
@@ -119,7 +119,10 @@ public class VirtualMouseController : MonoBehaviour
         }
 
         model.isCursorMode = activate;
-        virtualMouseInput.enabled = activate;
+        //virtualMouseInput.enabled = true;
+
+        virtualMouseInput.cursorSpeed = activate ? 1000 : 0;
+
         view.SetCursorVisible(activate);
 
         /*

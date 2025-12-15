@@ -492,24 +492,39 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         view.SetPageVisibility(0, false);
 
-        yield return new WaitForSeconds(0.8f);
+        if(currentScene == 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            FadeManager.Instance.FadeOut();
 
-        //--------------------------------------------------
-        view.TurnBookRotation(new Vector3(0, 0, -180), 2);
+            yield return new WaitForSeconds(0.5f);
 
-        transform.DOMoveY(2, 1).SetEase(Ease.InCubic);
+            GameManager.Instance.SetCanPlay(currentScene);
+            GameManager.Instance.ChangeScene(0);
+        }
+        else
+        {
+            /*
+            yield return new WaitForSeconds(0.8f);
 
-        yield return new WaitForSeconds(0.5f);
-        transform.DOMoveX(-5, 1.5f).SetEase(Ease.OutCubic);
+            //--------------------------------------------------
+            view.TurnBookRotation(new Vector3(0, 0, -180), 2);
 
-        yield return new WaitForSeconds(3f);
-        FadeManager.Instance.FadeOut();
+            transform.DOMoveY(2, 1).SetEase(Ease.InCubic);
 
-        yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f);
+            transform.DOMoveX(-5, 1.5f).SetEase(Ease.OutCubic);
 
-        GameManager.Instance.SetCanPlay(currentScene);
-        GameManager.Instance.ChangeScene(0);
+            yield return new WaitForSeconds(3f);
+            FadeManager.Instance.FadeOut();
 
+            yield return new WaitForSeconds(0.5f);
+
+            GameManager.Instance.SetCanPlay(currentScene);
+            GameManager.Instance.ChangeScene(0);
+            */
+
+        }
     }
 
     void OnDrawGizmos()

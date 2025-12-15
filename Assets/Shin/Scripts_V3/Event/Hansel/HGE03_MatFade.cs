@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class HGE03_MatFade : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class HGE03_MatFade : MonoBehaviour
 
     void Awake()
     {
-        _SetParam(defaultValue);
+        //_SetParam(defaultValue);
         currentValue = mat.GetFloat(parameterName);
+    }
+    private void OnDestroy()
+    {
+        mat.SetFloat(parameterName, defaultValue);
     }
 
     public void _SetParam(float value)
@@ -32,7 +37,7 @@ public class HGE03_MatFade : MonoBehaviour
     {
         if(isAdd)
         {
-            if(currentValue < goal)
+            while (currentValue < goal)
             {
                 currentValue += Time.deltaTime * speed;
                 mat.SetFloat(parameterName, currentValue);
@@ -41,7 +46,7 @@ public class HGE03_MatFade : MonoBehaviour
         }
         else
         {
-            if (currentValue > goal)
+            while (currentValue > goal)
             {
                 currentValue -= Time.deltaTime * speed;
                 mat.SetFloat(parameterName, currentValue);

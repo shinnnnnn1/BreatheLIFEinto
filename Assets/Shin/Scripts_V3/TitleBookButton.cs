@@ -4,17 +4,27 @@ using UnityEngine.EventSystems;
 
 public class TitleBookButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    [SerializeField] UnityEvent onSelect, onDeselect;
-
+    public int i;
+    [SerializeField] bool canChange;
+    [SerializeField] UnityEvent onSelect, onDeselect, onConfirm;
+    
     public void OnSelect(BaseEventData eventData)
     {
         onSelect.Invoke();
     }
-
     public void OnDeselect(BaseEventData eventData)
     {
-        onDeselect.Invoke();
+        if(canChange)
+        {
+            onDeselect.Invoke();
+        }
     }
+    public void OnConfirm()
+    {
+        onConfirm.Invoke();
+    }
+
+    public void _SetCanChange(bool change) => canChange = change;
 
     public void _ChangeSceneTrigger(int sceneNum)
     {

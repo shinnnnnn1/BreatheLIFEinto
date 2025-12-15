@@ -61639,8 +61639,7 @@ Transform:
   - {fileID: 447398019}
   - {fileID: 1666371343}
   - {fileID: 543450651736755480}
-  - {fileID: 1516852167}
-  - {fileID: 462354228}
+  - {fileID: 1427050340}
   m_Father: {fileID: 559071770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403621608
@@ -63896,14 +63895,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462354226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1705363906}
   - {fileID: 735795909}
-  m_Father: {fileID: 400869073}
+  m_Father: {fileID: 1427050340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &462664454
 PrefabInstance:
@@ -132841,12 +132840,12 @@ MonoBehaviour:
   confinerZ: 0
   currentZ: 0
   zoomDirection: {x: 0, y: 0}
+  virtualMouseInput: {fileID: 0}
   canPress: 0
   isPressing: 0
   currentColl: {fileID: 0}
   trackingColl: {fileID: 0}
   pressingColl: {fileID: 0}
-  releasingColl: {fileID: 0}
   hitPoint: {x: 0, y: 0, z: 0}
   setStart: 0
   canChange: 0
@@ -204139,6 +204138,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3591795045137022738, guid: f546d113599954c019bc38a4e80f99a6, type: 3}
   m_PrefabInstance: {fileID: 1425962811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1427050339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427050340}
+  - component: {fileID: 1427050341}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1427050340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427050339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1516852167}
+  - {fileID: 462354228}
+  m_Father: {fileID: 400869073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1427050341
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427050339}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df0d32a3ab7656e47a28b29396569a5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1427677002
 GameObject:
   m_ObjectHideFlags: 0
@@ -207378,14 +207433,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516852166}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1367248596}
   - {fileID: 126274090}
-  m_Father: {fileID: 400869073}
+  m_Father: {fileID: 1427050340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1516852168
 Animator:
@@ -207723,7 +207778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13fee06a68a2bda4a954a41f7f7d7a77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.254091
+      value: 24.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13fee06a68a2bda4a954a41f7f7d7a77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -214035,7 +214090,7 @@ MonoBehaviour:
   fadeImage: {fileID: 1205059696}
   InDuration: 0.5
   outDuration: 0.5
-  inEase: 0
+  inEase: 14
   outEase: 0
 --- !u!1 &1573134503
 GameObject:
@@ -300977,6 +301032,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 818d1b941df9b2146b833fed20e8d042, type: 2}
+    - target: {fileID: 8020492748817809799, guid: 54888b8a5d0a2f74c9b7dd130a1eef30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

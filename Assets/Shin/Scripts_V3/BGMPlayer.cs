@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static System.TimeZoneInfo;
 
 public class BGMPlayer : MonoBehaviour
 {
