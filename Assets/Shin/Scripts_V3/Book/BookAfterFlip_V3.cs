@@ -4,9 +4,14 @@ using UnityEngine.Events;
 public class BookAfterFlip_V3 : MonoBehaviour, IBookAfterFlip
 {
     [SerializeField] UnityEvent[] afterFlipEvent = new UnityEvent[10];
+    [SerializeField] UnityEvent[] beforeFlipEvent = new UnityEvent[10];
 
     public void OnAfterFlip(int currentPage)
     {
         afterFlipEvent[currentPage].Invoke();
+    }
+    public void OnBeforeFlip(int currentPage)
+    {
+        beforeFlipEvent[currentPage].Invoke();
     }
 }

@@ -26978,6 +26978,42 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 444070928}
+          m_TargetAssemblyTypeName: HGE02_BookTexture, Assembly-CSharp
+          m_MethodName: _ChangeMat
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1517010484}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_material
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2100000, guid: 095da726d94fa784db3c91512aa47f11, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1004404973}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_material
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2100000, guid: 5a9934050e5c56049be31ce96ebed1cf, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &232266458
 GameObject:
   m_ObjectHideFlags: 0
@@ -53277,6 +53313,7 @@ GameObject:
   - component: {fileID: 444070925}
   - component: {fileID: 444070924}
   - component: {fileID: 444070923}
+  - component: {fileID: 444070928}
   m_Layer: 8
   m_Name: StandInteractable
   m_TagString: Untagged
@@ -53628,6 +53665,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 559071770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444070928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444070922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051b73216b2a343428e1e55aa2a0a17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 11400000, guid: a5f741ef8ab4415458098cbf9e5f0936, type: 2}
+  change: 2
+  beforeMatL: {fileID: 2100000, guid: 4faa845987286c74ca0dfb0d4ee70021, type: 2}
+  beforeMatR: {fileID: 2100000, guid: bc508fb614bbb6541953baa8ddd15e9a, type: 2}
+  afterMatL: {fileID: 2100000, guid: 095da726d94fa784db3c91512aa47f11, type: 2}
+  afterMatR: {fileID: 2100000, guid: 5a9934050e5c56049be31ce96ebed1cf, type: 2}
 --- !u!1 &447005871
 GameObject:
   m_ObjectHideFlags: 0
@@ -54114,7 +54169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e145d3e32b39a6b4db1944d4c19b5a4d, type: 3}
       propertyPath: m_Name
-      value: FogInteractable_1
+      value: FogInteractable2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e145d3e32b39a6b4db1944d4c19b5a4d, type: 3}
       propertyPath: m_Layer
@@ -80452,6 +80507,9 @@ MonoBehaviour:
       m_Calls: []
   bookDir: 0
   objects: []
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
   onStart:
     m_PersistentCalls:
       m_Calls:
@@ -80626,6 +80684,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1247050050}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2037126768}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -80650,6 +80720,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247050050}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9063757876562159498}
@@ -80664,6 +80746,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  beforeFlipEvent:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -106525,6 +106628,7 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -151537,7 +151641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1189675112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151550,7 +151654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe59a525a0f8f946a998b1727ee21d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentClip: {fileID: 0}
   currentSource: {fileID: 0}
   transition: 1
   clips:
@@ -224215,7 +224318,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 68f1fd343034b1e41b905dcdc56cebba, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: ac7e62931fa0b434396ad9cd818cf67f, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -246569,7 +246672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e145d3e32b39a6b4db1944d4c19b5a4d, type: 3}
       propertyPath: m_Name
-      value: FogInteractable
+      value: FogInteractable1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e145d3e32b39a6b4db1944d4c19b5a4d, type: 3}
       propertyPath: m_Layer

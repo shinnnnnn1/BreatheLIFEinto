@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BGMPlayer : MonoBehaviour
 {
-    [SerializeField] AudioClip currentClip;
     [SerializeField] AudioSource currentSource;
     [SerializeField] float transition = 1;
 
@@ -12,7 +11,7 @@ public class BGMPlayer : MonoBehaviour
 
     private void Start()
     {
-        ChangeBGM(0);
+        ChangeBGM(1);
     }
 
     public void ChangeTransition(float t) => transition = t;
@@ -40,6 +39,7 @@ public class BGMPlayer : MonoBehaviour
             source.volume = i;
             yield return null;
         }
+        currentSource = source;
     }
     IEnumerator FadeOut(AudioSource source, float goal)
     {

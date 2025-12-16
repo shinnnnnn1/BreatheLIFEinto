@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerActionInput_V3 : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class PlayerActionInput_V3 : MonoBehaviour
         if (context.performed)
         {
             //controller.PlayerFlipTrigger();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     public void InputAnyKey(InputAction.CallbackContext context)

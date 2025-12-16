@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 {
-    [SerializeField] UnityEvent onEnter, onExit, tryActivate, onPull, onActivate;
+    [SerializeField] UnityEvent onEnter, onExit, tryActivate, onPull, onActivate, onResume ,onStop;
     [SerializeField] Animator anim;
     [SerializeField] BookController_V3 bookController;
     [SerializeField] BoxCollider coll;
@@ -42,6 +42,8 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
     [SerializeField] bool canPull;
 
     [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
+
+    [SerializeField] bool isPulling;
 
     void Start()
     {
@@ -158,6 +160,12 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
 
             if (player.moveDirection != Vector2.zero && angleAccuracy < 1f)
             {
+                if(!isPulling)
+                {
+                    onResume.Invoke();
+                    isPulling = true;
+                }
+
                 anim.speed = 1 - angleAccuracy;
 
                 //張力を計算し、Playerに渡す
@@ -182,6 +190,11 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
             }
             else
             {
+                if (isPulling)
+                {
+                    onStop.Invoke();
+                    isPulling = false;
+                }
                 anim.speed = 0;
                 player.SetTension(Vector3.zero);
             }

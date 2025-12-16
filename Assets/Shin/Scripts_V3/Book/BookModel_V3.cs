@@ -20,10 +20,6 @@ public class BookModel_V3 : ScriptableObject
     public float distortionTime;
     public Ease easeDistortion;
 
-    [Header("Page Material Settings")]
-    public Material[] pageMaterialsL;
-    public Material[] pageMaterialsR;
-
     [Header("BookSettings")]
     public float rotValue = 45.0f;
     public float rotTime = 1.0f;

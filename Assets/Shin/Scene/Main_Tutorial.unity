@@ -308,6 +308,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onResume:
+    m_PersistentCalls:
+      m_Calls: []
+  onStop:
+    m_PersistentCalls:
+      m_Calls: []
   anim: {fileID: 957014714}
   bookController: {fileID: 559071771}
   coll: {fileID: 2408402}
@@ -325,6 +331,7 @@ MonoBehaviour:
   isActivated: 0
   canPull: 0
   isDirectional: 0000000100
+  isPulling: 0
 --- !u!65 &2408402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11488,11 +11495,11 @@ PrefabInstance:
     - target: {fileID: -3887185075125053422, guid: f1fef843887dbeb4f9db420443883262, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e50c39694a102d546bf399737f470f2f, type: 2}
+      objectReference: {fileID: 2100000, guid: d462b7c87c0df5e49a847d7f5b1aa051, type: 2}
     - target: {fileID: -3887185075125053422, guid: f1fef843887dbeb4f9db420443883262, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: e50c39694a102d546bf399737f470f2f, type: 2}
+      objectReference: {fileID: 2100000, guid: d462b7c87c0df5e49a847d7f5b1aa051, type: 2}
     - target: {fileID: -3887185075125053422, guid: f1fef843887dbeb4f9db420443883262, type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[0]'
       value: 0
@@ -78562,6 +78569,9 @@ MonoBehaviour:
         m_CallState: 2
   bookDir: 0
   objects: []
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
   onStart:
     m_PersistentCalls:
       m_Calls: []
@@ -78922,6 +78932,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  beforeFlipEvent:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls: []
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -120958,7 +120989,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.342
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -147042,8 +147073,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147433,8 +147464,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148508,8 +148539,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
-  - {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
+  - {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153879,7 +153910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe59a525a0f8f946a998b1727ee21d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentClip: {fileID: 0}
   currentSource: {fileID: 0}
   transition: 1
   clips:
@@ -171602,7 +171632,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: 7e09d74b0179040449522fbb73f104bc, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171614,7 +171644,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: 7e09d74b0179040449522fbb73f104bc, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171626,7 +171656,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: 7e09d74b0179040449522fbb73f104bc, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171653,7 +171683,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171665,7 +171695,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171677,7 +171707,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171719,7 +171749,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171731,7 +171761,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171743,7 +171773,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: bdc1bf0f95a6dde4f93e5ae667cbf29b, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: dfa503f9ee25ea542a1eef0c9488c047, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -171777,6 +171807,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onResume:
+    m_PersistentCalls:
+      m_Calls: []
+  onStop:
+    m_PersistentCalls:
+      m_Calls: []
   anim: {fileID: 719170437}
   bookController: {fileID: 559071771}
   coll: {fileID: 0}
@@ -171794,6 +171830,7 @@ MonoBehaviour:
   isActivated: 0
   canPull: 0
   isDirectional: 0000010000
+  isPulling: 0
 --- !u!65 &1575240483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -219679,7 +219716,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: e50c39694a102d546bf399737f470f2f, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: d462b7c87c0df5e49a847d7f5b1aa051, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

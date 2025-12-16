@@ -551,6 +551,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //動けない、地面にいないなら return
         if (!model.canMove || !OnGround()) { return; }
 
+        ActionCancel();
         bookController.TurnBook(isRightTurn);
     }
     

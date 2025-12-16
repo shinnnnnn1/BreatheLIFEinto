@@ -44,7 +44,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     IBookObject[] bookObjects;
     [SerializeField] MonoBehaviour[] objects;
 
-    [SerializeField] UnityEvent onStart, onEnd, onCompleted;
+    [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted;
 
 
     #region STARTーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -202,6 +202,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IEnumerator FlipCoroutine()
     {
+        //Flipの前のイベントを発生させる
+        afterFlip.OnBeforeFlip(currentPage);
+
         //進行ができない状態にする
         flipController.SetCanProceed(false);
 
@@ -356,7 +359,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         if(distortions[currentPage] == null) { return; }
 
         Vector3 scale = Vector3.one * model.distortionValue;
-        float time = model.distortionValue;
+        float time = model.distortionTime;
         if(isFlip)
         {
             distortions[currentPage]?.OnActivateFlip(scale, time, model.easeDistortion);
@@ -369,7 +372,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     public void DistortionOff()
     {
         Vector3 scale = Vector3.zero;
-        float time = model.distortionValue;
+        float time = model.distortionTime;
         distortions[currentPage].OnActivate(scale, time, model.easeDistortion);
     }
 
@@ -432,6 +435,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
     }
     IEnumerator StartPage()
     {
+        onOpen.Invoke();
+
         view.MoveBookPosition(Vector3.zero, 2f);
 
         view.PlayBookAnimation(0, "Open");

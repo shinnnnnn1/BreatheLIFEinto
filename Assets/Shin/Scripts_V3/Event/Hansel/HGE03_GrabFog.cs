@@ -21,7 +21,7 @@ public class HGE03_GrabFog : MonoBehaviour
     [SerializeField] UnityEvent onActivate, onActivateDelay;
     [SerializeField] float delay;
 
-    private void Start()
+    private void OnEnable()
     {
         startPoint = transform.position;
         model.DOShakePosition(30, 0.1f, 1, 90, false, false).SetLoops(-1);
