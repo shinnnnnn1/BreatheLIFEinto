@@ -160,15 +160,12 @@ public class VirtualMouseController : MonoBehaviour
 
     void CursorPadding()
     {
-        //Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
         Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
-        //Debug.Log(virtualMousePos);
+
         virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.cursorPadding, Screen.width - model.cursorPadding);
         virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.cursorPadding, Screen.height - model.cursorPadding);
 
-        Debug.Log(virtualMousePos);
         view.CursorPadding(virtualMousePos);
-
     }
 
     void UpdateRay()

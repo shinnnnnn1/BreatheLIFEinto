@@ -466,9 +466,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(3f);
 
-
-        //turnUI[0].DOFade(1, 1);
-        //turnUI[1].DOFade(1, 1);
         onStart.Invoke();
     }
     IEnumerator EndPage()
@@ -504,6 +501,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
         }
         else
         {
+            //여기 마저 해야됨
+            yield return new WaitForSeconds(0.5f);
+            FadeManager.Instance.FadeOut();
+
+
             /*
             yield return new WaitForSeconds(0.8f);
 

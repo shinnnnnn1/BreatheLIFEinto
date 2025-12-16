@@ -15,23 +15,26 @@ public class BGMPlayer : MonoBehaviour
         ChangeBGM(0);
     }
 
+    public void ChangeTransition(float t) => transition = t;
+
     public void ChangeBGM(int num)
     {
         //現在のBGMのFadeOut
         if(currentSource != null)
         {
-            FadeOut(currentSource, 0);
+            StartCoroutine(FadeOut(currentSource, 0));
         }
 
         //新しいBGMのFadeIn
         AudioSource newSource = currentSource == sources[0] ? sources[1] : sources[0];
         newSource.clip = clips[num];
         newSource.Play();
-        FadeIn(newSource, 1);
+        StartCoroutine(FadeIn(newSource, 1));
     }
 
     IEnumerator FadeIn(AudioSource source, float goal)
     {
+        source.volume = 0;
         for (float i = 0; i < goal; i += transition * Time.deltaTime)
         {
             source.volume = i;
@@ -40,6 +43,7 @@ public class BGMPlayer : MonoBehaviour
     }
     IEnumerator FadeOut(AudioSource source, float goal)
     {
+        source.volume = 1;
         for (float i = 1; i > goal; i -= transition * Time.deltaTime)
         {
             source.volume = i;
