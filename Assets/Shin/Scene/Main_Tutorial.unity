@@ -26416,6 +26416,12 @@ MonoBehaviour:
   isBookHorizontal: 1
   currentTrigger: 0
   triggers: []
+  pos:
+  - {x: 12, y: 0.5, z: 0}
+  rot:
+  - {x: 90, y: 0, z: 0}
+  sca:
+  - {x: 1, y: 1, z: 1}
   proceedImage: {fileID: 1947645078}
 --- !u!1 &232266458
 GameObject:
@@ -104130,6 +104136,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -104187,6 +104195,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!1 &635446929
 GameObject:
   m_ObjectHideFlags: 0
@@ -153914,6 +153923,7 @@ MonoBehaviour:
   transition: 1
   clips:
   - {fileID: 8300000, guid: 1a74c0f671a3d6643ba903aa36329f40, type: 3}
+  - {fileID: 8300000, guid: 1a74c0f671a3d6643ba903aa36329f40, type: 3}
   sources:
   - {fileID: 847204757}
   - {fileID: 1935021713}
@@ -183167,6 +183177,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -183260,6 +183272,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!64 &1728362801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -240705,13 +240718,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036186416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31157833, y: -0.58721566, z: 0.26144525, w: 0.69981647}
+  m_LocalRotation: {x: 0.33004364, y: -0.6373167, z: 0.23770966, w: 0.6545173}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 947885106}
-  m_LocalEulerAnglesHint: {x: 48, y: -80, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.31, y: -92.553, z: -9.295}
 --- !u!114 &2036186418
 MonoBehaviour:
   m_ObjectHideFlags: 0

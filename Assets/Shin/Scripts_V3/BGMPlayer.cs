@@ -44,7 +44,7 @@ public class BGMPlayer : MonoBehaviour
     IEnumerator FadeOut(AudioSource source, float goal)
     {
         source.volume = 1;
-        for (float i = 1; i > goal; i -= transition * Time.deltaTime)
+        for (float i = 1; i > goal; i -= transition * Time.deltaTime * 1.5f)
         {
             source.volume = i;
             yield return null;

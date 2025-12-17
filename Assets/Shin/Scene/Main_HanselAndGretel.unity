@@ -26684,6 +26684,12 @@ MonoBehaviour:
   isBookHorizontal: 1
   currentTrigger: 0
   triggers: []
+  pos:
+  - {x: 0, y: 0, z: 0}
+  rot:
+  - {x: 0, y: 0, z: 0}
+  sca:
+  - {x: 0, y: 0, z: 0}
   proceedImage: {fileID: 1947645078}
 --- !u!1 &226699140
 GameObject:
@@ -53360,6 +53366,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -53597,6 +53605,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!23 &444070925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54222,6 +54231,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -54315,6 +54326,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDirectional: 0000010000
 --- !u!64 &473928953
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -106628,7 +106640,6 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -152661,6 +152672,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -152754,6 +152767,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDirectional: 0000010000
 --- !u!114 &1247050058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188223,6 +188237,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -188328,6 +188344,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!64 &1728362801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -246392,13 +246409,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036186416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31157833, y: -0.58721566, z: 0.26144525, w: 0.69981647}
+  m_LocalRotation: {x: 0.29572654, y: -0.54520875, z: 0.27924988, w: 0.73301625}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 947885106}
-  m_LocalEulerAnglesHint: {x: 48, y: -80, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.565, y: -70.017, z: 7.402}
 --- !u!114 &2036186418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246725,6 +246742,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -246818,6 +246837,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDirectional: 0000010000
 --- !u!64 &2037126770
 MeshCollider:
   m_ObjectHideFlags: 0

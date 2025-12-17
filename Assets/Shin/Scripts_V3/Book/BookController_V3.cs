@@ -254,6 +254,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         yield return new WaitForSeconds(0.1f);
 
         view.SetPageMaterial(1, currentPage);
+        Invoke("CustomPageMat", 2.25f);
 
         yield return new WaitForSeconds(bookDelay.delay[currentPage].y);
 
@@ -269,7 +270,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(1f);　//ーーーーーーーーーーーーーーーーーーー
 
-        view.SetPageMaterial(0, currentPage);
+        //view.SetPageMaterial(0, currentPage);
 
         //Flip中に歪みを拡張するのだけ拡張
         DistortionOn(true);
@@ -307,6 +308,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         //cursorCam.gameObject.SetActive(false);
 
+    }
+
+    void CustomPageMat()
+    {
+        view.SetPageMaterial(0, currentPage);
     }
     #endregion
 

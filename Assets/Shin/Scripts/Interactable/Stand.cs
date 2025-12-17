@@ -4,8 +4,11 @@ using UnityEngine.Events;
 public class Stand : MonoBehaviour, ICursorInteractable
 {
     public bool canActivate, isEntered, canSwitch, isActivated;
+    [SerializeField] BookController_V3 bookController;
+    [SerializeField] Collider coll;
     [SerializeField] UnityEvent onEnter, onExit, 
         onPressedA, onReleasedA, onPressedDea, onReleasedDea, onCanceled;
+    [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
 
     public virtual void OnEnter()
     {
@@ -72,5 +75,18 @@ public class Stand : MonoBehaviour, ICursorInteractable
     public void SetIsActivated(bool isA)
     {
         isActivated = isA;
+    }
+
+
+    public void CheckDirectional()
+    {
+        if (isDirectional[bookController.bookDir + 2])
+        {
+            coll.enabled = true;
+        }
+        else
+        {
+            coll.enabled = false;
+        }
     }
 }

@@ -9,6 +9,9 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
 
     [SerializeField] int currentTrigger = 0;
     [SerializeField] FlipTrigger_V3[] triggers;
+    [SerializeField] Vector3[] pos;
+    [SerializeField] Vector3[] rot;
+    [SerializeField] Vector3[] sca;
 
     [SerializeField] FadeUI proceedImage;
 
@@ -38,6 +41,10 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
         {
             triggers[i].gameObject.SetActive(i == currentTrigger);
         }
+
+        proceedImage.transform.localPosition = pos[currentTrigger];
+        proceedImage.transform.localEulerAngles = rot[currentTrigger];
+        proceedImage.transform.localScale = sca[currentTrigger];
     }
 
     //進行できる状態や水平状態を設定

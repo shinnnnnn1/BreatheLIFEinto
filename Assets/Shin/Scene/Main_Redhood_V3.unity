@@ -14922,7 +14922,7 @@ Transform:
   m_GameObject: {fileID: 180800428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.67, y: 5, z: -3.73}
+  m_LocalPosition: {x: 3.14, y: 5, z: -4.41}
   m_LocalScale: {x: 2, y: 5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31659,6 +31659,18 @@ MonoBehaviour:
   isBookHorizontal: 1
   currentTrigger: 0
   triggers: []
+  pos:
+  - {x: 12, y: 0.5, z: 0}
+  - {x: 2.86, y: 6.28, z: -1.82}
+  - {x: 3.03, y: 2.49, z: -5.11}
+  rot:
+  - {x: 90, y: 0, z: 0}
+  - {x: 0, y: 0, z: -90}
+  - {x: 78.179, y: 0, z: -90}
+  sca:
+  - {x: 1, y: 1, z: 1}
+  - {x: 0.5, y: 0.5, z: 0.5}
+  - {x: 0.5, y: 0.5, z: 0.5}
   proceedImage: {fileID: 1947645078}
 --- !u!1 &228107691
 GameObject:
@@ -42305,6 +42317,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -42356,6 +42369,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 257432048}
@@ -42382,6 +42407,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 9063757876562159498}
           m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
           m_MethodName: PlayAutoEvent
@@ -42406,19 +42459,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1844648345}
-          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-          m_MethodName: FadeUI
-          m_Mode: 6
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &257432046
 MonoBehaviour:
@@ -43129,18 +43180,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 126274091}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a62a508b7a42a98439cdefb353499357, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 735795910}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_material
         m_Mode: 2
@@ -53971,7 +54010,7 @@ GameObject:
   - component: {fileID: 295670162}
   - component: {fileID: 295670163}
   m_Layer: 0
-  m_Name: GameObject_9
+  m_Name: 59_FadeOutUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54008,13 +54047,13 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: FadeAllUI
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -54810,6 +54849,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -54861,6 +54901,18 @@ MonoBehaviour:
             m_StringArgument: Open
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 9063757876562159498}
@@ -54902,7 +54954,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1844648345}
           m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-          m_MethodName: FadeUI
+          m_MethodName: FadeAllUI
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -54911,6 +54963,32 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 225466053}
+          m_TargetAssemblyTypeName: FlipController_V3, Assembly-CSharp
+          m_MethodName: SetCanProceed
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &338667205
 MonoBehaviour:
@@ -55643,6 +55721,7 @@ GameObject:
   - component: {fileID: 361426995}
   - component: {fileID: 361426996}
   - component: {fileID: 361426997}
+  - component: {fileID: 361426998}
   m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
@@ -55659,7 +55738,7 @@ Transform:
   m_GameObject: {fileID: 361426994}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7985024, y: 1.5832009, z: -3.3360553}
+  m_LocalPosition: {x: -3.7985024, y: 1.5832009, z: -3.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55714,6 +55793,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!65 &361426998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361426994}
+  m_Material: {fileID: 13400000, guid: 9594b7141690f2f4fb244d0d934ff588, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.43, y: 5.86, z: 1}
+  m_Center: {x: 3.65, y: 2.65, z: -1}
 --- !u!1001 &361552837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61406,6 +61506,55 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: 2534964839176971238, guid: a7b6f1e7607a3a94293c4905b009be4e, type: 3}
+--- !u!1 &396675391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396675392}
+  - component: {fileID: 396675393}
+  m_Layer: 0
+  m_Name: 60_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396675392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396675391}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &396675393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396675391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &397991158
 GameObject:
   m_ObjectHideFlags: 0
@@ -63138,6 +63287,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 1
   isActivated: 0
+  bookController: {fileID: 559071771}
+  coll: {fileID: 444070923}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -63270,6 +63421,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: FadeAllUI
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPressedDea:
     m_PersistentCalls:
       m_Calls: []
@@ -63384,9 +63559,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!23 &444070925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63453,7 +63641,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 559071770}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &446480778
 GameObject:
@@ -65371,7 +65559,7 @@ Transform:
   m_GameObject: {fileID: 486281293}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: -0.9679, y: 4.13, z: -1.62}
+  m_LocalPosition: {x: 3.22, y: 3.6, z: 0.89}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -75840,6 +76028,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: BookController_V3, Assembly-CSharp
           m_MethodName: DistortionOff
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -86377,6 +86577,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 1
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -86446,6 +86648,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!64 &526029387
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92445,8 +92648,6 @@ Transform:
   - {fileID: 1283359431}
   - {fileID: 225466052}
   - {fileID: 1200850838}
-  - {fileID: 444070927}
-  - {fileID: 934507978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &559071771
@@ -92494,6 +92695,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 206865633}
         m_TargetAssemblyTypeName: PullableObject_V3, Assembly-CSharp
+        m_MethodName: CheckDirectional
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 983313405}
+        m_TargetAssemblyTypeName: PullableObject_V3, Assembly-CSharp
+        m_MethodName: CheckDirectional
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 444070924}
+        m_TargetAssemblyTypeName: Stand, Assembly-CSharp
         m_MethodName: CheckDirectional
         m_Mode: 1
         m_Arguments:
@@ -92850,6 +93075,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 225466053}
+        m_TargetAssemblyTypeName: FlipController_V3, Assembly-CSharp
+        m_MethodName: ResetTrigger
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1844648345}
@@ -93004,9 +93253,33 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: InvokeEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 60
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: InvokeEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 61
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -93182,6 +93455,18 @@ MonoBehaviour:
       - m_Target: {fileID: 791950546}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: FadeAllUI
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114296,6 +114581,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 360960994}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &608724153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608724154}
+  m_Layer: 0
+  m_Name: 60~69
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608724154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608724153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1862784791}
+  - {fileID: 1935766815}
+  - {fileID: 766257097}
+  - {fileID: 1939276390}
+  - {fileID: 1120650803}
+  - {fileID: 1769405608}
+  - {fileID: 1347536530}
+  - {fileID: 396675392}
+  - {fileID: 1553916171}
+  - {fileID: 1215180291}
+  m_Father: {fileID: 1844648346}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609948926
 GameObject:
   m_ObjectHideFlags: 0
@@ -124955,6 +125281,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
+    - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -124963,6 +125290,20 @@ MonoBehaviour:
             Unity.Cinemachine
           m_MethodName: Prioritize
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -127248,7 +127589,7 @@ Transform:
   m_GameObject: {fileID: 703175978}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 3.91, y: 2.89, z: -2.67}
+  m_LocalPosition: {x: 4.23, y: 2.58, z: -2.85}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -139295,6 +139636,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 396204492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &766257096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766257097}
+  - component: {fileID: 766257098}
+  m_Layer: 0
+  m_Name: 60_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766257097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766257096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766257098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766257096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &766934984
 GameObject:
   m_ObjectHideFlags: 0
@@ -146645,6 +147035,42 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeTransition
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.3
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1230086}
@@ -146683,6 +147109,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1897210941}
@@ -146709,18 +147147,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1844648345}
-          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-          m_MethodName: FadeUI
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &850959452
 MonoBehaviour:
@@ -147331,6 +147757,18 @@ MonoBehaviour:
             Unity.Cinemachine
           m_MethodName: Prioritize
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -152756,13 +153194,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902342240}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: -0.9679, y: 4.13, z: -1.62}
+  m_LocalRotation: {x: 0.09594784, y: -0.25768447, z: -0.021171117, w: 0.9612203}
+  m_LocalPosition: {x: 7.2, y: 2.87, z: -0.06}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1200850838}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.994, y: -30.474, z: -5.252}
 --- !u!1001 &906455997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153042,6 +153480,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -153057,6 +153496,30 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 969743476}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
@@ -153081,6 +153544,20 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -153498,7 +153975,7 @@ Transform:
   m_Children:
   - {fileID: 433689858}
   - {fileID: 526029384}
-  m_Father: {fileID: 559071770}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &934587251
 GameObject:
@@ -154905,12 +155382,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onResume:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStop:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _StopSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   anim: {fileID: 1141345288}
   bookController: {fileID: 559071771}
   coll: {fileID: 0}
@@ -154920,7 +155445,7 @@ MonoBehaviour:
   isDirPositive: 1
   towardMult: 1
   spring: 10
-  pullValue: 2
+  pullValue: 1.5
   angleAccuracy: 0
   currentTension: 0
   tensionDir: {x: 0, y: 0, z: 0}
@@ -182499,6 +183024,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 298644010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1120650802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120650803}
+  - component: {fileID: 1120650804}
+  m_Layer: 0
+  m_Name: 60_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120650803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120650802}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120650804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120650802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &1121239576
 GameObject:
   m_ObjectHideFlags: 0
@@ -184679,7 +185253,7 @@ MonoBehaviour:
   transition: 1
   clips:
   - {fileID: 0}
-  - {fileID: 8300000, guid: d2b5bd208e24b484d8d1eb6c182b2463, type: 3}
+  - {fileID: 8300000, guid: ee34c58283a05f54187bf8b027454b12, type: 3}
   - {fileID: 8300000, guid: c89b3aec85c793a4a94f4ab1a08ca9fc, type: 3}
   - {fileID: 8300000, guid: f8c67a5e6c46f26499525dc4b52da9a5, type: 3}
   - {fileID: 8300000, guid: 4afb3b6a5bd4fd24eae228c974075f8b, type: 3}
@@ -185200,6 +185774,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215106607}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1215180290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215180291}
+  - component: {fileID: 1215180292}
+  m_Layer: 0
+  m_Name: 60_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215180291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215180290}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215180292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215180290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &1218216338
 GameObject:
   m_ObjectHideFlags: 0
@@ -192736,6 +193359,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3591795045137022738, guid: f546d113599954c019bc38a4e80f99a6, type: 3}
   m_PrefabInstance: {fileID: 1337757447}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1347536529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347536530}
+  - component: {fileID: 1347536531}
+  m_Layer: 0
+  m_Name: 60_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347536530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347536529}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1347536531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347536529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &1351763400
 GameObject:
   m_ObjectHideFlags: 0
@@ -197858,7 +198530,19 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1844648345}
           m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-          m_MethodName: FadeUI
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 225466053}
+          m_TargetAssemblyTypeName: FlipController_V3, Assembly-CSharp
+          m_MethodName: SetCanProceed
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -198587,7 +199271,7 @@ Transform:
   m_GameObject: {fileID: 1368187047}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44654518, y: -0.016959578, z: 0.09628248, w: 0.88940406}
-  m_LocalPosition: {x: 1.2542248, y: 3.009964, z: -9.109406}
+  m_LocalPosition: {x: 1.27, y: 2.85, z: -8.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -199747,6 +200431,42 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _SetVolume1
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlayLoopSE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: FadeAllUI
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   delay: 0
 --- !u!1 &1402483755
@@ -208823,6 +209543,56 @@ Transform:
   - {fileID: 430863368}
   m_Father: {fileID: 1459073843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523291286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523291287}
+  - component: {fileID: 1523291288}
+  m_Layer: 3
+  m_Name: Emotion_26
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1523291287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523291286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.937, y: 2.228, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2100657692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1523291288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523291286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 3
+  scale: {x: -1, y: 1, z: 1}
+  delay: 0
+  isWorld: 0
+  isLoop: 0
+  loopDelay: 0
 --- !u!1001 &1525880622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210046,6 +210816,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3591795045137022738, guid: f546d113599954c019bc38a4e80f99a6, type: 3}
   m_PrefabInstance: {fileID: 1552797221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1553916170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553916171}
+  - component: {fileID: 1553916172}
+  m_Layer: 0
+  m_Name: 60_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1553916171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553916170}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1553916172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553916170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &1556070200
 GameObject:
   m_ObjectHideFlags: 0
@@ -215505,6 +216324,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     - {fileID: 11400000, guid: d1e72966dc42a3d4bb59153e713a44bc, type: 2}
     - {fileID: 11400000, guid: b168660c39792f241bb6668f279fc47b, type: 2}
+    - {fileID: 11400000, guid: 1090d4ab0f411124bb2ad014f8ecd8b0, type: 2}
+    - {fileID: 11400000, guid: 81ed5bbb87fe7e642a7232e39a70f851, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -215609,6 +216430,30 @@ MonoBehaviour:
             m_StringArgument: OpenClose
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _StopSE
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1740567098}
@@ -215647,6 +216492,46 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 22
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeTransition
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -221613,6 +222498,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeTransition
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1359080067}
@@ -222046,6 +222955,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0ee4755e6c95a864dbb5c3f53eca2cd6, type: 3}
   - {fileID: 8300000, guid: b5aee66da67aaa247a5c5cd1edceb774, type: 3}
   - {fileID: 8300000, guid: 89da661bd46d6b644808f85955dcfd5f, type: 3}
+  - {fileID: 8300000, guid: 93e04e1c5ba2122408301534c23a25dd, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: b0234b3d4591d8341a971c9f242cba7f, type: 3}
   - {fileID: 8300000, guid: 139ede9ce50f41b4ab33d545e4210b56, type: 3}
@@ -222053,7 +222963,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8b677102d84fb8e44a1fe934e9187e0a, type: 3}
   - {fileID: 8300000, guid: 62ef366eb1dc0b24e968bf6353b3bf5b, type: 3}
   - {fileID: 8300000, guid: 0b0d210adeb730246bcd6b1f687d7e48, type: 3}
-  - {fileID: 8300000, guid: 93e04e1c5ba2122408301534c23a25dd, type: 3}
   - {fileID: 8300000, guid: 8b44c25716b320b4e8388d7e942a6b39, type: 3}
   sources:
   - {fileID: 1108348434}
@@ -230565,6 +231474,8 @@ MonoBehaviour:
   isEntered: 0
   canSwitch: 0
   isActivated: 0
+  bookController: {fileID: 0}
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -230661,6 +231572,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1200982011}
+        m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+        m_MethodName: ChangeTransition
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1200982011}
+        m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+        m_MethodName: ChangeBGM
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPressedDea:
     m_PersistentCalls:
       m_Calls: []
@@ -230670,6 +231605,7 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
+  isDirectional: 0000010000
 --- !u!64 &1728362801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -231484,6 +232420,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -231519,6 +232456,20 @@ MonoBehaviour:
             Unity.Cinemachine
           m_MethodName: Prioritize
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -232059,6 +233010,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759878642}
   m_CullTransparentMesh: 1
+--- !u!1 &1769405607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769405608}
+  - component: {fileID: 1769405609}
+  m_Layer: 0
+  m_Name: 60_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769405608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405607}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1769405609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769405607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1001 &1770853929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232602,7 +233602,7 @@ Transform:
   m_GameObject: {fileID: 1787083657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.72, y: 5, z: -0.62}
+  m_LocalPosition: {x: 3.42, y: 5, z: 0.44}
   m_LocalScale: {x: 2, y: 5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237728,6 +238728,8 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -237743,12 +238745,88 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _StopLoopSE
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeTransition
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.3
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1263395891}
           m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineVirtualCameraBase,
             Unity.Cinemachine
           m_MethodName: Prioritize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _StopSE
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -264203,6 +265281,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 292196632}
@@ -269665,6 +270755,7 @@ Transform:
   - {fileID: 487451065}
   - {fileID: 497582743}
   - {fileID: 659781465}
+  - {fileID: 608724154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1844648347
@@ -269676,7 +270767,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ecb4b5797c3cf0c448ef52436416755c, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 43d0e5a140af89c49bb7eb6a63fe6fdc, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -269879,6 +270970,7 @@ PlayableDirector:
     - 1c35e078e92a2304cbd2cbbbef73f9fd: {fileID: 343180106}
     - b419bdc6d0bd65f4da450dccc6b477f0: {fileID: 292196632}
     - 894afafedb4c58345b0004bde125e1d6: {fileID: 2074260772}
+    - cbdc5fefad9e2744c9981d4b2a9918fe: {fileID: 2038925321}
     - d04789bb669912c45afff9092bb8716e: {fileID: 1897210941}
     - 5ba113867fab71d49809f9e17f24ff54: {fileID: 1897210941}
     - a03e1d512b456dd44a70933f7374ca97: {fileID: 1351763402}
@@ -269888,6 +270980,7 @@ PlayableDirector:
     - 6758b3f6d87433e4dab9f2db5901cf4d: {fileID: 1897210941}
     - aa704a2176bae6e479b4b93d2fa7df15: {fileID: 1263395891}
     - 88d7fa8e37caf6940b4ee3747c5fb1a7: {fileID: 1897210941}
+    - f8b4be58d863f0c4bbc546003888d759: {fileID: 2038925321}
     - a736d754d76f49445ad78095f8dae002: {fileID: 292196632}
     - db4db6fa512bbc744b273da5d5b5f1ad: {fileID: 1897210941}
     - 95fab4757bf76554aabf188b0ca49c02: {fileID: 1897210941}
@@ -270502,6 +271595,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1860879945}
@@ -270578,6 +271683,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Close
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1860879942
@@ -270672,6 +271789,67 @@ MonoBehaviour:
   onEnd:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1862784790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862784791}
+  - component: {fileID: 1862784792}
+  m_Layer: 0
+  m_Name: 60_SleepingVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862784791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862784790}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1862784792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862784790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _SetVolume1
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 1
 --- !u!1 &1864828535
 GameObject:
   m_ObjectHideFlags: 0
@@ -272369,6 +273547,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926562138}
   m_CullTransparentMesh: 1
+--- !u!1 &1935766814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935766815}
+  - component: {fileID: 1935766816}
+  m_Layer: 0
+  m_Name: 61_SleepVol2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935766815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935766814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1935766816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935766814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _SetVolume1
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 2
 --- !u!1001 &1936139201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272619,6 +273858,55 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1939276389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939276390}
+  - component: {fileID: 1939276391}
+  m_Layer: 0
+  m_Name: 60_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939276390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939276389}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 608724154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939276391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939276389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+  delay: 0
 --- !u!1 &1940316578
 GameObject:
   m_ObjectHideFlags: 0
@@ -273573,7 +274861,7 @@ RectTransform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2086123166}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -280027,6 +281315,30 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeTransition
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
@@ -301444,7 +302756,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1844648345}
           m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-          m_MethodName: FadeUI
+          m_MethodName: FadeAllUI
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -308340,6 +309652,7 @@ Transform:
   - {fileID: 1411671807}
   - {fileID: 764715279}
   - {fileID: 130305155}
+  - {fileID: 1523291287}
   m_Father: {fileID: 1703468764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101489843
@@ -310185,6 +311498,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
+    - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -310197,6 +311511,20 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -312595,6 +313923,8 @@ SceneRoots:
   - {fileID: 947885106}
   - {fileID: 2050556485}
   - {fileID: 396204492}
+  - {fileID: 444070927}
+  - {fileID: 934507978}
   - {fileID: 1898772529}
   - {fileID: 559071770}
   - {fileID: 5571538174469238744}

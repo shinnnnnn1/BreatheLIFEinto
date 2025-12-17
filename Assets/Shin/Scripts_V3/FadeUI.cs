@@ -1,4 +1,6 @@
+using DG.Tweening;
 using System.Collections;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +23,14 @@ public class FadeUI : MonoBehaviour
 
     public void Fade(float value)
     {
-        StartCoroutine(FadeCoroutine(value));
+        //StartCoroutine(FadeCoroutine(value));
+
+        Ease fadeEase = mat.GetFloat("_Alpha") > value ? Ease.OutQuint : Ease.Linear;
+
+        DOVirtual.Float(mat.GetFloat("_Alpha"), value, 1,
+                onVirtualUpdate: (tweenValue) => { mat.SetFloat("_Alpha", tweenValue); })
+                .SetEase(fadeEase);
+
     }
 
     IEnumerator FadeCoroutine(float goal)
