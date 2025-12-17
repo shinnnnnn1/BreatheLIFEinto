@@ -513,9 +513,21 @@ public class BookController_V3 : MonoBehaviour, IBookController
         else
         {
             //여기 마저 해야됨
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
+            //FadeManager.Instance.FadeOut();
+
+            view.SetAllPageVisibility(false);
+
+            view.PlayBookAnimation(2, "End");
+
+            yield return new WaitForSeconds(2f);
+
             FadeManager.Instance.FadeOut();
 
+            yield return new WaitForSeconds(0.5f);
+
+            GameManager.Instance.SetCanPlay(currentScene);
+            GameManager.Instance.ChangeScene(0);
 
             /*
             yield return new WaitForSeconds(0.8f);
@@ -536,7 +548,6 @@ public class BookController_V3 : MonoBehaviour, IBookController
             GameManager.Instance.SetCanPlay(currentScene);
             GameManager.Instance.ChangeScene(0);
             */
-
         }
     }
 

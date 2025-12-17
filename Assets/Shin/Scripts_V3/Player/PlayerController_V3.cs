@@ -126,7 +126,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
         //地面にいる状態だけFlipが可能だから地面にいるか確認し続ける
         /// <seealso cref="PlayerFlipTrigger()"/>
-        if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f)
+        if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f && !model.isTurning)
         {
             if(isEnding)
             {
