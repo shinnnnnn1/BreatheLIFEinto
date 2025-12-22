@@ -33,6 +33,7 @@ public class RHE38_NavMeshAnim : MonoBehaviour
             yield return null;
         }
 
+        yield return null;
         anim.SetTrigger("Idle");
         isMoving = false;
 
