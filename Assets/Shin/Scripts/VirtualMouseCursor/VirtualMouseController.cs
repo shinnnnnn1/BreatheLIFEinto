@@ -121,7 +121,7 @@ public class VirtualMouseController : MonoBehaviour
         model.isCursorMode = activate;
         //virtualMouseInput.enabled = true;
 
-        virtualMouseInput.cursorSpeed = activate ? 1000 : 0;
+        virtualMouseInput.cursorSpeed = activate ? model.cursorSpeed : 0;
 
         view.SetCursorVisible(activate);
 

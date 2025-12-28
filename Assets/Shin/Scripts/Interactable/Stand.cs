@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,11 @@ public class Stand : MonoBehaviour, ICursorInteractable
         onPressedA, onReleasedA, onPressedDea, onReleasedDea, onCanceled;
     [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
 
+
+    void Start()
+    {
+        bookController = FindFirstObjectByType<BookController_V3>();
+    }
     public virtual void OnEnter()
     {
         if (!canActivate) { return; }

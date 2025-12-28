@@ -9,20 +9,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc92bee9d9dc144b9df8bfebc2a3cb9, type: 3}
-  m_Name: PlayerRespawnPosition_Hanse
+  m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
+  m_Name: 04_Candy
   m_EditorClassIdentifier: 
-  defaultPosition: {x: -7.2714186, y: 1.1755552, z: 0}
-  position:
+  canMoveOnDialogueEnd: 0
+  canProceedOnDialogueEnd: 0
+  canRecycle: 0
+  messages:
+  - "\u30A8\u30FC\u30C3\u2049"
+  - "\u308F\u3001\u5206\u304B\u3063\u305F\u3001\u3053\u308C\u3092...!"
+  emotion_Bubble_MiddleEmotion:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  delay:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto_AutoDelay_FontSize:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 3.1719167, y: 1.6755754, z: -4.7026496}
-  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_IsDialogueMotion:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  matPreset:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  isRight: 01010101010101010101
+  events:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  startEvent: 0

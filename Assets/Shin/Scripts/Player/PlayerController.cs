@@ -299,6 +299,7 @@ public class PlayerController : MonoBehaviour
         if (!model.canMove) { return; }
         if (OnGround() && model.canJump)
         {
+            model.canJump = false;
             view.Jump(model.jumpPow);
             view.SetPlayerAnim("JumpTrigger");
         }

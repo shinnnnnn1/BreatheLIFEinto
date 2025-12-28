@@ -18,4 +18,5 @@ public class Dialogue_V3 : ScriptableObject
 
     public Vector3[] events;
     public int startEvent;
+    public bool isLoop;
 }

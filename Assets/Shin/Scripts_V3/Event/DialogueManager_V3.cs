@@ -159,7 +159,7 @@ public class DialogueManager_V3 : MonoBehaviour
             for (int i = 0; i < d.messages[current].Length; i++)
             {
                 sb.Append(d.messages[current][i]);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.07f);
                 currentText.text = sb.ToString();
             }
             canSkip = false;
@@ -175,8 +175,19 @@ public class DialogueManager_V3 : MonoBehaviour
         }
         else
         {
-            //会話の終了
-            EndDialogue(d);
+            if(d.isLoop)
+            {
+                //会話の変数を初期化
+                current = -1;
+                canSkip = false;
+                canProceed = true;
+                StartCoroutine(DialogueCoroutine(d));
+            }
+            else
+            {
+                //会話の終了
+                EndDialogue(d);
+            }
         }
     }
 
@@ -203,5 +214,10 @@ public class DialogueManager_V3 : MonoBehaviour
         if (d.canProceedOnDialogueEnd) { unityEvents[2].Invoke(); }
 
         currentEvent = null;
+    }
+
+    public void StopLoop()
+    {
+
     }
 }

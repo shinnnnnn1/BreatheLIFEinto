@@ -8,6 +8,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     [SerializeField] PlayerModel_V3 model;
     [SerializeField] PlayerRespawnPosition respawn;
     [SerializeField] CinemachinePositionComposer positionComposer;
+    [SerializeField] PhysicsMaterial[] physicsMaterials;
 
     PlayerView_V3 view;
 
@@ -262,6 +263,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     #region FIXED UPDATE ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void FixedUpdate()
     {
+        PhysicsAdjustment();
+
         if (model.canMove)
         {
             Move();
@@ -278,6 +281,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Vector3 veloc = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z);
         float velocX = Mathf.Abs(Mathf.InverseLerp(0, model.moveSpeed, veloc.magnitude));
         view.SetPlayerAnim("VelocityX", velocX);
+    }
+
+    void PhysicsAdjustment()
+    {
+
     }
 
     void Move()
