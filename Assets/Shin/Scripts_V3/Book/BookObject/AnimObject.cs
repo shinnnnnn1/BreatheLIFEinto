@@ -39,8 +39,7 @@ public class AnimObject : BaseObject_V3
     IEnumerator AnimCoroutine(float delay, string animation)
     {
         yield return new WaitForSeconds(delay);
-
-        anim.SetTrigger(animation);
         if (isActivate == true && !activateInHeight) { SetObjectVisible(true); }
+        anim.SetTrigger(animation);
     }
 }

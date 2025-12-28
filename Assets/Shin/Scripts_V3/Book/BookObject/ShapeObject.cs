@@ -102,6 +102,10 @@ public class ShapeObject : BaseObject_V3
             canShape = true;
 
             if (isActivate == true && !activateInHeight) { SetObjectVisible(true); }
+            if(gameObject.name == "Flooring_R")
+            {
+                Debug.Log("asdasdsadsad");
+            }
         }
     }
 
