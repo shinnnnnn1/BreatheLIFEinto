@@ -14,6 +14,7 @@ public class PlayerModel_V3 : ScriptableObject
 
     [Space(10f)]
     public bool canJump = true;
+    public bool hasJustJumped = false;
     public bool canAnim = true;
 
     [Space(10f)]

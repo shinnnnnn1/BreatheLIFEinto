@@ -103,6 +103,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
                 closeIndex = i;
             }
         }
+
+        height = transform.position.y;
     }
 
     /// <summary>

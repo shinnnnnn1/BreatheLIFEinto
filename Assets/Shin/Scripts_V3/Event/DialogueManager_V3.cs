@@ -32,6 +32,9 @@ public class DialogueManager_V3 : MonoBehaviour
     [SerializeField] bool canProceed = true;
 
     [Space(10f)]
+    [SerializeField] bool[] currentState = new bool[3];
+
+    [Space(10f)]
     [SerializeField] DialogueEvent_V3 currentEvent;
 
     [SerializeField] Image[] bubbles;
@@ -92,6 +95,11 @@ public class DialogueManager_V3 : MonoBehaviour
         {
             //吹き出しが小さくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InQuint);
+
+            currentState[0] = false;
+            currentState[1] = false;
+            currentState[2] = true;
+
             yield return new WaitForSeconds(0.5f);
 
             //後Delay
@@ -151,7 +159,15 @@ public class DialogueManager_V3 : MonoBehaviour
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
 
+            currentState[0] = true;
+            currentState[1] = false;
+            currentState[2] = false;
+
             yield return new WaitForSeconds(0.5f);
+
+            currentState[0] = false;
+            currentState[1] = true;
+            currentState[2] = false;
 
             //文字を表示
             canSkip = true;
@@ -164,6 +180,8 @@ public class DialogueManager_V3 : MonoBehaviour
             }
             canSkip = false;
             canProceed = true;
+
+
 
             //自動化
             if (d.isAuto_AutoDelay_FontSize[current].x > 0)
@@ -178,9 +196,8 @@ public class DialogueManager_V3 : MonoBehaviour
             if(d.isLoop)
             {
                 //会話の変数を初期化
-                current = -1;
-                canSkip = false;
-                canProceed = true;
+                ResetParameter();
+                unityEvents[0].Invoke();
                 StartCoroutine(DialogueCoroutine(d));
             }
             else
@@ -193,12 +210,11 @@ public class DialogueManager_V3 : MonoBehaviour
 
     void EndDialogue(Dialogue_V3 d)
     {
+
         StopAllCoroutines();
 
         //会話の変数を初期化
-        current = -1;
-        canSkip = false;
-        canProceed = true;
+        ResetParameter();
 
         //会話が終わった後
         currentEvent.EndEvent();
@@ -218,6 +234,23 @@ public class DialogueManager_V3 : MonoBehaviour
 
     public void StopLoop()
     {
+        StopAllCoroutines();
+        if (currentState[0])
+        {
+            currentBubble.rectTransform.DOPause();
+            currentBubble.rectTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InQuint);
+        }
+        else if (currentState[1])
+        {
+            currentBubble.rectTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InQuint);
+        }
+        Invoke("ResetParameter", 0.5f);
+    }
 
+    void ResetParameter()
+    {
+        current = -1;
+        canSkip = false;
+        canProceed = true;
     }
 }

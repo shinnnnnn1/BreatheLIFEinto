@@ -28,7 +28,7 @@ public class RHE38_NavMeshAnim : MonoBehaviour
         agent.destination = pos;
         yield return null;
 
-        while (agent.remainingDistance > agent.stoppingDistance)
+        while (isMoving && agent.remainingDistance > agent.stoppingDistance)
         {
             yield return null;
         }
@@ -53,5 +53,12 @@ public class RHE38_NavMeshAnim : MonoBehaviour
                 npc.AutoTurn(agent.velocity);
             }
         }
+    }
+
+    public void _StopMoving()
+    {
+        isMoving = false;
+        //StopCoroutine(Moving());
+        npc.SetBone();
     }
 }

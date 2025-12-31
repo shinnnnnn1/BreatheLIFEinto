@@ -129,7 +129,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         /// <seealso cref="PlayerFlipTrigger()"/>
         if (canFlip && OnGround() && rigid.linearVelocity.y < 0.01f && !model.isTurning)
         {
-            if(isEnding)
+            if (isEnding)
             {
                 //最後のFlipを開始
                 bookController.Ending();
@@ -142,6 +142,18 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             }
         }
 
+        if(model.hasJustJumped)
+        {
+
+        }
+        else if (OnGround())
+        {
+            float y = rigid.linearVelocity.y;
+            y = Mathf.Clamp(y, 0, 0f);
+            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+        }
+
+
         //Flip中の動きを調整
         FlipAdjustment();
 
@@ -152,6 +164,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         GetInteractableReference();
 
         Zoom();
+    }
+    void JumpedCancel()
+    {
+        model.hasJustJumped = false;
+        view.SetPlayerAnim("hasJustJumped", false);
     }
 
     /// <summary>
@@ -376,6 +393,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         {
             view.Jump(model.jumpPow);
             view.SetPlayerAnim("JumpTrigger");
+            view.SetPlayerAnim("hasJustJumped", true);
+            model.hasJustJumped = true;
+            Invoke("JumpedCancel", 0.3f);
         }
     }
 
