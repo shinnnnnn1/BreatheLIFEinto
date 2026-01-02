@@ -16022,6 +16022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bb4b8de4f8aaf46b5474cf2a7edf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -16261,7 +16263,6 @@ MonoBehaviour:
         m_CallState: 2
   anim: {fileID: 1684404785}
   bookController: {fileID: 559071771}
-  coll: {fileID: 0}
   direction: {x: -1, y: 0}
   position: {x: -0.7, y: 0, z: -0.4}
   isDirX: 1
@@ -16275,7 +16276,6 @@ MonoBehaviour:
   isEntered: 0
   isActivated: 0
   canPull: 0
-  isDirectional: 0000010000
   isPulling: 0
 --- !u!65 &206865634
 BoxCollider:
@@ -63382,6 +63382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0230c51442be34081619479a133cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 444070923}
   canActivate: 1
   isEntered: 0
   canSwitch: 1
@@ -86675,6 +86677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0230c51442be34081619479a133cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 526029387}
   canActivate: 1
   isEntered: 0
   canSwitch: 1
@@ -92794,72 +92798,13 @@ MonoBehaviour:
   flipTime: 0
   onTurnBook:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 206865633}
-        m_TargetAssemblyTypeName: PullableObject_V3, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 983313405}
-        m_TargetAssemblyTypeName: PullableObject_V3, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 444070924}
-        m_TargetAssemblyTypeName: Stand, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 526029386}
-        m_TargetAssemblyTypeName: Stand, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1728362800}
-        m_TargetAssemblyTypeName: Stand, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   afterTurnBook:
     m_PersistentCalls:
       m_Calls: []
   bookDir: 0
   objects: []
+  directionalObjects: []
   onOpen:
     m_PersistentCalls:
       m_Calls:
@@ -155490,6 +155435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bb4b8de4f8aaf46b5474cf2a7edf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -155645,7 +155592,6 @@ MonoBehaviour:
         m_CallState: 2
   anim: {fileID: 1141345288}
   bookController: {fileID: 559071771}
-  coll: {fileID: 0}
   direction: {x: 1, y: 0}
   position: {x: 0.46, y: -0.16, z: -0.5}
   isDirX: 1
@@ -155659,7 +155605,6 @@ MonoBehaviour:
   isEntered: 0
   isActivated: 0
   canPull: 0
-  isDirectional: 0000010000
   isPulling: 0
 --- !u!65 &983313406
 BoxCollider:
@@ -231727,6 +231672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0230c51442be34081619479a133cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 1728362801}
   canActivate: 1
   isEntered: 0
   canSwitch: 0
@@ -286960,6 +286907,7 @@ MonoBehaviour:
   current: -1
   canSkip: 0
   canProceed: 1
+  currentState: 000000
   currentEvent: {fileID: 0}
   bubbles: []
   texts: []
@@ -314100,6 +314048,7 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: c46699fb259e89a4a9b625b3a52f47e0, type: 2}
   respawn: {fileID: 11400000, guid: db4e8eeb8cbd367429160222c555a424, type: 2}
   positionComposer: {fileID: 1897210940}
+  physicsMaterials: []
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   closeIndex: 0
@@ -314397,6 +314346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25340548991021842a8cfe0e06861f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deb:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &9063757876562159501
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         //色々なタイプに対応できるように一番上の子を参照
         stand = transform.GetChild(0);
 
-        //全てのColliderを参照
+        //全ての子のColliderを参照
         coll = GetComponentsInChildren<Collider>();
         //全てのColliderを無効化
         EnableColliders(false);
@@ -47,6 +47,8 @@ public class BaseObject_V3 : MonoBehaviour, IBookObject
         {
             children[i] = transform.GetChild(i);
         }
+
+
         //全ての子を無効化
         SetObjectVisible(false);
 

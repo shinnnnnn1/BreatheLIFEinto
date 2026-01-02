@@ -30,7 +30,6 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
 
     public void OnEventEnter(bool isEnter)
     {
-        Debug.Log(gameObject.name);
         eventImage?.gameObject.SetActive(isEnter);
     }
     public void OnEventInvoke()

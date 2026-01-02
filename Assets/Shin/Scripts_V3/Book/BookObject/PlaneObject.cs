@@ -25,6 +25,7 @@ public class PlaneObject : BaseObject_V3
 
     [Space(10)]
     public bool isFacingRight;
+    bool isTurning;
 
     [SerializeField] bool isLocked;
 
@@ -99,11 +100,13 @@ public class PlaneObject : BaseObject_V3
     }
     public void Turn(bool turnToRight)
     {
-        if ((turnToRight && isFacingRight) || (!turnToRight && !isFacingRight)) { return; }
+        if ((turnToRight && isFacingRight) || (!turnToRight && !isFacingRight) || isTurning) { return; }
 
+        isTurning = true;
         float turnValue = turnToRight ? -180 : 180;
         plane.DOPause();
-        plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative();
+        plane.DORotate(new Vector3(0, turnValue, 0), 0.2f).SetEase(Ease.Linear).SetRelative()
+            .OnComplete(() => isTurning = false);
         isFacingRight = turnToRight;
     }
     public void TurnToPlayer(Transform player)
@@ -186,6 +189,7 @@ public class PlaneObject : BaseObject_V3
             }
         }
     }
+
     private void Update()
     {
         if (isLocked)
@@ -193,5 +197,4 @@ public class PlaneObject : BaseObject_V3
             transform.rotation = Quaternion.identity;
         }
     }
-
 }

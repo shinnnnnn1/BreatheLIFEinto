@@ -44,6 +44,9 @@ public class BookController_V3 : MonoBehaviour, IBookController
     IBookObject[] bookObjects;
     [SerializeField] MonoBehaviour[] objects;
 
+    IBookDirectional[] directionals;
+    [SerializeField] MonoBehaviour[] directionalObjects;
+
     [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted;
 
 
@@ -83,8 +86,17 @@ public class BookController_V3 : MonoBehaviour, IBookController
             objects[i] = bookObjects[i] as MonoBehaviour;
         }
 
+        //Directionalを全て参照
+        directionals = FindObjectsByType<MonoBehaviour>
+            (FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IBookDirectional>().ToArray();
+        directionalObjects = new MonoBehaviour[directionals.Length];
+        for (int i = 0; i < directionals.Length; i++)
+        {
+            directionalObjects[i] = directionals[i] as MonoBehaviour;
+        }
+
         //全ての歪みを縮小する
-        foreach(var obj in distortions)
+        foreach (var obj in distortions)
         {
             if(obj != null)
             {
@@ -139,7 +151,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         //プレイヤーがゲームをスタートできる状態にする
         playerController.SetCanGameStart(pageL, pageR, pageLC, pageRC);
-        Debug.Log("Can");
+        Debug.Log("Book Start");
     }
     #endregion
 
@@ -287,6 +299,10 @@ public class BookController_V3 : MonoBehaviour, IBookController
         {
             obj.AfterFlip(objectParents);
         }
+        foreach (IBookDirectional d in directionals)
+        {
+            d.OnCheckDirectional(bookDir + 2);
+        }
 
         ResetShape();
 
@@ -400,6 +416,11 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         onTurnBook.Invoke();
         Invoke("AfterTurnBook", model.rotTime);
+
+        foreach(IBookDirectional d in directionals)
+        {
+            d.OnCheckDirectional(bookDir + 2);
+        }
     }
 
     void AfterTurnBook()

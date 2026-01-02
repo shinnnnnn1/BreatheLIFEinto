@@ -206,6 +206,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         //動けない状態ならreturn
         if (!model.canMove) { return; }
+        if (!OnGround()) { CancelDialogueReference(); return; }
 
         //範囲内のオブジェクトを取得
         Collider[] eventColls = Physics.OverlapSphere(transform.position, model.eventSphereRadius, model.eventLayer, 
@@ -238,6 +239,14 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             closeEvent = null;
             interactingEvent = null;
         }
+    }
+
+    void CancelDialogueReference()
+    {
+        //現在のオブジェクトがある場合、会話可能イメージを非表示させる
+        interactingEvent?.OnEventEnter(false);
+        closeEvent = null;
+        interactingEvent = null;
     }
 
     /// <summary>

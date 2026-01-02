@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 2408402}
   - component: {fileID: 2408401}
   m_Layer: 7
-  m_Name: Pullable
+  m_Name: Pullable5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,12 +178,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408399}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0.0000000011641531, y: -0.13052623, z: -2.3283062e-10, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 957014713}
+  m_Father: {fileID: 896287667}
   m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
 --- !u!114 &2408401
 MonoBehaviour:
@@ -197,6 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bb4b8de4f8aaf46b5474cf2a7edf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000000100
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -316,7 +318,6 @@ MonoBehaviour:
       m_Calls: []
   anim: {fileID: 957014714}
   bookController: {fileID: 559071771}
-  coll: {fileID: 2408402}
   direction: {x: -1, y: 0}
   position: {x: -0.97, y: 0.46, z: -0.68}
   isDirX: 1
@@ -330,7 +331,6 @@ MonoBehaviour:
   isEntered: 0
   isActivated: 0
   canPull: 0
-  isDirectional: 0000000100
   isPulling: 0
 --- !u!65 &2408402
 BoxCollider:
@@ -78545,19 +78545,7 @@ MonoBehaviour:
   flipTime: 0
   onTurnBook:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2408401}
-        m_TargetAssemblyTypeName: PullableObject_V3, Assembly-CSharp
-        m_MethodName: CheckDirectional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   afterTurnBook:
     m_PersistentCalls:
       m_Calls:
@@ -78575,6 +78563,7 @@ MonoBehaviour:
         m_CallState: 2
   bookDir: 0
   objects: []
+  directionalObjects: []
   onOpen:
     m_PersistentCalls:
       m_Calls: []
@@ -104602,6 +104591,7 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -104853,7 +104843,7 @@ Transform:
   - {fileID: 348011496}
   - {fileID: 1721452793}
   - {fileID: 1933179622}
-  - {fileID: 1575240481}
+  - {fileID: 866327580}
   m_Father: {fileID: 539872380}
   m_LocalEulerAnglesHint: {x: 0, y: -166.623, z: 0}
 --- !u!95 &719170437
@@ -121133,6 +121123,38 @@ Transform:
   - {fileID: 1412010888}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &866327579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866327580}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &866327580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866327579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1575240481}
+  m_Father: {fileID: 719170436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867472018
 GameObject:
   m_ObjectHideFlags: 0
@@ -126232,6 +126254,38 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &896287666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896287667}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896287667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896287666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2408400}
+  m_Father: {fileID: 957014713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900695397
 GameObject:
   m_ObjectHideFlags: 0
@@ -126625,7 +126679,7 @@ Transform:
   - {fileID: 1789190243}
   - {fileID: 81752029}
   - {fileID: 1521088842}
-  - {fileID: 2408400}
+  - {fileID: 896287667}
   m_Father: {fileID: 856929988}
   m_LocalEulerAnglesHint: {x: 2.948, y: -223.546, z: -0.736}
 --- !u!95 &957014714
@@ -171601,7 +171655,7 @@ GameObject:
   - component: {fileID: 1575240483}
   - component: {fileID: 1575240482}
   m_Layer: 7
-  m_Name: Pullable
+  m_Name: Pullable2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171615,12 +171669,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575240480}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: -0, y: -0.13052624, z: -0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 719170436}
+  m_Father: {fileID: 866327580}
   m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
 --- !u!114 &1575240482
 MonoBehaviour:
@@ -171634,6 +171688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bb4b8de4f8aaf46b5474cf2a7edf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledDirections: 0000010000
+  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -171825,7 +171881,6 @@ MonoBehaviour:
       m_Calls: []
   anim: {fileID: 719170437}
   bookController: {fileID: 559071771}
-  coll: {fileID: 0}
   direction: {x: -1, y: 0}
   position: {x: -0.68, y: 0.14, z: -0.4}
   isDirX: 1
@@ -171839,7 +171894,6 @@ MonoBehaviour:
   isEntered: 0
   isActivated: 0
   canPull: 0
-  isDirectional: 0000010000
   isPulling: 0
 --- !u!65 &1575240483
 BoxCollider:
@@ -225555,6 +225609,7 @@ MonoBehaviour:
   current: -1
   canSkip: 0
   canProceed: 1
+  currentState: 000000
   currentEvent: {fileID: 0}
   bubbles: []
   texts: []
@@ -248263,6 +248318,7 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: c46699fb259e89a4a9b625b3a52f47e0, type: 2}
   respawn: {fileID: 11400000, guid: 3d8f2f2ea2ad4264aa7fa598cd0cdacd, type: 2}
   positionComposer: {fileID: 1897210940}
+  physicsMaterials: []
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   closeIndex: 0
@@ -248572,6 +248628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25340548991021842a8cfe0e06861f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deb:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &9063757876562159501
 NavMeshAgent:
   m_ObjectHideFlags: 0

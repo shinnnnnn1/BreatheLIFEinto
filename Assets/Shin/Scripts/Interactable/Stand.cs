@@ -2,14 +2,14 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Stand : MonoBehaviour, ICursorInteractable
+public class Stand : BookDirectional, ICursorInteractable
 {
     public bool canActivate, isEntered, canSwitch, isActivated;
     [SerializeField] BookController_V3 bookController;
-    [SerializeField] Collider coll;
+    //[SerializeField] Collider coll;
     [SerializeField] UnityEvent onEnter, onExit, 
         onPressedA, onReleasedA, onPressedDea, onReleasedDea, onCanceled;
-    [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
+    //[SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
 
 
     void Start()
@@ -83,7 +83,7 @@ public class Stand : MonoBehaviour, ICursorInteractable
         isActivated = isA;
     }
 
-
+    /*
     public void CheckDirectional()
     {
         if (isDirectional[bookController.bookDir + 2])
@@ -95,4 +95,5 @@ public class Stand : MonoBehaviour, ICursorInteractable
             coll.enabled = false;
         }
     }
+    */
 }

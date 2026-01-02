@@ -154,7 +154,7 @@ public class DialogueManager_V3 : MonoBehaviour
             currentText.fontSize = d.isAuto_AutoDelay_FontSize[current].z > 0 ? d.isAuto_AutoDelay_FontSize[current].z : 10;
 
             //フォントの色（マテリアル）を変更
-            currentText.fontMaterial = d.matPreset[current].x > 0 ? matPreset[1] : matPreset[0];
+            currentText.fontMaterial = d.matPreset[current].x > 0 ? matPreset[(int)d.matPreset[current].x] : matPreset[0];
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);

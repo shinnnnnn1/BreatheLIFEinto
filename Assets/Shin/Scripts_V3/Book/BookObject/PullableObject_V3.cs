@@ -2,12 +2,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
+public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 {
     [SerializeField] UnityEvent onEnter, onExit, tryActivate, onPull, onActivate, onResume ,onStop;
     [SerializeField] Animator anim;
     [SerializeField] BookController_V3 bookController;
-    [SerializeField] BoxCollider coll;
     PlayerController_V3 player;
 
     [Space(10f)]
@@ -41,15 +40,13 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
     [SerializeField] bool isActivated;
     [SerializeField] bool canPull;
 
-    [SerializeField] bool[] isDirectional = new bool[] { false, false, true, false, false }; // -1, 0, 1
-
     [SerializeField] bool isPulling;
 
     void Start()
     {
         defaultPullValue = pullValue;
-        coll = GetComponent<BoxCollider>();
-        CheckDirectional();
+        //coll = GetComponent<BoxCollider>();
+        //CheckDirectional();
     }
 
     public void OnEnter(bool isRight)
@@ -210,15 +207,17 @@ public class PullableObject_V3 : MonoBehaviour, IInteractable, IPullable
         Gizmos.DrawSphere(transform.position + position, 0.1f);
     }
 
+    /*
     public void CheckDirectional()
     {
         if (isDirectional[bookController.bookDir + 2])
         {
-            coll.enabled = true;
+            //coll.enabled = true;
         }
         else
         {
-            coll.enabled = false;
+            //coll.enabled = false;
         }
     }
+    */
 }

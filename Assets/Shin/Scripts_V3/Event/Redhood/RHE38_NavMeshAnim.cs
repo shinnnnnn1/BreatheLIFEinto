@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class RHE38_NavMeshAnim : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class RHE38_NavMeshAnim : MonoBehaviour
         agent.destination = pos;
         yield return null;
 
-        while (isMoving && agent.remainingDistance > agent.stoppingDistance)
+        while (agent.enabled && isMoving && agent.remainingDistance > agent.stoppingDistance)
         {
             yield return null;
         }
