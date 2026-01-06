@@ -189,6 +189,8 @@ public class PlaneObject : BaseObject_V3
             }
         }
     }
+    public void ChangeDirectionalTrue(int i) => isDirectional[i] = true;
+    public void ChangeDirectionalFalse(int i) => isDirectional[i] = false;
 
     private void Update()
     {

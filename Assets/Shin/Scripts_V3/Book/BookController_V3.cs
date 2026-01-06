@@ -444,6 +444,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         {
             b.LockObject(onLock, bookDir);
         }
+        distortions[currentPage]?.LockObject(onLock, bookDir);
     }
 
 

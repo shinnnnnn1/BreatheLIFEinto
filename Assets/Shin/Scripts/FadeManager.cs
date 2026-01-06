@@ -28,7 +28,7 @@ public class FadeManager : MonoBehaviour
         fadeImage.DOFade(1, outDuration).SetEase(outEase);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         FadeIn();
     }
