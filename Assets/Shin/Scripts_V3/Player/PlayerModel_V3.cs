@@ -51,6 +51,9 @@ public class PlayerModel_V3 : ScriptableObject
     public LayerMask hitLayer;
     public Vector2 jointAnchorRight = Vector3.zero;
 
+    public float distance = 1.0f;
+    public LayerMask physicsLayer;
+
     [Space(10f)]
     public float eventSphereRadius = 0.5f;
     public LayerMask eventLayer;

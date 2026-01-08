@@ -7,7 +7,7 @@ public class RHE10_LoopEvent : MonoBehaviour
     [SerializeField] UnityEvent[] loop;
     [SerializeField] float[] loopTime;
     [SerializeField] bool forceStop;
-    bool canLoop = true;
+    [SerializeField] bool canLoop = true;
 
     public void _StartLoop()
     {

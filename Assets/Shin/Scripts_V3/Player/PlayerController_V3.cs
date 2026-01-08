@@ -149,8 +149,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         else if (OnGround())
         {
             float y = rigid.linearVelocity.y;
-            y = Mathf.Clamp(y, 0, 0f);
-            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+            y = Mathf.Clamp(y, 1, -1f);
+            //rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+        }
+
+        if(PhysicsRay())
+        {
+            Debug.Log("asdasd");
         }
 
 
@@ -169,6 +174,15 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         model.hasJustJumped = false;
         view.SetPlayerAnim("hasJustJumped", false);
+    }
+
+    bool PhysicsRay()
+    {
+        if(Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), transform.right, model.distance, model.physicsLayer))
+        {
+            return true;
+        }
+        else { return false; }
     }
 
     /// <summary>
@@ -905,5 +919,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Gizmos.color = Color.cyan;
         float eventSphereRadius = model.eventSphereRadius;
         Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
+
+        Gizmos.color = PhysicsRay() ? Color.cyan : Color.red;
+        Gizmos.DrawRay(transform.position + new Vector3(0, 0.5f, 0), transform.right * model.distance);
     }
 }
