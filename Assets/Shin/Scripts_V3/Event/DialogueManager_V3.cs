@@ -42,6 +42,7 @@ public class DialogueManager_V3 : MonoBehaviour
 
     [SerializeField] Image currentBubble;
     [SerializeField] TMP_Text currentText;
+    [SerializeField] RectTransform customRect;
 
     [Tooltip("OnDialogueEnd, canMoveOnDialogueEnd, canProceedOnDialogueEnd")]
     [SerializeField] UnityEvent[] unityEvents;
@@ -63,7 +64,16 @@ public class DialogueManager_V3 : MonoBehaviour
         currentBubble = bubbles[0];
         currentText = texts[0];
 
-        currentText.text = "";
+        if (dialogue.customRect != null)
+        {
+            customRect = dialogue.customRect;
+        }
+        else
+        {
+            customRect = null;
+        }
+
+            currentText.text = "";
     }
 
     public void NextDialogue(DialogueEvent_V3 dialogue, Dialogue_V3 d)
@@ -143,6 +153,18 @@ public class DialogueManager_V3 : MonoBehaviour
             //吹き出しの表示/非表示（Yが0だったら表示）
             currentBubble.enabled = d.talkerID_IsInvisible_IsDialogueMotion[current].y == 0;
             currentText.enabled = d.talkerID_IsInvisible_IsDialogueMotion[current].y == 0;
+
+            //吹き出しのモーションがある場合?
+            if(d.talkerID_IsInvisible_IsDialogueMotion[current].z > 0 && customRect != null)
+            {
+                customRect.DOShakePosition(30, 0.3f, 20, 100, false, false).SetLoops(-1);
+                currentText.rectTransform.DOShakePosition(30, 0.1f, 20, 100, false, false).SetLoops(-1);
+            }
+            else
+            {
+                customRect?.DOPause();
+                currentText?.DOPause();
+            }
 
             //吹き出しのスプライトを変更
             currentBubble.sprite = bubbleType[(int)d.emotion_Bubble_MiddleEmotion[current].y];

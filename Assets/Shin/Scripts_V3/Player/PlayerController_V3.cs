@@ -142,25 +142,20 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             }
         }
 
-        if(model.hasJustJumped)
-        {
-
-        }
-        else if (OnGround())
+        if(!model.hasJustJumped && OnGround() && PhysicsRay())
         {
             float y = rigid.linearVelocity.y;
-            y = Mathf.Clamp(y, 1, -1f);
-            //rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
-        }
-
-        if(PhysicsRay())
+            y = Mathf.Clamp(y, -10f, -1f);
+            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+        }else
         {
-            Debug.Log("asdasd");
+            float y = rigid.linearVelocity.y;
+            y = Mathf.Clamp(y, -100f, 5f);
+            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
         }
 
-
-        //Flip中の動きを調整
-        FlipAdjustment();
+            //Flip中の動きを調整
+            FlipAdjustment();
 
         //範囲内のイベントを参照。複数の場合は一番近いものを参照
         GetDialogueReference();
@@ -178,7 +173,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     bool PhysicsRay()
     {
-        if(Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), transform.right, model.distance, model.physicsLayer))
+        if(Physics.Raycast(transform.position + model.physicsOffset,
+            model.isRight ? transform.right : -transform.right, model.distance, model.physicsLayer))
         {
             return true;
         }
@@ -921,6 +917,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Gizmos.DrawWireSphere(transform.position, eventSphereRadius);
 
         Gizmos.color = PhysicsRay() ? Color.cyan : Color.red;
-        Gizmos.DrawRay(transform.position + new Vector3(0, 0.5f, 0), transform.right * model.distance);
+        Gizmos.DrawRay(transform.position + model.physicsOffset, (model.isRight ? transform.right : -transform.right) * model.distance);
     }
 }

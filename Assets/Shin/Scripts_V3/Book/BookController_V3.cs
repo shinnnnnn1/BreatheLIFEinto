@@ -214,6 +214,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
     IEnumerator FlipCoroutine()
     {
+        DisOff(currentPage - 1);
+
         //Flipの前のイベントを発生させる
         afterFlip.OnBeforeFlip(currentPage);
 
@@ -301,7 +303,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
         }
         foreach (IBookDirectional d in directionals)
         {
-            d.OnCheckDirectional(bookDir + 2);
+            d?.OnCheckDirectional(bookDir + 2);
         }
 
         ResetShape();
@@ -395,7 +397,13 @@ public class BookController_V3 : MonoBehaviour, IBookController
     {
         Vector3 scale = Vector3.zero;
         float time = model.distortionTime;
-        distortions[currentPage].OnActivate(scale, time, model.easeDistortion);
+        distortions[currentPage]?.OnActivate(scale, time, model.easeDistortion);
+    }
+    void DisOff(int i)
+    {
+        Vector3 scale = Vector3.zero;
+        float time = model.distortionTime;
+        distortions[i]?.OnActivate(scale, time, model.easeDistortion);
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class Distortion : MonoBehaviour
 {
+    public bool isCompleted;
 
     [SerializeField] bool isFlip;
     bool isLocked;
@@ -19,6 +20,10 @@ public class Distortion : MonoBehaviour
     public void OnActivate(Vector3 value, float time, Ease ease)
     {
         transform.DOScale(value, time).SetEase(ease);
+        if(value == Vector3.zero)
+        {
+            isCompleted = true;
+        }
     }
 
     public void LockObject(bool onLock, int bookDir)

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
   m_Name: 06_WitchSelfTalk
   m_EditorClassIdentifier: 
-  canMoveOnDialogueEnd: 1
-  canProceedOnDialogueEnd: 1
+  canMoveOnDialogueEnd: 0
+  canProceedOnDialogueEnd: 0
   canRecycle: 0
   messages:
   - "\u3076\u3063\u3076\u3063"
@@ -38,13 +38,13 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 15}
   talkerID_IsInvisible_IsDialogueMotion:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   matPreset:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -56,6 +56,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  startEvent: 0
+  - {x: 0, y: 28, z: 0}
+  startEvent: 27
   isLoop: 0

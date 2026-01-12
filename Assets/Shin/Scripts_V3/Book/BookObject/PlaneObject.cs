@@ -199,4 +199,9 @@ public class PlaneObject : BaseObject_V3
             transform.rotation = Quaternion.identity;
         }
     }
+
+    public void SetNPCCylinder(MeshCollider coll)
+    {
+        npcCylinder = coll;
+    }
 }

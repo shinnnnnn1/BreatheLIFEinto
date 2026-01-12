@@ -12,6 +12,7 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
     public Image eventImage;
     public Image[] bubbles = new Image[1];
     public TMP_Text[] texts = new TMP_Text[1];
+    public RectTransform customRect;
 
     [SerializeField] bool isEventPlaying = false;
     [SerializeField] MeshCollider npcCylinder;

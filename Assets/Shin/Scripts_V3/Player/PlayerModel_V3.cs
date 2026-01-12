@@ -52,6 +52,7 @@ public class PlayerModel_V3 : ScriptableObject
     public Vector2 jointAnchorRight = Vector3.zero;
 
     public float distance = 1.0f;
+    public Vector3 physicsOffset = Vector3.zero;
     public LayerMask physicsLayer;
 
     [Space(10f)]
