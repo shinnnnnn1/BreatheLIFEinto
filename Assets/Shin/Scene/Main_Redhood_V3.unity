@@ -608,6 +608,7 @@ MonoBehaviour:
   loopTime:
   - 1
   forceStop: 1
+  canLoop: 1
 --- !u!1 &11877056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,6 +6098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 0
 --- !u!23 &46032615
 MeshRenderer:
@@ -14759,6 +14761,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!114 &168586381
@@ -15311,6 +15314,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1001 &182584859
@@ -16023,7 +16027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledDirections: 0000010000
-  coll: {fileID: 0}
+  colli: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -63383,13 +63387,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledDirections: 0000010000
-  coll: {fileID: 444070923}
+  colli: {fileID: 444070923}
   canActivate: 1
   isEntered: 0
   canSwitch: 1
   isActivated: 0
   bookController: {fileID: 559071771}
-  coll: {fileID: 444070923}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -63675,7 +63678,6 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
-  isDirectional: 0000010000
 --- !u!23 &444070925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65597,6 +65599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 1
 --- !u!23 &486281295
 MeshRenderer:
@@ -86678,13 +86681,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledDirections: 0000010000
-  coll: {fileID: 526029387}
+  colli: {fileID: 526029387}
   canActivate: 1
   isEntered: 0
   canSwitch: 1
   isActivated: 0
   bookController: {fileID: 0}
-  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -86754,7 +86756,6 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
-  isDirectional: 0000010000
 --- !u!64 &526029387
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -114807,6 +114808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 0
 --- !u!23 &613630621
 MeshRenderer:
@@ -127611,6 +127613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 1
 --- !u!23 &703175980
 MeshRenderer:
@@ -128053,6 +128056,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!114 &717704017
@@ -153237,6 +153241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 1
 --- !u!23 &902342242
 MeshRenderer:
@@ -155436,7 +155441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledDirections: 0000010000
-  coll: {fileID: 0}
+  colli: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -171413,6 +171418,7 @@ MonoBehaviour:
   texts:
   - {fileID: 0}
   - {fileID: 1940498651}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1036539081
@@ -177400,6 +177406,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1663131022}
   - {fileID: 532577314}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1079509468
@@ -184024,6 +184031,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!114 &1171362300
@@ -185265,6 +185273,7 @@ MonoBehaviour:
   texts:
   - {fileID: 0}
   - {fileID: 736682144}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!114 &1193777845
@@ -186296,6 +186305,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1247794855
@@ -208518,6 +208528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 0
 --- !u!23 &1485918142
 MeshRenderer:
@@ -210139,6 +210150,7 @@ MonoBehaviour:
   texts:
   - {fileID: 0}
   - {fileID: 929275284}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1532476552
@@ -230452,6 +230464,7 @@ MonoBehaviour:
   texts:
   - {fileID: 0}
   - {fileID: 766934986}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1700974777
@@ -230730,6 +230743,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!114 &1703468769
@@ -231673,13 +231687,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabledDirections: 0000010000
-  coll: {fileID: 1728362801}
+  colli: {fileID: 0}
   canActivate: 1
   isEntered: 0
   canSwitch: 0
   isActivated: 0
   bookController: {fileID: 0}
-  coll: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -231797,7 +231810,6 @@ MonoBehaviour:
   onCanceled:
     m_PersistentCalls:
       m_Calls: []
-  isDirectional: 0000010000
 --- !u!64 &1728362801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -232373,6 +232385,7 @@ MonoBehaviour:
   - {fileID: 1596389903}
   - {fileID: 1663131022}
   - {fileID: 532577314}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1741497413
@@ -233232,6 +233245,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 966874742}
   - {fileID: 1361375122}
+  customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
 --- !u!1 &1759878642
@@ -274681,6 +274695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f3cfb47c27fd943a3ba967e36fbd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCompleted: 0
   isFlip: 1
 --- !u!1 &1943726442
 GameObject:
@@ -286903,6 +286918,7 @@ MonoBehaviour:
   matPreset:
   - {fileID: -6843599674850354341, guid: 7bd36d9a0eaa04d43806df16992d56a2, type: 2}
   - {fileID: 2100000, guid: 5cdd0dc40fcb1304db4ff54405d5aeb0, type: 2}
+  sounds: []
   defaultAutoDelay: 1
   current: -1
   canSkip: 0
@@ -286913,6 +286929,7 @@ MonoBehaviour:
   texts: []
   currentBubble: {fileID: 0}
   currentText: {fileID: 0}
+  customRect: {fileID: 0}
   unityEvents:
   - m_PersistentCalls:
       m_Calls:

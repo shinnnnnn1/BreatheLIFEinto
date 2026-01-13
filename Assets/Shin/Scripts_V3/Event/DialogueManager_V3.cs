@@ -24,7 +24,9 @@ public class DialogueManager_V3 : MonoBehaviour
     [Space(10f)]
     [SerializeField] Sprite[] bubbleType;
     [SerializeField] Material[] matPreset;
+    [SerializeField] AudioClip[] sounds;
     [SerializeField] float defaultAutoDelay = 1f;
+    AudioSource source;
 
     [Space(10f)]
     [SerializeField] int current = -1;
@@ -39,9 +41,11 @@ public class DialogueManager_V3 : MonoBehaviour
 
     [SerializeField] Image[] bubbles;
     [SerializeField] TMP_Text[] texts;
+    [SerializeField] Image[] buttons;
 
     [SerializeField] Image currentBubble;
     [SerializeField] TMP_Text currentText;
+    [SerializeField] Image currentButton;
     [SerializeField] RectTransform customRect;
 
     [Tooltip("OnDialogueEnd, canMoveOnDialogueEnd, canProceedOnDialogueEnd")]
@@ -52,6 +56,7 @@ public class DialogueManager_V3 : MonoBehaviour
     private void Start()
     {
         emotionObjectPool = FindAnyObjectByType<EmotionObjectPool>();
+        source = GetComponent<AudioSource>();
     }
 
     void StartDialogue(DialogueEvent_V3 dialogue)
@@ -60,9 +65,11 @@ public class DialogueManager_V3 : MonoBehaviour
 
         bubbles = dialogue.bubbles;
         texts = dialogue.texts;
+        buttons = dialogue.buttons;
 
         currentBubble = bubbles[0];
         currentText = texts[0];
+        currentButton = buttons[0];
 
         if (dialogue.customRect != null)
         {
@@ -136,13 +143,16 @@ public class DialogueManager_V3 : MonoBehaviour
             //前Delay
             yield return new WaitForSeconds(d.delay[current].x);
 
+            //ボタンImageの切り替え
+            currentButton = buttons[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
+            currentButton.enabled = d.matPreset_ButtonInvisible[current].y == 0;
+
             //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでたけどどっちもすることになった)
             if (d.emotion_Bubble_MiddleEmotion[current].x > 0)
             {
                 emotionObjectPool.InvokeEmotion((int)d.emotion_Bubble_MiddleEmotion[current].x);
             }
             
-
             //イベントがある場合、再生
             if (d.events[current].x > 0) { EventManager_V3.Instance.InvokeEvent((int)d.events[current].x); }
 
@@ -163,7 +173,9 @@ public class DialogueManager_V3 : MonoBehaviour
             else
             {
                 customRect?.DOPause();
-                currentText?.DOPause();
+                currentText?.rectTransform.DOPause();
+                customRect?.DOLocalMove(Vector3.zero, 0);
+                currentText?.rectTransform.DOLocalMove(new Vector3(0, 1, 0), 0);
             }
 
             //吹き出しのスプライトを変更
@@ -176,7 +188,7 @@ public class DialogueManager_V3 : MonoBehaviour
             currentText.fontSize = d.isAuto_AutoDelay_FontSize[current].z > 0 ? d.isAuto_AutoDelay_FontSize[current].z : 10;
 
             //フォントの色（マテリアル）を変更
-            currentText.fontMaterial = d.matPreset[current].x > 0 ? matPreset[(int)d.matPreset[current].x] : matPreset[0];
+            currentText.fontMaterial = d.matPreset_ButtonInvisible[current].x > 0 ? matPreset[(int)d.matPreset_ButtonInvisible[current].x] : matPreset[0];
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
@@ -197,6 +209,7 @@ public class DialogueManager_V3 : MonoBehaviour
             for (int i = 0; i < d.messages[current].Length; i++)
             {
                 sb.Append(d.messages[current][i]);
+                source.PlayOneShot(sounds[0]);
                 yield return new WaitForSeconds(0.07f);
                 currentText.text = sb.ToString();
             }

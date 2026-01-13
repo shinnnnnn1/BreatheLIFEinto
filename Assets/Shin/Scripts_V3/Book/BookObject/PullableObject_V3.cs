@@ -107,6 +107,7 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
         //당겨지는 오브젝트의 애니메이션을 활성화하고 속도를 0으로 설정
         anim.enabled = true;
         anim.speed = 0;
+        anim?.SetTrigger("StartAnim");
         //당겨지는 오브젝트의 애니메이션의 재생
         player.SetPlayerAnimation("IsPulling", true);
 

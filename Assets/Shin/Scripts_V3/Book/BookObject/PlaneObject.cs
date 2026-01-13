@@ -41,7 +41,11 @@ public class PlaneObject : BaseObject_V3
         anim = plane.GetComponent<Animator>();
 
         //처음에 안보이게할거는
-        npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+        if(npcCylinder == null)
+        {
+            npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
+        }
+        
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 

@@ -62,4 +62,10 @@ public class RHE38_NavMeshAnim : MonoBehaviour
         //StopCoroutine(Moving());
         npc.SetBone();
     }
+
+    public void _ForceStop()
+    {
+        StopCoroutine(Moving());
+        isMoving = false;
+    }
 }

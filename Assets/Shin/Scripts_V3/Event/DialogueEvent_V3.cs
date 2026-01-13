@@ -12,6 +12,7 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
     public Image eventImage;
     public Image[] bubbles = new Image[1];
     public TMP_Text[] texts = new TMP_Text[1];
+    public Image[] buttons = new Image[1];
     public RectTransform customRect;
 
     [SerializeField] bool isEventPlaying = false;
@@ -23,6 +24,7 @@ public class DialogueEvent_V3 : MonoBehaviour, IEventInvoker
 
         bubbles[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Dialogue");
         texts[0] = GetComponentsInChildren<TMP_Text>().FirstOrDefault(x => x.name == "Text");
+        buttons[0] = GetComponentsInChildren<Image>().FirstOrDefault(x => x.name == "Button");
 
         npcCylinder = GetComponentsInChildren<MeshCollider>().FirstOrDefault();
 

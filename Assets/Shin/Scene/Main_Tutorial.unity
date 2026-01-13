@@ -5482,6 +5482,8 @@ MonoBehaviour:
   - {fileID: 0}
   texts:
   - {fileID: 0}
+  buttons:
+  - {fileID: 0}
   customRect: {fileID: 0}
   isEventPlaying: 0
   npcCylinder: {fileID: 0}
@@ -154512,7 +154514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!137 &1353912512
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -225823,6 +225825,7 @@ MonoBehaviour:
   matPreset:
   - {fileID: -6843599674850354341, guid: 7bd36d9a0eaa04d43806df16992d56a2, type: 2}
   - {fileID: 2100000, guid: 5cdd0dc40fcb1304db4ff54405d5aeb0, type: 2}
+  sounds: []
   defaultAutoDelay: 1
   current: -1
   canSkip: 0
@@ -225831,8 +225834,10 @@ MonoBehaviour:
   currentEvent: {fileID: 0}
   bubbles: []
   texts: []
+  buttons: []
   currentBubble: {fileID: 0}
   currentText: {fileID: 0}
+  currentButton: {fileID: 0}
   customRect: {fileID: 0}
   unityEvents:
   - m_PersistentCalls:
