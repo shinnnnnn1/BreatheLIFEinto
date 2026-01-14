@@ -381,6 +381,15 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         model.isRight = !model.isRight;
         view.Turn(model.isRight, model.turnTime);
     }
+    public void ManualTurnTo(Transform trans)
+    {
+        Transform pos = trans;
+        bool isOverPlayer = transform.position.x > pos.position.x;
+        if ((!isOverPlayer && !model.isRight) || (isOverPlayer && model.isRight))
+        {
+            ManualTurn();
+        }
+    }
 
     void SetIsTurning() => model.isTurning = false;
 

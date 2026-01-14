@@ -5884,8 +5884,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40221778}
-  - component: {fileID: 40221777}
   - component: {fileID: 40221779}
+  - component: {fileID: 40221780}
   m_Layer: 0
   m_Name: EventTrigger
   m_TagString: Untagged
@@ -5893,28 +5893,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &40221777
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40221776}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 503
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: a7b6f1e7607a3a94293c4905b009be4e, type: 3}
 --- !u!4 &40221778
 Transform:
   m_ObjectHideFlags: 0
@@ -5924,8 +5902,8 @@ Transform:
   m_GameObject: {fileID: 40221776}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 200.00008, z: 100.000046}
+  m_LocalPosition: {x: 0, y: -0.25, z: -1.13}
+  m_LocalScale: {x: 303.88, y: 367.5274, z: 196.25009}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1355455647}
@@ -5969,6 +5947,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &40221780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40221776}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &45812022
 GameObject:
   m_ObjectHideFlags: 0
@@ -15341,7 +15340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 1
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -31729,6 +31728,56 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+--- !u!1 &230814221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230814222}
+  - component: {fileID: 230814223}
+  m_Layer: 3
+  m_Name: Emotion_09
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230814222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230814221}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.632, y: 1.401, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472731256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230814223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230814221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 5
+  scale: {x: 0.5, y: 0.5, z: 0.5}
+  delay: 0
+  isWorld: 0
+  isLoop: 0
+  loopDelay: 0
 --- !u!1 &232266458
 GameObject:
   m_ObjectHideFlags: 0
@@ -52837,7 +52886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 4
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -63775,6 +63824,56 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &481577183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481577184}
+  - component: {fileID: 481577185}
+  m_Layer: 3
+  m_Name: Emotion_10
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481577184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481577183}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.632, y: 1.401, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472731256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481577185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481577183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 8
+  scale: {x: 1, y: 1, z: 1}
+  delay: 0
+  isWorld: 0
+  isLoop: 0
+  loopDelay: 0
 --- !u!1 &483086468
 GameObject:
   m_ObjectHideFlags: 0
@@ -128265,7 +128364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 5
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -166763,7 +166862,7 @@ Transform:
   m_GameObject: {fileID: 1013185335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61, y: 1.13, z: 0}
+  m_LocalPosition: {x: -0.501, y: 1.344, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166781,7 +166880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 3
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -201174,10 +201273,13 @@ Transform:
   m_GameObject: {fileID: 1472731255}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1000004, y: 0.024999976, z: -6.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1501227235}
+  - {fileID: 230814222}
+  - {fileID: 481577184}
   m_Father: {fileID: 558410008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473407804
@@ -201688,6 +201790,56 @@ Transform:
   - {fileID: 1965629722}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1501227234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1501227235}
+  - component: {fileID: 1501227236}
+  m_Layer: 3
+  m_Name: Emotion_08
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1501227235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501227234}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.632, y: 1.401, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472731256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501227236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501227234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 3
+  scale: {x: 1, y: 1, z: 1}
+  delay: 0
+  isWorld: 0
+  isLoop: 0
+  loopDelay: 0
 --- !u!1 &1507339425
 GameObject:
   m_ObjectHideFlags: 0
@@ -216884,7 +217036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 2
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -223565,6 +223717,30 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5782624529101472704}
+          m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+          m_MethodName: set_isKinematic
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9063757876562159498}
+          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+          m_MethodName: ManualTurnTo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 558410008}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -273277,7 +273453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 1
+  emotionType: 0
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
@@ -298531,7 +298707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 7
+  emotionType: 6
   scale: {x: 0.5, y: 0.5, z: 0.5}
   delay: 0
   isWorld: 0
