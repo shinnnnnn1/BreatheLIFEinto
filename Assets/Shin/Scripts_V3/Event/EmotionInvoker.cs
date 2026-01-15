@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +14,8 @@ public class EmotionInvoker : MonoBehaviour
     [SerializeField] float delay;
     [SerializeField] bool isWorld;
 
+    [SerializeField] Transform[] child;
+
     [Space(10f)]
     [SerializeField] bool isLoop;
     [SerializeField] bool loopDelay;
@@ -22,7 +25,13 @@ public class EmotionInvoker : MonoBehaviour
         //親を設定し、位置を初期化
         emotion.transform.SetParent(transform);
         emotion.transform.localPosition = Vector3.zero;
-        emotion.transform.localScale = scale;
+        //emotion.transform.localScale = scale;
+
+        child = transform.GetComponentsInChildren<Transform>().Where(w => w != this.transform).ToArray();
+        foreach (Transform t in child)
+        {
+            t.localScale = scale;
+        }
 
         //
         if(isWorld)
