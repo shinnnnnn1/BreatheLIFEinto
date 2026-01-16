@@ -39,6 +39,23 @@ public class EmotionObjectPool : MonoBehaviour
         invoker.InvokeEmotion(particle);
     }
 
+    /// <summary>
+    /// 동시에 같은 감정표현을 재생하는 경우 등 문제가 생길때
+    /// 수동으로 파티클의 번호를 지정하여 재생시킴
+    /// </summary>
+    public void _InvokeEmotionCustom(int number)
+    {
+        EmotionInvoker invoker = invokers[number];
+        int type = invoker.emotionType;
+
+        //3번째 파티클으로 설정
+        ParticleSystem particle = FindParticleCustom(type);
+
+        //Particleを渡す
+        invoker.InvokeEmotion(particle);
+        Debug.Log(particle.name);
+    }
+
     ParticleSystem FindParticle(int type)
     {
         int firstType = type * 3;
@@ -52,5 +69,11 @@ public class EmotionObjectPool : MonoBehaviour
 
         Debug.Log("남아있는 파티클이 존재하지 않는다 !");
         return null;
+    }
+
+    ParticleSystem FindParticleCustom(int type)
+    {
+        int firstType = type * 3;
+        return emotions[firstType + 2];
     }
 }

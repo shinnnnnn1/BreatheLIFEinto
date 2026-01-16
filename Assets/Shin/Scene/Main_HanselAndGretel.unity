@@ -60275,7 +60275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &388689157
 Transform:
   m_ObjectHideFlags: 0
@@ -138083,7 +138083,7 @@ Transform:
   m_GameObject: {fileID: 829082160}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4639893, y: -1.5246829, z: 8.146577}
+  m_LocalPosition: {x: -0.73, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -138101,7 +138101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotionType: 2
+  emotionType: 1
   scale: {x: -1, y: 1, z: 1}
   delay: 0
   isWorld: 0
@@ -177456,7 +177456,7 @@ GameObject:
   - component: {fileID: 1140978629}
   - component: {fileID: 1140978630}
   m_Layer: 0
-  m_Name: 00__8
+  m_Name: 38_CandyEmotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177493,14 +177493,26 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9063757876562159498}
-        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-        m_MethodName: PlayAutoEvent
-        m_Mode: 2
+      - m_Target: {fileID: 396204493}
+        m_TargetAssemblyTypeName: EmotionObjectPool, Assembly-CSharp
+        m_MethodName: InvokeEmotion
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: DialogueEvent_V3, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: InvokeEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 39
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -178480,31 +178492,7 @@ MonoBehaviour:
   pos: {x: 1.96, y: 1.6101819, z: -2.89}
   onEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9063757876562159498}
-        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-        m_MethodName: ManualTurn
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 558410011}
-        m_TargetAssemblyTypeName: PlaneObject, Assembly-CSharp
-        m_MethodName: Turn
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1161382521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178522,6 +178510,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -178559,6 +178548,32 @@ MonoBehaviour:
             Unity.Cinemachine
           m_MethodName: Prioritize
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9063757876562159498}
+          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+          m_MethodName: ManualTurn
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 558410011}
+          m_TargetAssemblyTypeName: PlaneObject, Assembly-CSharp
+          m_MethodName: Turn
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -179772,7 +179787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1200850838
 Transform:
   m_ObjectHideFlags: 0
@@ -187579,6 +187594,57 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1269176298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269176299}
+  - component: {fileID: 1269176300}
+  m_Layer: 3
+  m_Name: Emotion_15
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269176299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269176298}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.518, y: 1.283, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472731256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269176300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269176298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 7
+  scale: {x: -0.5, y: 0.5, z: 0.5}
+  delay: 0
+  isWorld: 0
+  child: []
+  isLoop: 0
+  loopDelay: 0
 --- !u!1 &1269359177
 GameObject:
   m_ObjectHideFlags: 0
@@ -203886,6 +203952,8 @@ Transform:
   - {fileID: 1501227235}
   - {fileID: 230814222}
   - {fileID: 481577184}
+  - {fileID: 1269176299}
+  - {fileID: 1645018820}
   m_Father: {fileID: 558410008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473407804
@@ -219927,7 +219995,7 @@ Transform:
   m_GameObject: {fileID: 1623874393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61, y: 1.13, z: 0}
+  m_LocalPosition: {x: -0.58, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219946,7 +220014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionType: 2
-  scale: {x: 0.5, y: 0.5, z: 0.5}
+  scale: {x: 0.8, y: 0.8, z: 0.8}
   delay: 0
   isWorld: 0
   child: []
@@ -225470,6 +225538,57 @@ MonoBehaviour:
   activateInHeight: 0
   resetBone: 0
   mesh: []
+--- !u!1 &1645018819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645018820}
+  - component: {fileID: 1645018821}
+  m_Layer: 3
+  m_Name: Emotion_16
+  m_TagString: EmotionInvoker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645018820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645018819}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.518, y: 1.283, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472731256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645018821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645018819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e202f2936e40cf47b50eaff4db18206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emotionType: 1
+  scale: {x: 1, y: 1, z: 1}
+  delay: 0
+  isWorld: 0
+  child: []
+  isLoop: 0
+  loopDelay: 0
 --- !u!1 &1645028558
 GameObject:
   m_ObjectHideFlags: 0
@@ -267365,7 +267484,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ebddaf98d34903442bff22cab0f43dd6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: cd46c59859feae141b73fd2c06c136d8, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -267958,7 +268077,7 @@ GameObject:
   - component: {fileID: 1847346295}
   - component: {fileID: 1847346296}
   m_Layer: 0
-  m_Name: 00__9
+  m_Name: 39_CandyEmotion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267995,19 +268114,19 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9063757876562159498}
-        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-        m_MethodName: PlayAutoEvent
-        m_Mode: 2
+      - m_Target: {fileID: 396204493}
+        m_TargetAssemblyTypeName: EmotionObjectPool, Assembly-CSharp
+        m_MethodName: InvokeEmotion
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: DialogueEvent_V3, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0
+  delay: 0.5
 --- !u!1 &1855774840
 GameObject:
   m_ObjectHideFlags: 0
