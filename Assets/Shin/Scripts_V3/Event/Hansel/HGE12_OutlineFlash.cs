@@ -4,7 +4,7 @@ public class HGE12_OutlineFlash : MonoBehaviour
 {
     [SerializeField] Material mat;
     [SerializeField] string parameterName = "_IsFlashing";
-    [SerializeField] bool defaultValue;
+    [SerializeField] bool defaultValue = true;
 
     private void OnDestroy()
     {

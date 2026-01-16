@@ -491,6 +491,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
                 SetJoint(model.isRight, model.jointAnchorRight, hit.rigidbody);
 
                 interactable?.OnExit();
+                interactable?.OnPullStart();
             }
         }
     }
@@ -511,9 +512,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             if (pullable == null)
             {
                 interactable?.OnEnter(model.isRight);
+                interactable?.OnPullEnd();
             }
             pullable?.OnDeactivate(model.isRight);
             pullable = null;
+
 
             //SetCanAnim(true);
             view.SetPlayerAnim("StopHold");

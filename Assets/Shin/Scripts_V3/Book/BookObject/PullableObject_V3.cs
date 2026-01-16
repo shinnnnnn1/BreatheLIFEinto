@@ -221,4 +221,13 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
         }
     }
     */
+
+    public void OnPullStart()
+    {
+        
+    }
+    public void OnPullEnd()
+    {
+        
+    }
 }

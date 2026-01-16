@@ -17,7 +17,6 @@ public class BookDirectional : MonoBehaviour, IBookDirectional
     {
         if(gameObject.activeSelf)
         {
-            Debug.Log(gameObject.name);
             colli.enabled = enabledDirections[bookDirection];
         }
     }
