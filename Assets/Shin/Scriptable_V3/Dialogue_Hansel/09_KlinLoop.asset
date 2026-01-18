@@ -16,8 +16,8 @@ MonoBehaviour:
   canProceedOnDialogueEnd: 0
   canRecycle: 0
   messages:
-  - "\u51FA\u305B\u30FC\u30FC\u30FC\uFF01\uFF01\uFF01\uFF01\uFF01"
-  - "\u3053\u30F3\u306E\u30AF\u30BD\u30AC\u30AD\uFF01\uFF01\uFF01\u30A2\u30BF\u30B7\u3092\u9589\u3058\u8FBC\u3081\u305F\u306D\uFF01\uFF01\uFF01\uFF01"
+  - "\u51FA\u305B\u30FC\u30FC\uFF01\uFF01\uFF01"
+  - "\u3053\u30F3\u306E\u30AF\u30BD\u30AC\u30AD\uFF01\uFF01\u30A2\u30BF\u30B7\u3092\u9589\u3058\u8FBC\u3081\u305F\u306D\uFF01\uFF01"
   emotion_Bubble_MiddleEmotion:
   - {x: 0, y: 1, z: 0}
   - {x: 0, y: 1, z: 0}
@@ -25,14 +25,14 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   isAuto_AutoDelay_FontSize:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 15}
+  - {x: 1, y: 0, z: 13}
   talkerID_IsInvisible_IsDialogueMotion:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
   matPreset_ButtonInvisible:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
   events:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

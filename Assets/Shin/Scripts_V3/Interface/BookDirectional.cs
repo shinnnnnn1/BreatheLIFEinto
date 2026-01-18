@@ -15,16 +15,18 @@ public class BookDirectional : MonoBehaviour, IBookDirectional
     }
     public void OnCheckDirectional(int bookDirection)
     {
-        if(gameObject.activeSelf)
+        if(gameObject.activeSelf && colli != null)
         {
             colli.enabled = enabledDirections[bookDirection];
         }
     }
     public void _OnCheckDirectional(BookController_V3 bookDirection)
     {
-        if (gameObject.activeSelf)
+        if (gameObject.activeSelf && colli != null)
         {
             colli.enabled = enabledDirections[bookDirection.bookDir + 2];
         }
     }
+
+    public void _SetColl(Collider c) => colli = c;
 }

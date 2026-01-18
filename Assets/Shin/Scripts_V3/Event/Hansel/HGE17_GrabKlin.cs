@@ -10,21 +10,14 @@ public class HGE17_GrabKlin : MonoBehaviour
     [SerializeField] Transform model;
 
     [SerializeField] Vector2 point;
+    Vector2 previoutPoint;
 
     [SerializeField] bool isGrab, isActivated;
 
-    [SerializeField] Vector2 startPoint;
-    [SerializeField] Vector2 movedPoint;
+    [Space(10)]
+    [SerializeField] float activateValue = 1;
 
-    Vector2 previoutPoint;
-
-    [SerializeField] UnityEvent onActivate, onActivateDelay;
-    [SerializeField] float delay;
-
-    private void OnEnable()
-    {
-        startPoint = model.transform.position;
-    }
+    [SerializeField] UnityEvent onActivate;
 
     public void SetGrab(bool startGrab)
     {
@@ -41,7 +34,6 @@ public class HGE17_GrabKlin : MonoBehaviour
         {
             point = Vector3.zero;
             previoutPoint = Vector3.zero;
-            model.position = startPoint;
         }
     }
 
@@ -54,22 +46,14 @@ public class HGE17_GrabKlin : MonoBehaviour
                 point = controller.hitPoint;
 
                 Vector2 a = point - previoutPoint;
+                Debug.Log(a.magnitude);
 
-                model.position = model.position + (Vector3)a;
-
-                previoutPoint = point;
-
-                movedPoint = (Vector2)transform.position - startPoint;
+                if(a.magnitude > activateValue)
+                {
+                    isActivated = true;
+                    onActivate.Invoke();
+                }
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!isActivated)
-        {
-            isActivated = true;
-            onActivate.Invoke();
         }
     }
 }

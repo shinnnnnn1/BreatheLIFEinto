@@ -280,6 +280,7 @@ public class DialogueManager_V3 : MonoBehaviour
             currentBubble.rectTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InQuint);
         }
         Invoke("ResetParameter", 0.5f);
+        currentEvent = null;
     }
 
     void ResetParameter()
