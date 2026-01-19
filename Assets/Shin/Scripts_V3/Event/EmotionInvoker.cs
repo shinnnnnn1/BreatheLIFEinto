@@ -18,7 +18,7 @@ public class EmotionInvoker : MonoBehaviour
 
     [Space(10f)]
     [SerializeField] bool isLoop;
-    [SerializeField] bool loopDelay;
+    [SerializeField] float loopDelay;
 
     public void InvokeEmotion(ParticleSystem emotion)
     {
@@ -48,11 +48,12 @@ public class EmotionInvoker : MonoBehaviour
         yield return new WaitForSeconds(delay);
         emotion.Play();
 
-        while(isLoop)
+        yield return new WaitForSeconds(loopDelay);
+        while (isLoop)
         {
-            yield return new WaitForSeconds(delay);
             emotion.Stop();
             emotion.Play();
+            yield return new WaitForSeconds(loopDelay);
         }
     }
 

@@ -76,4 +76,6 @@ public class EventManager_V3 : MonoBehaviour
     {
         ui[num].Fade(0);
     }
+
+    public void _RemoveTimeline() => director.playableAsset = null;
 }
