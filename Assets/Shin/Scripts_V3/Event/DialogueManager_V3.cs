@@ -144,8 +144,11 @@ public class DialogueManager_V3 : MonoBehaviour
             yield return new WaitForSeconds(d.delay[current].x);
 
             //ボタンImageの切り替え
-            currentButton = buttons[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
-            currentButton.enabled = d.matPreset_ButtonInvisible[current].y == 0;
+            if(currentButton != null)
+            {
+                currentButton = buttons[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
+                currentButton.enabled = d.matPreset_ButtonInvisible[current].y == 0;
+            }
 
             //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでたけどどっちもすることになった)
             if (d.emotion_Bubble_MiddleEmotion[current].x > 0)
