@@ -20,12 +20,10 @@ public class HGE15_NavMeshChase : MonoBehaviour
             {
                 if (isChasing)
                 {
+                    string animTrigger = agent.velocity.magnitude > 0 ? "Walk" : "Idle";
+                    anim.SetTrigger(animTrigger);
                     agent.destination = chasingObj.position;
                     npc.AutoTurn(agent.velocity);
-
-                    string animTrigger = agent.velocity.magnitude > 0 ? "Walk" : "Idle";
-                    Debug.Log(animTrigger);
-                    anim.SetTrigger(animTrigger);
                 }
                 else
                 {
@@ -49,5 +47,6 @@ public class HGE15_NavMeshChase : MonoBehaviour
     {
         isCompleted = true;
         agent.enabled = false;
+
     }
 }
