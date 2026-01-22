@@ -10,23 +10,29 @@ public class HGE15_NavMeshChase : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Collider coll;
     public bool isChasing;
+    [SerializeField] bool isCompleted;
 
     private void Update()
     {
-        if(agent.enabled)
+        if(!isCompleted)
         {
-            if (isChasing)
+            if (agent.enabled)
             {
-                agent.destination = chasingObj.position;
-                npc.AutoTurn(agent.velocity);
+                if (isChasing)
+                {
+                    agent.destination = chasingObj.position;
+                    npc.AutoTurn(agent.velocity);
 
-                string animTrigger = agent.velocity.magnitude > 0 ? "Walk" : "Idle";
-                anim.SetTrigger(animTrigger);
-            }
-            else
-            {
-                agent.destination = agent.transform.position;
-                anim.SetTrigger("Idle");
+                    string animTrigger = agent.velocity.magnitude > 0 ? "Walk" : "Idle";
+                    Debug.Log(animTrigger);
+                    anim.SetTrigger(animTrigger);
+                }
+                else
+                {
+                   
+                    agent.destination = agent.transform.position;
+                    anim.SetTrigger("Idle");
+                }
             }
         }
     }
@@ -38,5 +44,10 @@ public class HGE15_NavMeshChase : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isChasing = false;
+    }
+    public void _IsCompleted()
+    {
+        isCompleted = true;
+        agent.enabled = false;
     }
 }

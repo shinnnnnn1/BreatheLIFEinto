@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -39,5 +40,14 @@ public class GameManager : MonoBehaviour
     public void SetCanPlay(int scene)
     {
         canPlay[scene + 1] = true;
+    }
+
+    private void Start()
+    {
+        if (canPlay[1])
+        {
+            Title t = FindFirstObjectByType<Title>();
+            t?.SkipTitle();
+        }
     }
 }

@@ -1,4 +1,4 @@
-using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +13,10 @@ public class Title : MonoBehaviour
     [SerializeField] float fadeDuration;
 
     [SerializeField] bool[] can;
+
+    [SerializeField] GameObject[] other;
+    [SerializeField] EventSystem es;
+    [SerializeField] bool isStarted = false;
     
     void Start()
     {
@@ -55,5 +59,45 @@ public class Title : MonoBehaviour
     void ChangeScene()
     {
         GameManager.Instance.ChangeScene(currentIndex);
+    }
+
+    public void TitleStart()
+    {
+        if(!isStarted)
+        {
+            StartCoroutine(TitleStartCoroutine());
+        }
+    }
+
+    IEnumerator TitleStartCoroutine()
+    {
+        isStarted = true;
+
+        FadeManager.Instance.FadeOut();
+        yield return new WaitForSeconds(1);
+
+        other[0].SetActive(false);
+        other[1].SetActive(false);
+
+        //yield return null;
+
+        FadeManager.Instance.FadeIn();
+
+        Debug.Log("Title - Set Button");
+        can = GameManager.Instance.canPlay;
+
+        for (int i = 0; i < books.Length; i++)
+        {
+            books[i].enabled = can[i];
+        }
+        es.enabled = true;
+    }
+
+    public void SkipTitle()
+    {
+        other[0].SetActive(false);  
+        other[1].SetActive(false);
+        es.enabled = true;
+        isStarted = true;
     }
 }

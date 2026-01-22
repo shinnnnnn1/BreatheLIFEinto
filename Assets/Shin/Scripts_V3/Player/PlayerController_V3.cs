@@ -21,6 +21,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public Vector2 zoomDirection;
 
     IBookController bookController;
+    [SerializeField] Title title;
 
     //本をめくる時に使用
     /// <summary>　Triggerに触れ、Flipできる状態になったかを確認　</summary>
@@ -72,7 +73,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     bool isLocked = false;
     Vector3 lockedPos;
 
-    bool canGameStart = false;
+    //titleだけtrueにする
+    [SerializeField] bool canGameStart = false;
     bool isEnding = false;
 
     void Start()
@@ -86,6 +88,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         view = GetComponent<PlayerView_V3>();
         joint = GetComponentInChildren<ConfigurableJoint>();
         bookController = GameObject.FindGameObjectWithTag("BookController")?.GetComponent<IBookController>();
+
+        title = FindFirstObjectByType<Title>();
 
         //コライダーを参照し、詳細を設定
         boxColl = GetComponent<BoxCollider>();
@@ -884,7 +888,11 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         if (canGameStart)
         {
             //最初の本のページをめくる
-            bookController.GameStart(true);
+            bookController?.GameStart(true);
+
+            //それともタイトルの時は本選択画面に
+            title?.TitleStart();
+
             canGameStart = false;
         }
     }
