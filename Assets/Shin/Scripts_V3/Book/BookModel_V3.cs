@@ -5,7 +5,7 @@ using UnityEngine;
 public class BookModel_V3 : ScriptableObject
 {
     [Header("Development Settings")]
-    [Range(1, 10)] public int setStartPage = 0;
+    [Range(1, 15)] public int setStartPage = 0;
 
     [Header("Curve Settings")]
     [Tooltip("ActTime, DeactTime, ActDelay, DeactDelay")]
