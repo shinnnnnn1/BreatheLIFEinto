@@ -42021,6 +42021,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4320420363059107708, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4320420363059107708, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_AABB.m_Center.x
       value: 0.0012901258
       objectReference: {fileID: 0}
@@ -42047,10 +42051,10 @@ PrefabInstance:
     - target: {fileID: -4320420363059107708, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 7fca52d1cf3f7384fb2f8416636b2782, type: 2}
+      objectReference: {fileID: 2100000, guid: bfeb3c00387911a46a9e090df7551e8e, type: 2}
     - target: {fileID: -3164662375717310761, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1581005398241767525, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_DirtyAABB
@@ -125662,6 +125666,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4320420363059107708, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4320420363059107708, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_AABB.m_Center.x
       value: 0.0012901258
       objectReference: {fileID: 0}
@@ -147006,7 +147014,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838031560}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: fcc8b020eee886c44ad6c95d562a6617, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 16b80f114cde5c341bb3d895db6adc70, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -314129,6 +314137,7 @@ MonoBehaviour:
   physicsMaterials: []
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
+  title: {fileID: 0}
   closeIndex: 0
   closeBone: {fileID: 0}
   rotBone: {fileID: 0}
@@ -314142,6 +314151,7 @@ MonoBehaviour:
   zoom_Min_Max: {x: 10, y: 45}
   zoom_Current_Target_Speed: {x: 45, y: 45, z: 3}
   currentVelocity: {x: 0, y: 0, z: 0}
+  canGameStart: 0
 --- !u!114 &9063757876562159499
 MonoBehaviour:
   m_ObjectHideFlags: 0

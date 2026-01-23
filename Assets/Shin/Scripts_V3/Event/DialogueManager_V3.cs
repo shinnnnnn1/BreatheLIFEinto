@@ -147,7 +147,7 @@ public class DialogueManager_V3 : MonoBehaviour
             if(currentButton != null)
             {
                 currentButton = buttons[(int)d.talkerID_IsInvisible_IsDialogueMotion[current].x];
-                currentButton.enabled = d.matPreset_ButtonInvisible[current].y == 0;
+                currentButton.enabled = d.matPreset_ButtonInvisible_Voice[current].y == 0;
             }
 
             //感情表現のイベント実行 (前Delayの前にするか後にするか悩んでたけどどっちもすることになった)
@@ -191,7 +191,7 @@ public class DialogueManager_V3 : MonoBehaviour
             currentText.fontSize = d.isAuto_AutoDelay_FontSize[current].z > 0 ? d.isAuto_AutoDelay_FontSize[current].z : 10;
 
             //フォントの色（マテリアル）を変更
-            currentText.fontMaterial = d.matPreset_ButtonInvisible[current].x > 0 ? matPreset[(int)d.matPreset_ButtonInvisible[current].x] : matPreset[0];
+            currentText.fontMaterial = d.matPreset_ButtonInvisible_Voice[current].x > 0 ? matPreset[(int)d.matPreset_ButtonInvisible_Voice[current].x] : matPreset[0];
 
             //吹き出しが大きくなるアニメーション
             currentBubble.rectTransform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutQuint);
@@ -212,9 +212,13 @@ public class DialogueManager_V3 : MonoBehaviour
             for (int i = 0; i < d.messages[current].Length; i++)
             {
                 sb.Append(d.messages[current][i]);
-                source.PlayOneShot(sounds[0]);
-                yield return new WaitForSeconds(0.07f);
                 currentText.text = sb.ToString();
+
+                //声を再生
+                int voice = (int)d.matPreset_ButtonInvisible_Voice[current].z;
+                source.PlayOneShot(sounds[voice]);
+
+                yield return new WaitForSeconds(0.07f);
             }
             canSkip = false;
             canProceed = true;

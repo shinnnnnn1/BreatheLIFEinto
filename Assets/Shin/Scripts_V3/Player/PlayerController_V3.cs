@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController_V3 : MonoBehaviour, IPlayerController
 {
@@ -77,6 +78,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     [SerializeField] bool canGameStart = false;
     bool isEnding = false;
 
+    NavMeshAgent agent;
+
     void Start()
     {
         CinemachineCamera cam = positionComposer.GetComponent<CinemachineCamera>();
@@ -87,6 +90,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         rigid = GetComponent<Rigidbody>();
         view = GetComponent<PlayerView_V3>();
         joint = GetComponentInChildren<ConfigurableJoint>();
+        agent = GetComponent<NavMeshAgent>();
         bookController = GameObject.FindGameObjectWithTag("BookController")?.GetComponent<IBookController>();
 
         title = FindFirstObjectByType<Title>();
@@ -744,6 +748,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             //Flipができる状態にする
             canFlip = true;
         }
+    }
+    public void AutoFlipTrigger()
+    {
+        canFlip = true;
     }
 
     /// <summary>

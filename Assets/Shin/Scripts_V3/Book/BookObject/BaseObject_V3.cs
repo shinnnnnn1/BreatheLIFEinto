@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BaseObject_V3 : MonoBehaviour, IBookObject
 {
-    [Range(1, 10)] [SerializeField] int stage;
+    [Range(1, 15)] [SerializeField] int stage;
 
     [Space(10f)]
     public bool isRight;

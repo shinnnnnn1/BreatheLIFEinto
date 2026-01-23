@@ -10,38 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
-  m_Name: DialogueV3
+  m_Name: 27_Gretel6
   m_EditorClassIdentifier: 
   canMoveOnDialogueEnd: 0
   canProceedOnDialogueEnd: 0
   canRecycle: 0
   messages:
-  - "\u305D\u306E\u8ABF\u5B50!!"
-  - "\u9EC4\u8272\u306F\u30D2\u30F3\u30C8!!"
-  - "\u7A4D\u6975\u7684\u306B\u8ABF\u3079\u3088\u3046!!"
+  - "\u305F\u3060\u3044\u307E\u30FC\uFF01"
   emotion_Bubble_MiddleEmotion:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   delay:
   - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
   isAuto_AutoDelay_FontSize:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 16.5}
-  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
   talkerID_IsInvisible_IsDialogueMotion:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   matPreset_ButtonInvisible_Voice:
-  - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 1, z: 1}
   events:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 2, z: 0}
-  startEvent: 5
+  startEvent: 0
   isLoop: 0
