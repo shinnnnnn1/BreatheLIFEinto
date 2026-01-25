@@ -27,5 +27,9 @@ public class Tutorial02_2 : MonoBehaviour
                 onComplete.Invoke();
             }
         }
+        if(isCompleted)
+        {
+
+        }
     }
 }

@@ -6,6 +6,10 @@ public class HGE12_OutlineFlash : MonoBehaviour
     [SerializeField] string parameterName = "_IsFlashing";
     [SerializeField] bool defaultValue = true;
 
+    private void Start()
+    {
+        mat.SetFloat(parameterName, defaultValue ? 1f : 0f);
+    }
     private void OnDestroy()
     {
         mat.SetFloat(parameterName, defaultValue ? 1f : 0f);

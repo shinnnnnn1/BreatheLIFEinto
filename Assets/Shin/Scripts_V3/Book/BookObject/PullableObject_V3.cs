@@ -42,6 +42,8 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 
     [SerializeField] bool isPulling;
 
+    Vector3 targetPos;
+
     void Start()
     {
         defaultPullValue = pullValue;
@@ -51,7 +53,16 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 
     public void OnEnter(bool isRight)
     {
-        if (isActivated) { return; }
+        Debug.Log(isRight);
+        if ((isDirPositive == isRight && isDirX) || isActivated)
+        {
+            if(isEntered)
+            {
+                onExit.Invoke();
+                isEntered = false;
+            }
+            return;
+        }
 
         if(!isEntered && isRight == direction.x < 0)
         {
@@ -80,7 +91,7 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 
         //목표 위치와 플레이어의 거리를 통해 이동 시간을 계산
         Vector3 playerPos = player.transform.position;
-        Vector3 targetPos = transform.position + position;
+        targetPos = transform.position + (transform.rotation * position);
         float time = Vector3.Distance(targetPos, playerPos) * towardMult;
 
         //DOTWEEN으로 플레이어를 이동시킴. 이때는 걷는 모션을 재생시킴.
@@ -118,7 +129,7 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 
         onPull.Invoke();
 
-        player.transform.position = transform.position + position;
+        player.transform.position = transform.position + (transform.rotation * position);
     }
 
     public void OnDeactivate(bool isRight)
@@ -167,10 +178,12 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
                 anim.speed = 1 - angleAccuracy;
 
                 //張力を計算し、Playerに渡す
-                currentTension = transform.position.x + position.x - player.transform.position.x;
+                currentTension = transform.position.x - position.x - player.transform.position.x;
 
                 Vector3 abs = new Vector3(Mathf.Abs(direction.x), 0, Mathf.Abs(direction.y));
                 tensionDir = abs * currentTension * spring;
+
+                //tensionDir = abs  * spring;
 
                 player.SetTension(tensionDir);
 
@@ -205,7 +218,7 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
         Gizmos.DrawRay(transform.position, new Vector3(direction.x, 0, direction.y));
 
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position + position, 0.1f);
+        Gizmos.DrawSphere(transform.position + (transform.rotation * position), 0.1f);
     }
 
     /*

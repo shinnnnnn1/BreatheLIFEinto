@@ -154,12 +154,18 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         {
             float y = rigid.linearVelocity.y;
             y = Mathf.Clamp(y, -10f, -1f);
-            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+            if (!rigid.isKinematic)
+            {
+                rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+            }
         }else
         {
             float y = rigid.linearVelocity.y;
             y = Mathf.Clamp(y, -100f, 5f);
-            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+            if(!rigid.isKinematic)
+            {
+                rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, y, rigid.linearVelocity.z);
+            }
         }
 
             //Flip中の動きを調整
@@ -568,8 +574,15 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     bool IsHit()
     {
         Vector3 direction = model.isRight ? Vector3.right : Vector3.left;
+
+        //Pullable
         if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset.x : -model.hitBoxOffset.x,
             model.hitBoxOffset.y, 0), model.hitBoxSize / 2, direction, out hit, Quaternion.identity, model.hitBoxDistance, model.hitLayer))
+        { return true; }
+
+        //Holdable
+        else if (Physics.BoxCast(transform.position + new Vector3(model.isRight ? model.hitBoxOffset2.x : -model.hitBoxOffset2.x,
+            model.hitBoxOffset2.y, 0), model.hitBoxSize2 / 2, direction, out hit, Quaternion.identity, model.hitBoxDistance2, model.hitLayer2))
         { return true; }
         else { return false; }
     }
@@ -731,6 +744,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         if (model.canMove && moveDirection.magnitude > 0 && !canFlip)
         {
+            ActionCancel();
+
             //空中でTriggerが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
 
@@ -742,6 +757,8 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     {
         if (model.canMove && !canFlip)
         {
+            ActionCancel();
+
             //空中でTriggerが発動された場合も想定し、操作はできないけど物理は生きている状態にする
             SetCanMove(false, false);
 
@@ -939,6 +956,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Vector3 isHitBoxSize = model.hitBoxSize;
         Gizmos.DrawSphere(isHitBoxOffset, 0.01f);
         Gizmos.DrawWireCube(isHitBoxPos, isHitBoxSize);
+
+        Gizmos.color = IsHit() ? Color.cyan : Color.red;
+        Vector3 isHitBoxOffset2 = transform.position + new Vector3(0, model.hitBoxOffset2.y, 0);
+        Vector3 isHitBoxPos2 = isHitBoxOffset2 + (model.isRight ? Vector3.right : Vector3.left) * model.hitBoxDistance2;
+        Vector3 isHitBoxSize2 = model.hitBoxSize2;
+        Gizmos.DrawSphere(isHitBoxOffset2, 0.01f);
+        Gizmos.DrawWireCube(isHitBoxPos2, isHitBoxSize2);
 
         Gizmos.color = Color.cyan;
         float eventSphereRadius = model.eventSphereRadius;

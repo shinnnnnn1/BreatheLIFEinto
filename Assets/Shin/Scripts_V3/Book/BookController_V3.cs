@@ -47,7 +47,7 @@ public class BookController_V3 : MonoBehaviour, IBookController
     IBookDirectional[] directionals;
     [SerializeField] MonoBehaviour[] directionalObjects;
 
-    [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted;
+    [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted, onBook;
 
 
     #region STARTーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -267,12 +267,16 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         yield return new WaitForSeconds(0.1f);
 
+        onBook.Invoke();
+
         view.SetPageMaterial(1, currentPage);
         Invoke("CustomPageMat", 2.25f);
 
         yield return new WaitForSeconds(bookDelay.delay[currentPage].y);
 
         StartShape(true);
+
+        
 
         yield return new WaitForSeconds(1.25f); //ーーーーーーーーーーーーーーーーーーー
 

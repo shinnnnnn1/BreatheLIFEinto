@@ -65,6 +65,7 @@ public class VirtualMouseController : MonoBehaviour
 
     void Update()
     {
+        /*
         if(virtualMouseInput.enabled && zoomDirection.magnitude > 0.01f)
         {
             confinerZ += zoomDirection.x * Time.deltaTime;
@@ -74,6 +75,7 @@ public class VirtualMouseController : MonoBehaviour
             currentZ = Mathf.Clamp(currentZ, 1, 7);
             cursorConfiner.transform.localScale = new Vector3(1, 1, currentZ);
         }
+        */
     }
 
     void LateUpdate()

@@ -28,7 +28,7 @@ public class PlayerActionInput_V3 : MonoBehaviour
 
     public void InputZoom(InputAction.CallbackContext context)
     {
-        controller.zoomDirection = context.ReadValue<Vector2>();
+        controller.zoomDirection = context.ReadValue<Vector2>() * -1;
     }
 
     public void InputAction(InputAction.CallbackContext context)

@@ -49,6 +49,13 @@ public class PlayerModel_V3 : ScriptableObject
     public Vector3 hitBoxSize = Vector3.one;
     public float hitBoxDistance = 0.5f;
     public LayerMask hitLayer;
+
+    public Vector3 hitBoxOffset2 = Vector3.zero;
+    public Vector3 hitBoxSize2 = Vector3.one;
+    public float hitBoxDistance2 = 0.5f;
+    public LayerMask hitLayer2;
+
+
     public Vector2 jointAnchorRight = Vector3.zero;
 
     public float distance = 1.0f;

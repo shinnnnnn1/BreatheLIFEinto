@@ -42,7 +42,6 @@ public class TutorialEvent : MonoBehaviour
         {
             if (!isC)
             {
-                Debug.Log("return;;");
                 return;
             }
         }
