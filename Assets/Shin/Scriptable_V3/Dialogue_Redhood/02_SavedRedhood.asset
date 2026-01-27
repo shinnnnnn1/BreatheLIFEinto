@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
   m_Name: 02_SavedRedhood
   m_EditorClassIdentifier: 
-  canMoveOnDialogueEnd: 1
-  canProceedOnDialogueEnd: 1
-  canRecycle: 1
+  canMoveOnDialogueEnd: 0
+  canProceedOnDialogueEnd: 0
+  canRecycle: 0
   messages:
-  - "\u2026\u2026\u3042\u308C\u3001\u308F\u305F\u3057\u3001\u306A\u306B\u3092\u2026\u2026\uFF1F"
+  - "\u2026\u2026\u3042\u308C\u3001\u308F\u305F\u3057\u3001\\n\u306A\u306B\u3092\u2026\u2026\uFF1F"
   - "\u3042\u306A\u305F\u306F\u3060\u3042\u308C\uFF1F"
-  - "\u308F\u305F\u3057\u3092\u52A9\u3051\u3066\u304F\u308C\u308B\u306E\uFF1F\u3042\u308A\u304C\u3068\u3046\u2026\u2026\uFF01"
-  - "\u305D\u308C\u3058\u3083\u3042\u3044\u3063\u3057\u3087\u306B\u884C\u3053\uFF01"
+  - "\u308F\u305F\u3057\u3092\\n\u52A9\u3051\u3066\u304F\u308C\u308B\u306E\uFF1F\\n\u3042\u308A\u304C\u3068\u3046\u2026\u2026\uFF01"
+  - "\u305D\u308C\u3058\u3083\u3042\\n\u3044\u3063\u3057\u3087\u306B\u884C\u3053\uFF01"
   emotion_Bubble_MiddleEmotion:
   - {x: 6, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 28, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   delay:
