@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
   m_Name: 00_StartRedhood
   m_EditorClassIdentifier: 
-  canMoveOnDialogueEnd: 1
+  canMoveOnDialogueEnd: 0
   canProceedOnDialogueEnd: 0
   canRecycle: 0
   messages:
-  - "\u304A\u898B\u821E\u3044\u306E\u54C1\u306F\u6301\u3063\u305F\u304B\u3044\uFF1F"
-  - "\u305D\u308C\u3058\u3083\u3042\u3001\u75C5\u6C17\u306E\u304A\u3070\u3042\u3055\u3093\u306E\u305F\u3081\u306B\u5C4A\u3051\u3066\u304A\u3044\u3067\u3002"
-  - "\u9014\u4E2D\u3067\u9053\u8349\u3092\u3057\u3066\u306F\u3044\u3051\u307E\u305B\u3093\u3088\u3002"
-  - "\u305D\u308C\u3068\u60AA\u3044\u30AA\u30AA\u30AB\u30DF\u306B\u6C17\u3092\u4ED8\u3051\u3066\u3002"
+  - "\u304A\u898B\u821E\u3044\u306E\u54C1\u306F\\n\u6301\u3063\u305F\u304B\u3044\uFF1F"
+  - "\u305D\u308C\u3058\u3083\u3042\u3001\u75C5\u6C17\u306E\\n\u304A\u3070\u3042\u3055\u3093\u306E\u305F\u3081\u306B\\n\u5C4A\u3051\u3066\u304A\u3044\u3067\u3002"
+  - "\u9014\u4E2D\u3067\u9053\u8349\u3092\u3057\u3066\u306F\\n\u3044\u3051\u307E\u305B\u3093\u3088\u3002"
+  - "\u305D\u308C\u3068\u60AA\u3044\u30AA\u30AA\u30AB\u30DF\u306B\\n\u6C17\u3092\u4ED8\u3051\u3066\u3002"
   - "\u306F\u30FC\u3044\uFF01"
   - "\u3044\u3063\u3066\u304D\u307E\uFF5E\u3059\uFF01"
   emotion_Bubble_MiddleEmotion:
@@ -40,9 +40,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 3, z: 0}
+  - {x: 0, y: 0, z: 11}
+  - {x: 0, y: 0, z: 13}
+  - {x: 1, y: 3, z: 12}
   talkerID_IsInvisible_IsDialogueMotion:
   - {x: 1, y: 0, z: 0}
   - {x: 1, y: 0, z: 0}
@@ -56,13 +56,13 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
   events:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 63, z: 0}
   startEvent: 0
   isLoop: 0

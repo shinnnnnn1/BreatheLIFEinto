@@ -1489,6 +1489,7 @@ MonoBehaviour:
   other:
   - {fileID: 1262938047}
   - {fileID: 784570906}
+  - {fileID: 1897210939}
   es: {fileID: 1863371853}
   isStarted: 0
 --- !u!4 &472664406
@@ -1585,6 +1586,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
       propertyPath: m_Name
       value: BookforSelect_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2664,11 +2669,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
   m_PrefabInstance: {fileID: 892065168}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &892065170 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
-  m_PrefabInstance: {fileID: 892065168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &912229419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
@@ -3602,17 +3602,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1573399287}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1814416550}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 19e44208de730474a9ad4a91f1360450, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onDeselect:
     m_PersistentCalls:
@@ -3629,13 +3629,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1573399287}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 1814416550}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: d9746e7963e05304b9d8688b2cfcac9b, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3724,6 +3724,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1175302945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
+  m_PrefabInstance: {fileID: 1571146937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175602759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +4065,7 @@ GameObject:
   - component: {fileID: 1262938048}
   - component: {fileID: 1262938050}
   m_Layer: 0
-  m_Name: CinemachineCamera_1
+  m_Name: t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4477,6 +4482,11 @@ Transform:
   - {fileID: 1212074885}
   m_Father: {fileID: 1516852167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1395407084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
+  m_PrefabInstance: {fileID: 530050459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1428941223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,11 +4665,6 @@ PrefabInstance:
 --- !u!4 &1453056637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
-  m_PrefabInstance: {fileID: 1453056636}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1453056638 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
   m_PrefabInstance: {fileID: 1453056636}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1463628559
@@ -5425,11 +5430,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
---- !u!23 &1573399287 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
-  m_PrefabInstance: {fileID: 720296962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577162921
 GameObject:
   m_ObjectHideFlags: 0
@@ -5722,17 +5722,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1453056638}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1395407084}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 19e44208de730474a9ad4a91f1360450, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onDeselect:
     m_PersistentCalls:
@@ -5749,13 +5749,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1453056638}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 1395407084}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 5df8ad05950b9ab48a3b255e54d130d8, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6587,6 +6587,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763655668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1814416550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b6c307b18b3f04409aaa611caa73dcc, type: 3}
+  m_PrefabInstance: {fileID: 1351944147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,17 +7518,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 892065170}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1175302945}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 19e44208de730474a9ad4a91f1360450, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onDeselect:
     m_PersistentCalls:
@@ -7540,13 +7545,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 892065170}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 1175302945}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: d7e53d56034cdca42b983a553d69d455, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

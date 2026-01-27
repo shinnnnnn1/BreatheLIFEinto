@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (canPlay[1])
         {
+            Debug.Log("Skip");
             Title t = FindFirstObjectByType<Title>();
             t?.SkipTitle();
         }

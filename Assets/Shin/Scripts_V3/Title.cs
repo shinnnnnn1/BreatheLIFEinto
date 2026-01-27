@@ -78,6 +78,7 @@ public class Title : MonoBehaviour
 
         other[0].SetActive(false);
         other[1].SetActive(false);
+        other[2].SetActive(true);
 
         //yield return null;
 
@@ -95,9 +96,17 @@ public class Title : MonoBehaviour
 
     public void SkipTitle()
     {
+        int i = -1;
+        foreach(bool c in can)
+        {
+            if (c) { i++; }
+        }
+
         other[0].SetActive(false);  
         other[1].SetActive(false);
+        other[2].SetActive(true);
         es.enabled = true;
+        es.firstSelectedGameObject = books[i].gameObject;
         isStarted = true;
     }
 }
