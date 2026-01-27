@@ -53,7 +53,7 @@ public class PullableObject_V3 : BookDirectional, IInteractable, IPullable
 
     public void OnEnter(bool isRight)
     {
-        Debug.Log(isRight);
+        //Debug.Log(isRight);
         if ((isDirPositive == isRight && isDirX) || isActivated)
         {
             if(isEntered)

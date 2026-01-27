@@ -78543,7 +78543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &514425895
 Transform:
   m_ObjectHideFlags: 0
@@ -187464,6 +187464,7 @@ MonoBehaviour:
   sources:
   - {fileID: 719523006}
   - {fileID: 537880863}
+  ease: 
 --- !u!4 &1189675113
 Transform:
   m_ObjectHideFlags: 0
@@ -205101,7 +205102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1368187048
 Transform:
   m_ObjectHideFlags: 0
@@ -270030,7 +270031,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 2
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 1
   stopNaNs: 0
@@ -297922,7 +297923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6265260967031320133, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: currentTime
-      value: 5.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1946018332332219245, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: m_Name

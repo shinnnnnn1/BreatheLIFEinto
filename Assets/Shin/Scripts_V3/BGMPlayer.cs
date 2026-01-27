@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class BGMPlayer : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class BGMPlayer : MonoBehaviour
     [SerializeField] AudioClip[] clips;
     [SerializeField] AudioSource[] sources;
 
+    [SerializeField] Ease[] ease;
+
     private void Start()
     {
-        ChangeBGM(1);
+        ChangeBGM(0);
     }
 
     public void ChangeTransition(float t) => transition = t;
@@ -21,6 +24,24 @@ public class BGMPlayer : MonoBehaviour
         //現在のBGMのFadeOut
         if(currentSource != null)
         {
+            currentSource.DOFade(0, transition).SetEase(ease[0]);
+        }
+
+        //新しいBGMのFadeIn
+        AudioSource newSource = currentSource == sources[0] ? sources[1] : sources[0];
+        currentSource = newSource;
+        currentSource.clip = clips[num];
+        currentSource.Play();
+        currentSource.DOFade(1, transition).SetEase(ease[1]);
+    }
+
+
+    /*
+    public void ChangeBGM(int num)
+    {
+        //現在のBGMのFadeOut
+        if (currentSource != null)
+        {
             StartCoroutine(FadeOut(currentSource, 0));
         }
 
@@ -29,6 +50,8 @@ public class BGMPlayer : MonoBehaviour
         newSource.clip = clips[num];
         newSource.Play();
         StartCoroutine(FadeIn(newSource, 1));
+
+        newSource.DOFade(1, 1);
     }
 
     IEnumerator FadeIn(AudioSource source, float goal)
@@ -51,4 +74,5 @@ public class BGMPlayer : MonoBehaviour
         }
         source.Stop();
     }
+    */
 }

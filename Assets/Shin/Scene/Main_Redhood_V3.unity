@@ -5885,7 +5885,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -15224,7 +15224,7 @@ Transform:
   m_GameObject: {fileID: 181068368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.19, y: 1.412, z: -3.65}
+  m_LocalPosition: {x: 5.33, y: 1.412, z: -4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21576,7 +21576,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 20
   m_PresetInfoIsWorld: 1
 --- !u!223 &215956172
 Canvas:
@@ -21588,7 +21588,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1823688466}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -41990,7 +41990,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -43629,7 +43629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u3053\u3093\u306B\u3061\u306F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bd36d9a0eaa04d43806df16992d56a2, type: 2}
   m_sharedMaterial: {fileID: -6843599674850354341, guid: 7bd36d9a0eaa04d43806df16992d56a2, type: 2}
@@ -43662,7 +43662,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -53717,7 +53717,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -62716,7 +62716,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -87221,7 +87221,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -93101,7 +93101,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -93568,6 +93568,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
         m_MethodName: InvokeEvent
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 57
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1200982011}
+        m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+        m_MethodName: ChangeTransition
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -126868,7 +126880,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -133945,7 +133957,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -140166,7 +140178,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -140405,7 +140417,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -141861,6 +141873,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c808504508e74b54ea16f964916bc33d, type: 2}
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -141927,13 +141940,13 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1200982011}
           m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
-          m_MethodName: ChangeBGM
-          m_Mode: 3
+          m_MethodName: ChangeTransition
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -141963,9 +141976,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 9063757876562159498}
-          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-          m_MethodName: SetCanMove
+        - m_Target: {fileID: 1148644705}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -141975,9 +141988,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1148644705}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1200982011}
+          m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+          m_MethodName: ChangeBGM
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9063757876562159498}
+          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+          m_MethodName: SetCanMove
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -141998,21 +142027,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1897210941}
-          m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineVirtualCameraBase,
-            Unity.Cinemachine
-          m_MethodName: Prioritize
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &831741960
 GameObject:
@@ -154392,7 +154406,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -155384,7 +155398,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -185845,19 +185859,21 @@ MonoBehaviour:
   currentSource: {fileID: 0}
   transition: 1
   clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: ee34c58283a05f54187bf8b027454b12, type: 3}
-  - {fileID: 8300000, guid: c89b3aec85c793a4a94f4ab1a08ca9fc, type: 3}
-  - {fileID: 8300000, guid: f8c67a5e6c46f26499525dc4b52da9a5, type: 3}
-  - {fileID: 8300000, guid: 4afb3b6a5bd4fd24eae228c974075f8b, type: 3}
+  - {fileID: 8300000, guid: 00555da65c133c645904902bbac8c370, type: 3}
+  - {fileID: 8300000, guid: 00555da65c133c645904902bbac8c370, type: 3}
+  - {fileID: 8300000, guid: f32b56ed1e9b2e1478b4c84ce2d9af76, type: 3}
+  - {fileID: 8300000, guid: 556a515ed39994249ad32f7e278f031b, type: 3}
+  - {fileID: 8300000, guid: 7ce959469a0d2634d9b0ecfcf047e68b, type: 3}
   - {fileID: 8300000, guid: a8cffbc33a29a7942b6732a10bd8b02c, type: 3}
-  - {fileID: 8300000, guid: 613f0cf9ba1801048a0179ef456c775c, type: 3}
-  - {fileID: 8300000, guid: f0298c08ad2f53b42aeaf982e62dfb46, type: 3}
-  - {fileID: 8300000, guid: 0ac7e575dcb695a45957fcd2f0ec6f17, type: 3}
-  - {fileID: 8300000, guid: d2b5bd208e24b484d8d1eb6c182b2463, type: 3}
+  - {fileID: 8300000, guid: 853e23b85a9edf648833924c1b704621, type: 3}
+  - {fileID: 8300000, guid: 868852705af4c924fb23e76fb8ec6bfc, type: 3}
+  - {fileID: 8300000, guid: ea18063fd65ae134b8cd6cf0a7a5526c, type: 3}
+  - {fileID: 8300000, guid: 5875a7541e1b4324bb2e80cfd3b375b2, type: 3}
+  - {fileID: 0}
   sources:
   - {fileID: 1034564651}
   - {fileID: 1981628896}
+  ease: 0100000001000000
 --- !u!4 &1200982012
 Transform:
   m_ObjectHideFlags: 0
@@ -194205,6 +194221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingOutline
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dcbba23e50fcdfe4ca533a3f15e6bb89, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1916119557051558437, guid: dcbba23e50fcdfe4ca533a3f15e6bb89, type: 3}
       propertyPath: m_LocalScale.z
       value: 82.37185
@@ -199773,7 +199793,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -218147,7 +218167,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -230085,7 +230105,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -233880,7 +233900,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -260344,7 +260364,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -260982,12 +261002,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 2
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 1
   stopNaNs: 0
   taaSharpenStrength: 0.5
-  TAAQuality: 1
+  TAAQuality: 2
   taaSharpenMode: 0
   taaRingingReduction: 0
   taaHistorySharpening: 0.35
@@ -271903,6 +271923,7 @@ MonoBehaviour:
   - {fileID: 2125719447}
   - {fileID: 381527899}
   - {fileID: 1545313732}
+  - {fileID: 425740860}
 --- !u!4 &1844648346
 Transform:
   m_ObjectHideFlags: 0
@@ -271934,7 +271955,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0d58288a31525e848a4d4251945425ec, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 6ee92002923749447915e7224adc8bb7, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -272350,7 +272371,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -275191,7 +275212,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -275595,7 +275616,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -287891,7 +287912,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -288027,7 +288048,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
