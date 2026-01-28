@@ -694,7 +694,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //動けない状態にする時は速度を初期化する
         if (!move)
         {
-            view.SetLinearVelocity(Vector3.zero);
+            //view.SetLinearVelocity(Vector3.zero);
             currentVelocity = Vector3.zero;
         }
     }

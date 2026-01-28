@@ -12,7 +12,7 @@ public class RHE14_RotSelect : MonoBehaviour
     public void _LocalRotate()
     {
         float y = trans.eulerAngles.y;
-        Debug.Log(y);
+        //Debug.Log(y);
 
         Vector3 r = y < 180 ? rot[0] : rot[1];
 

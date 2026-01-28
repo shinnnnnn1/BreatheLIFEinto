@@ -178,7 +178,7 @@ public class DialogueManager_V3 : MonoBehaviour
                 customRect?.DOPause();
                 currentText?.rectTransform.DOPause();
                 customRect?.DOLocalMove(Vector3.zero, 0);
-                currentText?.rectTransform.DOLocalMove(new Vector3(0, 1, 0), 0);
+                currentText?.rectTransform.DOLocalMove(new Vector3(0, 1.0f, 0), 0);
             }
 
             //吹き出しのスプライトを変更
@@ -208,10 +208,20 @@ public class DialogueManager_V3 : MonoBehaviour
 
             //文字を表示
             canSkip = true;
+
+            string text = d.messages[current];
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < d.messages[current].Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
-                sb.Append(d.messages[current][i]);
+                if (text[i] == '\\' && i + 1 < text.Length && text[i + 1] == 'n')
+                {
+                    sb.Append('\n');
+                    i++;
+                    currentText.text = sb.ToString();
+                    continue;
+                }
+
+                sb.Append(text[i]);
                 currentText.text = sb.ToString();
 
                 //声を再生
