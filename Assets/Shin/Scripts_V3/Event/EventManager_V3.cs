@@ -2,7 +2,6 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 /// <summary>
 /// イベントの実行はUnityEventとTimelineに分かれる。
@@ -78,4 +77,6 @@ public class EventManager_V3 : MonoBehaviour
     }
 
     public void _RemoveTimeline() => director.playableAsset = null;
+
+
 }

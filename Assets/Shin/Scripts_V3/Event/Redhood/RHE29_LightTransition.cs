@@ -7,14 +7,13 @@ public class RHE29_LightTransition : MonoBehaviour
 {
     HDAdditionalLightData l;
 
+    [SerializeField] float defaultValue;
     [SerializeField] float duration;
     [SerializeField] Ease ease;
-    float defaultValue;
 
     private void Start()
     {
         l = GetComponent<HDAdditionalLightData>();
-        defaultValue = l.lightDimmer;
     }
 
     public void _Fade(float v)
