@@ -971,4 +971,16 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         Gizmos.color = PhysicsRay() ? Color.cyan : Color.red;
         Gizmos.DrawRay(transform.position + model.physicsOffset, (model.isRight ? transform.right : -transform.right) * model.distance);
     }
+
+    public bool ZoomEvent(float v)
+    {
+        if(zoom_Current_Target_Speed.x < v)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

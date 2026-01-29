@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMoveOnDialogueEnd: 0
   canProceedOnDialogueEnd: 0
-  canRecycle: 0
+  canRecycle: 1
   messages:
   - "\u304A\u304A\uFF01\u3053\u308C\u306A\u3089\u4E38\u304F\u3066\u8A70\u3081\u8FBC\u307F\u3084\u3059\u3044\u3001\u3088\u304F\u3084\u3063\u305F\u305E\uFF01"
   - "\u3067\u3084\u3063\uFF01"
@@ -25,16 +25,16 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   isAuto_AutoDelay_FontSize:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 8}
   - {x: 0, y: 0, z: 0}
   talkerID_IsInvisible_IsDialogueMotion:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
   matPreset_ButtonInvisible_Voice:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   events:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 35, z: 0}
-  startEvent: 0
+  - {x: 0, y: 0, z: 0}
+  startEvent: 66
   isLoop: 0
