@@ -7,7 +7,7 @@ public class TutorialEvent : MonoBehaviour
 {   
     public bool canPlay;
     [SerializeField] bool[] isCompleted = new bool[1];
-    [SerializeField] UnityEvent onComplete;
+    [SerializeField] UnityEvent onComplete, onCompleteP;
 
     Transform trans;
     Material mat;
@@ -37,6 +37,10 @@ public class TutorialEvent : MonoBehaviour
     public void _CompleteAnother(int num)
     {
         isCompleted[num] = true;
+        if (num == 0)
+        {
+            Invoke("InvokeEvent2", 1.0f);
+        }
 
         foreach (bool isC in isCompleted)
         {
@@ -51,6 +55,10 @@ public class TutorialEvent : MonoBehaviour
     void InvokeEvent()
     {
         onComplete.Invoke();
+    }
+    void InvokeEvent2()
+    {
+        onCompleteP.Invoke();
     }
 
     private void Update()

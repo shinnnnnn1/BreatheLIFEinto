@@ -44,11 +44,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        /*
         if (canPlay[1])
         {
             Debug.Log("Skip");
             Title t = FindFirstObjectByType<Title>();
             t?.SkipTitle();
         }
+        */
     }
 }

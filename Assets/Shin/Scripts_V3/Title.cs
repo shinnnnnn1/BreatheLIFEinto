@@ -27,6 +27,11 @@ public class Title : MonoBehaviour
         {
             books[i].enabled = can[i];
         }
+
+        if (can[1])
+        {
+            SkipTitle();
+        }
     }
 
     public void _SetCurrentButton(TitleBookButton button)

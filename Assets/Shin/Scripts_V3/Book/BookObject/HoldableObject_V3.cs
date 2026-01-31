@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class HoldableObject_V3 : MonoBehaviour, IInteractable
 {
-    [SerializeField] UnityEvent onEnter, onExit, onPullStart, onPullEnd;
+    [SerializeField] UnityEvent onEnter, onExit, onPullStart, onPullEnd
+        , onResume, onStop;
     [SerializeField] bool isEntered;
 
     public void OnEnter(bool isRight)
