@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class HGE17_GrabKlin : MonoBehaviour
 {

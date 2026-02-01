@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
   m_Name: 08_Ending
   m_EditorClassIdentifier: 
-  canMoveOnDialogueEnd: 1
+  canMoveOnDialogueEnd: 0
   canProceedOnDialogueEnd: 0
   canRecycle: 0
   messages:
@@ -54,7 +54,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 12}
   - {x: 0, y: 0, z: 12}
-  - {x: 0, y: 0, z: 12}
+  - {x: 0, y: 0, z: 0}
   talkerID_IsInvisible_IsDialogueMotion:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -66,15 +66,15 @@ MonoBehaviour:
   - {x: 3, y: 0, z: 0}
   - {x: 2, y: 0, z: 0}
   matPreset_ButtonInvisible_Voice:
-  - {x: 0, y: 1, z: 0}
-  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 1, z: 2}
+  - {x: 0, y: 1, z: 2}
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 3}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 3}
   events:
   - {x: 0, y: 0, z: 0}
   - {x: 49, y: 0, z: 0}

@@ -473,6 +473,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //動けないなら、地面にいないなら、ジャンプできる状態じゃないなら、回転中ならreturn
         if (!model.canMove || !OnGround() || !model.canJump || model.isTurning) { return; }
 
+        /*
         //接触中のイベントが存在するなら会話の開始
         if (closeEvent != null)
         {
@@ -481,9 +482,10 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             SetCanMove(false);
             SetIsDialogue(true);
         }
+        */
         //接触しているイベントがなかったら物をつかむ動作の実行
         //範囲内につかめるオブジェクトがあったら実行
-        else if (IsHit())
+        if (IsHit())
         {
             SetHoldingInfo(true);
 
@@ -507,6 +509,13 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
                 interactable?.OnExit();
                 interactable?.OnPullStart();
             }
+        }
+        else if(closeEvent != null)
+        {
+            currentEvent = interactingEvent;
+            currentEvent.OnEventInvoke();
+            SetCanMove(false);
+            SetIsDialogue(true);
         }
     }
     /// <summary>
