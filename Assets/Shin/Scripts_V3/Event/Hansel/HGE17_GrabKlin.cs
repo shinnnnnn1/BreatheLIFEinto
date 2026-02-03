@@ -45,7 +45,6 @@ public class HGE17_GrabKlin : MonoBehaviour
                 point = controller.hitPoint;
 
                 Vector2 a = point - previoutPoint;
-                Debug.Log(a.magnitude);
 
                 if(a.magnitude > activateValue)
                 {
