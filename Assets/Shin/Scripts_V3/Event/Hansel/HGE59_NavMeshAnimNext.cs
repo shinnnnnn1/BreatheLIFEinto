@@ -10,7 +10,9 @@ public class HGE59_NavMeshAnimNext : MonoBehaviour
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    [SerializeField] bool isTransform;
     [SerializeField] Vector3[] pos;
+    [SerializeField] Transform[] trans;
     bool isMoving;
 
     [SerializeField] UnityEvent onEnd;
@@ -25,9 +27,10 @@ public class HGE59_NavMeshAnimNext : MonoBehaviour
         isMoving = true;
         anim.SetTrigger("Walk");
 
-        for (int i = 0; i < pos.Length; i++)
+        var array = pos;
+        for (int i = 0; i < array.Length; i++)
         {
-            agent.destination = pos[i];
+            agent.destination = isTransform ? trans[i].position : pos[i];
             yield return null;
 
             while (agent.enabled && isMoving && agent.remainingDistance > agent.stoppingDistance)

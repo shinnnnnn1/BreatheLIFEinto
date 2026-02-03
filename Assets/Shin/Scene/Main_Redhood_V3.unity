@@ -57932,6 +57932,37 @@ Transform:
   - {fileID: 1672496561}
   m_Father: {fileID: 1035974282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &374182024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374182025}
+  m_Layer: 0
+  m_Name: "S7 \uC544\uC6C3\uB77C\uC778 \uBAA8\uB3782\uAC1C"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &374182025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374182024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.11909, y: 6.68255, z: -6.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381527895
 GameObject:
   m_ObjectHideFlags: 0
@@ -195912,7 +195943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChangeDelay: 3
-  canPlay: 010100
+  canPlay: 01010000
 --- !u!4 &1193888363
 Transform:
   m_ObjectHideFlags: 0
@@ -235592,6 +235623,7 @@ MonoBehaviour:
   sources:
   - {fileID: 1108348434}
   - {fileID: 1982000078}
+  transition: 1
 --- !u!4 &1620345796
 Transform:
   m_ObjectHideFlags: 0
@@ -336754,3 +336786,4 @@ SceneRoots:
   - {fileID: 5571538174469238744}
   - {fileID: 1702899447}
   - {fileID: 20318734}
+  - {fileID: 374182025}

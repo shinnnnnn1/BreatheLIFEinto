@@ -559,6 +559,14 @@ public class BookController_V3 : MonoBehaviour, IBookController
             FadeManager.Instance.FadeOut();
 
             yield return new WaitForSeconds(0.5f);
+            if(currentScene == 2)
+            {
+                yield return new WaitForSeconds(4f);
+                view.EndImage(true);
+                yield return new WaitForSeconds(4f);
+                view.EndImage(false);
+                yield return new WaitForSeconds(4f);
+            }
 
             GameManager.Instance.SetCanPlay(currentScene);
             GameManager.Instance.ChangeScene(0);

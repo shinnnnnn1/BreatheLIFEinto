@@ -2048,6 +2048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book_extra
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d117d03797d81440b9b8851f65e33c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2921,7 +2925,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -4.1, y: 0}
-  m_SizeDelta: {x: 1920, y: 661}
+  m_SizeDelta: {x: 1920, y: 660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784570908
 MonoBehaviour:
@@ -3121,6 +3125,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5d117d03797d81440b9b8851f65e33c8, type: 3}
       propertyPath: m_Name
       value: Book_extra_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d117d03797d81440b9b8851f65e33c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3699,7 +3707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChangeDelay: 3
-  canPlay: 010000
+  canPlay: 01000000
 --- !u!1 &1034568731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4195,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5d117d03797d81440b9b8851f65e33c8, type: 3}
       propertyPath: m_Name
       value: Book_extra_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d117d03797d81440b9b8851f65e33c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

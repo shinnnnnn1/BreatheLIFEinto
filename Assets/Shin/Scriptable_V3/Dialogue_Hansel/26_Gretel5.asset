@@ -17,12 +17,12 @@ MonoBehaviour:
   canRecycle: 0
   messages:
   - "\u3082\u3046\u304A\u3046\u3061\u3060\uFF01"
-  - "\u3053\u3093\u3069\u306F\u8FF7\u308F\u306A\u3044\u304B\u3089\u306D\uFF01\u5E30\u308A\u9053\u306F\u5F97\u610F\u306A\u3093\u3060\u304B\u3089\uFF01"
+  - "\u3053\u3093\u3069\u306F\u8FF7\u308F\u306A\u3044\\n\u304B\u3089\u306D\uFF01\u5E30\u308A\u9053\u306F\\n\u5F97\u610F\u306A\u3093\u3060\u304B\u3089\uFF01"
   emotion_Bubble_MiddleEmotion:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 30, y: 0, z: 0}
   delay:
-  - {x: 0, y: 0}
+  - {x: 1, y: 0}
   - {x: 0, y: 0}
   isAuto_AutoDelay_FontSize:
   - {x: 1, y: 0, z: 0}
@@ -35,6 +35,6 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 1}
   events:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 68, y: 0, z: 0}
   startEvent: 0
   isLoop: 0

@@ -92,10 +92,9 @@ public class VirtualMouseController : MonoBehaviour
         }
 
         //누른채로 커서가 너무 빨라서 튕긴 상황
-        //누른 상황 + currentColl이 있는데 Tracking Pressing Coll 은 없는 상황?
+        //누른 상황 + currentColl이 있는데 Tracking Pressing Coll 은 없는 상황
         if (isPressing &&  currentColl != null&& trackingColl == null && pressingColl == null)
         {
-            //나중에 이 조건 다시 설명해야될듯?
             OnCanceled();
         }
 
@@ -172,6 +171,7 @@ public class VirtualMouseController : MonoBehaviour
 
     void UpdateRay()
     {
+
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = (cursor.position - origin).normalized;
 
@@ -186,7 +186,7 @@ public class VirtualMouseController : MonoBehaviour
         view.ChangeCursorImage(IsHit() ? 2 : 0);
 
         //TrackingColl이 없다가 생겼을때 TrackingColl이 있을때
-        if (trackingColl != null)
+        if (trackingColl != null && playerInput.currentActionMap.name == UIActionMap)
         {
             //CursorInteractable도 없다면
             if (cursorInteractable == null)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 
@@ -8,6 +9,7 @@ public class BookView_V3 : MonoBehaviour
     [SerializeField] Animator[] pageAnim;
     [SerializeField] SkinnedMeshRenderer[] pageMesh;
     [SerializeField] BookTexture bookTexture;
+    [SerializeField] HGE03_MatFadeNew1 endImage;
 
     //全ての本の表示状態を設定
     public void SetAllBookVisibility(bool isVisible)
@@ -75,5 +77,11 @@ public class BookView_V3 : MonoBehaviour
         Material[] mats = pageNum % 2 == 0 ? bookTexture.leftPageMat : bookTexture.rightPageMat;
 
         pageMesh[pageNum].material = mats[stage];
+    }
+
+    public void EndImage(bool fade)
+    {
+        endImage.gameObject.SetActive(true);
+        endImage?._StartFade(fade);
     }
 }

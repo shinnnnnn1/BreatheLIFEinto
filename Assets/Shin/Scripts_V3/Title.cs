@@ -28,7 +28,14 @@ public class Title : MonoBehaviour
             books[i].enabled = can[i];
         }
 
-        if (can[1])
+        if (can[3])
+        {
+            can[0] = true;
+            can[1] = false;
+            can[2] = false;
+            can[3] = false;
+        }
+        else if (can[1])
         {
             SkipTitle();
         }

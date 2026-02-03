@@ -35,6 +35,12 @@ public class BGMPlayer : MonoBehaviour
         currentSource.DOFade(1, transition).SetEase(ease[1]);
     }
 
+    public void _SetLoop(bool isLoop)
+    {
+        sources[0].loop = isLoop;
+        sources[1].loop = isLoop;
+    }
+
 
     /*
     public void ChangeBGM(int num)
