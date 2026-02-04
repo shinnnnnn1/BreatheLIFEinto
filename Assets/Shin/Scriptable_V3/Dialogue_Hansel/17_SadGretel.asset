@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53208f84dd3a474e97833294623657a, type: 3}
+  m_Name: 17_SadGretel
+  m_EditorClassIdentifier: 
+  canMoveOnDialogueEnd: 1
+  canProceedOnDialogueEnd: 0
+  canRecycle: 0
+  messages:
+  - "\u6697\u3044\u3088\u72ED\u3044\u3088\\n\u6016\u3044\u3088\uFF5E\u2026\u306A\u306B\u304C\\n\u3069\u3046\u306A\u3063\u3066\u308B\u306E\uFF5E\uFF01\uFF1F"
+  - "\u3053\u3053\u304B\u3089\u51FA\u3057\u3066\u3088\uFF5E\u2026\u2026\u304A\u5144\u3061\u3083\u3093\u2026\u2026"
+  emotion_Bubble_MiddleEmotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  delay:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  isAuto_AutoDelay_FontSize:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  talkerID_IsInvisible_IsDialogueMotion:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  matPreset_ButtonInvisible_Voice:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  events:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  startEvent: 0
+  isLoop: 0

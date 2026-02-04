@@ -626,7 +626,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -30695276, guid: 7641c7d7fb8f20b489a5d46ea58e31e2, type: 3}
+    m_SelectedSprite: {fileID: 121660309, guid: 70e0a06d95d9b1b44a135d553ad8dd70, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -675,6 +675,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 371629452}
+        m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+        m_MethodName: ChangeTransition
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 371629452}
+        m_TargetAssemblyTypeName: BGMPlayer, Assembly-CSharp
+        m_MethodName: ChangeBGM
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &214858774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -166096622, guid: 7641c7d7fb8f20b489a5d46ea58e31e2, type: 3}
+  m_Sprite: {fileID: 1962299016, guid: 70e0a06d95d9b1b44a135d553ad8dd70, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1397,6 +1421,7 @@ MonoBehaviour:
   transition: 1
   clips:
   - {fileID: 8300000, guid: c4b6d53be5ae6384e8de0df52fd09eb8, type: 3}
+  - {fileID: 0}
   sources:
   - {fileID: 971770627}
   - {fileID: 583541867}
@@ -7218,7 +7243,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -1233388471, guid: 7641c7d7fb8f20b489a5d46ea58e31e2, type: 3}
+    m_SelectedSprite: {fileID: -84307989, guid: 70e0a06d95d9b1b44a135d553ad8dd70, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -7275,7 +7300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1834140089, guid: 7641c7d7fb8f20b489a5d46ea58e31e2, type: 3}
+  m_Sprite: {fileID: 1155332858, guid: 70e0a06d95d9b1b44a135d553ad8dd70, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
