@@ -47,12 +47,13 @@ public class BookController_V3 : MonoBehaviour, IBookController
     IBookDirectional[] directionals;
     [SerializeField] MonoBehaviour[] directionalObjects;
 
-    [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted, onBook;
+    [SerializeField] UnityEvent onOpen, onStart, onEnd, onCompleted, onBook, onAwake;
 
 
     #region STARTーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Awake()
     {
+        onAwake.Invoke();
         //開発用。スタートページを設定できる
         currentPage = model.setStartPage - 1;
 

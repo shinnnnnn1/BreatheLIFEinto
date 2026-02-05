@@ -66298,7 +66298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 98912137, guid: 802ac74a29bbf6748b026dec1d1c9047, type: 3}
+  m_Sprite: {fileID: -1212135625, guid: 07d542c8eee357f40a07766917835fe8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70279,7 +70279,7 @@ GameObject:
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &483742317
 Transform:
   m_ObjectHideFlags: 0
@@ -99550,6 +99550,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onAwake:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &559071772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194757,7 +194760,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -64677869, guid: 802ac74a29bbf6748b026dec1d1c9047, type: 3}
+  m_Sprite: {fileID: -1105846647, guid: 07d542c8eee357f40a07766917835fe8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -342074,7 +342077,7 @@ MonoBehaviour:
   rotBone: {fileID: 0}
   flipPos: {x: 0, y: 0, z: 0}
   flipRot: {x: 0, y: 0, z: 0}
-  flipVisible: 1
+  flipVisible: 0
   closeEvent: {fileID: 0}
   angleAccuracy: 0
   joint: {fileID: 0}
