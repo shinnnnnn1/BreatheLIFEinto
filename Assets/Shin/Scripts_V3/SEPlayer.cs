@@ -33,6 +33,10 @@ public class SEPlayer : MonoBehaviour
     {
         sources[1].volume = vol;
     }
+    public void _SetVolume2(float vol)
+    {
+        sources[2].volume = vol;
+    }
 
     public void _SetTransition(float t) => transition = t;
     public void _FadeLoopSE(float value)

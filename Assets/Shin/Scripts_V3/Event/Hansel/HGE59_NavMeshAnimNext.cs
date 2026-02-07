@@ -11,6 +11,7 @@ public class HGE59_NavMeshAnimNext : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] bool isTransform;
+    [SerializeField] bool canTurn = true;
     [SerializeField] Vector3[] pos;
     [SerializeField] Transform[] trans;
     bool isMoving;
@@ -50,7 +51,7 @@ public class HGE59_NavMeshAnimNext : MonoBehaviour
 
     void Update()
     {
-        if (isMoving)
+        if (isMoving && canTurn)
         {
             if (player != null)
             {

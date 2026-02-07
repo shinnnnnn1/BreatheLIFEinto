@@ -24,7 +24,7 @@ public class FadeUI : MonoBehaviour
     {
         //StartCoroutine(FadeCoroutine(value));
 
-        Ease fadeEase = mat.GetFloat("_Alpha") > value ? Ease.OutQuint : Ease.Linear;
+        Ease fadeEase = mat.GetFloat("_Alpha") >= value ? Ease.OutExpo : Ease.InExpo;
 
         DOVirtual.Float(mat.GetFloat("_Alpha"), value, 1,
                 onVirtualUpdate: (tweenValue) => { mat.SetFloat("_Alpha", tweenValue); })

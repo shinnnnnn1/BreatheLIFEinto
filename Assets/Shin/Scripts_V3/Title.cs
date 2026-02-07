@@ -17,6 +17,9 @@ public class Title : MonoBehaviour
     [SerializeField] GameObject[] other;
     [SerializeField] EventSystem es;
     [SerializeField] bool isStarted = false;
+
+    [SerializeField] ManualOutlineFlash[] flashs;
+    [SerializeField] int iii;
     
     void Start()
     {
@@ -113,6 +116,7 @@ public class Title : MonoBehaviour
         {
             if (c) { i++; }
         }
+        iii = i;
 
         other[0].SetActive(false);  
         other[1].SetActive(false);
@@ -120,5 +124,65 @@ public class Title : MonoBehaviour
         es.enabled = true;
         es.firstSelectedGameObject = books[i].gameObject;
         isStarted = true;
+
+        if(i == 1) { books[2].enabled = true; }
+        StartCoroutine(StartFlash());
+    }
+
+    IEnumerator StartFlash()
+    {
+        books[0].interactable = false;
+        books[1].interactable = false;
+        books[2].interactable = false;
+
+        Navigation nav = books[0].navigation;
+        nav.selectOnRight = null;
+        books[0].navigation = nav;
+
+        nav = books[1].navigation;
+        nav.selectOnLeft = null;
+        nav.selectOnRight = null;
+        books[1].navigation = nav;
+
+        nav = books[2].navigation;
+        nav.selectOnLeft = null;
+        books[2].navigation = nav;
+
+        foreach(var f in flashs)
+        {
+            f._StartFlash();
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        books[0].interactable = true;
+        books[1].interactable = true;
+        books[2].interactable = true;
+
+        nav = books[0].navigation;
+        nav.selectOnRight = books[1];
+        books[0].navigation = nav;
+
+        nav = books[1].navigation;
+        nav.selectOnLeft = books[0];
+        nav.selectOnRight = books[2];
+        books[1].navigation = nav;
+
+        nav = books[2].navigation;
+        nav.selectOnLeft = books[1];
+        books[2].navigation = nav;
+
+        for(int i = 0; i < flashs.Length; i++)
+        {
+            if(i != iii)
+            {
+                flashs[i]._StopFlash(true);
+            }
+        }
+    }
+
+    public void FlashButton()
+    {
+        //books[i]
     }
 }

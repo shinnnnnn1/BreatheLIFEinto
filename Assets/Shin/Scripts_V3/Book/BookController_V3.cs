@@ -537,10 +537,10 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
         if(currentScene == 0)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             FadeManager.Instance.FadeOut();
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
             GameManager.Instance.SetCanPlay(currentScene);
             GameManager.Instance.ChangeScene(0);
@@ -555,16 +555,16 @@ public class BookController_V3 : MonoBehaviour, IBookController
 
             view.PlayBookAnimation(2, "End");
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             FadeManager.Instance.FadeOut();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             if(currentScene == 2)
             {
                 yield return new WaitForSeconds(4f);
                 view.EndImage(true);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(5f);
                 view.EndImage(false);
                 yield return new WaitForSeconds(4f);
             }

@@ -8,15 +8,20 @@ public class RHE10_LoopEvent : MonoBehaviour
     [SerializeField] float[] loopTime;
     [SerializeField] bool forceStop;
     [SerializeField] bool canLoop = true;
+    [SerializeField] bool isLooping;
+    [SerializeField] UnityEvent onStop;
 
     public void _StartLoop()
     {
+        if (isLooping) { return; }
+        canLoop = true;
         StartCoroutine(LoopEvent());
     }
 
     IEnumerator LoopEvent()
     {
-        while(canLoop)
+        isLooping = true;
+        while (canLoop)
         {
             for(int i = 0; i < loop.Length; i++)
             {
@@ -24,14 +29,17 @@ public class RHE10_LoopEvent : MonoBehaviour
                 yield return new WaitForSeconds(loopTime[i]);
             }
         }
+        isLooping = false;
     }
 
     public void _StopLoop()
     {
         canLoop = false;
-        if(forceStop)
+        isLooping = false;
+        if (forceStop)
         {
             StopAllCoroutines();
         }
+        onStop.Invoke();
     }
 }
