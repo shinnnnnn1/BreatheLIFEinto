@@ -6074,7 +6074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574023337829870230, guid: 0f290b2bc3dc4f643b72d2e9cc4ef17a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15118,7 +15118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1397303492462338110, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1364406000930428334, guid: b1c8f7f7ce5601e44b477f1582cca1c8, type: 3}
       propertyPath: m_DirtyAABB
@@ -16925,18 +16925,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1005630707}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 206865635}
         m_TargetAssemblyTypeName: HGE12_OutlineFlash, Assembly-CSharp
         m_MethodName: _SetParam
@@ -16949,10 +16937,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
+      - m_Target: {fileID: 1005630710}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16988,18 +16976,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   tryActivate:
     m_PersistentCalls:
       m_Calls:
@@ -17018,9 +16994,9 @@ MonoBehaviour:
   onPull:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1005630707}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1005630710}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17028,7 +17004,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onActivate:
     m_PersistentCalls:
@@ -17093,17 +17069,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1844648345}
-        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-        m_MethodName: InvokeEvent
-        m_Mode: 3
+      - m_Target: {fileID: 1005630710}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetCanFlash
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 80
+          m_IntArgument: 73
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1005630710}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 73
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   onResume:
     m_PersistentCalls:
@@ -32741,8 +32729,8 @@ MonoBehaviour:
   triggers: []
   pos:
   - {x: 12, y: 0.5, z: 0}
-  - {x: 2.86, y: 6.28, z: -1.82}
-  - {x: 3.03, y: 2.49, z: -5.11}
+  - {x: 2.9, y: 5.7, z: -0.12}
+  - {x: 3.16, y: 2.04, z: -4.19}
   rot:
   - {x: 90, y: 0, z: 0}
   - {x: 0, y: 0, z: -90}
@@ -32751,6 +32739,8 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 1}
   - {x: 0.5, y: 0.5, z: 0.5}
   - {x: 0.5, y: 0.5, z: 0.5}
+  baseTrans: {fileID: 1577625157}
+  newParent: {fileID: 559071770}
   proceedImage: {fileID: 1751191562}
 --- !u!1 &228107691
 GameObject:
@@ -44553,7 +44543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3694535858383887345, guid: 1fa64924b7b73254fa21d53fb07e79ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8155734699543742191, guid: 1fa64924b7b73254fa21d53fb07e79ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44986,6 +44976,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 302569958}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StartFlash
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -55245,6 +55247,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1780853810}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!65 &283955098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56234,7 +56248,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 76d1b7871fb91294da5d7fea40b8c280, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 302569958}
   m_SourcePrefab: {fileID: 100100000, guid: 76d1b7871fb91294da5d7fea40b8c280, type: 3}
 --- !u!4 &302569956 stripped
 Transform:
@@ -56246,6 +56263,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 76d1b7871fb91294da5d7fea40b8c280, type: 3}
   m_PrefabInstance: {fileID: 302569955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &302569958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302569957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: b3a8a5745e7c13c4ea2ffab1517f095d, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &303770545
 GameObject:
   m_ObjectHideFlags: 0
@@ -56490,6 +56522,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 307591344}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 307591345}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 307591344}
@@ -56505,6 +56577,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   loopTime:
+  - 0.5
+  - 0.5
   - 0.5
   - 0.5
   forceStop: 0
@@ -57987,6 +58061,7 @@ GameObject:
   - component: {fileID: 361426996}
   - component: {fileID: 361426997}
   - component: {fileID: 361426998}
+  - component: {fileID: 361426999}
   m_Layer: 6
   m_Name: isu
   m_TagString: Untagged
@@ -58080,6 +58155,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13.43, y: 5.86, z: 1}
   m_Center: {x: 3.65, y: 2.65, z: -1}
+--- !u!114 &361426999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361426994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 26fceb4f6569d1443b467286b99b638a, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1001 &361552837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58532,6 +58622,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 381527900}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 381527901}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 381527900}
@@ -58547,6 +58677,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   loopTime:
+  - 0.5
+  - 0.5
   - 0.5
   - 0.5
   forceStop: 0
@@ -65170,6 +65302,9 @@ GameObject:
   - component: {fileID: 425740859}
   - component: {fileID: 425740858}
   - component: {fileID: 425740860}
+  - component: {fileID: 425740863}
+  - component: {fileID: 425740862}
+  - component: {fileID: 425740861}
   m_Layer: 5
   m_Name: LeftTurn
   m_TagString: Untagged
@@ -65248,6 +65383,120 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startValue: 0
   currentValue: 0
+--- !u!114 &425740861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425740856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 425740857}
+  scale: {x: 1, y: 1, z: 1}
+  time: 0.5
+  isRelative: 1
+  ease: 11
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &425740862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425740856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 425740857}
+  scale: {x: 1.5, y: 1.5, z: 1.5}
+  time: 0.5
+  isRelative: 1
+  ease: 12
+  onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425740861}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &425740863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425740856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912d6b57849ea34bb43391e2bd71ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425740862}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425740862}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  loopTime:
+  - 1
+  - 1
+  forceStop: 0
+  canLoop: 1
+  isLooping: 0
+  onStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &427694924
 GameObject:
   m_ObjectHideFlags: 0
@@ -65938,6 +66187,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1545313735}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 919132148652386565}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onReleasedA:
     m_PersistentCalls:
       m_Calls: []
@@ -66044,6 +66317,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: RHE06_DOLocalMove, Assembly-CSharp
         m_MethodName: _LocalMove
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1545313735}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 919132148652386565}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -73318,7 +73615,7 @@ GameObject:
   - component: {fileID: 500824206}
   - component: {fileID: 500824207}
   m_Layer: 0
-  m_Name: 82_ClearSE
+  m_Name: 81_ClearSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73410,8 +73707,9 @@ GameObject:
   m_Component:
   - component: {fileID: 501774235}
   - component: {fileID: 501774236}
+  - component: {fileID: 501774237}
   m_Layer: 0
-  m_Name: 60_2
+  m_Name: 82_S4LR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73449,6 +73747,39 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   delay: 0
+--- !u!114 &501774237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501774234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e41cf5fb7b9e64388012f8f503220e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canCheck: 0
+  stage: 4
+  goal: 0
+  book: {fileID: 559071771}
+  loopL: {fileID: 425740863}
+  loopR: {fileID: 1213885529}
+  onGoal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 501774237}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _SetCanCheck
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &502701586
 GameObject:
   m_ObjectHideFlags: 0
@@ -78718,10 +79049,46 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 23
+            m_IntArgument: 29
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 361426999}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StopFlash
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1730457305}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StopFlash
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1670906596}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StopFlash
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
@@ -79115,7 +79482,7 @@ MonoBehaviour:
   m_Intensity: 0
   m_InnerSpotPercent: 86.928276
   m_SpotIESCutoffPercent: 100
-  m_LightDimmer: 16
+  m_LightDimmer: 0
   m_VolumetricDimmer: 2
   m_FadeDistance: 50
   m_VolumetricFadeDistance: 10000
@@ -79313,6 +79680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3c755281cb0674191bc26a650d66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  l: {fileID: 514425896}
   defaultValue: 16
   duration: 3
   ease: 0
@@ -90540,7 +90908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6621681100255113168, guid: 458eed9692efd694e9fa7e5fa7c15a5a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -90869,19 +91237,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   events:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   delay: 0.03
 --- !u!1 &558980162
 GameObject:
@@ -95867,7 +96223,31 @@ MonoBehaviour:
   flipTime: 0
   onTurnBook:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1737510652}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _Check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 501774237}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _Check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   afterTurnBook:
     m_PersistentCalls:
       m_Calls: []
@@ -102354,7 +102734,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.3
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -128953,7 +129333,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 254154236}
+        - m_Target: {fileID: 409485832}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -135459,6 +135839,7 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -135987,7 +136368,6 @@ GameObject:
   - component: {fileID: 698273493}
   - component: {fileID: 698273494}
   - component: {fileID: 698273495}
-  - component: {fileID: 698273496}
   - component: {fileID: 698273497}
   - component: {fileID: 698273498}
   m_Layer: 0
@@ -136072,18 +136452,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 698273496}
-          m_TargetAssemblyTypeName: PlaneOutline, Assembly-CSharp
-          m_MethodName: _SetFloat
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 736794931}
           m_TargetAssemblyTypeName: VirtualMouseController, Assembly-CSharp
           m_MethodName: SetCanChange
@@ -136144,19 +136512,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
---- !u!114 &698273496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698273492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a240f464af036408ee830bc22ef626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: d9994ee2b96c01b4781c2c806268c8db, type: 2}
+        - m_Target: {fileID: 1545313735}
+          m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+          m_MethodName: _StartLoop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1073090937}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StartFlash
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!114 &698273497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143627,7 +144006,7 @@ GameObject:
   - component: {fileID: 749867566}
   - component: {fileID: 749867567}
   m_Layer: 0
-  m_Name: 60_4
+  m_Name: 84_SelectItemLoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143663,8 +144042,20 @@ MonoBehaviour:
   timeline: {fileID: 0}
   events:
     m_PersistentCalls:
-      m_Calls: []
-  delay: 0
+      m_Calls:
+      - m_Target: {fileID: 307591346}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StartLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 1
 --- !u!1 &756770549
 GameObject:
   m_ObjectHideFlags: 0
@@ -157031,6 +157422,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     - {fileID: 11400000, guid: d1e72966dc42a3d4bb59153e713a44bc, type: 2}
     - {fileID: 11400000, guid: b168660c39792f241bb6668f279fc47b, type: 2}
+    - {fileID: 11400000, guid: 1090d4ab0f411124bb2ad014f8ecd8b0, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -157211,6 +157603,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 501774237}
+          m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+          m_MethodName: _SetCanCheck
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 501774237}
+          m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+          m_MethodName: _Check
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1620345795}
@@ -157221,6 +157637,32 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 18
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 25
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 26
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -158000,13 +158442,13 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1620345795}
           m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-          m_MethodName: _SetVolume2
-          m_Mode: 4
+          m_MethodName: _PlaySE
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 21
+            m_IntArgument: 21
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
@@ -166119,9 +166561,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 930576622211044366}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 5575526098259881083}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166129,19 +166571,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 1
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   onExit:
     m_PersistentCalls:
@@ -166158,27 +166588,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   tryActivate:
     m_PersistentCalls:
       m_Calls: []
   onPull:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 930576622211044366}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 5575526098259881083}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166186,7 +166604,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onActivate:
     m_PersistentCalls:
@@ -166238,6 +166656,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5575526098259881083}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetCanFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 80
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5575526098259881083}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 80
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   onResume:
     m_PersistentCalls:
@@ -176692,6 +177134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1005630708}
   - component: {fileID: 1005630709}
+  - component: {fileID: 1005630710}
   m_Layer: 0
   m_Name: Tape.001
   m_TagString: Untagged
@@ -176737,7 +177180,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bfeb3c00387911a46a9e090df7551e8e, type: 2}
+  - {fileID: 2100000, guid: 6f0b15f8eb0c0cb48bbd4326643986f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176772,6 +177215,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00074642315, y: -0.0026273387, z: 0.0041894633}
     m_Extent: {x: 0.004652743, y: 0.0021037553, z: 0.0043959795}
   m_DirtyAABB: 0
+--- !u!114 &1005630710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005630707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 6f0b15f8eb0c0cb48bbd4326643986f3, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &1006451627
 GameObject:
   m_ObjectHideFlags: 0
@@ -188515,6 +188973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1073090936}
+  - component: {fileID: 1073090937}
   m_Layer: 0
   m_Name: InteractableWolf
   m_TagString: Untagged
@@ -188539,6 +188998,21 @@ Transform:
   - {fileID: 526029384}
   m_Father: {fileID: 559071770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1073090937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073090935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: d9994ee2b96c01b4781c2c806268c8db, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &1079509468
 GameObject:
   m_ObjectHideFlags: 0
@@ -194377,14 +194851,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 307591346}
-        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
-        m_MethodName: _StartLoop
+      - m_Target: {fileID: 361426999}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StartFlash
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 65
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1730457305}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StartFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 65
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1670906596}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StartFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 65
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: InvokeEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 84
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -194481,6 +194991,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 307591346}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDeactivated:
     m_PersistentCalls:
       m_Calls:
@@ -194555,6 +195077,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 307591346}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StartLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1121239576
 GameObject:
@@ -196005,6 +196539,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1737510652}
+          m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+          m_MethodName: _SetCanCheck
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -197563,6 +198109,9 @@ GameObject:
   - component: {fileID: 1213885524}
   - component: {fileID: 1213885526}
   - component: {fileID: 1213885525}
+  - component: {fileID: 1213885529}
+  - component: {fileID: 1213885528}
+  - component: {fileID: 1213885527}
   m_Layer: 5
   m_Name: RightTurn
   m_TagString: Untagged
@@ -197627,6 +198176,120 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213885523}
   m_CullTransparentMesh: 1
+--- !u!114 &1213885527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213885523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1213885524}
+  scale: {x: 1, y: 1, z: 1}
+  time: 0.5
+  isRelative: 1
+  ease: 11
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1213885528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213885523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1213885524}
+  scale: {x: 1.5, y: 1.5, z: 1.5}
+  time: 0.5
+  isRelative: 1
+  ease: 12
+  onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1213885527}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1213885529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213885523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912d6b57849ea34bb43391e2bd71ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1213885528}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1213885528}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  loopTime:
+  - 1
+  - 1
+  forceStop: 0
+  canLoop: 1
+  isLooping: 0
+  onStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1215106607
 GameObject:
   m_ObjectHideFlags: 0
@@ -205600,6 +206263,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 919132148652386565}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StartFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1545313735}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StartLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1844648345}
+        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+        m_MethodName: FadeAllUI
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   delay: 0
 --- !u!1 &1321588337
 GameObject:
@@ -213148,7 +213847,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.3
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -221276,7 +221975,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487215921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -223495,6 +224194,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1545313735}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   i: 0
 --- !u!1 &1537230159
 GameObject:
@@ -223827,6 +224538,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1620345795}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _PlaySE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1545313733}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1545313734}
+        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
+        m_MethodName: _LocalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1545313733}
@@ -223842,6 +224593,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   loopTime:
+  - 0.5
+  - 0.5
   - 0.5
   - 0.5
   forceStop: 0
@@ -229685,6 +230438,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1545313735}
+          m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+          m_MethodName: _StartLoop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 919132148652386565}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StartFlash
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &1574839813
 GameObject:
   m_ObjectHideFlags: 0
@@ -229820,6 +230597,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1579256797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579256798}
+  m_Layer: 0
+  m_Name: "---SE2930 \uC0C8\uAC78\uB85C"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1579256798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579256797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4416, y: 3.53369, z: -6.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580895741
 GameObject:
   m_ObjectHideFlags: 0
@@ -236125,6 +236933,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8b7857f452df2884dba71dd012d02190, type: 2}
     - {fileID: 11400000, guid: 8da726a7e6a319d4a85aa216dc2875b7, type: 2}
     - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    - {fileID: 11400000, guid: d1e72966dc42a3d4bb59153e713a44bc, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -236251,6 +237060,20 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 14
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1620345795}
+          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+          m_MethodName: _PlaySE
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 30
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -236835,6 +237658,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bda98b18f31d00d42a6da387eae73990, type: 3}
   - {fileID: 8300000, guid: 2e70b202ab639b145be50a3cefd24da2, type: 3}
   - {fileID: 8300000, guid: 31eda10b787643343aa32a359a27bf40, type: 3}
+  - {fileID: 8300000, guid: 4ca692662ab3f6c408330ebf60ee723f, type: 3}
+  - {fileID: 8300000, guid: 867c2b714866cf7429e08d43ff7b6fca, type: 3}
+  - {fileID: 8300000, guid: d820b5d8bed9fbd48946c26ac9d4d0d1, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 0ee4755e6c95a864dbb5c3f53eca2cd6, type: 3}
+  - {fileID: 8300000, guid: 31eda10b787643343aa32a359a27bf40, type: 3}
+  - {fileID: 8300000, guid: 3580aee9193bba342a6d009945938f2c, type: 3}
   sources:
   - {fileID: 1108348434}
   - {fileID: 1982000078}
@@ -243076,6 +243906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670906594}
   - component: {fileID: 1670906595}
+  - component: {fileID: 1670906596}
   m_Layer: 0
   m_Name: tomato
   m_TagString: Untagged
@@ -243128,6 +243959,21 @@ MonoBehaviour:
   activateInHeight: 0
   resetBone: 0
   mesh: []
+--- !u!114 &1670906596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670906593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 453361673b3b43b49be8542cd998d97d, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &1672496560
 GameObject:
   m_ObjectHideFlags: 0
@@ -244018,15 +244864,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1620345795}
-          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-          m_MethodName: _SetVolume2
-          m_Mode: 4
+        - m_Target: {fileID: 1780853810}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StartFlash
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 1
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
@@ -244970,7 +245816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 622c55cf653a1c04b8b9aaf0df51c6b3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -245881,6 +246727,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 302569958}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _StopFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onReleasedA:
     m_PersistentCalls:
       m_Calls: []
@@ -246088,6 +246946,7 @@ GameObject:
   - component: {fileID: 1730457302}
   - component: {fileID: 1730457303}
   - component: {fileID: 1730457304}
+  - component: {fileID: 1730457305}
   m_Layer: 6
   m_Name: tana
   m_TagString: Untagged
@@ -246160,6 +247019,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2.72}
   m_Center: {x: 0, y: 0.92, z: 0}
+--- !u!114 &1730457305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730457301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 3a0fb082835dd3844999ebbe9b1fe25f, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1001 &1733125459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246288,8 +247162,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1737510650}
   - component: {fileID: 1737510651}
+  - component: {fileID: 1737510652}
   m_Layer: 0
-  m_Name: 60_3
+  m_Name: 83_S4LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246325,8 +247200,53 @@ MonoBehaviour:
   timeline: {fileID: 0}
   events:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1737510652}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _SetCanCheck
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1737510652}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _Check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delay: 2
+--- !u!114 &1737510652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737510649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e41cf5fb7b9e64388012f8f503220e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canCheck: 0
+  stage: 4
+  goal: 1
+  book: {fileID: 559071771}
+  loopL: {fileID: 425740863}
+  loopR: {fileID: 1213885529}
+  onGoal:
+    m_PersistentCalls:
       m_Calls: []
-  delay: 0
 --- !u!1 &1739276830
 GameObject:
   m_ObjectHideFlags: 0
@@ -247022,16 +247942,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751191561}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.12}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1577625157}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 0.5}
+  m_AnchoredPosition: {x: 2.9, y: 5.7}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1751545804
@@ -247997,6 +248917,7 @@ GameObject:
   - component: {fileID: 1780853804}
   - component: {fileID: 1780853808}
   - component: {fileID: 1780853809}
+  - component: {fileID: 1780853810}
   m_Layer: 11
   m_Name: Bookmark
   m_TagString: Untagged
@@ -248125,9 +249046,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1648613838}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1780853810}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -248135,19 +249056,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   onExit:
     m_PersistentCalls:
@@ -248164,24 +249073,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   onPullStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1648613838}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1780853810}
+        m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+        m_MethodName: _SetTransparent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -248189,19 +249086,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1620345795}
-        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-        m_MethodName: _SetVolume2
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onPullEnd:
     m_PersistentCalls:
@@ -248275,6 +249160,21 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 0c14b4e4ea28e764cb4c17061893a8e6, type: 2}
   parameterName: _IsFlashing
   defaultValue: 1
+--- !u!114 &1780853810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780853801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 0c14b4e4ea28e764cb4c17061893a8e6, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &1781819913
 GameObject:
   m_ObjectHideFlags: 0
@@ -253575,12 +254475,12 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1620345795}
           m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-          m_MethodName: _PlayLoopSE
+          m_MethodName: _PlaySE
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
+            m_IntArgument: 28
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
@@ -274805,7 +275705,7 @@ GameObject:
   - component: {fileID: 1822262680}
   - component: {fileID: 1822262681}
   m_Layer: 0
-  m_Name: 60_5
+  m_Name: 85_ProceedSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274841,7 +275741,19 @@ MonoBehaviour:
   timeline: {fileID: 0}
   events:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1620345794}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   delay: 0
 --- !u!1 &1823688464
 GameObject:
@@ -286087,7 +286999,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c7c80d0ec4b05d949b62609ea9bc8639, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 5eb534c245c6dea488849d600abc8df6, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -287102,7 +288014,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -290451,6 +291363,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: InvokeEvent
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 83
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -312597,7 +313521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6265260967031320133, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: currentTime
-      value: 0
+      value: 6.13
       objectReference: {fileID: 0}
     - target: {fileID: -1946018332332219245, guid: d8d09fbae9bf65a4695a76feb4417645, type: 3}
       propertyPath: m_Name
@@ -323803,15 +324727,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1620345795}
-          m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
-          m_MethodName: _SetVolume2
-          m_Mode: 4
+        - m_Target: {fileID: 5575526098259881083}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StartFlash
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 1
+            m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
@@ -331916,13 +332840,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1005630709}
-          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-          m_MethodName: set_material
-          m_Mode: 2
+        - m_Target: {fileID: 1005630710}
+          m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
+          m_MethodName: _StartFlash
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 2100000, guid: 6f0b15f8eb0c0cb48bbd4326643986f3, type: 2}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -332575,9 +333499,6 @@ GameObject:
   - component: {fileID: 2125719446}
   - component: {fileID: 2125719445}
   - component: {fileID: 2125719447}
-  - component: {fileID: 2125719450}
-  - component: {fileID: 2125719449}
-  - component: {fileID: 2125719448}
   m_Layer: 5
   m_Name: Image_1
   m_TagString: Untagged
@@ -332656,96 +333577,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startValue: 0
   currentValue: 0
---- !u!114 &2125719448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125719443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2125719444}
-  scale: {x: 0.6, y: 0.6, z: 0.6}
-  time: 0.5
-  isRelative: 1
-  ease: 11
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2125719449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125719443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41378f759a844bd448cf8b346cbb8e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2125719444}
-  scale: {x: 1, y: 1, z: 1}
-  time: 0.5
-  isRelative: 1
-  ease: 12
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2125719450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125719443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1912d6b57849ea34bb43391e2bd71ff7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loop:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2125719449}
-        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
-        m_MethodName: _LocalScale
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2125719448}
-        m_TargetAssemblyTypeName: HGE19_DOLocalScale, Assembly-CSharp
-        m_MethodName: _LocalScale
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  loopTime:
-  - 0.5
-  - 0.5
-  forceStop: 0
-  canLoop: 1
-  isLooping: 0
-  onStop:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2131086712
 GameObject:
   m_ObjectHideFlags: 0
@@ -333802,6 +334633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653127701438}
+  - component: {fileID: 919132148652386565}
   m_Layer: 0
   m_Name: StandOutline
   m_TagString: Untagged
@@ -333809,6 +334641,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &919132148652386565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148652386564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: f8fc561a5f1b1c64d97f000cbaf26d6b, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!1 &919132148854949124
 GameObject:
   m_ObjectHideFlags: 0
@@ -333871,13 +334718,14 @@ GameObject:
   - component: {fileID: 3791308380940688100}
   - component: {fileID: 5575526098259881082}
   - component: {fileID: 4063991349981966501}
+  - component: {fileID: 5575526098259881083}
   m_Layer: 0
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1026757198939946759
 Transform:
   m_ObjectHideFlags: 0
@@ -336268,6 +337116,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930576622211044366}
   m_Mesh: {fileID: -5495902117074765545, guid: 44ba242d847bc5c4a9a2a026c9d2d490, type: 3}
+--- !u!114 &5575526098259881083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930576622211044366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6737e33a33e26146975325e4285c806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 1275691a5ff9bc0438285cc4abc94aac, type: 2}
+  isTransparent: 0
+  canFlash: 1
 --- !u!23 &5613005947987091850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -337885,7 +338748,7 @@ MonoBehaviour:
   rotBone: {fileID: 0}
   flipPos: {x: 0, y: 0, z: 0}
   flipRot: {x: 0, y: 0, z: 0}
-  flipVisible: 0
+  flipVisible: 1
   closeEvent: {fileID: 0}
   angleAccuracy: 0
   joint: {fileID: 0}
@@ -338178,7 +339041,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deb:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425740863}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StartLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1213885529}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StartLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &9063757876562159501
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -338358,3 +339245,4 @@ SceneRoots:
   - {fileID: 1620345796}
   - {fileID: 1193888363}
   - {fileID: 5571538174469238744}
+  - {fileID: 1579256798}

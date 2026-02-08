@@ -21,6 +21,7 @@ public class ManualOutlineFlash : MonoBehaviour
     private void OnDestroy()
     {
         mat.SetFloat("_Value", 1);
+        mat.SetFloat("_ValueMultiply", isTransparent ? 0 : 1);
     }
 
     public void _StartFlash()

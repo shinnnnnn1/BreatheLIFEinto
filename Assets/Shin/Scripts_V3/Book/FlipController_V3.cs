@@ -12,6 +12,7 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
     [SerializeField] Vector3[] pos;
     [SerializeField] Vector3[] rot;
     [SerializeField] Vector3[] sca;
+    [SerializeField] Transform baseTrans, newParent;
 
     [SerializeField] FadeUI proceedImage;
 
@@ -35,6 +36,7 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
     public void ResetTrigger(int currentTrigger)
     {
         Debug.Log("Reset to " + currentTrigger);
+        baseTrans.SetParent(null);
 
         //表示したいTriggerだけ表示
         for (int i = 0; i < triggers.Length; i++)
@@ -45,6 +47,8 @@ public class FlipController_V3 : MonoBehaviour, IFlipController
         proceedImage.transform.localPosition = pos[currentTrigger];
         proceedImage.transform.localEulerAngles = rot[currentTrigger];
         proceedImage.transform.localScale = sca[currentTrigger];
+
+        baseTrans.SetParent(currentTrigger == 0 ? null : newParent);
     }
 
     //進行できる状態や水平状態を設定

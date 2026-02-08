@@ -23,7 +23,8 @@ public class BookController_V3 : MonoBehaviour, IBookController
     Transform[] pageL, pageR, pageLC, pageRC, shapeAct, shapeDeact, objectParents;
 
     [Space(10f)]
-    [SerializeField] int currentPage;
+    //RHE84_TurnUI
+    public int currentPage;
     [SerializeField] int bookDirection;
 
     [SerializeField] float flipTime; //確認用

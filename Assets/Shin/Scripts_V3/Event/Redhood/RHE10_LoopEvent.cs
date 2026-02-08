@@ -15,6 +15,7 @@ public class RHE10_LoopEvent : MonoBehaviour
     {
         if (isLooping) { return; }
         canLoop = true;
+        StopAllCoroutines();
         StartCoroutine(LoopEvent());
     }
 

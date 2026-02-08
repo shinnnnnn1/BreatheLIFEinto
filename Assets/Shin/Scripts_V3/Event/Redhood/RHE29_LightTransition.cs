@@ -1,11 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Localization.SmartFormat.GlobalVariables;
 using UnityEngine.Rendering.HighDefinition;
 
 public class RHE29_LightTransition : MonoBehaviour
 {
-    HDAdditionalLightData l;
+    [SerializeField] HDAdditionalLightData l;
 
     [SerializeField] float defaultValue;
     [SerializeField] float duration;
@@ -13,7 +12,7 @@ public class RHE29_LightTransition : MonoBehaviour
 
     private void Start()
     {
-        l = GetComponent<HDAdditionalLightData>();
+        //l = GetComponent<HDAdditionalLightData>();
     }
 
     public void _Fade(float v)
