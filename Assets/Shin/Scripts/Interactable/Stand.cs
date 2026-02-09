@@ -37,12 +37,12 @@ public class Stand : BookDirectional, ICursorInteractable
 
         if(isActivated)
         {
-            Debug.Log("PressedD");
+            //Debug.Log("PressedD");
             onPressedDea.Invoke();
         }
         else
         {
-            Debug.Log("PressedA");
+            //Debug.Log("PressedA");
             onPressedA.Invoke();
         }
     }
@@ -50,7 +50,7 @@ public class Stand : BookDirectional, ICursorInteractable
     {
         if (!canActivate) { return; }
 
-        Debug.Log("Released");
+        //Debug.Log("Released");
 
         if (isActivated)
         {

@@ -7,36 +7,23 @@ public class DirectionalTranstision : MonoBehaviour
     [SerializeField] Light l;
     [SerializeField] HDAdditionalLightData lightData;
 
-    [SerializeField] float defaultInt;
-    [SerializeField] float[] duration;
+    [SerializeField] float[] intensity, temperature, intT, temT;
     [SerializeField] Ease[] ease;
 
-    private void Start()
-    {
-
-        _StartFade(-1);
-    }
-    public void _StartFade(float v)
+    public void _FadeIntensity(int i)
     {
         float startInt = l.intensity;
-        float intValue = v == -1.0f ? defaultInt : v;
 
-        DOVirtual.Float(startInt, intValue, duration[0],
+        DOVirtual.Float(startInt, intensity[i], intT[i],
             onVirtualUpdate: (tweenValue) => { l.intensity = tweenValue; })
-            .SetEase(ease[0]);
+            .SetEase(ease[i]);
     }
-    public void _StartFade2(float v)
+    public void _FadeTemperature(int i)
     {
-        float startDim = lightData.shadowDimmer;
-        float dimValue = v == -1.0f ? 1 : v;
+        float startTem = l.colorTemperature;
 
-        DOVirtual.Float(startDim, dimValue, duration[1],
-            onVirtualUpdate: (tweenValuee) => { lightData.shadowDimmer = tweenValuee; })
-            .SetEase(ease[1]);
-    }
-
-    public void _SetDimmer(float v)
-    {
-        lightData.shadowDimmer = v;
+        DOVirtual.Float(startTem, temperature[i], temT[i],
+            onVirtualUpdate: (tweenValuee) => { l.colorTemperature = tweenValuee; })
+            .SetEase(ease[i]);
     }
 }

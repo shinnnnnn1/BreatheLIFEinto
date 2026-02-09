@@ -9,6 +9,9 @@ public class VirtualMouseModel : ScriptableObject
 
     public float cursorPadding = 30f;
 
+    public float padX = 100f;
+    public float padY = 100f;
+
     public float interactingDistance = 20f;
     public LayerMask interactableLayerMask;
     public LayerMask ignoreLayerMask;

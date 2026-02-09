@@ -79,6 +79,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     bool isEnding = false;
 
     NavMeshAgent agent;
+    [SerializeField] Transform stand;
 
     void Start()
     {
@@ -811,6 +812,9 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
         //プレイヤーを開く true
         else
         {
+            stand.localEulerAngles = new Vector3(92, 0, 0);
+            model.isRight = true;
+
             //位置と親の設定
             FlipReposition(isOpen, respawn.position[currentPage]);
 

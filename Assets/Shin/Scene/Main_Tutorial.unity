@@ -27048,7 +27048,9 @@ MonoBehaviour:
   rot:
   - {x: 90, y: 0, z: 0}
   sca:
-  - {x: 1, y: 1, z: 1}
+  - {x: 0.6, y: 0.6, z: 0.6}
+  baseTrans: {fileID: 187214458}
+  newParent: {fileID: 559071770}
   proceedImage: {fileID: 1272806400}
 --- !u!1 &232266458
 GameObject:
@@ -46974,6 +46976,18 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 665666232}
+        m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
+        m_MethodName: _SetVolume0
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 665666232}
         m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
         m_MethodName: _PlaySE
@@ -74435,37 +74449,6 @@ Transform:
   - {fileID: 750223315}
   m_Father: {fileID: 871270525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &558752926
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 558752927}
-  m_Layer: 0
-  m_Name: "\uC601\uC5B4 \uBE14\uB85D \uB118\uC5B4\uAC00\uB294 \uC18C\uB9AC"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &558752927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558752926}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.22986, y: 6.39681, z: -6.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558980162
 GameObject:
   m_ObjectHideFlags: 0
@@ -79661,6 +79644,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9063757876562159498}
@@ -79959,6 +79954,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ManualOutlineFlash, Assembly-CSharp
         m_MethodName: _StartFlash
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 736794931}
+        m_TargetAssemblyTypeName: VirtualMouseController, Assembly-CSharp
+        m_MethodName: _SetLoop
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -100972,7 +100979,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2e70b202ab639b145be50a3cefd24da2, type: 3}
   - {fileID: 8300000, guid: 4ca692662ab3f6c408330ebf60ee723f, type: 3}
   - {fileID: 8300000, guid: 2e70b202ab639b145be50a3cefd24da2, type: 3}
-  - {fileID: 8300000, guid: 56e8b397b3766e94da87110b35197427, type: 3}
+  - {fileID: 8300000, guid: 014840c5a55680a448052f340f80424b, type: 3}
   sources:
   - {fileID: 684619382}
   - {fileID: 1825290068}
@@ -106838,6 +106845,8 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: 417b68d4c018aa441a3c81c700e48add, type: 2}
   cursorCam: {fileID: 2038925321}
   cursorConfiner: {fileID: 1020567200}
+  loopEvent: {fileID: 2072599479}
+  isLooping: 0
   confinerZ: 0
   currentZ: 0
   zoomDirection: {x: 0, y: 0}
@@ -151065,8 +151074,8 @@ RectTransform:
   m_GameObject: {fileID: 1272806398}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 187214458}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -151109,7 +151118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab304e686a2178145930c52582685efc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbc500e0d3eb84186502b31f1309c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -239023,7 +239032,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2038925317}
   - component: {fileID: 2038925321}
-  - component: {fileID: 2038925322}
   - component: {fileID: 2038925323}
   m_Layer: 0
   m_Name: CursorCamera
@@ -239041,7 +239049,7 @@ Transform:
   m_GameObject: {fileID: 2038925316}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
-  m_LocalPosition: {x: -9.313226e-10, y: 20.13247, z: -26.491358}
+  m_LocalPosition: {x: 0, y: 25.426365, z: -34.963356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -239067,7 +239075,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 2103993126}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -239090,37 +239098,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &2038925322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038925316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraDistance: 0.01
-  DeadZoneDepth: 0
-  Composition:
-    ScreenPosition: {x: 0.0000001192093, y: 0.000000014901161}
-    DeadZone:
-      Enabled: 1
-      Size: {x: 0.6, y: 0.6}
-    HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
-      Offset: {x: 0, y: 0}
-  CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 1, y: 1, z: 1}
-  Lookahead:
-    Enabled: 0
-    Time: 0
-    Smoothing: 0
-    IgnoreY: 0
 --- !u!114 &2038925323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239128,7 +239105,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038925316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d75924d76b05344aa410607bc57db98, type: 3}
   m_Name: 
@@ -246073,7 +246050,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5097790505803842626}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -246303,7 +246280,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977096918184247743}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -246472,6 +246449,7 @@ MonoBehaviour:
   zoom_Current_Target_Speed: {x: 45, y: 45, z: 3}
   currentVelocity: {x: 0, y: 0, z: 0}
   canGameStart: 0
+  stand: {fileID: 3743358700648756900}
 --- !u!114 &9063757876562159499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246825,4 +246803,3 @@ SceneRoots:
   - {fileID: 665666233}
   - {fileID: 740777008}
   - {fileID: 5571538174469238744}
-  - {fileID: 558752927}

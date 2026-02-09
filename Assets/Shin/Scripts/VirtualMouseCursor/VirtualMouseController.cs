@@ -1,11 +1,9 @@
-using System.Transactions;
 using Unity.Cinemachine;
+using UnityEditor.Rendering.HighDefinition;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
-
 
 public class VirtualMouseController : MonoBehaviour
 {
@@ -15,9 +13,12 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] VirtualMouseModel model;
     [SerializeField] CinemachineCamera cursorCam;
     [SerializeField] MeshCollider cursorConfiner;
+    [SerializeField] RHE10_LoopEvent loopEvent;
+    [SerializeField] bool isLooping;
     [SerializeField] float confinerZ;
     [SerializeField] float currentZ;
 
+    [Space(10f)]
     public Vector2 zoomDirection;
 
     VirtualMouseView view;
@@ -133,6 +134,15 @@ public class VirtualMouseController : MonoBehaviour
         }
         */
 
+        if(isLooping)
+        {
+            if(playerInput.currentActionMap.name == UIActionMap)
+            {
+                loopEvent._StopLoop();
+                isLooping = false;
+            }
+        }
+
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
     }
 
@@ -154,8 +164,8 @@ public class VirtualMouseController : MonoBehaviour
     {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         //Debug.Log(mousePosition);
-        mousePosition.x = Mathf.Clamp(mousePosition.x, model.cursorPadding, Screen.width - model.cursorPadding);
-        mousePosition.y = Mathf.Clamp(mousePosition.y, model.cursorPadding, Screen.height - model.cursorPadding);
+        mousePosition.x = Mathf.Clamp(mousePosition.x, model.padX, Screen.width - model.padX);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, model.padY, Screen.height - model.padY);
         view.CursorChase(mousePosition);
     }
 
@@ -163,8 +173,8 @@ public class VirtualMouseController : MonoBehaviour
     {
         Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
 
-        virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.cursorPadding, Screen.width - model.cursorPadding);
-        virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.cursorPadding, Screen.height - model.cursorPadding);
+        virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.padX, Screen.width - model.padX);
+        virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.padY, Screen.height - model.padY);
 
         view.CursorPadding(virtualMousePos);
     }
@@ -291,4 +301,6 @@ public class VirtualMouseController : MonoBehaviour
     {
         canChange = can;
     }
+
+    public void _SetLoop(bool loop)=> isLooping = loop;
 }
