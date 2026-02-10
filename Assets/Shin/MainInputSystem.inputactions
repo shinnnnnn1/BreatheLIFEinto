@@ -79,6 +79,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Debug3",
+                    "type": "Button",
+                    "id": "390ea092-8be5-4cd5-90f0-f56b8f89aeab",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "AnyButton",
                     "type": "Button",
                     "id": "b6abf115-ab37-4c21-b175-c28fa0c8cd92",
@@ -242,7 +251,7 @@
                 {
                     "name": "",
                     "id": "f4553cba-6347-46f0-b038-c4d23f79f35c",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -308,7 +317,7 @@
                 {
                     "name": "",
                     "id": "ea7d28bf-1c4d-454e-a213-4f6c554e6bcb",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -401,6 +410,39 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Debug2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3996638-64a3-4072-a8cc-2acc429f33cc",
+                    "path": "<Gamepad>/select",
+                    "interactions": "Hold(pressPoint=1)",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Debug2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83a710e8-f0d0-44a9-a2a3-6cbbe65d8edb",
+                    "path": "<Keyboard>/f11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Debug3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb0c457f-a96c-46cc-b444-761e9039154b",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Hold(pressPoint=1)",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Debug3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

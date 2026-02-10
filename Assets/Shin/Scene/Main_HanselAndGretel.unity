@@ -342921,6 +342921,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5d6588f-46cd-4a08-8dec-05005b53d99d
     m_ActionName: 'UI/Zoom[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159500}
+        m_TargetAssemblyTypeName: PlayerActionInput_V3, Assembly-CSharp
+        m_MethodName: InputDebug3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 390ea092-8be5-4cd5-90f0-f56b8f89aeab
+    m_ActionName: 'Player/Debug3[/Keyboard/f11,/XInputControllerWindows/start]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -342940,7 +342956,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deb:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1564402361}
+        m_TargetAssemblyTypeName: FadeManager, Assembly-CSharp
+        m_MethodName: _RestartScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  deb2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564402361}
+        m_TargetAssemblyTypeName: FadeManager, Assembly-CSharp
+        m_MethodName: _RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &9063757876562159501
 NavMeshAgent:
   m_ObjectHideFlags: 0

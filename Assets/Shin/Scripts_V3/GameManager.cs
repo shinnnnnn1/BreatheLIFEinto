@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -52,5 +51,18 @@ public class GameManager : MonoBehaviour
             t?.SkipTitle();
         }
         */
+    }
+
+    public void _RestartScene(int newScene)
+    {
+        SceneManager.LoadScene(newScene);
+    }
+
+    public void _RestartGame()
+    {
+        canPlay[0] = true;
+        canPlay[1] = false;
+        canPlay[2] = false;
+        canPlay[3] = false;
     }
 }

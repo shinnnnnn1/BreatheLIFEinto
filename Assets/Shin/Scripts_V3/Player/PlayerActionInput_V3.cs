@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerActionInput_V3 : MonoBehaviour
 {
     PlayerController_V3 controller;
-    [SerializeField] UnityEvent deb;
+    [SerializeField] UnityEvent deb, deb2;
 
     void Start()
     {
@@ -59,8 +59,13 @@ public class PlayerActionInput_V3 : MonoBehaviour
         if (context.performed)
         {
             deb.Invoke();
-            //controller.PlayerFlipTrigger();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    public void InputDebug3(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            deb2.Invoke();
         }
     }
     public void InputAnyKey(InputAction.CallbackContext context)
