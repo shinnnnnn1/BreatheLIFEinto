@@ -434,7 +434,7 @@ CapsuleCollider:
   m_Radius: 0.8
   m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0.47, y: 0.7, z: 0.1}
+  m_Center: {x: 0.21, y: 0.72, z: 0.18}
 --- !u!114 &2408406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101331,7 +101331,6 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -106859,6 +106858,7 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0, z: 0}
   setStart: 0
   canChange: 0
+  canReset: 1
 --- !u!114 &736794932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169543,7 +169543,7 @@ CapsuleCollider:
   m_Radius: 1.5
   m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0.5, y: 1, z: 0}
+  m_Center: {x: 0.14, y: 1, z: 0}
 --- !u!114 &1575240486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216870,7 +216870,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 383f20cd1c2fa9f449d8f300711d4369, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 2f3d1ffa1058bcc4587cf8190fc12b90, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -223673,6 +223673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997644078}
   - component: {fileID: 1997644077}
+  - component: {fileID: 1997644079}
   m_Layer: 0
   m_Name: DialogueManager_V3
   m_TagString: Untagged
@@ -223699,7 +223700,7 @@ MonoBehaviour:
   - {fileID: -6843599674850354341, guid: 7bd36d9a0eaa04d43806df16992d56a2, type: 2}
   - {fileID: 2100000, guid: 5cdd0dc40fcb1304db4ff54405d5aeb0, type: 2}
   sounds:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 014840c5a55680a448052f340f80424b, type: 3}
   defaultAutoDelay: 1
   current: -1
   canSkip: 0
@@ -223772,6 +223773,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1997644079
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997644076}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2008007523
 GameObject:
   m_ObjectHideFlags: 0
@@ -246432,6 +246530,7 @@ MonoBehaviour:
   respawn: {fileID: 11400000, guid: 3d8f2f2ea2ad4264aa7fa598cd0cdacd, type: 2}
   positionComposer: {fileID: 1897210940}
   physicsMaterials: []
+  view: {fileID: 0}
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   title: {fileID: 0}
@@ -246450,6 +246549,7 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0, z: 0}
   canGameStart: 0
   stand: {fileID: 3743358700648756900}
+  canTurnBook: 1
 --- !u!114 &9063757876562159499
 MonoBehaviour:
   m_ObjectHideFlags: 0

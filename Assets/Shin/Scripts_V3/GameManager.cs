@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
             t?.SkipTitle();
         }
         */
+        //Application.targetFrameRate = 30;
     }
 
     public void _RestartScene(int newScene)

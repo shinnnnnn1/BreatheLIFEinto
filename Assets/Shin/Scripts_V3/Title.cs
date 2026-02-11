@@ -69,6 +69,7 @@ public class Title : MonoBehaviour
     public void _Confirm()
     {
         currentButton.OnConfirm();
+        es.enabled = false;
         Invoke("ChangeScene", 0.5f);
     }
     void ChangeScene()

@@ -43,16 +43,24 @@ public class PlayerActionInput_V3 : MonoBehaviour
         }
     }
 
+    bool isfast;
     public void InputDebug(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            Time.timeScale = 30;
+            if(isfast)
+            {
+                Time.timeScale = 1;
+                isfast = false;
+            }
+            else
+            {
+                Time.timeScale = 30;
+                isfast = true;
+            }
+
         }
-        else if (context.canceled)
-        {
-            Time.timeScale = 1;
-        }
+
     }
     public void InputDebug2(InputAction.CallbackContext context)
     {

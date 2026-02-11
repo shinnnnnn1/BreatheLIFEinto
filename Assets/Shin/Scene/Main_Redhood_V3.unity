@@ -67915,7 +67915,7 @@ MonoBehaviour:
   addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
-  isDirectional: 0101010101
+  isDirectional: 0000010000
   isFacingRight: 0
   isLocked: 0
 --- !u!1 &472958415
@@ -96501,6 +96501,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SEPlayer, Assembly-CSharp
         m_MethodName: _PlaySE
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: _SetCanTurnBook
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -135899,7 +135911,6 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -143239,6 +143250,7 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0, z: 0}
   setStart: 0
   canChange: 0
+  canReset: 1
 --- !u!114 &736794932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143925,6 +143937,18 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9063757876562159498}
+          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+          m_MethodName: _SetCanTurnBook
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
@@ -166935,10 +166959,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 2.32
   m_Height: 3
   m_Direction: 0
-  m_Center: {x: 0, y: 0.54, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
 --- !u!114 &983313409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197575,7 +197599,7 @@ MonoBehaviour:
   addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
-  isDirectional: 0101010101
+  isDirectional: 0000010000
   isFacingRight: 0
   isLocked: 0
 --- !u!65 &1193777846
@@ -223967,7 +223991,7 @@ MonoBehaviour:
   addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
-  isDirectional: 0101010101
+  isDirectional: 0000010000
   isFacingRight: 0
   isLocked: 0
 --- !u!114 &1532344189
@@ -287233,7 +287257,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0d58288a31525e848a4d4251945425ec, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: cd89aee6281bec740845e10fbbe616c1, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -338974,6 +338998,7 @@ MonoBehaviour:
   respawn: {fileID: 11400000, guid: db4e8eeb8cbd367429160222c555a424, type: 2}
   positionComposer: {fileID: 1897210940}
   physicsMaterials: []
+  view: {fileID: 0}
   moveDirection: {x: 0, y: 0}
   zoomDirection: {x: 0, y: 0}
   title: {fileID: 0}
@@ -338992,6 +339017,7 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0, z: 0}
   canGameStart: 0
   stand: {fileID: 3743358700648756900}
+  canTurnBook: 1
 --- !u!114 &9063757876562159499
 MonoBehaviour:
   m_ObjectHideFlags: 0

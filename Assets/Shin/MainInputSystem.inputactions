@@ -251,7 +251,7 @@
                 {
                     "name": "",
                     "id": "f4553cba-6347-46f0-b038-c4d23f79f35c",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -317,7 +317,7 @@
                 {
                     "name": "",
                     "id": "ea7d28bf-1c4d-454e-a213-4f6c554e6bcb",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -395,9 +395,9 @@
                     "name": "",
                     "id": "0bac561b-7722-41bf-aa7b-fd33f0f438a8",
                     "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
+                    "interactions": "Hold(pressPoint=1)",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Debug",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -439,7 +439,7 @@
                     "name": "",
                     "id": "bb0c457f-a96c-46cc-b444-761e9039154b",
                     "path": "<Gamepad>/start",
-                    "interactions": "Hold(pressPoint=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Debug3",
@@ -647,7 +647,7 @@
                 {
                     "name": "",
                     "id": "c7d7996f-b750-4c54-9d21-147c2e477c7c",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -658,7 +658,7 @@
                 {
                     "name": "",
                     "id": "c1a55442-3a90-4a54-ac0d-34de8960697b",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -680,7 +680,7 @@
                 {
                     "name": "",
                     "id": "82f3dbb2-0a3d-468c-8e69-c01f8685de95",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -691,7 +691,7 @@
                 {
                     "name": "",
                     "id": "ea82564b-acd5-4cc3-9106-2061972565a0",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1091,10 +1091,21 @@
                 {
                     "name": "",
                     "id": "9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc",
-                    "path": "*/{Submit}",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Gamepad",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "500741a2-9372-4525-b01a-fb3727657994",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1160,7 +1171,7 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false

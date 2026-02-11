@@ -50,6 +50,8 @@ public class VirtualMouseController : MonoBehaviour
     [SerializeField] bool setStart = false;
     [SerializeField] bool canChange = false;
 
+    [SerializeField] bool canReset = true;
+
     void Start()
     {
         view = GetComponent<VirtualMouseView>();
@@ -144,6 +146,14 @@ public class VirtualMouseController : MonoBehaviour
         }
 
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
+
+        if(playerInput.currentActionMap.name == UIActionMap && canReset)
+        {
+            Vector2 origin = new Vector2(Screen.width, Screen.height) /2;
+            Debug.Log(origin);
+            view.CursorPadding(origin);
+            view.CursorChase(origin);
+        }
     }
 
     public void OnControlsChanged()
@@ -303,4 +313,5 @@ public class VirtualMouseController : MonoBehaviour
     }
 
     public void _SetLoop(bool loop)=> isLooping = loop;
+    public void _SetCanReset(bool res) => canReset = res;
 }

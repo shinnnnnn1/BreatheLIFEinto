@@ -11,7 +11,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     [SerializeField] CinemachinePositionComposer positionComposer;
     [SerializeField] PhysicsMaterial[] physicsMaterials;
 
-    PlayerView_V3 view;
+    [SerializeField] PlayerView_V3 view;
 
     Rigidbody rigid;
     BoxCollider boxColl;
@@ -80,6 +80,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
     NavMeshAgent agent;
     [SerializeField] Transform stand;
+    [SerializeField] bool canTurnBook = true;
 
     void Start()
     {
@@ -639,7 +640,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
     public void TurnBook(bool isRightTurn)
     {
         //動けない、地面にいないなら return
-        if (!model.canMove || !OnGround()) { return; }
+        if (!model.canMove || !OnGround() || !canTurnBook) { return; }
 
         ActionCancel();
         bookController.TurnBook(isRightTurn);
@@ -996,4 +997,6 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
             return false;
         }
     }
+
+    public void _SetCanTurnBook(bool s)=> canTurnBook =s;
 }
