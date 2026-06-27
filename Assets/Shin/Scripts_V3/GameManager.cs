@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
     public bool[] canPlay = { true, false, false };
 
     int nextScene;
-
+    [SerializeField] float resetTime;
+    [SerializeField] bool canReset = true;
+    public float reset = 60;
+ 
     public void ChangeScene(int sceneNum)
     {
         nextScene = sceneNum;
@@ -52,6 +55,32 @@ public class GameManager : MonoBehaviour
         }
         */
         //Application.targetFrameRate = 30;
+    }
+    private void Update()
+    {
+        /*
+        if(canReset)
+        {
+            resetTime += Time.deltaTime;
+            if (resetTime > reset)
+            {
+                resetTime = 0;
+                _RestartGame();
+                _RestartScene(0);
+                canReset = false;
+            }
+        }
+        */
+    }
+    public void _SetReset(bool b)
+    {
+        canReset = b;
+        resetTime = 0;
+    }
+
+    public void AddReset(float v)
+    {
+        reset += v;
     }
 
     public void _RestartScene(int newScene)

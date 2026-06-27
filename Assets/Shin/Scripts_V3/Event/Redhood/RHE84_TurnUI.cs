@@ -39,10 +39,28 @@ public class RHE84_TurnUI : MonoBehaviour
 
     void StartL()
     {
-        loopL._StartLoop();
+        if(book.bookDir == goal)
+        {
+            onGoal.Invoke();
+            loopL._StopLoop();
+            loopR._StopLoop();
+        }
+        else
+        {
+            loopL._StartLoop();
+        }
     }
     void StartR()
     {
-        loopR._StartLoop();
+        if (book.bookDir == goal)
+        {
+            onGoal.Invoke();
+            loopL._StopLoop();
+            loopR._StopLoop();
+        }
+        else
+        {
+            loopR._StartLoop();
+        }
     }
 }

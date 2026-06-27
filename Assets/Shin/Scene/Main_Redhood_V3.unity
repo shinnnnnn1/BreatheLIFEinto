@@ -15651,7 +15651,7 @@ MonoBehaviour:
   addDelay: {x: 0, y: 0}
   npcCylinder: {fileID: 0}
   eventImage: {fileID: 0}
-  isDirectional: 0101010101
+  isDirectional: 0000010000
   isFacingRight: 0
   isLocked: 0
 --- !u!195 &168586382
@@ -16798,6 +16798,18 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1229843281}
+          m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
@@ -96943,7 +96955,31 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425740863}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1213885529}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -135911,6 +135947,7 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -152027,6 +152064,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 168586381}
+          m_TargetAssemblyTypeName: PlaneObject, Assembly-CSharp
+          m_MethodName: SetNPCCylinder
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1148644707}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.MeshCollider, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -196432,10 +196481,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 1.04, z: 0}
 --- !u!1 &1176782417
 GameObject:
   m_ObjectHideFlags: 0
@@ -197654,6 +197703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneChangeDelay: 3
   canPlay: 01010000
+  resetTime: 0
+  canReset: 1
 --- !u!4 &1193888363
 Transform:
   m_ObjectHideFlags: 0
@@ -198902,7 +198953,7 @@ GameObject:
   - component: {fileID: 1229843278}
   - component: {fileID: 1229843280}
   - component: {fileID: 1229843281}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BookmarkOnly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224332,6 +224383,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 736794931}
+        m_TargetAssemblyTypeName: VirtualMouseController, Assembly-CSharp
+        m_MethodName: _SetCanReset
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1740567099}
@@ -224455,6 +224518,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 736794931}
+        m_TargetAssemblyTypeName: VirtualMouseController, Assembly-CSharp
+        m_MethodName: _SetCanReset
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   i: 0
 --- !u!1 &1537230159
@@ -248163,7 +248238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab304e686a2178145930c52582685efc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbc500e0d3eb84186502b31f1309c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -339326,7 +339401,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

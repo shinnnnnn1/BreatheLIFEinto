@@ -934,6 +934,7 @@ public class PlayerController_V3 : MonoBehaviour, IPlayerController
 
             canGameStart = false;
         }
+        GameManager.Instance._SetReset(true);
     }
 
     public void SetIsEnding()

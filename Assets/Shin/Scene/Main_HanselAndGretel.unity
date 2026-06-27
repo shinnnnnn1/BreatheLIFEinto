@@ -7066,6 +7066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66949342}
   - component: {fileID: 66949343}
+  - component: {fileID: 66949344}
   m_Layer: 0
   m_Name: 86_
   m_TagString: Untagged
@@ -7100,35 +7101,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a91a2deb38be9d4e8fc940a4a1dad16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeline: {fileID: 0}
+  timeline: {fileID: 11400000, guid: 62b477af9d218ce4083bf5fb9ddd730e, type: 2}
   events:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1844648345}
-        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-        m_MethodName: FadeAllUI
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1844648345}
-        m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
-        m_MethodName: InvokeEvent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 93
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   delay: 0
+--- !u!114 &66949344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66949341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 8bb8c8ddf03cfcc4a8081c36c6fa1f96, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: FadeAllUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1844648345}
+          m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
+          m_MethodName: InvokeEvent
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 93
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &67829542
 GameObject:
   m_ObjectHideFlags: 0
@@ -15804,6 +15823,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneChangeDelay: 3
   canPlay: 01010100
+  resetTime: 0
+  canReset: 1
+  reset: 60
 --- !u!4 &141447912
 Transform:
   m_ObjectHideFlags: 0
@@ -64935,6 +64957,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 387602378}
+        m_TargetAssemblyTypeName: RHE84_TurnUI, Assembly-CSharp
+        m_MethodName: _SetCanCheck
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &388644855
 GameObject:
   m_ObjectHideFlags: 0
@@ -102055,12 +102089,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 425740863}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 69
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1213885529}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 69
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1844648345}
         m_TargetAssemblyTypeName: EventManager_V3, Assembly-CSharp
         m_MethodName: InvokeEvent
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 45
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 425740863}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 45
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1213885529}
+        m_TargetAssemblyTypeName: RHE10_LoopEvent, Assembly-CSharp
+        m_MethodName: _StopLoop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -129314,6 +129396,7 @@ MonoBehaviour:
   m_Script: {fileID: 1100363994}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &686612069
 Transform:
   m_ObjectHideFlags: 19
@@ -182035,7 +182118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab304e686a2178145930c52582685efc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbc500e0d3eb84186502b31f1309c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -192828,7 +192911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1197908889
 Transform:
   m_ObjectHideFlags: 0
@@ -192858,7 +192941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 10
+    m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -196679,20 +196762,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 9063757876562159498}
           m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-          m_MethodName: PlayAutoEvent
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 558410010}
-            m_ObjectArgumentAssemblyTypeName: DialogueEvent_V3, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9063757876562159498}
-          m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-          m_MethodName: SetCanMove
-          m_Mode: 6
+          m_MethodName: OnDialogueEnd
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -196703,8 +196774,8 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 9063757876562159498}
           m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
-          m_MethodName: OnDialogueEnd
-          m_Mode: 1
+          m_MethodName: SetCanMove
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -205540,7 +205611,7 @@ Transform:
   m_GameObject: {fileID: 1338124044}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27563733, y: 0, z: 0, w: 0.96126175}
-  m_LocalPosition: {x: -4.821683, y: 15.842198, z: -18.422384}
+  m_LocalPosition: {x: -4.821683, y: 15.842199, z: -18.422384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -225727,7 +225798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1539096574
 Transform:
   m_ObjectHideFlags: 0
@@ -251573,7 +251644,7 @@ GameObject:
   - component: {fileID: 1749366661}
   - component: {fileID: 1749366662}
   m_Layer: 0
-  m_Name: 00__4
+  m_Name: 94_GretelLoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251609,8 +251680,32 @@ MonoBehaviour:
   timeline: {fileID: 0}
   events:
     m_PersistentCalls:
-      m_Calls: []
-  delay: 0
+      m_Calls:
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: PlayAutoEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 558410010}
+          m_ObjectArgumentAssemblyTypeName: DialogueEvent_V3, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9063757876562159498}
+        m_TargetAssemblyTypeName: PlayerController_V3, Assembly-CSharp
+        m_MethodName: SetCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  delay: 0.1
 --- !u!1 &1751847612
 GameObject:
   m_ObjectHideFlags: 0
@@ -290755,7 +290850,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1844648344}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ebddaf98d34903442bff22cab0f43dd6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 62b477af9d218ce4083bf5fb9ddd730e, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -291001,6 +291096,8 @@ PlayableDirector:
     value: {fileID: 1823688469}
   - key: {fileID: -6340876934118028073, guid: af318a9ba2e090a4bbbcc6b03a2cad97, type: 2}
     value: {fileID: 986450848}
+  - key: {fileID: -6340876934118028073, guid: 62b477af9d218ce4083bf5fb9ddd730e, type: 2}
+    value: {fileID: 66949344}
   m_ExposedReferences:
     m_References:
     - f4cb2b03c5b93994d85c470d1eb74ef0: {fileID: 1897210941}
@@ -291014,7 +291111,7 @@ PlayableDirector:
     - 3346115891a82594db376f092982cf53: {fileID: 603836545}
     - 426c37f93d9ac684ebb740645eda68a3: {fileID: 1700955871}
     - 8c533b836d0726c4db36c06474c11007: {fileID: 0}
-    - 6ec61106f6859b24083a5e006b9b4102: {fileID: 2038925321}
+    - 6ec61106f6859b24083a5e006b9b4102: {fileID: 1345473064}
     - 5ec7fc45140196649b552da8b0efab7c: {fileID: 1522490499}
     - bef12cb6b4c06ea4aa3fa6b10c41e625: {fileID: 1232185107}
     - 83c85a875c34fa146a9653afec25c7c1: {fileID: 1338124046}
@@ -291079,6 +291176,7 @@ PlayableDirector:
     - 88d7fa8e37caf6940b4ee3747c5fb1a7: {fileID: 1897210941}
     - 1c74b6479100b2140b63046027a84c6a: {fileID: 2038925321}
     - c93fc73e3d225ac4fb773bf84115d097: {fileID: 1194277965}
+    - 44a4ec7bc7873a8479054505695ca35a: {fileID: 1897210941}
     - a736d754d76f49445ad78095f8dae002: {fileID: 0}
     - db4db6fa512bbc744b273da5d5b5f1ad: {fileID: 1897210941}
     - 93fee5ac1986e784bb775eaa232bdfda: {fileID: 1713439310}
@@ -320594,12 +320692,19 @@ MonoBehaviour:
   book: {fileID: 559071771}
   fade: {fileID: 2035912409}
   fadedCam: {fileID: 1197908890}
+  defaultCam: {fileID: 1897210941}
   distortion: {fileID: 218831814}
   distortionPos:
   - {x: 4.55, y: 2.25, z: -0.32}
   - {x: 4.71, y: 2.39, z: 1.87}
   - {x: 4.31, y: 3.35, z: -1.59}
   coll: {fileID: 828444760}
+  ev1:
+    m_PersistentCalls:
+      m_Calls: []
+  ev2:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2035912409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329273,7 +329378,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103993125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -420}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329281,7 +329386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: 814, y: 533}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103993127
@@ -343509,7 +343614,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

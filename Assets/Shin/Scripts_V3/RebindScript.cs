@@ -10,10 +10,15 @@ public class RebindScript : MonoBehaviour
     [SerializeField] Image config;
     [SerializeField] InputActionAsset mainInput;
     [SerializeField] InputActionAsset defaultInput;
+    [SerializeField] VirtualMouseModel model;
     [SerializeField] Button[] buttons;
     [SerializeField] Text[] texts;
     [SerializeField] GameObject selected;
 
+    private void Start()
+    {
+        config.gameObject.SetActive(false);
+    }
     public void _StartConfig()
     {
 
@@ -32,6 +37,8 @@ public class RebindScript : MonoBehaviour
             + " / " + mainInput.FindAction("Action").bindings[1].path;
         texts[1].text = "SubmitUI = " + mainInput.FindAction("Click").bindings[1].path;
         texts[2].text = "DefaultUI = " + defaultInput.FindAction("Submit").bindings[1].path;
+        texts[3].text = model.padX.ToString();
+        texts[4].text = model.padY.ToString();
     }
 
     public void _RebindMainJumpAction()
@@ -96,6 +103,22 @@ public class RebindScript : MonoBehaviour
         Debug.Log("originalPath: " + binding.path);
         Debug.Log("overridePath: " + binding.overridePath);
         Debug.Log("effectivePath: " + binding.effectivePath);
-        
+    }
+
+    public void _AddX(float v)
+    {
+        model.padX += v;
+        texts[3].text = model.padX.ToString();
+    }
+    public void _AddY(float v)
+    {
+        model.padY += v;
+        texts[4].text = model.padY.ToString();
+    }
+
+    public void _AddReset(float v)
+    {
+        GameManager.Instance.AddReset(v);
+        texts[5].text = GameManager.Instance.reset.ToString();
     }
 }

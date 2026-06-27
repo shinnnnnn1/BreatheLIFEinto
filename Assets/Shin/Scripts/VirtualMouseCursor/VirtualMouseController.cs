@@ -143,13 +143,17 @@ public class VirtualMouseController : MonoBehaviour
                 loopEvent._StopLoop();
                 isLooping = false;
             }
+            else
+            {
+                loopEvent._StartLoop();
+            }
         }
 
         Debug.Log("Current Map is " + playerInput.currentActionMap.name);
 
         if(playerInput.currentActionMap.name == UIActionMap && canReset)
         {
-            Vector2 origin = new Vector2(Screen.width, Screen.height) /2;
+            Vector2 origin = new Vector2(1920, 1080) /2;
             Debug.Log(origin);
             view.CursorPadding(origin);
             view.CursorChase(origin);
@@ -174,8 +178,8 @@ public class VirtualMouseController : MonoBehaviour
     {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         //Debug.Log(mousePosition);
-        mousePosition.x = Mathf.Clamp(mousePosition.x, model.padX, Screen.width - model.padX);
-        mousePosition.y = Mathf.Clamp(mousePosition.y, model.padY, Screen.height - model.padY);
+        mousePosition.x = Mathf.Clamp(mousePosition.x, model.padX, 1920 - model.padX);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, model.padY, 1080 - model.padY);
         view.CursorChase(mousePosition);
     }
 
@@ -183,8 +187,8 @@ public class VirtualMouseController : MonoBehaviour
     {
         Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.ReadValue();
 
-        virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.padX, Screen.width - model.padX);
-        virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.padY, Screen.height - model.padY);
+        virtualMousePos.x = Mathf.Clamp(virtualMousePos.x, model.padX, 1920 - model.padX);
+        virtualMousePos.y = Mathf.Clamp(virtualMousePos.y, model.padY, 1080 - model.padY);
 
         view.CursorPadding(virtualMousePos);
     }
